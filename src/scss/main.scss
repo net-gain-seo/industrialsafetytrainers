@@ -3,6 +3,7 @@
 
 @import "partials/_header";
 @import "partials/_main_menu";
+@import "partials/_footer";
 
 //COMPONENTS
 @import "partials/components/_buttons";
@@ -18,3 +19,22 @@ body{
 	color: $black;
 }
 
+
+
+.full-width-cta{
+	padding: 30px 0;
+
+	.full-width-cta-text{
+		color: #FFFFFF;
+		font-size: 2.5rem;
+		font-weight: 600;
+		font-style: italic;
+		margin: 0 40px; 
+	}
+}
+
+
+
+.container{
+	padding: 40px 0;
+}

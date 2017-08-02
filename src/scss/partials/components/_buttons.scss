@@ -29,3 +29,15 @@
     }
 }
 
+.btn-info {
+    color: #fff;
+    background-color: $orange;
+    border-color: $orange;
+    color: #ffffff;
+
+    &:hover{
+    	background: darken($orange,5%);
+    	border-color: darken($orange,5%);
+    	color: #ffffff;
+    }
+}
