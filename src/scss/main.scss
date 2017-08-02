@@ -1,6 +1,20 @@
 @import "partials/_mixins";
 @import "partials/_typeography";
 
-body{
-	background: red;
+@import "partials/_header";
+@import "partials/_main_menu";
+
+//COMPONENTS
+@import "partials/components/_buttons";
+
+html{
+	font-size: 10px;
+	line-height: 10px;
 }
+
+body{
+	font-family: Arial, sans-serif;
+	font-size: 1.8rem;
+	color: $black;
+}
+

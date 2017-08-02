@@ -1,0 +1,92 @@
+
+.main-header{
+	padding: 20px 0;
+
+	.heading-qualification{
+		position: relative;
+		padding: 7px 30px;
+
+		&:before{
+			content: "";
+			width: 20px;
+			height: 20px;
+			display: block;
+			background-image: url('../../assets/images/check-mark.png');
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -10px;
+		}
+
+		&:first-child{
+			border-right: 1px solid #58595B;
+			margin-right: 30px;
+		}
+
+		span{
+			&:first-child{
+				font-size: 1.6rem;
+				line-height: 2rem;
+				color: #000000;
+				font-weight: 900;
+			}
+			display: block;
+			color: #58595B;
+			font-family: "Arial Narrow", Arial, sans-serif;
+			font-size: 1.3rem;
+			line-height: 1.8rem;
+		}
+	}
+
+	form{
+		input{
+			&[type="submit"]{
+				border-radius: 0px 5px 5px 0px;
+				border: 1px solid #58595B;
+				border-left: none;
+			}
+			 &[type="search"]{
+				background: #F1F2F2;
+				border: 1px solid #58595B;
+				padding: 10px;
+				border-radius: 5px 0px 0px 5px;
+				width: 195px;
+			 }
+		}
+	}
+
+
+	.header-call-to-action{
+
+		span{
+			display: block;
+		}
+
+		.header-call-to-action-content{
+			font-size: 1.6rem;
+			font-family: "Arial Narrow", Arial, sans-serif;
+			font-style: italic;
+			padding: 0 35px;
+		}
+
+		.header-call-to-action-phone{
+			> span{
+				font-family: "Arial Narrow", Arial, sans-serif;
+				color: #000000;
+				font-size: 2.4rem;
+				font-weight: 600;
+
+				&:first-child{
+					color: #58595B;
+					font-size: 1.8rem;
+				}
+			}
+			
+		}
+	}
+
+}
+
+
+
+
