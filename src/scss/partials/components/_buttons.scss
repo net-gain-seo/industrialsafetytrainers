@@ -1,6 +1,7 @@
 .btn{
 	font-size: 2rem;
 	font-family: "Arial Narrow", Arial, sans-serif;
+    font-weight: 600;
 }
 
 .btn-primary {
@@ -39,5 +40,18 @@
     	background: darken($orange,5%);
     	border-color: darken($orange,5%);
     	color: #ffffff;
+    }
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: $yellow;
+    border-color: $yellow;
+    color: #000;
+
+    &:hover{
+        background: darken($yellow,5%);
+        border-color: darken($yellow,5%);
+        color: #000;
     }
 }

@@ -19,11 +19,13 @@ body{
 	color: $black;
 }
 
+.container{
+	padding: 40px 0;
+}
 
 
 .full-width-cta{
 	padding: 30px 0;
-
 	.full-width-cta-text{
 		color: #FFFFFF;
 		font-size: 2.5rem;
@@ -35,6 +37,74 @@ body{
 
 
 
-.container{
+
+.fork-lift{
+	background: url('../../assets/images/fork-lift.png');
+	background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+	height: 400px;
+	width: 540px;
+	left: 25px;
+}
+
+.fork-lift-animated{
+	-webkit-animation:movingforklift 2s infinite;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes movingforklift{
+  from{
+  	left:25px;
+  	width: 540px;
+  }
+  to{
+  	left:-180px;
+  	width: 601px;
+  }
+}
+
+
+
+
+
+
+.sponsors-list{
 	padding: 40px 0;
+
+	img{
+		margin:10px;
+	}
+}
+
+
+
+
+
+
+.white-text{
+	color: #fff;
+}
+
+.aligncenter{
+	text-align: center;
+}
+.alignleft{
+	text-align: left;
+}
+.alignright{
+	text-align: right;
+}
+
+img{
+	&.aligncenter{
+		float:none;
+	}
+	&.alignleft{
+		float: left;
+	}
+	&.alignright{
+		float: right;
+	}
 }
