@@ -32,3 +32,11 @@ function element($atts,$content){
 add_shortcode('el_1','element');
 add_shortcode('el_2','element');
 add_shortcode('el_3','element');
+
+
+
+//// TESTIMONIALS
+include(STYLESHEETPATH.'/admin/post_types/testimonials/index.php');
+
+//shortcodes
+include(STYLESHEETPATH.'/admin/shortcodes/blog.php');

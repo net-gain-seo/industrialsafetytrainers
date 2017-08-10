@@ -32,6 +32,12 @@ p{
 	margin-bottom: 15px;
 }
 
+a{
+	color: $yellow;
+	&:hover{
+		color: darken($yellow,20%);
+	}
+}
 
 ul{
 	li{

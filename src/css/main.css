@@ -26,38 +26,16 @@ p {
   font-size: 1.8rem;
   margin-bottom: 15px; }
 
+a {
+  color: #FFD500; }
+  a:hover {
+    color: #998000; }
+
 .container p:last-child {
   margin-bottom: 0px; }
 
 .main-header {
   padding: 20px 0; }
-  .main-header .heading-qualification {
-    position: relative;
-    padding: 7px 30px; }
-    .main-header .heading-qualification:before {
-      content: "";
-      width: 20px;
-      height: 20px;
-      display: block;
-      background-image: url("../../assets/images/check-mark.png");
-      position: absolute;
-      left: 0;
-      top: 50%;
-      margin-top: -10px; }
-    .main-header .heading-qualification:first-child {
-      border-right: 1px solid #58595B;
-      margin-right: 30px; }
-    .main-header .heading-qualification span {
-      display: block;
-      color: #58595B;
-      font-family: "Arial Narrow", Arial, sans-serif;
-      font-size: 1.3rem;
-      line-height: 1.8rem; }
-      .main-header .heading-qualification span:first-child {
-        font-size: 1.6rem;
-        line-height: 2rem;
-        color: #000000;
-        font-weight: 900; }
   .main-header form input[type="submit"] {
     border-radius: 0px 5px 5px 0px;
     border: 1px solid #58595B;
@@ -134,6 +112,47 @@ p {
       background: #FFD500;
       color: #000000; }
 
+.upper-footer {
+  background: #000000;
+  color: #ffffff; }
+  .upper-footer img {
+    max-width: 100%;
+    height: auto; }
+  .upper-footer h5 {
+    color: #FFD500; }
+  .upper-footer div.d-flex > div {
+    width: 25%;
+    border-left: 1px solid #ffffff;
+    padding: 0 30px; }
+    .upper-footer div.d-flex > div ul {
+      margin: 0px;
+      padding: 0px;
+      list-style: none; }
+      .upper-footer div.d-flex > div ul li {
+        margin-bottom: 5px; }
+        .upper-footer div.d-flex > div ul li a {
+          color: #ffffff;
+          font-size: 1.6rem; }
+          .upper-footer div.d-flex > div ul li a:hover {
+            color: #e6e6e6; }
+    .upper-footer div.d-flex > div:first-child {
+      border-left: none; }
+    .upper-footer div.d-flex > div.footer-logo img {
+      margin-bottom: 20px; }
+    .upper-footer div.d-flex > div.footer-logo span {
+      font-size: 1.6rem;
+      font-style: italic;
+      font-family: "Arial Narrow", Arial, sans-serif; }
+    .upper-footer div.d-flex > div.footer-contact > div {
+      margin-bottom: 10px; }
+      .upper-footer div.d-flex > div.footer-contact > div span {
+        font-family: "Arial Narrow", Arial, sans-serif;
+        font-size: 1.4rem;
+        display: block; }
+        .upper-footer div.d-flex > div.footer-contact > div span:first-child {
+          font-size: 1.6rem;
+          font-weight: 600; }
+
 .footer-copy {
   background: #58595B;
   color: #fff;
@@ -142,6 +161,44 @@ p {
   font-family: "Arial Narrow", Arial, sans-serif;
   font-weight: 600;
   padding: 20px 0; }
+
+.heading-qualification {
+  position: relative;
+  padding: 7px 30px; }
+  .heading-qualification:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-image: url("../../assets/images/check-mark.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -10px; }
+  .heading-qualification:first-child {
+    border-right: 1px solid #58595B;
+    margin-right: 30px; }
+  .heading-qualification span {
+    display: block;
+    color: #58595B;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.8rem; }
+    .heading-qualification span:first-child {
+      font-size: 1.6rem;
+      line-height: 2rem;
+      color: #000000;
+      font-weight: 900; }
+
+.upper-footer .heading-qualification {
+  padding: 7px 20px 7px 30px; }
+  .upper-footer .heading-qualification:before {
+    background-image: url("../../assets/images/check-mark-white.png"); }
+  .upper-footer .heading-qualification span {
+    color: #fff; }
+    .upper-footer .heading-qualification span:first-child {
+      color: #fff; }
 
 .btn {
   font-size: 2rem;
@@ -197,6 +254,15 @@ body {
   font-size: 1.8rem;
   color: #000000; }
 
+img.aligncenter {
+  float: none; }
+
+img.alignleft {
+  float: left; }
+
+img.alignright {
+  float: right; }
+
 .container {
   padding: 40px 0; }
 
@@ -216,7 +282,7 @@ body {
   position: relative;
   height: 400px;
   width: 540px;
-  left: 25px; }
+  left: -50px; }
 
 .fork-lift-animated {
   -webkit-animation: movingforklift 2s infinite;
@@ -225,7 +291,7 @@ body {
 
 @-webkit-keyframes movingforklift {
   from {
-    left: 25px;
+    left: -50px;
     width: 540px; }
   to {
     left: -180px;
@@ -248,13 +314,90 @@ body {
 .alignright {
   text-align: right; }
 
-img.aligncenter {
-  float: none; }
+.testimonials-wrapper {
+  color: #fff;
+  text-align: center;
+  background-image: url(../../assets/images/testimonials-bg.png);
+  position: relative;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  font-size: 2.2rem;
+  padding: 50px 15px; }
+  .testimonials-wrapper:after {
+    content: "";
+    background-color: rgba(35, 31, 32, 0.93);
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    z-index: 1; }
+  .testimonials-wrapper > div {
+    position: relative;
+    z-index: 2; }
+  .testimonials-wrapper h5 {
+    font-size: 25px;
+    margin-bottom: 60px; }
+  .testimonials-wrapper p {
+    font-size: 2.2rem; }
+  .testimonials-wrapper .stars {
+    margin-bottom: 20px; }
+  .testimonials-wrapper .carousel-item {
+    padding: 0 135px; }
+  .testimonials-wrapper .carousel-control-next, .testimonials-wrapper .carousel-control-prev {
+    width: 5%; }
 
-img.alignleft {
-  float: left; }
-
-img.alignright {
-  float: right; }
+.blog-feed .post {
+  width: 30%;
+  border: 1px solid #58595B;
+  padding: 25px;
+  font-size: 1.6rem;
+  position: relative;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease; }
+  .blog-feed .post span {
+    display: block;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: color 0.5s ease; }
+    .blog-feed .post span.post-date {
+      color: #D49D1C;
+      font-size: 1.6rem; }
+    .blog-feed .post span.post-title {
+      font-size: 1.8rem; }
+  .blog-feed .post p {
+    font-size: 1.6rem;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    transition: color 0.5s ease; }
+  .blog-feed .post a.post-read-more {
+    color: #D49D1C;
+    transition: color 0.5s ease;
+    position: relative; }
+    .blog-feed .post a.post-read-more:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 7px solid #D49D1C;
+      position: absolute;
+      right: -15px;
+      top: 2px;
+      transition: border-left-color 0.5s ease; }
+  .blog-feed .post:hover {
+    background: #D49D1C;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    cursor: pointer; }
+    .blog-feed .post:hover span.post-date {
+      color: #fff; }
+    .blog-feed .post:hover span.post-title {
+      color: #fff; }
+    .blog-feed .post:hover p {
+      color: #fff; }
+    .blog-feed .post:hover a.post-read-more {
+      color: #fff; }
+      .blog-feed .post:hover a.post-read-more:after {
+        border-left: 7px solid #fff; }
 
 /*# sourceMappingURL=main.css.map */
