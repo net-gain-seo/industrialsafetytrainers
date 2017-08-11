@@ -15,11 +15,11 @@
 
 <header>
 	<section class="main-header container d-flex justify-content-between">
-		<a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/industrial-safety-trainers-logo.png" /></a>
+		<a id="logo" href="<?php bloginfo('url'); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/industrial-safety-trainers-logo.png" /></a>
 
 		<div>
 			<div class="flex-column">
-				<div class="d-flex align-items-center">
+				<div class="d-flex align-items-center hide-sticky-header">
 					<div class="heading-qualification">
 						<span>Ontario Ministry of Labour</span>
 						<span>Authorized Training Provider</span>
@@ -47,7 +47,7 @@
 						<span class="header-call-to-action-content">Ontario's Leading Health & Safety Training Partner for Over 15 Years</span>
 					</div>
 					<div class="header-call-to-action-phone text-right">
-						<span>Book Your Safety Training</span>
+						<span class="hide-sticky-header">Book Your Safety Training</span>
 						<span>1-800-219-8660</span>
 					</div>
 				</div>

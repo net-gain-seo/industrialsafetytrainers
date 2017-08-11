@@ -1,24 +1,28 @@
-h1 {
+h1, .h1 {
   font-size: 2.5rem;
-  margin-bottom: 15px; }
+  margin-bottom: 30px;
+  font-weight: 600; }
 
-h2 {
+h2, .h2 {
   font-size: 2.5rem;
-  margin-bottom: 15px; }
+  margin-bottom: 30px;
+  font-weight: 600; }
 
-h3 {
+h3, .h3 {
   font-size: 2.2rem;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  font-weight: 600; }
 
-h4 {
+h4, .h4 {
   font-size: 2rem;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  font-weight: 600; }
 
-h5 {
+h5, .h5 {
   font-size: 1.8rem;
   margin-bottom: 15px; }
 
-h6 {
+h6, .h6 {
   font-size: 1.8rem;
   margin-bottom: 15px; }
 
@@ -27,42 +31,66 @@ p {
   margin-bottom: 15px; }
 
 a {
-  color: #FFD500; }
+  color: #D49D1C; }
   a:hover {
-    color: #998000; }
+    color: #7a5a10; }
+
+ul {
+  padding-left: 20px; }
+
+ol {
+  padding-left: 20px; }
 
 .container p:last-child {
   margin-bottom: 0px; }
 
-.main-header {
-  padding: 20px 0; }
-  .main-header form input[type="submit"] {
-    border-radius: 0px 5px 5px 0px;
-    border: 1px solid #58595B;
-    border-left: none; }
-  .main-header form input[type="search"] {
-    background: #F1F2F2;
-    border: 1px solid #58595B;
-    padding: 10px;
-    border-radius: 5px 0px 0px 5px;
-    width: 195px; }
-  .main-header .header-call-to-action span {
-    display: block; }
-  .main-header .header-call-to-action .header-call-to-action-content {
-    font-size: 1.6rem;
-    font-family: "Arial Narrow", Arial, sans-serif;
-    font-style: italic;
-    padding: 0 35px; }
-  .main-header .header-call-to-action .header-call-to-action-phone > span {
-    font-family: "Arial Narrow", Arial, sans-serif;
-    color: #000000;
-    font-size: 2.4rem;
-    font-weight: 600; }
-    .main-header .header-call-to-action .header-call-to-action-phone > span:first-child {
-      color: #58595B;
-      font-size: 1.8rem; }
+body > header {
+  background: #fff; }
+  body > header .main-header {
+    padding: 20px 0; }
+    body > header .main-header #logo img {
+      transition: width 0.2s ease-in-out;
+      width: 100%; }
+    body > header .main-header form input[type="submit"] {
+      border-radius: 0px 5px 5px 0px;
+      border: 1px solid #58595B;
+      border-left: none; }
+    body > header .main-header form input[type="search"] {
+      background: #F1F2F2;
+      border: 1px solid #58595B;
+      padding: 10px;
+      border-radius: 5px 0px 0px 5px;
+      width: 195px; }
+    body > header .main-header .header-call-to-action span {
+      display: block; }
+    body > header .main-header .header-call-to-action .header-call-to-action-content {
+      font-size: 1.6rem;
+      font-family: "Arial Narrow", Arial, sans-serif;
+      font-style: italic;
+      padding: 0 35px; }
+    body > header .main-header .header-call-to-action .header-call-to-action-phone > span {
+      font-family: "Arial Narrow", Arial, sans-serif;
+      color: #000000;
+      font-size: 2.4rem;
+      font-weight: 600; }
+      body > header .main-header .header-call-to-action .header-call-to-action-phone > span:first-child {
+        color: #58595B;
+        font-size: 1.8rem; }
+
+body.sticky-header header {
+  position: fixed;
+  z-index: 10000;
+  width: 100%; }
+  body.sticky-header header #logo img {
+    width: 126px;
+    height: auto; }
+  body.sticky-header header .hide-sticky-header {
+    display: none !important; }
+  body.sticky-header header .menu-section {
+    padding: 5px 0; }
 
 .menu-section {
+  transition: all 0.2s ease-in-out;
   background: #000;
   padding: 20px 0; }
   .menu-section .container {
@@ -200,6 +228,91 @@ a {
     .upper-footer .heading-qualification span:first-child {
       color: #fff; }
 
+.banner-section {
+  position: relative; }
+  .banner-section img {
+    width: 100%;
+    height: auto; }
+  .banner-section .banner-content {
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+    .banner-section .banner-content > div {
+      width: 50%; }
+      .banner-section .banner-content > div:first-child {
+        background: rgba(255, 213, 0, 0.9); }
+    .banner-section .banner-content h1 {
+      font-size: 4.6rem;
+      font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+      text-transform: uppercase; }
+    .banner-section .banner-content .fifty-percent-section {
+      padding-left: 0px; }
+
+.page-title-section {
+  background: rgba(255, 213, 0, 0.9);
+  margin-bottom: 20px; }
+  .page-title-section h1 {
+    margin-bottom: 0px; }
+
+.post-article > div.has-thumbnail {
+  width: 50%; }
+
+.post-article > img {
+  margin-left: 20px; }
+
+.nav-next {
+  margin-right: 10px; }
+  .nav-next a:hover {
+    text-decoration: none; }
+    .nav-next a:hover .btn-primary {
+      background: #e6c000;
+      border-color: #e6c000;
+      color: #231F20; }
+
+.nav-previous {
+  margin-left: 10px; }
+  .nav-previous a:hover {
+    text-decoration: none; }
+    .nav-previous a:hover .btn-primary {
+      background: #e6c000;
+      border-color: #e6c000;
+      color: #231F20; }
+
+.left-arrow {
+  padding: 15px;
+  color: #58595B;
+  position: relative; }
+  .left-arrow:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 9px solid #000;
+    position: absolute;
+    top: 9px;
+    left: 11px; }
+
+.right-arrow {
+  padding: 15px;
+  color: #58595B;
+  position: relative; }
+  .right-arrow:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 9px solid #000;
+    position: absolute;
+    top: 9px;
+    left: 11px; }
+
+.testimonials .testimonial {
+  border-top: 1px solid #58595B; }
+  .testimonials .testimonial:first-child {
+    border-top: none; }
+
 .btn {
   font-size: 2rem;
   font-family: "Arial Narrow", Arial, sans-serif;
@@ -254,17 +367,22 @@ body {
   font-size: 1.8rem;
   color: #000000; }
 
-img.aligncenter {
-  float: none; }
+img {
+  max-width: 100%; }
+  img.aligncenter {
+    float: none; }
+  img.alignleft {
+    float: left; }
+  img.alignright {
+    float: right; }
 
-img.alignleft {
-  float: left; }
-
-img.alignright {
-  float: right; }
+.grey-background {
+  background-color: #F1F2F2; }
 
 .container {
   padding: 40px 0; }
+  .container.padding0 {
+    padding: 0px; }
 
 .full-width-cta {
   padding: 30px 0; }
@@ -281,8 +399,8 @@ img.alignright {
   background-size: cover;
   position: relative;
   height: 400px;
-  width: 540px;
-  left: -50px; }
+  width: 575px;
+  left: -100px; }
 
 .fork-lift-animated {
   -webkit-animation: movingforklift 2s infinite;
@@ -291,11 +409,25 @@ img.alignright {
 
 @-webkit-keyframes movingforklift {
   from {
-    left: -50px;
-    width: 540px; }
+    left: -100px;
+    width: 575px; }
   to {
     left: -180px;
     width: 601px; } }
+
+.fifty-fifty-section-background {
+  background-repeat: no-repeat; }
+  .fifty-fifty-section-background.left {
+    background-position: left; }
+  .fifty-fifty-section-background.right {
+    background-position: right; }
+
+.fifty-percent-section {
+  width: 550px;
+  padding: 40px;
+  height: 100%; }
+  .fifty-percent-section.right {
+    float: right; }
 
 .sponsors-list {
   padding: 40px 0; }
@@ -317,7 +449,7 @@ img.alignright {
 .testimonials-wrapper {
   color: #fff;
   text-align: center;
-  background-image: url(../../assets/images/testimonials-bg.png);
+  background-image: url(../../assets/images/factory-testimonials-tall.jpg);
   position: relative;
   background-size: cover;
   background-attachment: fixed;
@@ -399,5 +531,33 @@ img.alignright {
       color: #fff; }
       .blog-feed .post:hover a.post-read-more:after {
         border-left: 7px solid #fff; }
+
+.pdf-download {
+  margin-top: 10px; }
+  .pdf-download:first-child {
+    margin-top: 0px; }
+  .pdf-download span.pdf-download-download {
+    background: #231F20;
+    color: #ffffff;
+    font-size: 1.2rem;
+    padding: 4px 10px;
+    display: block;
+    margin-top: 4px;
+    margin-left: -3px;
+    transition: all 0.2s ease-in-out; }
+  .pdf-download span.pdf-download-title {
+    margin-left: 10px;
+    color: #000000; }
+  .pdf-download:hover {
+    text-decoration: none; }
+    .pdf-download:hover span.pdf-download-download {
+      padding: 4px 15px;
+      background: #FFD500;
+      color: #000000; }
+    .pdf-download:hover span.pdf-download-title {
+      text-decoration: underline; }
+
+.download-section h4 {
+  padding-left: 125px; }
 
 /*# sourceMappingURL=main.css.map */

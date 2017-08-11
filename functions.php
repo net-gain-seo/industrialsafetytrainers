@@ -35,8 +35,31 @@ add_shortcode('el_3','element');
 
 
 
+
+//PDF DOWNLOAD SHORTCODE
+function pdf_download($atts,$content){
+    extract( shortcode_atts( array(
+        'class'         => '',
+        'title'         => 'Title',
+        'link'          => '#'
+    ), $atts ) );
+
+    $return = '';
+    $return .= '<a href="'.$link.'" class="pdf-download d-flex align-items-center '.$class.'">';
+        $return .= '<img src="'.get_stylesheet_directory_uri().'/assets/images/pdf-download.png" />';
+        $return .= '<span class="pdf-download-download">Download</span>';
+        $return .= '<span class="pdf-download-title">'.$title.'</span>';
+    $return .= '</a>';
+
+    return $return;
+}
+add_shortcode('pdf_download','pdf_download');
+
+
+
 //// TESTIMONIALS
 include(STYLESHEETPATH.'/admin/post_types/testimonials/index.php');
+include(STYLESHEETPATH.'/admin/post_types/in-the-community/index.php');
 
 //shortcodes
 include(STYLESHEETPATH.'/admin/shortcodes/blog.php');

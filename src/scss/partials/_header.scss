@@ -1,57 +1,85 @@
+body{
+	> header{
+		background: #fff;
+		.main-header{
+			padding: 20px 0;
 
-
-.main-header{
-	padding: 20px 0;
-
-	form{
-		input{
-			&[type="submit"]{
-				border-radius: 0px 5px 5px 0px;
-				border: 1px solid #58595B;
-				border-left: none;
-			}
-			 &[type="search"]{
-				background: #F1F2F2;
-				border: 1px solid #58595B;
-				padding: 10px;
-				border-radius: 5px 0px 0px 5px;
-				width: 195px;
-			 }
-		}
-	}
-
-
-	.header-call-to-action{
-
-		span{
-			display: block;
-		}
-
-		.header-call-to-action-content{
-			font-size: 1.6rem;
-			font-family: "Arial Narrow", Arial, sans-serif;
-			font-style: italic;
-			padding: 0 35px;
-		}
-
-		.header-call-to-action-phone{
-			> span{
-				font-family: "Arial Narrow", Arial, sans-serif;
-				color: #000000;
-				font-size: 2.4rem;
-				font-weight: 600;
-
-				&:first-child{
-					color: #58595B;
-					font-size: 1.8rem;
+			#logo{
+				img{
+					transition: width 0.2s ease-in-out;
+					width: 100%;
 				}
 			}
-			
+
+			form{
+				input{
+					&[type="submit"]{
+						border-radius: 0px 5px 5px 0px;
+						border: 1px solid #58595B;
+						border-left: none;
+					}
+					 &[type="search"]{
+						background: #F1F2F2;
+						border: 1px solid #58595B;
+						padding: 10px;
+						border-radius: 5px 0px 0px 5px;
+						width: 195px;
+					 }
+				}
+			}
+
+
+			.header-call-to-action{
+
+				span{
+					display: block;
+				}
+
+				.header-call-to-action-content{
+					font-size: 1.6rem;
+					font-family: "Arial Narrow", Arial, sans-serif;
+					font-style: italic;
+					padding: 0 35px;
+				}
+
+				.header-call-to-action-phone{
+					> span{
+						font-family: "Arial Narrow", Arial, sans-serif;
+						color: #000000;
+						font-size: 2.4rem;
+						font-weight: 600;
+
+						&:first-child{
+							color: #58595B;
+							font-size: 1.8rem;
+						}
+					}
+				}
+			}
 		}
 	}
+	&.sticky-header{
+		header{
+		    position: fixed;
+		    z-index: 10000;
+		    width: 100%;
 
+		    #logo{
+		    	img{
+					width: 126px;
+					height: auto;
+		    	}
+		    }
+
+		    .hide-sticky-header{
+		    	display: none !important;
+
+		    }
+
+		    .menu-section{
+		    	padding: 5px 0;
+		    }
+
+		}
+	}
 }
-
-
-
-

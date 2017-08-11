@@ -2,14 +2,7 @@
 
 	<main role="main">
 		<!-- section -->
-
-		<section class="page-title-section">
-			<div class="container">
-				<h1><?php the_title(); ?></h1>
-			</div>
-		</section>
-		
-		<section class="container">
+		<section>
 
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -21,7 +14,7 @@
 
 			<?php endwhile; ?>
 			<?php endif; ?>
-			
+
 		</section>
 		<!-- /section -->
 	</main>

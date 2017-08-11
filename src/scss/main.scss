@@ -5,6 +5,8 @@
 @import "partials/_main_menu";
 @import "partials/_footer";
 @import "partials/_qualification"; 
+@import "partials/_banner"; 
+@import "partials/_blog"; 
 
 
 //COMPONENTS
@@ -23,6 +25,7 @@ body{
 
 
 img{
+	max-width: 100%;
 	&.aligncenter{
 		float:none;
 	}
@@ -34,8 +37,16 @@ img{
 	}
 }
 
+.grey-background{
+	background-color: #F1F2F2;
+}
+
 .container{
 	padding: 40px 0;
+
+	&.padding0{
+		padding: 0px;
+	}
 }
 
 
@@ -59,8 +70,8 @@ img{
     background-size: cover;
     position: relative;
 	height: 400px;
-	width: 540px;
-	left: -50px;
+	width: 575px;
+	left: -100px;
 }
 
 .fork-lift-animated{
@@ -71,8 +82,8 @@ img{
 
 @-webkit-keyframes movingforklift{
   from{
-  	left:-50px;
-  	width: 540px;
+  	left:-100px;
+  	width: 575px;
   }
   to{
   	left:-180px;
@@ -80,6 +91,26 @@ img{
   }
 }
 
+
+
+.fifty-fifty-section-background{
+	background-repeat: no-repeat;
+	&.left{
+		background-position: left;
+	}
+	&.right{
+		background-position: right;
+	}
+}
+
+.fifty-percent-section{
+	width: 550px;
+    padding: 40px;
+    height: 100%;
+    &.right{
+    	float: right;
+    }
+}
 
 
 
@@ -115,10 +146,12 @@ img{
 
 
 
+
+
 .testimonials-wrapper{
     color: #fff;
     text-align: center;
-    background-image: url(../../assets/images/testimonials-bg.png);
+    background-image: url(../../assets/images/factory-testimonials-tall.jpg);
     position: relative;
     background-size: cover;
     background-attachment: fixed;
@@ -162,6 +195,12 @@ img{
 		width: 5%;
 	}
 }
+
+
+
+
+
+
 
 
 .blog-feed{
@@ -246,3 +285,58 @@ img{
 
 	}
 }
+
+
+
+
+
+.pdf-download{
+	margin-top: 10px;
+
+	&:first-child{
+		margin-top: 0px;
+	}
+
+	img{
+
+	}
+	span.pdf-download-download{
+	    background: #231F20;
+	    color: #ffffff;
+	    font-size: 1.2rem;
+	    padding: 4px 10px;
+	    display: block;
+        margin-top: 4px;
+	    margin-left: -3px;
+	    transition: all 0.2s ease-in-out;
+	}
+	span.pdf-download-title{
+		margin-left: 10px;
+		color: #000000;
+	}
+
+	&:hover{
+		text-decoration: none;
+		span.pdf-download-download{
+			padding: 4px 15px;
+			background: $yellow;
+			color: $black;
+		}
+		span.pdf-download-title{
+			text-decoration: underline;
+		}
+	}
+}
+
+.download-section{
+	h4{
+		padding-left:125px;
+	}
+}
+
+
+
+
+
+
+

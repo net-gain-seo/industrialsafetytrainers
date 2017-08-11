@@ -14,15 +14,26 @@ function elementInViewport(element) {
 
 
 function checkOnScrollElements(){
+	//Sticky Header
+	var docTop = document.body.scrollTop;
+	if(docTop >= 25){
+		document.body.classList.add("sticky-header");
+	}else{
+		document.body.classList.remove("sticky-header");
+	}
+
+
 	//fork lift animation
 	let animateForkLift = false;
 	let forkLiftSelector = document.getElementsByClassName("fork-lift");
 
 
-	if(elementInViewport(forkLiftSelector[0])){
-		if(!forkLiftSelector[0].classList.contains('fork-lift-animated')){
-			console.log('adding class');
-			forkLiftSelector[0].className += ' fork-lift-animated';
+	if(forkLiftSelector[0]){
+		if(elementInViewport(forkLiftSelector[0])){
+			if(!forkLiftSelector[0].classList.contains('fork-lift-animated')){
+				console.log('adding class');
+				forkLiftSelector[0].className += ' fork-lift-animated';
+			}
 		}
 	}
 }
