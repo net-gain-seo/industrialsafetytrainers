@@ -308,10 +308,137 @@ body.sticky-header header {
     top: 9px;
     left: 11px; }
 
-.testimonials .testimonial {
-  border-top: 1px solid #58595B; }
-  .testimonials .testimonial:first-child {
-    border-top: none; }
+.posts .post {
+  border-top: 1px solid #58595B;
+  padding: 40px 0; }
+  .posts .post:first-child {
+    border-top: none;
+    padding-top: 0px;
+    margin-top: 0px; }
+  .posts .post div.has-thumbnail img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px; }
+  .posts .post h2 a {
+    color: #000000; }
+    .posts .post h2 a:hover {
+      color: #D49D1C;
+      text-decoration: none; }
+
+.sidebar {
+  margin-right: 50px;
+  min-width: 30%; }
+
+.blog-feed .post {
+  width: 30%;
+  border: 1px solid #58595B;
+  padding: 25px;
+  font-size: 1.6rem;
+  position: relative;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease; }
+  .blog-feed .post span {
+    display: block;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: color 0.5s ease; }
+    .blog-feed .post span.post-date {
+      color: #D49D1C;
+      font-size: 1.6rem; }
+    .blog-feed .post span.post-title {
+      font-size: 1.8rem; }
+  .blog-feed .post p {
+    font-size: 1.6rem;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    transition: color 0.5s ease; }
+  .blog-feed .post a.post-read-more {
+    color: #D49D1C;
+    transition: color 0.5s ease;
+    position: relative; }
+    .blog-feed .post a.post-read-more:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 7px solid #D49D1C;
+      position: absolute;
+      right: -15px;
+      top: 2px;
+      transition: border-left-color 0.5s ease; }
+  .blog-feed .post:hover {
+    background: #D49D1C;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    cursor: pointer; }
+    .blog-feed .post:hover span.post-date {
+      color: #fff; }
+    .blog-feed .post:hover span.post-title {
+      color: #fff; }
+    .blog-feed .post:hover p {
+      color: #fff; }
+    .blog-feed .post:hover a.post-read-more {
+      color: #fff; }
+      .blog-feed .post:hover a.post-read-more:after {
+        border-left: 7px solid #fff; }
+
+.widget {
+  background: #F1F2F2;
+  padding: 30px;
+  margin-bottom: 30px; }
+  .widget #searchform {
+    position: relative; }
+    .widget #searchform .screen-reader-text {
+      display: none; }
+    .widget #searchform input[type="text"] {
+      border: 1px solid #D0D2D3;
+      padding: 5px; }
+    .widget #searchform input[type="submit"] {
+      background-color: transparent;
+      border: none;
+      background-image: url(../../assets/images/search-icon.png);
+      width: 45px;
+      height: 38px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      text-indent: -9999px;
+      position: absolute;
+      top: 0px;
+      right: 0px; }
+  .widget ul {
+    list-style: none; }
+    .widget ul li {
+      margin-bottom: 10px; }
+      .widget ul li a {
+        color: #58595B; }
+      .widget ul li span {
+        display: block; }
+
+form > div {
+  margin-bottom: 10px; }
+  form > div.form-header {
+    background-color: #FFD500;
+    color: #231F20;
+    font-size: 2.5rem;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-weight: 600;
+    padding: 60px 20px 20px;
+    margin-bottom: 40px; }
+
+input, textarea, select {
+  background: #F1F2F2;
+  border: none;
+  color: #231F20;
+  font-size: 2.0rem;
+  padding: 10px;
+  width: 100%; }
+
+.contact-page-submit p {
+  width: 100%;
+  margin-left: 10px; }
+
+.contact-page-submit input[type="submit"] {
+  height: 100%;
+  cursor: pointer; }
 
 .btn {
   font-size: 2rem;
@@ -376,8 +503,14 @@ img {
   img.alignright {
     float: right; }
 
+a {
+  transition: all 0.2s ease-in-out; }
+
 .grey-background {
   background-color: #F1F2F2; }
+
+.margin-bottom5 {
+  margin-bottom: 5px; }
 
 .container {
   padding: 40px 0; }
@@ -479,58 +612,6 @@ img {
     padding: 0 135px; }
   .testimonials-wrapper .carousel-control-next, .testimonials-wrapper .carousel-control-prev {
     width: 5%; }
-
-.blog-feed .post {
-  width: 30%;
-  border: 1px solid #58595B;
-  padding: 25px;
-  font-size: 1.6rem;
-  position: relative;
-  transition: background-color 0.5s ease, box-shadow 0.5s ease; }
-  .blog-feed .post span {
-    display: block;
-    font-family: "Arial Narrow", Arial, sans-serif;
-    font-weight: 600;
-    margin-bottom: 10px;
-    transition: color 0.5s ease; }
-    .blog-feed .post span.post-date {
-      color: #D49D1C;
-      font-size: 1.6rem; }
-    .blog-feed .post span.post-title {
-      font-size: 1.8rem; }
-  .blog-feed .post p {
-    font-size: 1.6rem;
-    font-family: "Arial Narrow", Arial, sans-serif;
-    transition: color 0.5s ease; }
-  .blog-feed .post a.post-read-more {
-    color: #D49D1C;
-    transition: color 0.5s ease;
-    position: relative; }
-    .blog-feed .post a.post-read-more:after {
-      content: "";
-      width: 0;
-      height: 0;
-      border-top: 7px solid transparent;
-      border-bottom: 7px solid transparent;
-      border-left: 7px solid #D49D1C;
-      position: absolute;
-      right: -15px;
-      top: 2px;
-      transition: border-left-color 0.5s ease; }
-  .blog-feed .post:hover {
-    background: #D49D1C;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-    cursor: pointer; }
-    .blog-feed .post:hover span.post-date {
-      color: #fff; }
-    .blog-feed .post:hover span.post-title {
-      color: #fff; }
-    .blog-feed .post:hover p {
-      color: #fff; }
-    .blog-feed .post:hover a.post-read-more {
-      color: #fff; }
-      .blog-feed .post:hover a.post-read-more:after {
-        border-left: 7px solid #fff; }
 
 .pdf-download {
   margin-top: 10px; }

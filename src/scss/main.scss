@@ -7,6 +7,7 @@
 @import "partials/_qualification"; 
 @import "partials/_banner"; 
 @import "partials/_blog"; 
+@import "partials/_form"; 
 
 
 //COMPONENTS
@@ -37,8 +38,16 @@ img{
 	}
 }
 
+a{
+	transition: all 0.2s ease-in-out;
+}
+
 .grey-background{
 	background-color: #F1F2F2;
+}
+
+.margin-bottom5{
+	margin-bottom: 5px;
 }
 
 .container{
@@ -203,88 +212,7 @@ img{
 
 
 
-.blog-feed{
-	.post{
-		width: 30%;
-		border: 1px solid #58595B;
-		padding: 25px;
-		font-size: 1.6rem;
-		position: relative;
 
-		transition: background-color 0.5s ease, box-shadow 0.5s ease;
-
-		span{
-			display: block;
-			font-family: "Arial Narrow", Arial, sans-serif;
-			font-weight: 600;
-			margin-bottom: 10px;
-			transition: color 0.5s ease;
-
-			&.post-date{
-				color: $dark-yellow;
-				font-size: 1.6rem;
-			}
-			&.post-title{
-				font-size: 1.8rem;
-			}
-		}
-
-		p{
-			font-size: 1.6rem;
-			font-family: "Arial Narrow", Arial, sans-serif;
-			transition: color 0.5s ease;
-		}
-
-		a{
-			&.post-read-more{
-				color: $dark-yellow;
-				transition: color 0.5s ease;
-				position: relative;
-
-				&:after{
-				    content: "";
-				    width: 0;
-				    height: 0;
-				    border-top: 7px solid transparent;
-				    border-bottom: 7px solid transparent;
-				    border-left: 7px solid $dark-yellow;
-				    position: absolute;
-				    right: -15px;
-				    top: 2px;
-				    transition: border-left-color 0.5s ease;
-				}
-			}
-		}
-
-		&:hover{
-			background: $dark-yellow;
-		    box-shadow: 0px 0px 10px rgba(0,0,0,0.7);
-		    cursor: pointer;
-
-			span{
-				&.post-date{
-					color: #fff;
-				}
-				&.post-title{
-					color: #fff;
-				}
-			}
-			p{
-				color: #fff;
-			}
-			a{
-				&.post-read-more{
-					color: #fff;
-
-					&:after{
-						border-left: 7px solid #fff;
-					}
-				}
-			}
-		}
-
-	}
-}
 
 
 

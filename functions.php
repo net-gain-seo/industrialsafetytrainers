@@ -11,6 +11,27 @@ add_action( 'wp_enqueue_scripts', 'industrial_safety_trainers_scripts' );
 
 
 
+
+//BLOG SIDEBAR
+add_action( 'widgets_init', 'industrial_safety_trainers_widgets_init' );
+function industrial_safety_trainers_widgets_init(){
+    register_sidebar( array(
+        'name' => 'Blog Sidebar',
+        'id' => 'blog-sidebar',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widgettitle">',
+        'after_title'   => '</h3>',
+
+    ));
+}
+
+
+//POST THUMBNAIL
+add_image_size('blog-image',2000,375,true);
+
+
+
 //ELEMENT SHORTCODE
 function element($atts,$content){
 	extract( shortcode_atts( array(

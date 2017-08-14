@@ -22,10 +22,10 @@
 			<h2 style="margin-bottom: 0px;">Here is What Our Customers are Saying About Us</h2>
 		</section>
 
-		<section class="testimonials">
+		<section class="container posts">
 		<?php 
 		if (have_posts()): while (have_posts()) : the_post(); ?>
-			<article class="container testimonial d-flex">
+			<article class="post d-flex">
 				<div class="<?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
 					<?php the_content(); ?>
 					<span class="testimonial-author"><?php the_title(); ?></span>
