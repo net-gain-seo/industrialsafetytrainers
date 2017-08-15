@@ -31,34 +31,38 @@
 					}
 				}
 			}
-
-			&:after{
-				content: "";
-				width: 0%;
-				display: block;
-				background: darken($primary-color,10%);
-				height: 6px;
-				position: absolute;
-				bottom: 0px;
-				transition: width .4s;
-			}
-			&:hover{
-				>a{
-					color: darken(#FFFFFF,20%);
-					transition: color .4s;
-				}
+			@media (min-width: $screen-lg-min) {
 
 				&:after{
-					width: 100%;
+					content: "";
+					width: 0%;
+					display: block;
+					background: darken($primary-color,10%);
+					height: 6px;
+					position: absolute;
+					bottom: 0px;
 					transition: width .4s;
 				}
+			
+				&:hover{
+					>a{
+						color: darken(#FFFFFF,20%);
+						transition: color .4s;
+					}
+
+					&:after{
+						width: 100%;
+						transition: width .4s;
+					}
+				}
 			}
 
-			&.current-menu-item{
-				&:after{
-					width: 100%;
+			@media (min-width: $screen-lg-min) {
+				&.current-menu-item{
+					&:after{
+						width: 100%;
+					}
 				}
-				
 			}
 
 			&.dropdown{
@@ -91,6 +95,98 @@
 				}
 			}
 		}
+	}
+}
+
+
+
+.navbar-toggler{
+	position: relative;
+	top: 0px;
+    width: 60px;
+    height: 40px;
+}
+
+
+
+.closen-responsive-nav{
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    cursor: pointer;
+}
+
+
+//RESPONSIVE 
+@media (max-width: $screen-lg-max) {
+	#mainMenu{
+		&.collapse{
+			position: fixed;
+		    background: #231f20;
+		    top: 0px;
+		    left: -360px;
+		    width: 360px;
+		    height: 100%;
+		    z-index: 999991;
+		    transition:left 0.1s ease;
+		}
+		&.collapsing{
+			position: fixed;
+		    background: #231f20;
+		    top: 0px;
+		    left: -360px;
+		    width: 360px;
+		    height: 100%;
+		    z-index: 999991;
+		    transition:left 0.1s ease;
+		}
+		&.show{
+			left: 0px;
+		}
+
+		>#menu-main-menu{
+			li{
+				margin: 0px;
+				padding: 0;
+				a{
+					padding: 10px 20px;
+					&:hover{
+						background: #58595B;
+					}
+					&:active,
+					&:focus{
+						background: $primary-color;
+						color: $black;
+					}
+				}
+				&.current-menu-item{
+					>a{
+						background: $primary-color;
+						color: $black;
+					}
+				}
+			}
+		}
+	}
+
+	#mainMenu{
+		.dropdown-menu{
+			display: block;
+			background: transparent;
+			border: none;
+			border-top: 1px solid #292b2c;
+
+			.dropdown-item{
+			    padding: 10px 20px 10px 30px !important;
+			}
+		}
+	}
+
+	#mainMenu li{
+		border-top: 1px solid #000000;
+		border-bottom: 1px solid #292b2c;
 	}
 
 }

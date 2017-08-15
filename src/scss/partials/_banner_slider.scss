@@ -1,0 +1,147 @@
+.banner-section{
+	position: relative;
+
+	img{
+		width: 100%;
+		height: auto;
+	}
+
+	.banner-content{
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
+
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		>div{
+			width: 50%;
+			&:first-child{
+				background: rgba(255,213,0,0.9);
+			}
+		}
+
+		h1{
+			font-size: 4.6rem;
+			font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+			text-transform: uppercase;
+			margin-bottom: 0px; 
+		}
+
+		.fifty-percent-section{
+			padding-left: 0px;
+		}
+
+	}
+}
+
+.page-title-section{
+	background: rgba(255,213,0,0.9);
+	margin-bottom: 20px;
+
+	h1{
+		margin-bottom: 0px;
+	}
+}
+
+
+.slider{
+	h2{
+		font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+		font-size:4.6rem;
+	}
+
+	@media (min-width: $screen-md-min) {
+		.slick-slide{
+			.description{
+				transition:all 1s ease;
+				position: relative;
+				opacity: 0;
+				left: -50%;
+			}
+
+			&.slick-current{
+				.description{
+					left: 0px;
+					opacity: 1;
+				}
+			}
+		}
+	}		
+}
+
+@media (min-width: $screen-md-min) {
+	.banner-content{
+		.fifty-percent-section{
+			width: 550px;
+		    padding: 40px;
+		    height: 100%;
+		    &.right{
+		    	float: right;
+		    }
+		}
+	}
+}
+
+
+
+//RESPONSOVE
+@media (max-width: $screen-lg-max) {
+	.banner-content{
+		.fifty-percent-section{
+			width: 470px;
+		}
+	}
+
+	.banner-section .banner-content h2{
+		font-size: 3.6rem;
+	}
+}
+@media (max-width: $screen-md-max) {
+	.banner-content{
+		.fifty-percent-section{
+			width: 340px;
+		}
+	}
+	.banner-section .banner-content h2{
+		font-size: 2.6rem;
+	}
+
+
+	.banner-section{
+		.banner-content{
+			position: relative;
+			flex-direction: column;
+			text-align: center;
+			> div{
+				width: 100%;
+			}
+
+			.fifty-percent-section{
+				width: 100%;
+			}
+
+
+			h1{
+				font-size: 2.8rem;
+			}
+		}
+	}
+
+	.banner-section .banner-content .fifty-percent-section{
+		padding: 20px;
+		display: block !important;
+	}
+	.slick-track{
+		background: rgba(255,213,0,0.9);
+	}
+}
+@media (max-width: $screen-sm-max) {
+	
+}
+@media (max-width: $screen-xsm-max) {
+	
+}

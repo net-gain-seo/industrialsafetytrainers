@@ -2,6 +2,8 @@ body{
 	> header{
 		background: #fff;
 		.main-header{
+			display: flex;
+			justify-content: space-between;
 			padding: 20px 0;
 
 			#logo{
@@ -9,6 +11,12 @@ body{
 					transition: width 0.2s ease-in-out;
 					width: 100%;
 				}
+			}
+
+			.heading-qualifications{
+				display: flex;
+				justify-content: center;
+
 			}
 
 			form{
@@ -30,6 +38,8 @@ body{
 
 
 			.header-call-to-action{
+				display: flex;
+				justify-content: flex-end;
 
 				span{
 					display: block;
@@ -63,6 +73,7 @@ body{
 		    position: fixed;
 		    z-index: 10000;
 		    width: 100%;
+		    top: 0px;
 
 		    #logo{
 		    	img{
@@ -73,13 +84,86 @@ body{
 
 		    .hide-sticky-header{
 		    	display: none !important;
-
 		    }
 
 		    .menu-section{
 		    	padding: 5px 0;
 		    }
 
+		}
+	}
+}
+
+
+
+//RESPONSIVE 
+@media (max-width: $screen-lg-max) {
+	body{
+		> header{
+			.main-header{
+				display: block;
+				>div{
+					
+				}
+				#logo{
+					img{
+						width: auto;
+					    margin: 0 auto 40px auto;
+					    display: block;
+					}
+				}
+
+				.header-call-to-action{
+					justify-content: center;
+				}
+
+
+				.header-call-to-action{
+					.header-call-to-action-phone{
+						> span{
+							font-size: 1.8rem;
+						}
+					}
+				}
+
+			}
+		}
+	}
+}
+
+
+@media (max-width: $screen-md-max) {
+	body{
+		> header{
+			.main-header{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 15px;
+
+				#logo{
+					img{
+						width: 190px;
+						margin-bottom: 0px;
+					}
+				}
+			}
+			.menu-section{
+		    	.container{
+		    		padding: 0 15px;
+		    	}
+		    }
+		}
+	}
+	&.sticky-header{
+		> header{
+			.main-header{
+				#logo{
+					img{
+						width: 110px;
+					}
+				}
+			}
 		}
 	}
 }

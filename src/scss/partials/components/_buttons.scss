@@ -44,14 +44,13 @@
 }
 
 .btn-warning {
-    color: #fff;
-    background-color: $yellow;
-    border-color: $yellow;
-    color: #000;
+    background-color: $black;
+    border-color: $black;
+    color: #ffffff;
 
     &:hover{
-        background: darken($yellow,5%);
-        border-color: darken($yellow,5%);
-        color: #000;
+        background: lighten($black,20%);
+        border-color: lighten($black,20%);
+        color: #ffffff;
     }
 }

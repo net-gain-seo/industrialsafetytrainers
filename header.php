@@ -14,22 +14,22 @@
 <body <?php body_class(); ?>>
 
 <header>
-	<section class="main-header container d-flex justify-content-between">
+	<section class="main-header container">
 		<a id="logo" href="<?php bloginfo('url'); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/industrial-safety-trainers-logo.png" /></a>
 
 		<div>
 			<div class="flex-column">
-				<div class="d-flex align-items-center hide-sticky-header">
-					<div class="heading-qualification">
+				<div class="heading-qualifications align-items-center hide-sticky-header">
+					<div class="heading-qualification hide-screen-md-max">
 						<span>Ontario Ministry of Labour</span>
 						<span>Authorized Training Provider</span>
 					</div>
-					<div class="heading-qualification">
+					<div class="heading-qualification hide-screen-md-max">
 						<span>TSSA</span>
 						<span>Accredited Training Provider</span>
 					</div>
 					<div>
-						<form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
+						<form role="search" method="get" action="<?php echo home_url( '/' ); ?>" class="hide-screen-sm-max">
 							<div class="input-group">
 								<input type="search" class="form-control" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
 								<div class="btn-group">
@@ -42,12 +42,12 @@
 					</div>
 				</div>
 
-				<div class="header-call-to-action d-flex align-items-end justify-content-end">
+				<div class="header-call-to-action">
 					<div>
-						<span class="header-call-to-action-content">Ontario's Leading Health & Safety Training Partner for Over 15 Years</span>
+						<span class="header-call-to-action-content hide-screen-md-max">Ontario's Leading Health & Safety Training Partner for Over 15 Years</span>
 					</div>
 					<div class="header-call-to-action-phone text-right">
-						<span class="hide-sticky-header">Book Your Safety Training</span>
+						<span class="hide-sticky-header hide-screen-lg-max">Book Your Safety Training</span>
 						<span>1-800-219-8660</span>
 					</div>
 				</div>
@@ -58,13 +58,14 @@
 
 	<section class="menu-section">
 		<div class="container d-flex justify-content-between align-items-center">
-			<nav class="navbar navbar-toggleable-md navbar-light" role="navigation">
+			<nav class="navbar navbar-inverse navbar-toggleable-lg navbar-light" role="navigation">
 
-				<button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<div id="mainMenu" class="collapse navbar-collapse">
+					<div class="closen-responsive-nav hide-screen-lg-min" data-toggle="collapse" data-target="#mainMenu">Close</div>
 					<?php 
 					wp_nav_menu( 
 						array(
@@ -75,6 +76,7 @@
 						)
 					);
 					?>
+
 				</div>
 
 		    </nav>

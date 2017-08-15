@@ -12,62 +12,62 @@
 		color: $yellow;
 	}
 
-	div{
-		&.d-flex{
-			> div{
-				width: 25%;
-				border-left: 1px solid #ffffff;
-				padding: 0 30px;
-			
-				ul{
-					margin: 0px;
-					padding: 0px;
-					list-style: none;
-					li{
-						margin-bottom: 5px;
-						a{
-							color: #ffffff;
-							font-size: 1.6rem;
-							&:hover{
-								color: darken(#ffffff,10%);
-							}
-						}
-					}
-				}
-
-				&:first-child{
-					border-left: none;
-				}
-
-
-				&.footer-logo{
-					img{
-						margin-bottom: 20px;
-					}
-					span{
+	>div{
+		display: flex;
+		justify-content: space-between;
+		> div{
+			width: 25%;
+			border-left: 1px solid #ffffff;
+			padding: 0 30px;
+		
+			ul{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+				li{
+					margin-bottom: 5px;
+					a{
+						color: #ffffff;
 						font-size: 1.6rem;
-						font-style: italic;
-						font-family: "Arial Narrow", Arial, sans-serif;
-					}
-				}
-
-				&.footer-contact{
-					>div{
-						margin-bottom: 10px;
-
-						span{
-							font-family: "Arial Narrow", Arial, sans-serif;
-							font-size: 1.4rem;
-							display: block;
-							&:first-child{
-								font-size: 1.6rem;
-								font-weight: 600;
-							}
+						&:hover{
+							color: darken(#ffffff,10%);
 						}
 					}
 				}
-
 			}
+
+			&:first-child{
+				border-left: none;
+			}
+
+
+			&.footer-logo{
+				img{
+					margin-bottom: 20px;
+				}
+				span{
+					font-size: 1.6rem;
+					font-style: italic;
+					font-family: "Arial Narrow", Arial, sans-serif;
+				}
+			}
+
+			&.footer-contact{
+				>div{
+					margin-bottom: 10px;
+
+					span{
+						font-family: "Arial Narrow", Arial, sans-serif;
+						font-size: 1.4rem;
+						display: block;
+						&:first-child{
+							font-size: 1.6rem;
+							font-weight: 600;
+						}
+					}
+				}
+			}
+
 		}
 	}
 }
@@ -80,4 +80,45 @@
 	font-family: "Arial Narrow", Arial, sans-serif;
 	font-weight: 600;
 	padding: 20px 0; 
+}
+
+
+//responsive
+@media (max-width: $screen-sm-max) {
+
+	.upper-footer{
+		>div{
+			  flex-wrap: wrap;
+			>div{
+				min-width: 50%;
+				text-align: center;
+				margin-top: 40px;
+				border-left: none;
+				&:first-child{
+					margin-top: 0px;
+				}
+			}
+		}
+	}
+}
+
+
+@media (max-width: $screen-xsm-max) {
+
+	.upper-footer{
+		>div{
+			flex-direction: column;
+			align-items: center;
+			>div{
+				width: 80%;
+				text-align: center;
+				margin-top: 40px;
+				border-left: none;
+				&:first-child{
+					margin-top: 0px;
+				}
+			}
+		}
+	}
+
 }

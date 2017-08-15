@@ -71,18 +71,19 @@ function slider(){
 
 
         $return .= '<div class="banner-section">';
-            $return .= '<div class="banner-content d-flex justify-content-center align-items-stretch">';
-                $return .= '<div>';
-                    $return .= '<div class="fifty-percent-section right">';
-                        $return .= '<h2>'.get_the_title().'</h2>';
-
-                        
-                        $return .= $content;
+            $return .= get_the_post_thumbnail();
+            $return .= '<div class="banner-content">';
+                $return .= '<div class="description description-hidden">';
+                    $return .= '<div class="fifty-percent-section right d-flex align-items-center">';
+                        $return .= '<div>';
+                            $return .= '<h2>'.get_the_title().'</h2>';
+                            $return .= $content;
+                        $return .= '</div>';
                     $return .= '</div>';
                 $return .= '</div>';
                 $return .= '<div></div>';
             $return .= '</div>';
-            $return .= get_the_post_thumbnail();
+            
         $return .= '</div>';
         endwhile;
 

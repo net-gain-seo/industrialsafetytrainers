@@ -2,30 +2,20 @@
 
 <main role="main">
 	<!-- section -->
-		<?php
-		if(has_post_thumbnail()){
-		?>
-			<section class="banner-section">
-				<div class="banner-content d-flex justify-content-center align-items-stretch">
-					<div>
-						<div class="d-flex align-items-center fifty-percent-section right">
-							<h1>In the Community</h1>
-						</div>
-					</div>
-					<div>
-
+		<section class="banner-section">
+			<div class="banner-content d-flex justify-content-center align-items-stretch">
+				<div>
+					<div class="d-flex align-items-center fifty-percent-section right">
+						<h1>Business We Support</h1>
 					</div>
 				</div>
-				
-				<img width="2000" height="375" src="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us.png 2000w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-300x56.png 300w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-768x144.png 768w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
+				<div>
 
-			</section>
-		<?php
-		}
-		?>
+				</div>
+			</div>
+			
+			<img width="2000" height="375" src="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us.png 2000w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-300x56.png 300w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-768x144.png 768w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
 
-		<section class="container">
-			<h2>Community Involvement</h2>
 		</section>
 
 		<?php 

@@ -2,7 +2,6 @@
 .slick-slider
 {
     position: relative;
-
     display: block;
     box-sizing: border-box;
 
@@ -123,6 +122,7 @@
     line-height: 0;
     position: absolute;
     top: 40%;
+    top: calc(50% - 20px);
     display: block;
     width: 40px;
     height: 40px;
@@ -136,7 +136,7 @@
     z-index: 200;
     background: #333;
     border-radius: 20px;
-    opacity: 0.2;
+    opacity: 0.4;
 }
 
 .slick-prev:hover, 

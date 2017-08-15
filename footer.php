@@ -1,7 +1,7 @@
 <footer>
 
 	<section class="upper-footer">
-		<div class="container d-flex justify-content-between">
+		<div class="container">
 			<div class="footer-logo">
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/industrial-safety-trainers-logo-white.png" />
 				<span>Ontario's Leading Health & Safety Training Partner for Over 15 Years </span>

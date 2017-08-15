@@ -81,6 +81,7 @@ add_shortcode('pdf_download','pdf_download');
 //// TESTIMONIALS
 include(STYLESHEETPATH.'/admin/post_types/testimonials/index.php');
 include(STYLESHEETPATH.'/admin/post_types/in-the-community/index.php');
+include(STYLESHEETPATH.'/admin/post_types/business-we-support/index.php');
 include(STYLESHEETPATH.'/admin/post_types/slider/index.php');
 
 //shortcodes
