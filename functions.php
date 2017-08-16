@@ -95,10 +95,10 @@ add_shortcode('pdf_download','pdf_download');
 
 
 //// TESTIMONIALS
-include(STYLESHEETPATH.'/admin/post_types/testimonials/index.php');
-include(STYLESHEETPATH.'/admin/post_types/in-the-community/index.php');
-include(STYLESHEETPATH.'/admin/post_types/business-we-support/index.php');
-include(STYLESHEETPATH.'/admin/post_types/slider/index.php');
+include(TEMPLATEPATH.'/admin/post_types/testimonials/index.php');
+include(TEMPLATEPATH.'/admin/post_types/in-the-community/index.php');
+include(TEMPLATEPATH.'/admin/post_types/business-we-support/index.php');
+include(TEMPLATEPATH.'/admin/post_types/slider/index.php');
 
 //shortcodes
-include(STYLESHEETPATH.'/admin/shortcodes/blog.php');
+include(TEMPLATEPATH.'/admin/shortcodes/blog.php');
