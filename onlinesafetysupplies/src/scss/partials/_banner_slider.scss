@@ -1,0 +1,23 @@
+.banner-section{
+	.banner-content{
+		>div{
+			&:first-child{
+				background: transparent;
+			}
+		}
+	}
+
+	table{
+		margin-bottom: 50px;
+		td{
+			font-size: 3.0rem;
+			font-weight: 600;
+			line-height: 4.0rem;
+			padding-right: 20px;
+		}
+	}
+}
+
+.page-title-section{
+	background: rgba(246,146,30,0.9);
+}
