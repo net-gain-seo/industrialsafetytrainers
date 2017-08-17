@@ -31,10 +31,10 @@
 				</div>
 
 				<div class="social-icons d-flex justify-content-around" style="margin-top: 50px;">
-					<a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/social-icons/facebook.png"></a>
-					<a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/social-icons/twitter.png"></a>
-					<a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/social-icons/google.png"></a>
-					<a href="#"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/social-icons/linked-in.png"></a>
+					<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/social-icons/facebook.png"></a>
+					<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/social-icons/twitter.png"></a>
+					<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/social-icons/google.png"></a>
+					<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/social-icons/linked-in.png"></a>
 				</div>
 
 			</div>

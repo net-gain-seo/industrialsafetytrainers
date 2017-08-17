@@ -70,7 +70,8 @@ body > header {
       display: flex;
       justify-content: flex-end; }
       body > header .main-header .header-call-to-action span {
-        display: block; }
+        display: block;
+        align-self: flex-end; }
       body > header .main-header .header-call-to-action .header-call-to-action-content {
         font-size: 1.6rem;
         font-family: "Arial Narrow", Arial, sans-serif;

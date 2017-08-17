@@ -15,7 +15,17 @@
 
 <header>
 	<section class="main-header container">
-		<a id="logo" href="<?php bloginfo('url'); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/industrial-safety-trainers-logo.png" /></a>
+		<a id="logo" href="<?php bloginfo('url'); ?>">
+		<?php 
+
+		if(get_current_blog_id() == 2){
+			$logoSrc = get_stylesheet_directory_uri().'/assets/images/construction-safety-trainers-logo.png';
+		}else{
+			$logoSrc = get_template_directory_uri().'/assets/images/industrial-safety-trainers-logo.png';
+		}
+		?>
+			<img src="<?php echo $logoSrc; ?>" />
+		</a>
 
 		<div>
 			<div class="flex-column">
@@ -43,9 +53,7 @@
 				</div>
 
 				<div class="header-call-to-action">
-					<div>
-						<span class="header-call-to-action-content hide-screen-md-max">Ontario's Leading Health & Safety Training Partner for Over 15 Years</span>
-					</div>
+					<span class="header-call-to-action-content hide-screen-md-max">Ontario's Leading Health & Safety Training Partner for Over 15 Years</span>
 					<div class="header-call-to-action-phone text-right">
 						<span class="hide-sticky-header hide-screen-lg-max">Book Your Safety Training</span>
 						<span>1-800-219-8660</span>

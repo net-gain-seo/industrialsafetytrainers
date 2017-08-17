@@ -19,8 +19,8 @@ function register_site_menus(){
 
 // ENQUEUE STYLES AND SCRIPTS
 function industrial_safety_trainers_scripts() {
-    wp_enqueue_style( 'style-name', get_template_directory_uri().'/src/css/main.css',array('bootstrap') );
-    wp_enqueue_script( 'site-scripts', get_template_directory_uri().'/src/js/scripts.js' );
+    wp_enqueue_style( 'industrial_safety_trainers_style', get_template_directory_uri().'/src/css/main.css',array('bootstrap') );
+    wp_enqueue_script( 'industrial_safety_trainers_scripts', get_template_directory_uri().'/src/js/scripts.js' );
 }
 add_action( 'wp_enqueue_scripts', 'industrial_safety_trainers_scripts' );
 
@@ -82,8 +82,8 @@ function pdf_download($atts,$content){
     ), $atts ) );
 
     $return = '';
-    $return .= '<a href="'.$link.'" class="pdf-download d-flex align-items-center '.$class.'">';
-        $return .= '<img src="'.get_stylesheet_directory_uri().'/assets/images/pdf-download.png" />';
+    $return .= '<a href="'.$link.'" class="pdf-download d-flex align-items-center '.$class.'" target="_blank">';
+        $return .= '<img src="'.get_template_directory_uri().'/assets/images/pdf-download.png" />';
         $return .= '<span class="pdf-download-download">Download</span>';
         $return .= '<span class="pdf-download-title">'.$title.'</span>';
     $return .= '</a>';
