@@ -1,0 +1,46 @@
+#mainMenu{
+	> #menu-main-menu{
+		> li{
+			@media (min-width: $screen-lg-min) {
+
+				&:after{
+					background: darken($primary-color,10%);
+				}
+			}
+		}
+	}
+
+
+	.dropdown-menu{
+		li{
+			a{
+				&:active,
+				&:focus{
+					background: $primary-color;
+				}
+			}
+		}
+	}
+}
+
+
+//RESPONSIVE 
+@media (max-width: $screen-lg-max) {
+	#mainMenu{
+		>#menu-main-menu{
+			li{
+				a{
+					&:active,
+					&:focus{
+						background: $primary-color;
+					}
+				}
+				&.current-menu-item{
+					>a{
+						background: $primary-color;
+					}
+				}
+			}
+		}
+	}
+}

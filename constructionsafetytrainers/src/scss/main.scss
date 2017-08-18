@@ -1,0 +1,46 @@
+@import "partials/_mixins";
+@import "partials/_typeography";
+
+@import "partials/_header";
+@import "partials/_main_menu";
+@import "partials/_banner_slider"; 
+@import "partials/_blog"; 
+@import "partials/_form";
+@import "partials/_testimonials";
+@import "partials/_footer";
+
+@import "partials/_responsive";
+
+//BOOTSTRAP COMPONENTS
+@import "partials/components/_buttons";
+
+
+
+.constuction-hat{
+	background: url('../../assets/images/constuction-hat.png');
+	background-repeat: no-repeat;
+    position: relative;
+	height: 400px;
+	width: 575px;
+	left: -60px;
+}
+
+.white-text{
+	color: #ffffff;
+}
+
+
+.pdf-download{
+	&:hover{
+		span.pdf-download-download{
+			background: $orange;
+		}
+	}
+}
+
+
+.product-boxes{
+	>div{
+		background: #231F20;
+	}
+}

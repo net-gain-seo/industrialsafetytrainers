@@ -1,0 +1,13 @@
+.banner-section{
+	.banner-content{
+		>div{
+			&:first-child{
+				background: rgba(246,146,30,0.9);
+			}
+		}
+	}
+}
+
+.page-title-section{
+	background: rgba(246,146,30,0.9);
+}
