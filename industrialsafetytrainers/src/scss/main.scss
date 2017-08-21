@@ -8,6 +8,7 @@
 @import "partials/_form";
 @import "partials/_testimonials";
 @import "partials/_footer";
+@import "partials/_woocommerce";
 
 @import "partials/_responsive";
 
@@ -295,4 +296,30 @@ a{
     &.right{
     	float: right;
     }
+}
+
+
+
+
+
+
+.product-boxes{
+	justify-content: space-between;
+	margin-bottom: 40px;
+	flex-wrap: wrap;
+
+	>div{
+		background: #58595B;
+		width: 29%;
+		margin-bottom: 40px;
+		> div{
+			padding: 20px;
+			text-align: center;
+			h3{
+				color: #ffffff;
+			}
+
+		}	
+
+	}
 }

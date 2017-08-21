@@ -16,7 +16,7 @@
 		display: flex;
 		justify-content: space-between;
 		> div{
-			width: 25%;
+			min-width: 25%;
 			border-left: 1px solid #ffffff;
 			padding: 0 30px;
 		
@@ -68,6 +68,12 @@
 				}
 			}
 
+		}
+	}
+
+	.textwidget{
+		p{
+			font-size: 1.6rem;
 		}
 	}
 }

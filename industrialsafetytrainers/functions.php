@@ -38,7 +38,31 @@ function industrial_safety_trainers_widgets_init(){
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="widgettitle">',
         'after_title'   => '</h3>',
+    ));
 
+    register_sidebar( array(
+        'name' => 'Footer 1',
+        'id' => 'footer-1',
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5 class="widgettitle">',
+        'after_title'   => '</h5>',
+    ));
+    register_sidebar( array(
+        'name' => 'Footer 2',
+        'id' => 'footer-2',
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5 class="widgettitle">',
+        'after_title'   => '</h5>',
+    ));
+    register_sidebar( array(
+        'name' => 'Footer 3',
+        'id' => 'footer-3',
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5 class="widgettitle">',
+        'after_title'   => '</h5>',
     ));
 }
 
@@ -102,3 +126,8 @@ include(TEMPLATEPATH.'/admin/post_types/slider/index.php');
 
 //shortcodes
 include(TEMPLATEPATH.'/admin/shortcodes/blog.php');
+include(TEMPLATEPATH.'/admin/shortcodes/product-box.php');
+include(TEMPLATEPATH.'/admin/shortcodes/woocommerce-categories.php');
+
+//OTHER FUNCTIONS
+include(TEMPLATEPATH.'/admin/woocommerce/woocommerce.php');

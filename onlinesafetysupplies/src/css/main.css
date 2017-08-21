@@ -1,7 +1,7 @@
 a {
-  color: #FFD500; }
+  color: #D49D1C; }
   a:hover {
-    color: #998000; }
+    color: #7a5a10; }
 
 body header .main-header .button-list {
   display: flex;
@@ -115,5 +115,8 @@ form > div.form-header {
 
 .pdf-download:hover span.pdf-download-download {
   background: #F6921E; }
+
+.product-boxes > div {
+  background: #000000; }
 
 /*# sourceMappingURL=main.css.map */
