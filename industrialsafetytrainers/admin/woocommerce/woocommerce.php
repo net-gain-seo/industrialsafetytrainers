@@ -76,7 +76,7 @@ function course_custom_js() {
 
 					html += '<div style="margin-bottom: 50px;" class="course-location">';
 						html += '<p style="text-align: right;">';
-							html += '<input name="_locations[location-'+nextCount+']" value="location-'+nextCount+'" /> - <button data-key="location-'+nextCount+'" class="add-course-date button button-primary">Add Date</button> - <button class="remove-course-location button button-primary">Remove Location</button>';
+							html += '<input type="text" style="float:left" name="_locations[location-'+nextCount+']" value="location-'+nextCount+'" /> <button data-key="location-'+nextCount+'" class="add-course-date button button-primary">Add Date</button> - <button class="remove-course-location button button-primary">Remove Location</button>';
 						html += '</p>';
 						html += '<div>';
 							html += '<table class="widefat fixed">';
@@ -84,6 +84,7 @@ function course_custom_js() {
 									html += '<tr>';
 										html += '<th>ID</th>';
 										html += '<th>Date</th>';
+										html += '<th>Time</th>';
 										html += '<th>Maximum</th>';
 										html += '<th>Cost</th>';
 									html += '</tr>';
@@ -105,14 +106,15 @@ function course_custom_js() {
 					var html = '';
 
 					html += '<tr>';
-						html += '<td>';
-							html += '<input name="_location_'+key+'_variation_id[]" value="" readonly="true" />';
-							html += '<input name="_location_'+key+'_location[]" value="" readonly="true" />';
+						html += '<td>NA';
+							html += '<input name="_location_'+key+'_variation_id[]" value="" readonly="true" type="hidden" />';
+							html += '<input name="_location_'+key+'_location[]" value="" readonly="true" type="hidden" />';
 						html += '</td>';
-						html += '<td><input name="_location_'+key+'_dates[]" value="" /></td>';
-						html += '<td><input name="_location_'+key+'_dates_max[]" value="" /></td>';
-						html += '<td><input name="_location_'+key+'_dates_cost[]" value="" /></td>';
-						html += '<td><button class="remove-course-date button button-primary">Remove Date</button></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates[]" value="" style="width: 100%" /></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates_time[]" value="" style="width: 100%" /></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates_max[]" value="" style="width: 100%" /></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates_cost[]" value="" style="width: 100%" /></td>';
+						html += '<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>';
 					html += '</tr>';
 
 					jQuery('.tbody-'+key).append(html);
@@ -184,7 +186,8 @@ function get_variations($proudct_id){
 			'max_qty'		=> $var['max_qty'],
 			'display_price'	=> $var['display_price'],
 			'location' 		=> $var['attributes']['attribute_pa_location'],
-			'date' 			=> $var['attributes']['attribute_pa_date']
+			'date' 			=> $var['attributes']['attribute_pa_date'],
+			'time' 			=> $var['attributes']['attribute_pa_time']
 		);
 	}
 
@@ -212,7 +215,7 @@ function course_options_product_tab_content() {
 					<?php foreach($var_out as $key => $var){ ?>
 						<div style="margin-bottom: 50px;" class="course-location">
 							<p style="text-align: right;">
-								<input name="_locations[<?php echo $key; ?>]" value="<?php echo $key; ?>" /> - 
+								<input type="text" name="_locations[<?php echo $key; ?>]" value="<?php echo $key; ?>" style="float:left" /> 
 								<button data-key="<?php echo $key; ?>" class="add-course-date button button-primary">Add Date</button> - 
 								<button class="remove-course-location button button-primary">Remove Location</button>
 							</p>
@@ -222,6 +225,7 @@ function course_options_product_tab_content() {
 										<tr>
 											<th>ID</th>
 											<th>Date</th>
+											<th>Time</th>
 											<th>Maximum</th>
 											<th>Cost</th>
 											<th></th>
@@ -230,14 +234,15 @@ function course_options_product_tab_content() {
 									<tbody class="tbody-<?php echo $key; ?>">
 										<?php foreach($var as $date){ ?>
 										<tr>
-											<td>
-												<input name="_location_<?php echo $key; ?>_variation_id[]" value="<?php echo $date['id']; ?>" readonly="true" />
-												<input name="_location_<?php echo $key; ?>_location[]" value="<?php echo $date['location']; ?>" readonly="true" />
+											<td><?php echo $date['id']; ?>
+												<input name="_location_<?php echo $key; ?>_variation_id[]" value="<?php echo $date['id']; ?>" readonly="true" type="hidden" />
+												<input name="_location_<?php echo $key; ?>_location[]" value="<?php echo $date['location']; ?>" readonly="true" type="hidden" />
 											</td>
-											<td><input name="_location_<?php echo $key; ?>_dates[]" value="<?php echo $date['date']; ?>" /></td>
-											<td><input name="_location_<?php echo $key; ?>_dates_max[]" value="<?php echo $date['max_qty']; ?>" /></td>
-											<td><input name="_location_<?php echo $key; ?>_dates_cost[]" value="<?php echo $date['display_price']; ?>" /></td>
-											<td><button class="remove-course-date button button-primary">Remove Date</button></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates[]" value="<?php echo $date['date']; ?>" style="width: 100%" /></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates_time[]" value="<?php echo $date['time']; ?>" style="width: 100%" /></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates_max[]" value="<?php echo $date['max_qty']; ?>" style="width: 100%" /></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates_cost[]" value="<?php echo $date['display_price']; ?>" style="width: 100%" /></td>
+											<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>
 										</tr>
 										<?php } ?>
 									</tbody>
@@ -273,11 +278,12 @@ function save_course_option_field( $product_id ) {
 		//CONFIGURE ATTRIBUTES
 		$location = wc_attribute_taxonomy_name('Location');
 		$date = wc_attribute_taxonomy_name('Date');
+		$time = wc_attribute_taxonomy_name('Time');
 
 		$attributes = array(
-			$location => array(
-				'name' => $location,
-				'value' =>'',
+			$time => array(
+				'name' => $time,
+				'value' => '',
 				'is_visible' => '1',
 				'is_variation' => '1',
 				'is_taxonomy' => '1'
@@ -285,6 +291,13 @@ function save_course_option_field( $product_id ) {
 			$date => array(
 				'name' => $date,
 				'value' => '',
+				'is_visible' => '1',
+				'is_variation' => '1',
+				'is_taxonomy' => '1'
+			),
+			$location => array(
+				'name' => $location,
+				'value' =>'',
 				'is_visible' => '1',
 				'is_variation' => '1',
 				'is_taxonomy' => '1'
@@ -300,17 +313,22 @@ function save_course_option_field( $product_id ) {
 		// Assign location and dates to the main product
 		$locationsArray = array();
 		$datesArray = array();
+		$timesArray = array();
+
 		foreach($_POST['_locations'] as $l_key => $l_val){
 			$locationsArray[] = $l_val;
 			
 			if(isset($_POST['_location_'.$l_key.'_dates'])){
 				foreach($_POST['_location_'.$l_key.'_dates'] as $d_key => $d_val){
 					$datesArray[] = $d_val;
+					$timesArray[] = $_POST['_location_'.$l_key.'_dates_time'][$d_key];
 				}
 			}
 		}
 		wp_set_object_terms($product_id, $locationsArray, $location );
 		wp_set_object_terms($product_id, $datesArray, $date );
+		wp_set_object_terms($product_id, $timesArray, $time );
+
 
 		
 		$parent_id = $product_id;
@@ -333,6 +351,8 @@ function save_course_option_field( $product_id ) {
 
 			if(isset($_POST['_location_'.$l_key.'_dates'])){
 				foreach($_POST['_location_'.$l_key.'_dates'] as $d_key => $d_val){
+
+					$t_val = $_POST['_location_'.$l_key.'_dates_time'][$d_key];
 
 					//echo $_POST['_location_'.$l_key.'_variation_id'][$d_key].'<br/>';
 
@@ -373,8 +393,13 @@ function save_course_option_field( $product_id ) {
 					$date_value = strtolower($d_val);
 					$date_value = str_replace(' ', '-', $date_value);
 
+					$time_value = strtolower($t_val);
+					$time_value = str_replace(' ', '-', $time_value);
+					
+
 					update_post_meta( $variation_id, 'attribute_' . $location, $location_value );
 					update_post_meta( $variation_id, 'attribute_' . $date, $date_value );
+					update_post_meta( $variation_id, 'attribute_' . $time, $time_value );
 					update_post_meta( $variation_id, '_stock', $_POST['_location_'.$l_key.'_dates_max'][$d_key] );
 					update_post_meta( $variation_id, '_manage_stock', 'yes');
 
