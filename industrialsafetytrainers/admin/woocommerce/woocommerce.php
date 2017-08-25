@@ -326,27 +326,27 @@ function save_course_option_field( $product_id ) {
 
 
 		//print_r($current_variation_ids);
+		//exit;
 
 		foreach($_POST['_locations'] as $l_key => $l_val){
+			//echo '<br/><br/>looping '.$l_val.'<br/>';
+
 			if(isset($_POST['_location_'.$l_key.'_dates'])){
 				foreach($_POST['_location_'.$l_key.'_dates'] as $d_key => $d_val){
 
 					//echo $_POST['_location_'.$l_key.'_variation_id'][$d_key].'<br/>';
 
-					if(isset($_POST['_location_'.$l_key.'_variation_id']) && in_array($_POST['_location_'.$l_key.'_variation_id'][$d_key], $current_variation_ids)){
+					//echo 'checking '.$_POST['_location_'.$l_key.'_variation_id'][$d_key].' is in array';
+					//print_r($current_variation_ids);
+					//echo '<br/><br/>';
+
+					if(in_array($_POST['_location_'.$l_key.'_variation_id'][$d_key], $current_variation_ids)){
 						// The variation id
 						$variation_id = $_POST['_location_'.$l_key.'_variation_id'][$d_key];
 
-						// Remove variation from current variations array.
-
-						$key = array_search($variation_id,$_POST['_location_'.$l_key.'_variation_id']);
-						//echo '$key: '.$key;
-
-						//echo 'unset: '.$key.'<br/>';
+						$key = array_search($variation_id,$current_variation_ids);
 						unset($current_variation_ids[$key]);
-						$current_variation_ids = array_values($current_variation_ids);
-
-						//print_r($current_variation_ids);
+						//$current_variation_ids = array_values($current_variation_ids);
 
 					}else{
 						$variation = array(
@@ -358,8 +358,9 @@ function save_course_option_field( $product_id ) {
 						);
 						// The variation id
 						$variation_id = wp_insert_post( $variation );
+
 					}
-					
+
 
 					// Regular Price ( you can set other data like sku and sale price here )
 					update_post_meta( $variation_id, '_regular_price', $_POST['_location_'.$l_key.'_dates_cost'][$d_key] );
@@ -378,9 +379,11 @@ function save_course_option_field( $product_id ) {
 					update_post_meta( $variation_id, '_manage_stock', 'yes');
 
 					WC_Product_Variable::sync( $parent_id );
+
 				}
 			}
 		}
+
 
 		// REMOVE VARIATIONS THAT NO LONGER EXIST
 		if(!empty($current_variation_ids)){
