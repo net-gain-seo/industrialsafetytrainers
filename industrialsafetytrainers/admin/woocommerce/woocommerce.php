@@ -271,6 +271,15 @@ function save_course_option_field( $product_id ) {
 	$is_course = isset( $_POST['_course'] ) ? 'yes' : 'no';
 	update_post_meta( $product_id, '_course', $is_course );
 
+	$is_online_course = isset( $_POST['_online_course'] ) ? 'yes' : 'no';
+	update_post_meta( $product_id, '_online_course', $is_online_course );
+
+	$is_public_course = isset( $_POST['_public_course'] ) ? 'yes' : 'no';
+	update_post_meta( $product_id, '_public_course', $is_public_course );
+
+	$is_private_course = isset( $_POST['_private_course'] ) ? 'yes' : 'no';
+	update_post_meta( $product_id, '_private_course', $is_private_course );
+
 
 	if(isset($_POST['_locations'])){
 
@@ -444,7 +453,7 @@ add_filter( 'woocommerce_product_data_tabs', 'hide_attributes_data_panel' );
 /**
  * Add product option
  */
-function add_course_product_option( $product_type_options ) {
+function add_course_product_options( $product_type_options ) {
 	$product_type_options['course'] = array(
 		'id'            => '_course',
 		'wrapper_class' => 'show_if_variable',
@@ -452,6 +461,199 @@ function add_course_product_option( $product_type_options ) {
 		'description'   => __( 'Courses allow you to specify location and dates.', 'woocommerce' ),
 		'default'       => 'no'
 	);
+
+	$product_type_options['online_course'] = array(
+		'id'            => '_online_course',
+		'wrapper_class' => 'show_if_variable show_if_simple',
+		'label'         => __( 'Online Course', 'woocommerce' ),
+		'description'   => __( 'Courses allow you to specify location and dates.', 'woocommerce' ),
+		'default'       => 'no'
+	);
+
+	$product_type_options['private_course'] = array(
+		'id'            => '_private_course',
+		'wrapper_class' => 'show_if_variable show_if_simple',
+		'label'         => __( 'Private Course', 'woocommerce' ),
+		'description'   => __( 'Courses allow you to specify location and dates.', 'woocommerce' ),
+		'default'       => 'no'
+	);
+
+	$product_type_options['public_course'] = array(
+		'id'            => '_public_course',
+		'wrapper_class' => 'show_if_variable show_if_simple',
+		'label'         => __( 'Public Course', 'woocommerce' ),
+		'description'   => __( 'Courses allow you to specify location and dates.', 'woocommerce' ),
+		'default'       => 'no'
+	);
+
 	return $product_type_options;
 }
-add_filter( 'product_type_options', 'add_course_product_option' );
+add_filter( 'product_type_options', 'add_course_product_options' );
+
+
+
+/// ADD CUSTOM FIELDS
+function product_add_meta_box() {
+    add_meta_box( 'product_meta_box_course_specs',
+        'Course Specs',
+        'display_product_meta_box_course_specs',
+        'product'
+    );
+
+     add_meta_box( 'product_meta_box_course_outline',
+        'Course Outline',
+        'display_product_meta_box_course_outline',
+        'product'
+    );
+
+      add_meta_box( 'product_meta_box_cost_outline',
+        'Course Cost Outline',
+        'display_product_meta_box_cost_outline',
+        'product'
+    );
+}
+
+add_action( 'admin_init', 'product_add_meta_box' );
+
+function display_product_meta_box_course_specs(){
+	global $post;
+
+    $course_specs =  get_post_meta( $post->ID, 'course_specs', true );
+	wp_editor($course_specs,'course_specs');
+
+
+	echo '<input type="hidden" name="product_flag" value="true" />';
+}
+
+function display_product_meta_box_course_outline(){
+	global $post;
+
+	$course_outline =  get_post_meta( $post->ID, 'course_outline', true );
+	wp_editor($course_outline,'course_outline');
+
+	echo '<input type="hidden" name="product_flag" value="true" />';
+}
+
+function display_product_meta_box_cost_outline(){
+	global $post;
+
+	$cost_outline =  get_post_meta( $post->ID, 'cost_outline', true );
+	wp_editor($cost_outline,'cost_outline');
+
+	echo '<input type="hidden" name="product_flag" value="true" />';
+}
+
+function update_product_meta_box($post_id, $post ){
+    if ( $post->post_type == 'product' ) {
+        if (isset($_POST['product_flag'])) {
+
+            if ( isset( $_POST['course_specs'] ) && $_POST['course_specs'] != '' ) {
+                update_post_meta( $post_id, 'course_specs', $_POST['course_specs'] );
+            }else{
+                update_post_meta( $post_id, 'course_specs', '');
+            }
+
+            if ( isset( $_POST['course_outline'] ) && $_POST['course_outline'] != '' ) {
+                update_post_meta( $post_id, 'course_outline', $_POST['course_outline'] );
+            }else{
+                update_post_meta( $post_id, 'course_outline', '');
+            }
+
+            if ( isset( $_POST['cost_outline'] ) && $_POST['cost_outline'] != '' ) {
+                update_post_meta( $post_id, 'cost_outline', $_POST['cost_outline'] );
+            }else{
+                update_post_meta( $post_id, 'cost_outline', '');
+            }
+
+        }
+    }
+}
+
+add_action( 'save_post', 'update_product_meta_box', 10, 2 );
+
+
+
+
+
+
+
+
+
+
+//TEMPLATE HOOKS
+//remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+//remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+add_action('woocommerce_before_main_content', 'container_tag_start', 10);
+add_action('woocommerce_after_main_content', 'container_tag_end', 100);
+
+function container_tag_start() {
+  echo '<div class="container">';
+}
+
+function container_tag_end() {
+  echo '</div>';
+}
+
+
+//ADD COURSE INFORMATION 
+add_action('woocommerce_after_single_product_summary', 'course_specific_info', 5);
+function course_specific_info(){
+	global $product;
+	$id = $product->get_id();
+
+	$course_outline = get_post_meta($id,'course_outline',true);
+	if($course_outline != ''){
+		echo '<div class="woocommerce-content-box-section">';
+			echo '<h3 class="woocommerce-content-box">Course Outline</h3>';
+			echo $course_outline;
+		echo '</div>';
+	}
+}
+
+
+//ADD TITLE 
+add_action('woocommerce_before_single_product_summary', 'product_title', 5);
+function product_title(){
+	global $product;
+	$id = $product->get_id();
+
+	$title = get_the_title($id);
+	$categories = get_the_terms( $post->ID, 'product_cat' );
+	if ( $categories && ! is_wp_error( $category ) ){
+		foreach($categories as $category){
+			$children = get_categories( array ('taxonomy' => 'product_cat', 'parent' => $category->term_id ));
+			if ( count($children) == 0 ) {
+				// if no children, then echo the category name.
+				$the_category = $category->name;
+			}
+		}
+	}
+
+
+	echo '<div class="woocommerce-title-section">';
+		echo '<h3 class="h3">'.$the_category.'</h3>';
+		echo '<h1 class="h4">'.$title.'</h2>';
+	echo '</div>';
+}
+
+// REMOVE SIDEBAR
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+// REMOVE TITLE AND RATING IN SUMMARY
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+
+
+//ADD TITLE ABOUT SUMMARY
+add_action('woocommerce_single_product_summary', 'woocommerce_single_product_summary_heading', 5);
+function woocommerce_single_product_summary_heading(){
+	global $product;
+	$id = $product->get_id();
+	$is_course = get_post_meta($id,'_course',true);
+
+	if($is_course == 'yes'){
+		echo  '<h2>Course Details</h2>';
+	}else{
+		echo  '<h2>Product Details</h2>';
+	}
+}

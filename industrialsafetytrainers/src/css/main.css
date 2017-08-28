@@ -706,6 +706,38 @@ input, textarea, select {
   .woocommerce input.button.alt:hover {
     background-color: #D49D1C; }
 
+.woocommerce-content-box,
+.summary.entry-summary,
+.woocommerce-title-section {
+  background-color: #F1F2F2;
+  padding: 20px; }
+
+.woocommerce-title-section {
+  margin-bottom: 40px; }
+  .woocommerce-title-section h1 {
+    margin-bottom: 0px; }
+  .woocommerce-title-section h3 {
+    margin-bottom: 5px; }
+
+.woocommerce-content-box-section {
+  position: relative;
+  clear: both;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  float: left;
+  width: 100%; }
+  .woocommerce-content-box-section ul {
+    padding-left: 40px; }
+
+.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover {
+  background-color: #FFD500; }
+
+.woocommerce .star-rating span {
+  color: #D49D1C; }
+
+.woocommerce div.product form.cart .variations select {
+  background-color: #fff; }
+
 @media (max-width: 1199px) {
   .hide-screen-lg-max {
     display: none !important; } }
