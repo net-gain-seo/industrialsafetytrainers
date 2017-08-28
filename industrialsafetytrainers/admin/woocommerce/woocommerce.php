@@ -11,45 +11,6 @@ function hide_empty_categories ( $hide_empty ) {
 
 
 
-
-
-
-
-
-
-/**
- * Register the custom product type after init
-
-function register_course_product_type() {
-	/**
-	 * This should be in its own separate file.
-	class WC_Product_course extends WC_Product_Variable {
-
-		public function __construct( $product ) {
-			$this->product_type = 'course';
-			parent::__construct( $product );
-		}
-
-		public function get_type() {
-			return 'course';
-		}
-
-	}
-}
-add_action( 'init', 'register_course_product_type' );
- */
-
-/**
- * Add to product type drop down.
-
-function add_course_product( $types ){
-	// Key should be exactly the same as in the class
-	$types['course'] = __( 'Course' );
-	return $types;
-}
-add_filter( 'product_type_selector', 'add_course_product' );
- */
-
 /**
  * Show pricing fields for course product.
  */
@@ -592,6 +553,19 @@ function container_tag_start() {
 
 function container_tag_end() {
   echo '</div>';
+
+
+  echo '<div class="container-fluid" style="background-color: #F1F2F2;">';
+	  echo '<div class="container">';
+	  	echo '<p style="text-align:center">To view industry specific information, please visit our websites.</p>';
+	  	echo '<div class="d-flex justify-content-around">';
+	  		echo '<a href="'.get_site_url(1).'"><img src="'.get_stylesheet_directory_uri().'/assets/images/industrial-safety-trainers-logo-white-bg.png" /></a>';
+	  		echo '<a href="'.get_site_url(2).'"><img src="'.get_stylesheet_directory_uri().'/assets/images/construction-safety-trainers-logo-white-bg.png" /></a>';
+	  	echo '</div>';
+	  echo '</div>';
+  echo '</div>';
+
+
 }
 
 
