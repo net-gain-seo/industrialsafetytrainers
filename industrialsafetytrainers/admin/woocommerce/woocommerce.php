@@ -135,20 +135,34 @@ function get_variations($proudct_id){
 	//build our variation array for easier display
 	$var_out = array();
 	foreach($variables as $key => $var){
+
 		$loc_key = $var['attributes']['attribute_pa_location'];
 		// SET location key to array if not already;
 		if(!isset($var_out[$loc_key])){
 			$var_out[$loc_key] = array();
 		}
 
+
+		$meta_attribute_pa_location = get_post_meta( $var['variation_id'], 'attribute_pa_location', true );
+	    $location_term = get_term_by( 'slug', $meta_attribute_pa_location, 'pa_location' );
+	    $location_name = $location_term->name;
+
+	    $meta_attribute_pa_date = get_post_meta( $var['variation_id'], 'attribute_pa_date', true );
+	    $date_term = get_term_by( 'slug', $meta_attribute_pa_date, 'pa_date' );
+	    $date_name = $date_term->name;
+
+	    $meta_attribute_pa_time = get_post_meta( $var['variation_id'], 'attribute_pa_time', true );
+	    $time_term = get_term_by( 'slug', $meta_attribute_pa_time, 'pa_time' );
+	    $time_name = $time_term->name;
+
 		//Store values in location key array
 		$var_out[$loc_key][] = array(
 			'id' 			=> $var['variation_id'],
 			'max_qty'		=> $var['max_qty'],
 			'display_price'	=> $var['display_price'],
-			'location' 		=> $var['attributes']['attribute_pa_location'],
-			'date' 			=> $var['attributes']['attribute_pa_date'],
-			'time' 			=> $var['attributes']['attribute_pa_time']
+			'location' 		=> $location_name,
+			'date' 			=> $date_name,
+			'time' 			=> $time_name
 		);
 	}
 
@@ -357,14 +371,17 @@ function save_course_option_field( $product_id ) {
 					update_post_meta( $variation_id, '_price', $_POST['_location_'.$l_key.'_dates_cost'][$d_key] );
 
 					// Assign the size and color of this variation
-					$location_value = strtolower($l_val);
-					$location_value = str_replace(' ', '-', $location_value);
+					//$location_value = strtolower($l_val);
+					//$location_value = str_replace(' ', '-', $location_value);
+					$location_value = wc_sanitize_taxonomy_name($l_val);
 
-					$date_value = strtolower($d_val);
-					$date_value = str_replace(' ', '-', $date_value);
+					//$date_value = strtolower($d_val);
+					//$date_value = str_replace(' ', '-', $date_value);
+					$date_value = wc_sanitize_taxonomy_name($d_val);
 
-					$time_value = strtolower($t_val);
-					$time_value = str_replace(' ', '-', $time_value);
+					//$time_value = strtolower($t_val);
+					//$time_value = str_replace(' ', '-', $time_value);
+					$time_value = wc_sanitize_taxonomy_name($t_val);
 					
 
 					update_post_meta( $variation_id, 'attribute_' . $location, $location_value );

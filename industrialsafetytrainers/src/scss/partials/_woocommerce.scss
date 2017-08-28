@@ -91,7 +91,8 @@
     background-color: #fff;
 }
 
-.up-sells.upsells.products{
+.up-sells.upsells.products,
+.related.products{
     >h2{
         background-color: #F1F2F2;
         padding: 20px;
@@ -101,7 +102,7 @@
         background-color: #58595B;
 
         h2.woocommerce-loop-product__title{
-            color: #ffffff;
+            color: #ffffff !important;
             line-height: 26px;
         }
         

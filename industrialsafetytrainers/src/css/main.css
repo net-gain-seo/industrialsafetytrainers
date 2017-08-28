@@ -738,25 +738,31 @@ input, textarea, select {
 .woocommerce div.product form.cart .variations select {
   background-color: #fff; }
 
-.up-sells.upsells.products > h2 {
+.up-sells.upsells.products > h2,
+.related.products > h2 {
   background-color: #F1F2F2;
   padding: 20px; }
 
-.up-sells.upsells.products li {
+.up-sells.upsells.products li,
+.related.products li {
   position: relative;
   background-color: #58595B; }
-  .up-sells.upsells.products li h2.woocommerce-loop-product__title {
-    color: #ffffff;
+  .up-sells.upsells.products li h2.woocommerce-loop-product__title,
+  .related.products li h2.woocommerce-loop-product__title {
+    color: #ffffff !important;
     line-height: 26px; }
-  .up-sells.upsells.products li .price {
+  .up-sells.upsells.products li .price,
+  .related.products li .price {
     background-color: #FF0000;
     padding: 5px;
     position: absolute;
     top: 0px;
     right: 0px; }
-    .up-sells.upsells.products li .price span {
+    .up-sells.upsells.products li .price span,
+    .related.products li .price span {
       color: #ffffff; }
-  .up-sells.upsells.products li .add_to_cart_button {
+  .up-sells.upsells.products li .add_to_cart_button,
+  .related.products li .add_to_cart_button {
     margin: 0 auto;
     float: none;
     position: relative;
