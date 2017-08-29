@@ -27,6 +27,12 @@ function course_custom_js() {
 				//jQuery('.variations_options.variations_tab').addClass( 'show_if_course' ).show();
 
 
+				//DATE PICKER
+				jQuery(document).ready(function(){
+					jQuery('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });	
+				});
+
+
 				//Add course Location				
 
 				jQuery('#add-course-location').click(function(){
@@ -58,6 +64,8 @@ function course_custom_js() {
 					html += '</div>';
 
 					jQuery('#course-location-dates').append(html);
+
+
 					return false;
 				});
 
@@ -71,7 +79,7 @@ function course_custom_js() {
 							html += '<input name="_location_'+key+'_variation_id[]" value="" readonly="true" type="hidden" />';
 							html += '<input name="_location_'+key+'_location[]" value="" readonly="true" type="hidden" />';
 						html += '</td>';
-						html += '<td><input type="text" name="_location_'+key+'_dates[]" value="" style="width: 100%" /></td>';
+						html += '<td><input class="datepicker" type="text" name="_location_'+key+'_dates[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_time[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_max[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_cost[]" value="" style="width: 100%" /></td>';
@@ -79,6 +87,11 @@ function course_custom_js() {
 					html += '</tr>';
 
 					jQuery('.tbody-'+key).append(html);
+
+					//re up datepicker
+					jQuery(document).ready(function(){
+						jQuery('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });	
+					});
 
 					return false;
 				});
@@ -213,7 +226,7 @@ function course_options_product_tab_content() {
 												<input name="_location_<?php echo $key; ?>_variation_id[]" value="<?php echo $date['id']; ?>" readonly="true" type="hidden" />
 												<input name="_location_<?php echo $key; ?>_location[]" value="<?php echo $date['location']; ?>" readonly="true" type="hidden" />
 											</td>
-											<td><input type="text" name="_location_<?php echo $key; ?>_dates[]" value="<?php echo $date['date']; ?>" style="width: 100%" /></td>
+											<td><input type="text" class="datepicker" name="_location_<?php echo $key; ?>_dates[]" value="<?php echo $date['date']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_time[]" value="<?php echo $date['time']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_max[]" value="<?php echo $date['max_qty']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_cost[]" value="<?php echo $date['display_price']; ?>" style="width: 100%" /></td>
