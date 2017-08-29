@@ -1034,6 +1034,20 @@ a {
       .product-boxes > div > div h3 {
         color: #ffffff; }
 
+.search_courses_form {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px; }
+  .search_courses_form select, .search_courses_form input {
+    margin: 0 10px; }
+  .search_courses_form select {
+    background-color: #FFD500;
+    border: 1px solid #000;
+    flex-basis: auto; }
+  .search_courses_form input {
+    flex-basis: 0;
+    padding: 0 40px; }
+
 .course-list .course {
   border-top: 1px solid #58595B;
   padding-top: 50px;

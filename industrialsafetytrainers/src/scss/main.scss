@@ -326,7 +326,24 @@ a{
 
 
 
+.search_courses_form{
+	display: flex;
+	justify-content: space-between;
+	padding: 0 60px;
 
+	select,input{
+		margin: 0 10px;
+	}
+	select{
+		background-color: #FFD500;
+		border: 1px solid #000;
+		flex-basis: auto;
+	}
+	input{
+		flex-basis: 0;
+	    padding: 0 40px;
+	}
+}
 
 .course-list{
 
