@@ -7,7 +7,7 @@ function course_details($atts){
         'orderby'   => 'name'
     ), $atts ));
 
-    $current = get_current_site();
+    $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
     switch_to_blog($blog_id);
 
@@ -192,7 +192,7 @@ function course_details($atts){
 
 
 
-    switch_to_blog($current->id);
+    switch_to_blog($current);
     return $return;
 }
 
