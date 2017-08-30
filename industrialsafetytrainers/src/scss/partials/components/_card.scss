@@ -1,0 +1,49 @@
+.card{
+    border: none;
+    .card-header{
+        background-color: $yellow;
+        border-bottom: none;
+
+        h5{
+            a{
+                color: #000000;
+                font-weight: 2.2rem;
+                font-weight: 600;
+                display: block;
+                padding: 20px;
+
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.accordion{
+    margin-top: 50px;
+    .card{
+        margin-bottom: 20px;
+        .card-header{
+            padding:0px; 
+
+            a{
+                &:before{
+                    content: '- ';
+                }
+                &.collapsed{
+                    &:before{
+                        content: '+ ';
+                    }
+                }
+            }
+        }
+
+        .accordion-card-contents{
+            background: #F1F2F2;
+            >div{
+                padding: 40px;
+            }
+        }
+    }
+}

@@ -151,10 +151,6 @@ function get_variations($proudct_id){
 
 		$loc_key = $var['attributes']['attribute_pa_location'];
 		// SET location key to array if not already;
-		if(!isset($var_out[$loc_key])){
-			$var_out[$loc_key] = array();
-		}
-
 
 		$meta_attribute_pa_location = get_post_meta( $var['variation_id'], 'attribute_pa_location', true );
 	    $location_term = get_term_by( 'slug', $meta_attribute_pa_location, 'pa_location' );
@@ -168,8 +164,15 @@ function get_variations($proudct_id){
 	    $time_term = get_term_by( 'slug', $meta_attribute_pa_time, 'pa_time' );
 	    $time_name = $time_term->name;
 
+		if(!isset($var_out[$loc_key])){
+			$var_out[$loc_key] = array();
+			$var_out[$loc_key]['location'] = $location_name;
+			$var_out[$loc_key]['items'] = array();
+		}
+
+
 		//Store values in location key array
-		$var_out[$loc_key][] = array(
+		$var_out[$loc_key]['items'][] = array(
 			'id' 			=> $var['variation_id'],
 			'max_qty'		=> $var['max_qty'],
 			'display_price'	=> $var['display_price'],
@@ -203,7 +206,7 @@ function course_options_product_tab_content() {
 					<?php foreach($var_out as $key => $var){ ?>
 						<div style="margin-bottom: 50px;" class="course-location">
 							<p style="text-align: right;">
-								<input type="text" name="_locations[<?php echo $key; ?>]" value="<?php echo $key; ?>" style="float:left" /> 
+								<input type="text" name="_locations[<?php echo $key; ?>]" value="<?php echo $var_out[$key]['location']; ?>" style="float:left" /> 
 								<button data-key="<?php echo $key; ?>" class="add-course-date button button-primary">Add Date</button> - 
 								<button class="remove-course-location button button-primary">Remove Location</button>
 							</p>
@@ -220,7 +223,7 @@ function course_options_product_tab_content() {
 										</tr>
 									</thead>
 									<tbody class="tbody-<?php echo $key; ?>">
-										<?php foreach($var as $date){ ?>
+										<?php foreach($var['items'] as $date){ ?>
 										<tr>
 											<td><?php echo $date['id']; ?>
 												<input name="_location_<?php echo $key; ?>_variation_id[]" value="<?php echo $date['id']; ?>" readonly="true" type="hidden" />
@@ -332,15 +335,33 @@ function save_course_option_field( $product_id ) {
 
 		// GET CURRENT VARIATIONS AND MAKE SURE WE DONT RE-ADD. 
 		$current_variations = get_variations($product_id);
+
+		echo '<pre>';
+		print_r($current_variations);
+		echo '</pre>';
+		
+
 		$current_variation_ids = array();
-		foreach($current_variations as $var){
-			foreach($var as $v){
-				$current_variation_ids[] = $v['id'];
+		foreach($current_variations as $key => $variations){
+			foreach($variations['items'] as $var){
+				//foreach($var as $v){
+					$current_variation_ids[] = $var['id'];
+				//}
 			}
 		}
 
 
 		//print_r($current_variation_ids);
+		//exit;
+
+		//echo '<br/><br/><br/><br/><pre>';
+		//print_r($_POST['_locations']);
+		//echo '</pre>';
+
+		//echo '<br/><br/><br/><br/><pre>';
+		//print_r($current_variation_ids);
+		//echo '</pre>';
+
 		//exit;
 
 		foreach($_POST['_locations'] as $l_key => $l_val){
@@ -497,9 +518,15 @@ function product_add_meta_box() {
         'product'
     );
 
-      add_meta_box( 'product_meta_box_cost_outline',
+    add_meta_box( 'product_meta_box_cost_outline',
         'Course Cost Outline',
         'display_product_meta_box_cost_outline',
+        'product'
+    );
+
+    add_meta_box( 'product_meta_box_info_sheet',
+        'Info Sheet',
+        'display_product_meta_info_sheet',
         'product'
     );
 }
@@ -534,6 +561,15 @@ function display_product_meta_box_cost_outline(){
 	echo '<input type="hidden" name="product_flag" value="true" />';
 }
 
+function display_product_meta_info_sheet(){
+	global $post;
+
+	$info_sheet =  get_post_meta( $post->ID, 'info_sheet', true );
+	echo '<input type="text" name="info_sheet" value="'.$info_sheet.'" />';
+
+	echo '<input type="hidden" name="product_flag" value="true" />';
+}
+
 function update_product_meta_box($post_id, $post ){
     if ( $post->post_type == 'product' ) {
         if (isset($_POST['product_flag'])) {
@@ -554,6 +590,12 @@ function update_product_meta_box($post_id, $post ){
                 update_post_meta( $post_id, 'cost_outline', $_POST['cost_outline'] );
             }else{
                 update_post_meta( $post_id, 'cost_outline', '');
+            }
+
+            if ( isset( $_POST['info_sheet'] ) && $_POST['info_sheet'] != '' ) {
+                update_post_meta( $post_id, 'info_sheet', $_POST['info_sheet'] );
+            }else{
+                update_post_meta( $post_id, 'info_sheet', '');
             }
 
         }

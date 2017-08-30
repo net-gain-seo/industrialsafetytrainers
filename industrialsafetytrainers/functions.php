@@ -128,6 +128,7 @@ include(TEMPLATEPATH.'/admin/post_types/slider/index.php');
 include(TEMPLATEPATH.'/admin/shortcodes/blog.php');
 include(TEMPLATEPATH.'/admin/shortcodes/product-box.php');
 include(TEMPLATEPATH.'/admin/shortcodes/woocommerce-categories.php');
+include(TEMPLATEPATH.'/admin/shortcodes/course-details.php');
 include(TEMPLATEPATH.'/admin/shortcodes/course-list.php');
 
 //OTHER FUNCTIONS

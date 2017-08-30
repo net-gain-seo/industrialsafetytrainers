@@ -14,6 +14,7 @@
 
 //BOOTSTRAP COMPONENTS
 @import "partials/components/_buttons";
+@import "partials/components/_card";
 
 html{
 	font-size: 10px;
@@ -346,8 +347,6 @@ a{
 }
 
 .course-list{
-
-
 	.course{
 		&:first-child{
 			border-top: none;
@@ -412,3 +411,154 @@ a{
 		}
 	}
 }
+
+
+
+
+
+
+
+.course-category-details{
+	display: flex;
+
+	.category-container{
+		width: 415px;
+		margin-right: 20px;
+	}
+	.course-container{
+		width: 100%;
+		.course-header{
+			background-color: $yellow;
+			margin-bottom: 20px;
+			.course-header-bg{
+				background-image: url('../../assets/images/construction-bg.png');
+				box-shadow: 0px 3px 5px rgba(0,0,0,0.3);
+				background-repeat: repeat-x;
+				height: 62px;
+			}
+
+			.course-header-details{
+				display: flex;
+				justify-content: space-between;
+				padding-left: 20px;
+				h3{
+					//padding-top: 50px;
+					align-self: flex-end;
+
+				}
+				.course-type-container{
+					display: flex;
+					background: #F1F2F2;
+					padding: 20px;
+
+					span{
+						margin-left: 15px;
+						&:first-child{
+							margin-left: 0px;
+						}
+					}
+				}
+			}
+
+		}
+
+		.course-detail{
+			padding: 20px;
+		}
+
+	}
+
+
+	.course-register-links{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+
+		*{
+			margin: 0 10px;
+		}
+	}
+}
+
+.course-type-public{
+	width: 62px;
+	height: 62px;
+	display: block;
+	background-image: url('../../assets/images/course-public.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.course-type-private{
+	width: 62px;
+	height: 62px;
+	display: block;
+	background-image: url('../../assets/images/course-private.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.category-list{
+	list-style: none;
+	padding: 0px;
+	>li{
+		position: relative;
+		>a{
+			position: relative;
+			color: #000000;
+			font-size: 2.0rem;
+			font-weight: 600;
+			display: block;
+			padding: 5px;
+			text-decoration: none;
+			margin-bottom: 10px;
+
+			&:hover{
+				background-color: #D1D3D4;
+			}
+
+			&:not(.collapsed){
+				background-color: #D1D3D4;
+			}
+		}
+
+
+
+		>ul{
+			list-style: none;
+			padding: 0px;
+			padding-left: 45px;
+			>li{
+				position: relative;
+				>a{
+					position: relative;
+					color: #000000;
+					font-size: 2.0rem;
+					font-weight: 100;
+					padding: 5px;
+					display: block;
+					margin-bottom: 10px;
+
+					&:before{
+					    content: '';
+					    width: 0;
+					    height: 0;
+					    border-top: 7px solid transparent;
+					    border-bottom: 7px solid transparent;
+					    border-left: 12px solid #FFD500;
+					    position: absolute;
+					    top: 11px;
+					    left: -15px;
+					}
+
+					&:hover,
+					&.active{
+						text-decoration: none;
+						background-color: #FFD500;
+					}
+				}
+			}
+		}
+	}
+}
+

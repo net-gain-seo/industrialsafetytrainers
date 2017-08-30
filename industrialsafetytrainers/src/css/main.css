@@ -845,6 +845,35 @@ input, textarea, select {
     border-color: #333333;
     color: #ffffff; }
 
+.card {
+  border: none; }
+  .card .card-header {
+    background-color: #FFD500;
+    border-bottom: none; }
+    .card .card-header h5 a {
+      color: #000000;
+      font-weight: 2.2rem;
+      font-weight: 600;
+      display: block;
+      padding: 20px; }
+      .card .card-header h5 a:hover {
+        text-decoration: none; }
+
+.accordion {
+  margin-top: 50px; }
+  .accordion .card {
+    margin-bottom: 20px; }
+    .accordion .card .card-header {
+      padding: 0px; }
+      .accordion .card .card-header a:before {
+        content: '- '; }
+      .accordion .card .card-header a.collapsed:before {
+        content: '+ '; }
+    .accordion .card .accordion-card-contents {
+      background: #F1F2F2; }
+      .accordion .card .accordion-card-contents > div {
+        padding: 40px; }
+
 html {
   font-size: 10px;
   line-height: 10px; }
@@ -1092,5 +1121,105 @@ a {
         background-position: center; }
       .course-list .course .course-header .course-title span + span:before {
         background-image: url("../../assets/images/course-location.png"); }
+
+.course-category-details {
+  display: flex; }
+  .course-category-details .category-container {
+    width: 415px;
+    margin-right: 20px; }
+  .course-category-details .course-container {
+    width: 100%; }
+    .course-category-details .course-container .course-header {
+      background-color: #FFD500;
+      margin-bottom: 20px; }
+      .course-category-details .course-container .course-header .course-header-bg {
+        background-image: url("../../assets/images/construction-bg.png");
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+        background-repeat: repeat-x;
+        height: 62px; }
+      .course-category-details .course-container .course-header .course-header-details {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 20px; }
+        .course-category-details .course-container .course-header .course-header-details h3 {
+          align-self: flex-end; }
+        .course-category-details .course-container .course-header .course-header-details .course-type-container {
+          display: flex;
+          background: #F1F2F2;
+          padding: 20px; }
+          .course-category-details .course-container .course-header .course-header-details .course-type-container span {
+            margin-left: 15px; }
+            .course-category-details .course-container .course-header .course-header-details .course-type-container span:first-child {
+              margin-left: 0px; }
+    .course-category-details .course-container .course-detail {
+      padding: 20px; }
+  .course-category-details .course-register-links {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .course-category-details .course-register-links * {
+      margin: 0 10px; }
+
+.course-type-public {
+  width: 62px;
+  height: 62px;
+  display: block;
+  background-image: url("../../assets/images/course-public.png");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.course-type-private {
+  width: 62px;
+  height: 62px;
+  display: block;
+  background-image: url("../../assets/images/course-private.png");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.category-list {
+  list-style: none;
+  padding: 0px; }
+  .category-list > li {
+    position: relative; }
+    .category-list > li > a {
+      position: relative;
+      color: #000000;
+      font-size: 2.0rem;
+      font-weight: 600;
+      display: block;
+      padding: 5px;
+      text-decoration: none;
+      margin-bottom: 10px; }
+      .category-list > li > a:hover {
+        background-color: #D1D3D4; }
+      .category-list > li > a:not(.collapsed) {
+        background-color: #D1D3D4; }
+    .category-list > li > ul {
+      list-style: none;
+      padding: 0px;
+      padding-left: 45px; }
+      .category-list > li > ul > li {
+        position: relative; }
+        .category-list > li > ul > li > a {
+          position: relative;
+          color: #000000;
+          font-size: 2.0rem;
+          font-weight: 100;
+          padding: 5px;
+          display: block;
+          margin-bottom: 10px; }
+          .category-list > li > ul > li > a:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 12px solid #FFD500;
+            position: absolute;
+            top: 11px;
+            left: -15px; }
+          .category-list > li > ul > li > a:hover, .category-list > li > ul > li > a.active {
+            text-decoration: none;
+            background-color: #FFD500; }
 
 /*# sourceMappingURL=main.css.map */
