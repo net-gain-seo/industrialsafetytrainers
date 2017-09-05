@@ -3,8 +3,8 @@
 
 @import "partials/_header";
 @import "partials/_main_menu";
-@import "partials/_banner_slider"; 
-@import "partials/_blog"; 
+@import "partials/_banner_slider";
+@import "partials/_blog";
 @import "partials/_form";
 @import "partials/_testimonials";
 @import "partials/_footer";
@@ -43,4 +43,40 @@
 	>div{
 		background: #231F20;
 	}
+}
+
+
+.product-boxes-images{
+    justify-content: space-between;
+    margin-bottom: 0px;
+    flex-wrap: wrap;
+    text-align: center;
+    display: inline-block;
+	>div{
+		background: #231F20;
+    width: 29%;
+    margin-right: 40px;
+    margin-top: 40px;
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    flex-flow: row wrap;
+    min-height: 280px;
+    float: left;
+			h3{
+				color: #ffffff;
+				font-size: 20px;
+			}
+			a{
+				margin-bottom: 20px;
+			}
+		}
+}
+.viewcourses{
+	font-size: 20px;
+	display: table;
+	float: none;
+	margin: auto;
+	padding: 15px 20px;
+	margin-bottom: 60px;
 }

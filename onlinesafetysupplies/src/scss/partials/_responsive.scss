@@ -1,0 +1,8 @@
+@media (max-width: $screen-sm-max) {
+  #mainMenu > #menu-main-menu > li.dropdown > ul li.dropdown-submenu:hover > .dropdown-menu {
+      display: block;
+      position: relative;
+      left: 0%;
+      top: 0px;
+  }
+}

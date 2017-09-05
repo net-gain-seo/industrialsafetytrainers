@@ -3,8 +3,8 @@
 
 @import "partials/_header";
 @import "partials/_main_menu";
-@import "partials/_banner_slider"; 
-@import "partials/_blog"; 
+@import "partials/_banner_slider";
+@import "partials/_blog";
 @import "partials/_form";
 @import "partials/_testimonials";
 @import "partials/_footer";
@@ -42,5 +42,8 @@
 .product-boxes{
 	>div{
 		background: #000000;
+	}
+	img{
+		width: 100%;
 	}
 }

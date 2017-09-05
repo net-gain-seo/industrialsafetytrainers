@@ -3,8 +3,8 @@
 
 @import "partials/_header";
 @import "partials/_main_menu";
-@import "partials/_banner_slider"; 
-@import "partials/_blog"; 
+@import "partials/_banner_slider";
+@import "partials/_blog";
 @import "partials/_form";
 @import "partials/_testimonials";
 @import "partials/_footer";
@@ -77,7 +77,7 @@ a{
 		font-size: 2.5rem;
 		font-weight: 600;
 		font-style: italic;
-		margin: 0 40px; 
+		margin: 0 40px;
 	}
 
 	@media (max-width: $screen-md-max) {
@@ -320,12 +320,45 @@ a{
 				color: #ffffff;
 			}
 
-		}	
+		}
 
 	}
 }
 
+.product-boxes-images{
+    justify-content: space-between;
+    margin-bottom: 0px;
+    flex-wrap: wrap;
+    text-align: center;
+    display: inline-block;
 
+	>div{
+		background: #58595B;
+    width: 29%;
+    margin-right: 40px;
+    margin-top: 40px;
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    flex-flow: row wrap;
+    min-height: 280px;
+    float: left;
+			h3{
+				color: #ffffff;
+			}
+			a{
+				margin-bottom: 20px;
+			}
+		}
+}
+.viewcourses{
+	font-size: 20px;
+	display: table;
+	float: none;
+	margin: auto;
+	padding: 15px 20px;
+	margin-bottom: 60px;
+}
 
 .search_courses_form{
 	display: flex;
@@ -377,7 +410,7 @@ a{
 					flex-grow: 1;
 					+span{
 						background: #000000;
-						color: #ffffff;	
+						color: #ffffff;
 					}
 				}
 			}
@@ -481,6 +514,26 @@ a{
 	}
 }
 
+
+
+.course-category-details .category-container {
+    width: 415px;
+    margin-right: 20px;
+    background-color: #F1F2F2;
+    padding-top: 65px;
+    margin-top: -60px;
+    padding-bottom: 40px;
+    margin-bottom: -40px;
+}
+.category-background {
+    position: absolute;
+    height: 105%;
+    left: -80%;
+    width: 85%;
+    top: -20px;
+    background-color: #F1F2F2;
+}
+
 .course-type-public{
 	width: 62px;
 	height: 62px;
@@ -561,4 +614,19 @@ a{
 		}
 	}
 }
-
+@media (max-width: $screen-sm-max) {
+	.product-boxes > div {
+		width: 100%!important;
+	}
+	.category-background {
+			background-color: none;
+			display: none;
+	}
+	.course-category-details .category-container {
+	    width: 100%;
+	    display: block;
+	}
+	.course-category-details {
+	    display: block;
+	}
+}

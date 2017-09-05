@@ -102,6 +102,13 @@ form > div.form-header {
 .footer-copy {
   background: #000000; }
 
+@media (max-width: 767px) {
+  #mainMenu > #menu-main-menu > li.dropdown > ul li.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+    position: relative;
+    left: 0%;
+    top: 0px; } }
+
 .constuction-hat {
   background: url("../../assets/images/constuction-hat.png");
   background-repeat: no-repeat;
@@ -118,5 +125,8 @@ form > div.form-header {
 
 .product-boxes > div {
   background: #000000; }
+
+.product-boxes img {
+  width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

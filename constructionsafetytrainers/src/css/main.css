@@ -111,4 +111,35 @@ form > div.form-header {
 .product-boxes > div {
   background: #231F20; }
 
+.product-boxes-images {
+  justify-content: space-between;
+  margin-bottom: 0px;
+  flex-wrap: wrap;
+  text-align: center;
+  display: inline-block; }
+  .product-boxes-images > div {
+    background: #231F20;
+    width: 29%;
+    margin-right: 40px;
+    margin-top: 40px;
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    flex-flow: row wrap;
+    min-height: 280px;
+    float: left; }
+    .product-boxes-images > div h3 {
+      color: #ffffff;
+      font-size: 20px; }
+    .product-boxes-images > div a {
+      margin-bottom: 20px; }
+
+.viewcourses {
+  font-size: 20px;
+  display: table;
+  float: none;
+  margin: auto;
+  padding: 15px 20px;
+  margin-bottom: 60px; }
+
 /*# sourceMappingURL=main.css.map */
