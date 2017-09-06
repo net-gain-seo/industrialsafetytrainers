@@ -1063,6 +1063,36 @@ a {
       .product-boxes > div > div h3 {
         color: #ffffff; }
 
+.product-boxes-images {
+  justify-content: space-between;
+  margin-bottom: 0px;
+  flex-wrap: wrap;
+  text-align: center;
+  display: inline-block; }
+  .product-boxes-images > div {
+    background: #58595B;
+    width: 29%;
+    margin-right: 40px;
+    margin-top: 40px;
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    flex-flow: row wrap;
+    min-height: 280px;
+    float: left; }
+    .product-boxes-images > div h3 {
+      color: #ffffff; }
+    .product-boxes-images > div a {
+      margin-bottom: 20px; }
+
+.viewcourses {
+  font-size: 20px;
+  display: table;
+  float: none;
+  margin: auto;
+  padding: 15px 20px;
+  margin-bottom: 60px; }
+
 .search_courses_form {
   display: flex;
   justify-content: space-between;
@@ -1160,6 +1190,23 @@ a {
     .course-category-details .course-register-links * {
       margin: 0 10px; }
 
+.course-category-details .category-container {
+  width: 415px;
+  margin-right: 20px;
+  background-color: #F1F2F2;
+  padding-top: 65px;
+  margin-top: -60px;
+  padding-bottom: 40px;
+  margin-bottom: -40px; }
+
+.category-background {
+  position: absolute;
+  height: 105%;
+  left: -80%;
+  width: 85%;
+  top: -20px;
+  background-color: #F1F2F2; }
+
 .course-type-public {
   width: 62px;
   height: 62px;
@@ -1221,5 +1268,17 @@ a {
           .category-list > li > ul > li > a:hover, .category-list > li > ul > li > a.active {
             text-decoration: none;
             background-color: #FFD500; }
+
+@media (max-width: 767px) {
+  .product-boxes > div {
+    width: 100% !important; }
+  .category-background {
+    background-color: none;
+    display: none; }
+  .course-category-details .category-container {
+    width: 100%;
+    display: block; }
+  .course-category-details {
+    display: block; } }
 
 /*# sourceMappingURL=main.css.map */

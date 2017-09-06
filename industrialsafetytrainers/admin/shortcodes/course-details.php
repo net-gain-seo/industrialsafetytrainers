@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function course_details($atts){
 	extract( shortcode_atts( array(
@@ -13,7 +13,7 @@ function course_details($atts){
 
 
 
-    $return = '';	
+    $return = '';
 
     $args = array(
          'hide_empty'   => 0,
@@ -24,9 +24,9 @@ function course_details($atts){
 
     $return .= '<div class="container-fluid">';
         $return .= '<div class="container course-category-details">';
-            
             $return .= '<div class="category-container">';
-                $return .= '<ul class="category-list">';    
+								$return .= '<div class="category-background"></div>';
+                $return .= '<ul class="category-list">';
                 foreach ($terms as $term) {
 
                     $args = array(
@@ -88,8 +88,8 @@ function course_details($atts){
                         $return .= '<div class="course-header-details">';
                             $return .= '<h3>COURSE SUMMARY</h3>';
                             $return .= '<div class="course-type-container">';
-                                $_public_course = get_post_meta($current_product[0]->ID,'_public_course',true); 
-                                $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true); 
+                                $_public_course = get_post_meta($current_product[0]->ID,'_public_course',true);
+                                $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
 
                                 if($_public_course == 'yes'){ $return .= '<span class="course-type-public"></span>'; }
                                 if($_private_course == 'yes'){ $return .= '<span class="course-type-private"></span>'; }
@@ -106,8 +106,8 @@ function course_details($atts){
 
 
                         // COURSE SPECS
-                        $course_specs = get_post_meta($current_product[0]->ID,'course_specs',true); 
-                        if($course_specs != ''){  
+                        $course_specs = get_post_meta($current_product[0]->ID,'course_specs',true);
+                        if($course_specs != ''){
                             $return .= '<div class="card">';
                                 $return .= '<div class="card-header" role="tab">';
                                     $return .= '<h5 class="mb-0">';
@@ -126,7 +126,7 @@ function course_details($atts){
 
 
                         // COURSE OUTLINE
-                        $course_outline = get_post_meta($current_product[0]->ID,'course_outline',true); 
+                        $course_outline = get_post_meta($current_product[0]->ID,'course_outline',true);
 
                         if($course_outline != ''){
                             $return .= '<div class="card">';
@@ -146,7 +146,7 @@ function course_details($atts){
 
 
                         // COURSE COST OUTLINE
-                        $cost_outline = get_post_meta($current_product[0]->ID,'cost_outline',true); 
+                        $cost_outline = get_post_meta($current_product[0]->ID,'cost_outline',true);
 
                         if($cost_outline != ''){
                             $return .= '<div class="card">';
@@ -176,7 +176,7 @@ function course_details($atts){
                             $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-warning">REQUEST INFORMATION</a></div>';
                         }
 
-                        $info_sheet = get_post_meta($current_product[0]->ID,'info_sheet',true); 
+                        $info_sheet = get_post_meta($current_product[0]->ID,'info_sheet',true);
                         if($info_sheet != ''){
                         $return .= '<a href="'.$info_sheet.'" title="'.$current_product[0]->post_title.' Info Sheet" class="pdf-download d-flex align-items-center " target="_blank"><img src="http://localhost:81/industrialsafetytrainers/wp-content/themes/industrialsafetytrainers/assets/images/pdf-download.png"><span class="pdf-download-download">Download Info Sheet</span></a>';
                         }
