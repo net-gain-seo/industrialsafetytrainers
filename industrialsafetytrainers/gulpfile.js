@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
-var notify = require('gulp-notify');
 
 // theme directory
 var themeDir = 'ngstacks';
@@ -30,22 +29,11 @@ var sassOptions = {
 //   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 // };
 
-// Notification on sass compilation error
-var cssError = function (err) {
-    notify({
-         title: 'CSS Error',
-         message: 'Sass not compiled. Check the console.',
-         sound: false
-     }).write(err);
-     console.log(err.toString());
-     this.emit('end'); // automatically closes the notification after a few seconds and continues the processing
-};
-
 gulp.task('sass', function () {
   return gulp
     .src(cssSrc)
     .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on('error', cssError))
+    .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(sourcemaps.write('./'))
     // .pipe(autoprefixer()) // use default options (see above)
     .pipe(gulp.dest(cssDest));
