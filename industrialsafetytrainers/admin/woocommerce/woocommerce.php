@@ -524,11 +524,12 @@ function product_add_meta_box() {
         'product'
     );
 
-    add_meta_box( 'product_meta_box_info_sheet',
-        'Info Sheet',
-        'display_product_meta_info_sheet',
+    add_meta_box( 'product_meta_box_additional_options',
+        'Additional Options',
+        'display_product_meta_additional_options',
         'product'
     );
+
 }
 
 add_action( 'admin_init', 'product_add_meta_box' );
@@ -561,14 +562,21 @@ function display_product_meta_box_cost_outline(){
 	echo '<input type="hidden" name="product_flag" value="true" />';
 }
 
-function display_product_meta_info_sheet(){
+function display_product_meta_additional_options(){
 	global $post;
 
 	$info_sheet =  get_post_meta( $post->ID, 'info_sheet', true );
-	echo '<input type="text" name="info_sheet" value="'.$info_sheet.'" />';
+	echo '<p>Info Sheet: <input type="text" name="info_sheet" value="'.$info_sheet.'" /></p>';
+
+	$course_into_pdf =  get_post_meta( $post->ID, 'course_into_pdf', true );
+	echo '<p>Course Into PDF: <input type="text" name="course_into_pdf" value="'.$course_into_pdf.'" /></p>';
+
+	$demo_url =  get_post_meta( $post->ID, 'demo_url', true );
+	echo '<p>Demo URL: <input type="text" name="demo_url" value="'.$demo_url.'" /></p>';
 
 	echo '<input type="hidden" name="product_flag" value="true" />';
 }
+
 
 function update_product_meta_box($post_id, $post ){
     if ( $post->post_type == 'product' ) {
@@ -596,6 +604,18 @@ function update_product_meta_box($post_id, $post ){
                 update_post_meta( $post_id, 'info_sheet', $_POST['info_sheet'] );
             }else{
                 update_post_meta( $post_id, 'info_sheet', '');
+            }
+
+            if ( isset( $_POST['course_into_pdf'] ) && $_POST['course_into_pdf'] != '' ) {
+                update_post_meta( $post_id, 'course_into_pdf', $_POST['course_into_pdf'] );
+            }else{
+                update_post_meta( $post_id, 'course_into_pdf', '');
+            }
+
+            if ( isset( $_POST['demo_url'] ) && $_POST['demo_url'] != '' ) {
+                update_post_meta( $post_id, 'demo_url', $_POST['demo_url'] );
+            }else{
+                update_post_meta( $post_id, 'demo_url', '');
             }
 
         }
@@ -701,5 +721,33 @@ function woocommerce_single_product_summary_heading(){
 		echo  '<h2>Course Details</h2>';
 	}else{
 		echo  '<h2>Product Details</h2>';
+	}
+}
+
+
+
+
+// ADD INFO SHEET AND DEMO URL
+add_action('woocommerce_after_add_to_cart_button','add_info_demo_buttons',10);
+function add_info_demo_buttons(){
+	global $product;
+	$id = $product->get_id();
+	$course_into_pdf = get_post_meta($id,'course_into_pdf',true);
+	$demo_url = get_post_meta($id,'demo_url',true);
+
+	if($course_into_pdf != '' || $demo_url != ''){
+		echo '<p>';
+	}
+
+		if($course_into_pdf != ''){
+			echo '<a href="'.$course_into_pdf.'" target="_blank" class="button alt" style="margin-right:10px">Course Into PDF</a>';
+		}
+
+		if($demo_url != ''){
+			echo '<a href="'.$demo_url.'" target="_blank" class="button alt" style="margin-right:10px">Demo Request</a>';
+		}
+
+	if($course_into_pdf != '' || $demo_url != ''){
+		echo '</p>';
 	}
 }

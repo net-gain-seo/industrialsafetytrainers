@@ -778,6 +778,12 @@ input, textarea, select {
 .woocommerce-info::before {
   color: #D49D1C; }
 
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+  width: 26%; }
+
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+  width: 73%; }
+
 @media (max-width: 1199px) {
   .hide-screen-lg-max {
     display: none !important; } }
