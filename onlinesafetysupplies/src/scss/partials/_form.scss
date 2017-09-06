@@ -6,3 +6,40 @@ form{
 		}
 	}
 }
+#coupon_code{
+	width: 100%;
+	margin-bottom: 5px;
+}
+.coupon {
+    float: left;
+		max-width: 100%;
+}
+.woocommerce .cart .button, .woocommerce .cart input.button {
+    float: none;
+    margin-bottom: 5px;
+}
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1 {
+    float: left;
+    width: 100%!important;
+}
+.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+    float: left!important;
+    width: 100%!important;
+}
+#customer_details .col-1, #customer_details .col-2, .addresses .col-2, .addresses .col-1 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.woocommerce form .form-row .required {
+    color: red;
+    font-weight: 700;
+    border: 0;
+    text-decoration: none;
+}
+.woocommerce-page table.cart td.actions .coupon .input-text+.button {
+    float: left;
+    width: 100%;
+}
