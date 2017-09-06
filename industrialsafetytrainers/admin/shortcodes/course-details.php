@@ -4,7 +4,9 @@ function course_details($atts){
 	extract( shortcode_atts( array(
         'blog_id'   => 3,
         'parent'    => 0,
-        'orderby'   => 'name'
+        'orderby'   => 'name',
+        'single_category'  => '',
+        'slug'      => 'safety-training-course'
     ), $atts ));
 
     $current = get_current_blog_id();
@@ -16,9 +18,9 @@ function course_details($atts){
     $return = '';
 
     $args = array(
-         'hide_empty'   => 0,
-         'orderby'      => $orderby,
-         'parent'       => $parent
+         'hide_empty'       => 0,
+         'orderby'          => $orderby,
+         'parent'           => $parent
     );
     $terms = get_terms('product_cat',$args);
 
@@ -27,7 +29,48 @@ function course_details($atts){
             $return .= '<div class="category-container">';
 								$return .= '<div class="category-background"></div>';
                 $return .= '<ul class="category-list">';
-                foreach ($terms as $term) {
+
+                if($single_category != 'true'){
+                    foreach ($terms as $term) {
+
+                        $args = array(
+                            'post_type'             => 'product',
+                            'post_status'           => 'publish',
+                            'posts_per_page'        => -1,
+                            'tax_query'             => array(
+                                array(
+                                    'taxonomy'      => 'product_cat',
+                                    'field'         => 'term_id',
+                                    'terms'         =>  $term->term_id,
+                                    'operator'      => 'IN'
+                                )
+                            )
+                        );
+                        $products = get_posts($args);
+                        if(!empty($products)){
+
+
+                            $isActive = false;
+                            foreach($products as $product){
+                                if(isset($_GET['course']) && $_GET['course'] == $product->post_name){
+                                    $isActive = true;
+                                    break;
+                                }
+                            }
+
+                            $return .= '<li>';
+                                 $return .= '<a data-toggle="collapse" data-target="#product-category-'.$term->slug.'" href="#" class="'.((!$isActive)?"collapsed":"").'">+ '.$term->name.'</a>';
+                                if(!empty($products)){
+                                    $return .= '<ul id="product-category-'.$term->slug.'" class="'.((!$isActive)?"collapse":"").'">';
+                                    foreach($products as $product){
+                                        $return .= '<li><a class="'.((isset($_GET['course']) && $_GET['course'] == $product->post_name)?"active":"").'" href="'.$currentBlogUrl.'/'.$slug.'/?course='.$product->post_name.'">'.$product->post_title.'</a></li>';
+                                    }
+                                    $return .= '</ul>';
+                                }
+                            $return .= '</li>';
+                        }
+                    }
+                }else{
 
                     $args = array(
                         'post_type'             => 'product',
@@ -37,29 +80,21 @@ function course_details($atts){
                             array(
                                 'taxonomy'      => 'product_cat',
                                 'field'         => 'term_id',
-                                'terms'         =>  $term->term_id,
+                                'terms'         =>  $parent,
                                 'operator'      => 'IN'
                             )
                         )
                     );
                     $products = get_posts($args);
                     if(!empty($products)){
-
-
-                        $isActive = false;
-                        foreach($products as $product){
-                            if(isset($_GET['course']) && $_GET['course'] == $product->post_name){
-                                $isActive = true;
-                                break;
-                            }
-                        }
+                        $isActive = true;
 
                         $return .= '<li>';
-                             $return .= '<a data-toggle="collapse" data-target="#product-category-'.$term->slug.'" href="#" class="'.((!$isActive)?"collapsed":"").'">+ '.$term->name.'</a>';
+                             //$return .= '<a data-toggle="collapse" data-target="#product-category-'.$term->slug.'" href="#" class="'.((!$isActive)?"collapsed":"").'">+ '.$term->name.'</a>';
                             if(!empty($products)){
                                 $return .= '<ul id="product-category-'.$term->slug.'" class="'.((!$isActive)?"collapse":"").'">';
                                 foreach($products as $product){
-                                    $return .= '<li><a class="'.((isset($_GET['course']) && $_GET['course'] == $product->post_name)?"active":"").'" href="'.$currentBlogUrl.'/safety-training-course/?course='.$product->post_name.'">'.$product->post_title.'</a></li>';
+                                    $return .= '<li><a class="'.((isset($_GET['course']) && $_GET['course'] == $product->post_name)?"active":"").'" href="'.$currentBlogUrl.'/'.$slug.'/?course='.$product->post_name.'">'.$product->post_title.'</a></li>';
                                 }
                                 $return .= '</ul>';
                             }
