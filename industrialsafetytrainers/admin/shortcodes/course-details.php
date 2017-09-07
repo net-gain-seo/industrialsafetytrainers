@@ -125,9 +125,12 @@ function course_details($atts){
                             $return .= '<div class="course-type-container">';
                                 $_public_course = get_post_meta($current_product[0]->ID,'_public_course',true);
                                 $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
+                                $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
 
                                 if($_public_course == 'yes'){ $return .= '<span class="course-type-public"></span>'; }
                                 if($_private_course == 'yes'){ $return .= '<span class="course-type-private"></span>'; }
+                                if($_online_course == 'yes'){ $return .= '<span class="course-type-online"></span>'; }
+
                             $return .= '</div>';
                         $return .= '</div>';
                     $return .= '</div>';
@@ -203,12 +206,31 @@ function course_details($atts){
 
 
                     $return .= '<div class="course-register-links">';
+                        $_product = wc_get_product( $current_product[0]->ID );
+
                         if($_public_course == 'yes'){
                             $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">REGISTER NOW</a></div>';
                         }
 
                         if($_private_course == 'yes'){
                             $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-warning">REQUEST INFORMATION</a></div>';
+                        }
+
+
+                        $demo_url = get_post_meta($current_product[0]->ID,'demo_url',true);
+                        if($demo_url != ''){
+                            $return .= '<div><a href="'.$demo_url.'" target="_blank" class="btn btn-warning">DEMO REQUEST</a></div>';
+                        }
+
+                        if($_online_course == 'yes'){
+                            if( $_product->is_type( 'external' ) ){
+                                $_product_url = get_post_meta($current_product[0]->ID,'_product_url',true);
+                                
+                                $return .= '<div><a href="'.$_product_url.'" class="btn btn-danger" target="_blank">PURCHASE COURSE</a></div>';
+                            }else{
+                                $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">PURCHASE COURSE</a></div>';
+                            }
+                            
                         }
 
                         $info_sheet = get_post_meta($current_product[0]->ID,'info_sheet',true);

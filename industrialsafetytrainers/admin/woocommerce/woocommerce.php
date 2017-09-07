@@ -445,7 +445,7 @@ function save_course_option_field( $product_id ) {
 
 }
 add_action( 'woocommerce_process_product_meta_variable', 'save_course_option_field'  );
-//add_action( 'woocommerce_process_product_meta_variable_course', 'save_course_option_field'  );
+add_action( 'woocommerce_process_product_meta_external', 'save_course_option_field'  );
 
 
 
@@ -476,7 +476,7 @@ function add_course_product_options( $product_type_options ) {
 
 	$product_type_options['online_course'] = array(
 		'id'            => '_online_course',
-		'wrapper_class' => 'show_if_variable show_if_simple',
+		'wrapper_class' => 'show_if_variable show_if_simple, show_if_external',
 		'label'         => __( 'Online Course', 'woocommerce' ),
 		'description'   => __( 'Courses allow you to specify location and dates.', 'woocommerce' ),
 		'default'       => 'no'
