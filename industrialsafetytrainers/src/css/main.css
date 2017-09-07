@@ -1252,6 +1252,7 @@ a {
   left: -80%;
   width: 85%;
   top: -20px;
+  z-index: -1;
   background-color: #F1F2F2; }
 
 .course-type-public {
