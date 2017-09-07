@@ -338,6 +338,7 @@ body.sticky-header header {
   width: 50%; }
 
 .post-article > img {
+  align-self: center;
   margin-left: 20px; }
 
 .nav-next {
