@@ -13,6 +13,7 @@
 
 //BOOTSTRAP COMPONENTS
 @import "partials/components/_buttons";
+@import "partials/components/_card";
 
 
 
@@ -79,4 +80,43 @@
 	margin: auto;
 	padding: 15px 20px;
 	margin-bottom: 60px;
+}
+
+
+
+
+.course-category-details{
+	.course-container{
+		.course-header{
+			background-color: $orange;
+			.course-header-bg{
+				background-image: url('../../assets/images/construction-bg.png');
+			}
+		}
+	}
+}
+
+
+
+
+
+
+.category-list{
+	>li{
+
+		>ul{
+			>li{
+				>a{
+					&:before{
+					    border-left: 12px solid $orange;
+					}
+
+					&:hover,
+					&.active{
+						background-color: $orange;
+					}
+				}
+			}
+		}
+	}
 }

@@ -1268,7 +1268,7 @@ a {
         .category-list > li > ul > li > a {
           position: relative;
           color: #000000;
-          font-size: 2.0rem;
+          font-size: 1.6rem;
           font-weight: 100;
           padding: 5px;
           display: block;
@@ -1282,7 +1282,9 @@ a {
             border-left: 12px solid #FFD500;
             position: absolute;
             top: 11px;
-            left: -15px; }
+            left: -22px;
+            top: 50%;
+            margin-top: -8px; }
           .category-list > li > ul > li > a:hover, .category-list > li > ul > li > a.active {
             text-decoration: none;
             background-color: #FFD500; }

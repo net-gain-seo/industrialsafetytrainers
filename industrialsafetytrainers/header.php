@@ -123,9 +123,18 @@
 				</div>
 
 		    </nav>
-		    <?php if(get_current_blog_id() != 3){ ?>
-			    <a href="#" class="btn btn-danger">SAFETY SUPPLIES</a>
-		    <?php }else{ ?>
+		    <?php if(get_current_blog_id() != 3){ 
+		    	if(get_current_blog_id() == 2){
+		    		?>
+		    		<a href="#" class="btn btn-danger">SHOP NOW</a>
+		    		<?php
+		    	}else{
+		    		?>
+		    		<a href="#" class="btn btn-danger">SAFETY SUPPLIES</a>
+		    	<?php
+		    	}
+			    
+		    }else{ ?>
 
 		    <?php } ?>
 	    </div>
