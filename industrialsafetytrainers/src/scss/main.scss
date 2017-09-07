@@ -532,6 +532,7 @@ a{
     left: -80%;
     width: 85%;
     top: -20px;
+		z-index: -1;
     background-color: #F1F2F2;
 }
 
@@ -666,7 +667,7 @@ a{
 			    display: flex;
 			    flex-direction: column;
 			    justify-content: space-between;
-			    
+
 
 			    p{
 			    	font-size: 2.2rem;
