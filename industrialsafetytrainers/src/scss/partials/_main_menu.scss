@@ -43,7 +43,7 @@
 					bottom: 0px;
 					transition: width .4s;
 				}
-			
+
 				&:hover{
 					>a{
 						color: darken(#FFFFFF,20%);
@@ -103,7 +103,7 @@
 				color: #ffffff;
 			    padding: 10px 2.0rem;
 
-				
+
 				&:active,
 				&:focus{
 					background: $primary-color;
@@ -114,7 +114,7 @@
 				>a{
 					background: #58595B;
 				}
-				
+
 			}
 		}
 	}
@@ -141,7 +141,7 @@
 }
 
 
-//RESPONSIVE 
+//RESPONSIVE
 @media (max-width: $screen-lg-max) {
 	#mainMenu{
 		&.collapse{
@@ -153,6 +153,7 @@
 		    height: 100%;
 		    z-index: 999991;
 		    transition:left 0.1s ease;
+				overflow: scroll;
 		}
 		&.collapsing{
 			position: fixed;

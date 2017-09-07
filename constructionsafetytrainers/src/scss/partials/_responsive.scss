@@ -1,0 +1,27 @@
+@media (max-width: $screen-md-max) {
+  .footer-copy {
+      padding: 20px 5px;
+  }
+  .sidebar{
+      display: none;
+  }
+}
+@media (max-width: $screen-sm-max) {
+  #post-18 .btn{
+      width: 100%;
+      display: block;
+      font-size: 1.5rem;
+  }
+	.hide-screen-sm-max{
+		display: none !important;
+	}
+	main{
+		.container-fluid{
+		    padding-right: 30px;
+		    padding-left: 30px;
+		    .container{
+				padding: 40px 0px !important;
+		    }
+		}
+	}
+}

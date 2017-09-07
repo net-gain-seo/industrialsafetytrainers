@@ -19,7 +19,7 @@
 			min-width: 25%;
 			border-left: 1px solid #ffffff;
 			padding: 0 30px;
-		
+
 			ul{
 				margin: 0px;
 				padding: 0px;
@@ -85,13 +85,17 @@
 	font-size: 1.6rem;
 	font-family: "Arial Narrow", Arial, sans-serif;
 	font-weight: 600;
-	padding: 20px 0; 
+	padding: 20px 0;
 }
 
 
 //responsive
+@media (max-width: $screen-md-max) {
+	.footer-copy {
+	    padding: 20px 5px;
+	}
+}
 @media (max-width: $screen-sm-max) {
-
 	.upper-footer{
 		>div{
 			  flex-wrap: wrap;
@@ -107,7 +111,6 @@
 		}
 	}
 }
-
 
 @media (max-width: $screen-xsm-max) {
 

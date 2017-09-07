@@ -13,11 +13,22 @@
 	.hide-screen-md-max{
 		display: none !important;
 	}
-
+	.sidebar{
+			display: none;
+	}
 	.col{
 		min-width: 100%;
 	}
-
+	.course-category-details .course-register-links {
+	    display: inline-block!important;
+	    justify-content: center;
+	    align-items: center;
+			width: 100%;
+	}
+	.course-category-details .course-register-links * {
+	    margin: 5px 0px!important;
+	    width: 100%;
+	}
 }
 
 @media (max-width: $screen-sm-max) {

@@ -16,6 +16,10 @@ a {
   #mainMenu > #menu-main-menu li.current-menu-item > a {
     background: #F6921E; } }
 
+@media (max-width: 991px) {
+  #mainMenu.collapse {
+    overflow: scroll; } }
+
 .banner-section .banner-content > div:first-child {
   background: rgba(246, 146, 30, 0.9); }
 
@@ -49,11 +53,51 @@ a {
 form > div.form-header {
   background-color: #F6921E; }
 
+@media (max-width: 767px) {
+  .wpcf7-form-control-wrap {
+    position: relative;
+    width: 100%; }
+  .contact-page-submit {
+    display: block !important; }
+  .g-recaptcha {
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0; }
+  .contact-page-submit input[type="submit"] {
+    height: 100%;
+    cursor: pointer;
+    display: block;
+    clear: both;
+    float: left; }
+  .contact-page-submit p {
+    width: 100%;
+    margin-left: 0px; } }
+
 .testimonials-wrapper {
   background-image: url(../../assets/images/construction-field.jpg); }
 
 .upper-footer h5 {
   color: #F6921E; }
+
+@media (max-width: 991px) {
+  .footer-copy {
+    padding: 20px 5px; }
+  .sidebar {
+    display: none; } }
+
+@media (max-width: 767px) {
+  #post-18 .btn {
+    width: 100%;
+    display: block;
+    font-size: 1.5rem; }
+  .hide-screen-sm-max {
+    display: none !important; }
+  main .container-fluid {
+    padding-right: 30px;
+    padding-left: 30px; }
+    main .container-fluid .container {
+      padding: 40px 0px !important; } }
 
 .btn-primary {
   color: #fff;

@@ -209,7 +209,8 @@ body.sticky-header header {
     width: 360px;
     height: 100%;
     z-index: 999991;
-    transition: left 0.1s ease; }
+    transition: left 0.1s ease;
+    overflow: scroll; }
   #mainMenu.collapsing {
     position: fixed;
     background: #231f20;
@@ -547,6 +548,27 @@ input, textarea, select {
   height: 100%;
   cursor: pointer; }
 
+@media (max-width: 767px) {
+  .wpcf7-form-control-wrap {
+    position: relative;
+    width: 100%; }
+  .contact-page-submit {
+    display: block !important; }
+  .g-recaptcha {
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0; }
+  .contact-page-submit input[type="submit"] {
+    height: 100%;
+    cursor: pointer;
+    display: block;
+    clear: both;
+    float: left; }
+  .contact-page-submit p {
+    width: 100%;
+    margin-left: 0px; } }
+
 .testimonials-wrapper {
   color: #fff;
   text-align: center;
@@ -643,6 +665,10 @@ input, textarea, select {
   font-family: "Arial Narrow", Arial, sans-serif;
   font-weight: 600;
   padding: 20px 0; }
+
+@media (max-width: 991px) {
+  .footer-copy {
+    padding: 20px 5px; } }
 
 @media (max-width: 767px) {
   .upper-footer > div {
@@ -795,8 +821,18 @@ input, textarea, select {
 @media (max-width: 991px) {
   .hide-screen-md-max {
     display: none !important; }
+  .sidebar {
+    display: none; }
   .col {
-    min-width: 100%; } }
+    min-width: 100%; }
+  .course-category-details .course-register-links {
+    display: inline-block !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%; }
+  .course-category-details .course-register-links * {
+    margin: 5px 0px !important;
+    width: 100%; } }
 
 @media (max-width: 767px) {
   .hide-screen-sm-max {
