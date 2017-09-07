@@ -59,7 +59,7 @@
 					<span class="header-call-to-action-content hide-screen-md-max">Ontario's Leading Health & Safety Training Partner for Over 15 Years</span>
 					<div class="header-call-to-action-phone text-right">
 						<span class="hide-sticky-header hide-screen-lg-max">Book Your Safety Training</span>
-						<span>1-800-219-8660</span>
+						<span><a href="tel:18002198660">1-800-219-8660</a></span>
 					</div>
 				</div>
 
@@ -90,7 +90,7 @@
 
 					<div class="header-call-to-action">
 						<div class="header-call-to-action-phone text-right">
-							<span>Call Toll Free: 1-800-219-8660</span>
+							<span>Call Toll Free: <a href="tel:18002198660">1-800-219-8660</a></span>
 						</div>
 					</div>
 				</div>

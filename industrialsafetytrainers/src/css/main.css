@@ -85,6 +85,9 @@ body > header {
         body > header .main-header .header-call-to-action .header-call-to-action-phone > span:first-child {
           color: #58595B;
           font-size: 1.8rem; }
+        body > header .main-header .header-call-to-action .header-call-to-action-phone > span a {
+          text-decoration: none;
+          color: #000000; }
 
 body.sticky-header header {
   position: fixed;
