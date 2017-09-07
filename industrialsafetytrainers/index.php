@@ -12,7 +12,7 @@
 				<div></div>
 			</div>
 			
-			<img width="2000" height="375" src="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new.png 2000w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new-300x56.png 300w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new-768x144.png 768w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
+			<img width="2000" height="375" src="http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/whats-new.png 2000w, http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/whats-new-300x56.png 300w, http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/whats-new-768x144.png 768w, http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
 		</section>
 
 		<div class="container blog-container">
