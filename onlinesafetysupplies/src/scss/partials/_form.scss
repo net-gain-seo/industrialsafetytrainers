@@ -43,3 +43,18 @@ form{
     float: left;
     width: 100%;
 }
+
+@media (max-width: $screen-sm-max) {
+	.search_courses_form {
+	    display: block;
+	    justify-content: space-between;
+	    padding: 0 0px;
+	}
+	.search_courses_form select, .search_courses_form input {
+	    margin: 5px 10px;
+	}
+	.search_courses_form input {
+	    flex-basis: 0;
+	    padding: 10px 40px;
+	}
+}

@@ -1,8 +1,42 @@
-@media (max-width: $screen-sm-max) {
+@media (max-width: $screen-md-max) {
   #mainMenu > #menu-main-menu > li.dropdown > ul li.dropdown-submenu:hover > .dropdown-menu {
       display: block;
       position: relative;
-      left: 0%;
+      left: 0;
       top: 0px;
+      width: 100%;
+  }
+  #mainMenu.collapse {
+      overflow: scroll;
+  }
+  .woocommerce ul.products li.product, .woocommerce-page ul.products li.product, .woocommerce-page[class*=columns-] ul.products li.product, .woocommerce[class*=columns-] ul.products li.product {
+    width: 45%;
+    float: left;
+    margin: 0px 1em 2.992em;
+  }
+}
+@media (max-width: $screen-sm-max) {
+  .woocommerce #content div.product div.summary, .woocommerce div.product div.summary,
+  .woocommerce-page #content div.product div.summary,
+  .woocommerce-page div.product div.summary,
+  .woocommerce-content-box, .summary.entry-summary,
+  .woocommerce-title-section,
+  .woocommerce div.product div.images.woocommerce-product-gallery {
+    width: 100%;
+  }
+  .banner-section table td {
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 4.0rem;
+      padding-right: 20px;
+  }
+  .footer-copy {
+      padding: 20px 5px;
+  }
+  .woocommerce ul.products li.product, .woocommerce-page ul.products li.product, .woocommerce-page[class*=columns-] ul.products li.product, .woocommerce[class*=columns-] ul.products li.product {
+    width: 100%;
+    float: left;
+    clear: both;
+    margin: 0 0 2.992em;
   }
 }
