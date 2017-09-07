@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			
-			<img width="2000" height="375" src="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us.png 2000w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-300x56.png 300w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-768x144.png 768w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
+			<img width="2000" height="375" src="http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/about-us.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/about-us.png 2000w, http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/about-us-300x56.png 300w, http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/about-us-768x144.png 768w, http://209.126.119.193/~industrialsafety/wp-content/uploads/2017/08/about-us-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
 
 		</section>
 
