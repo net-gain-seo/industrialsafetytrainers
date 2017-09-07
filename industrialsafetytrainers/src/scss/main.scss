@@ -310,10 +310,29 @@ a{
 	margin-bottom: 40px;
 	flex-wrap: wrap;
 
+	&.product-boxes{
+		&.product-boxes-home{
+			@media (min-width: $screen-lg-min) {
+			    padding: 40px 122px;
+		    }
+			>div{
+				width: 29%;
+			}
+		}
+	}
+
 	>div{
+		display: flex;
+	    flex-direction: column;
+
 		background: #58595B;
-		width: 29%;
+		width: 22%;
 		margin-bottom: 40px;
+		>img{
+			align-self: center;
+			width: 100%;
+			height: auto;
+		}
 		> div{
 			padding: 20px;
 			text-align: center;
@@ -334,21 +353,23 @@ a{
     display: inline-block;
 
 	>div{
-		background: #58595B;
-    width: 29%;
-    margin-right: 40px;
-    margin-top: 40px;
-    padding: 0px;
-    text-align: center;
-    display: inline-block;
-    flex-flow: row wrap;
-    min-height: 280px;
-    float: left;
-			h3{
-				color: #ffffff;
-			}
-			a{
-				margin-bottom: 20px;
+		>div{
+			background: #58595B;
+		    width: 29%;
+		    margin-right: 40px;
+		    margin-top: 40px;
+		    padding: 0px;
+		    text-align: center;
+		    display: inline-block;
+		    flex-flow: row wrap;
+		    min-height: 280px;
+		    float: left;
+				h3{
+					color: #ffffff;
+				}
+				a{
+					margin-bottom: 20px;
+				}
 			}
 		}
 }

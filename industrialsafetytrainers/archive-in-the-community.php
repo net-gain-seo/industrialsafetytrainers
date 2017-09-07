@@ -59,7 +59,15 @@
 
 	</main>
 
-<?php echo do_shortcode('[common_element id="55" name="CTA"]'); ?>
-<?php echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]'); ?>
+<?php 
+if(get_current_blog_id() == 1){
+	echo do_shortcode('[common_element id="55" name="CTA"]');
+	echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]'); 
+}
+if(get_current_blog_id() == 2){
+	echo do_shortcode('[common_element id="63" name="REQUEST A TRAINING QUOTE"]');
+	echo do_shortcode('[common_element id="44" name="About Construction Safety Trainers"]'); 
+}
+?>
 	
 <?php get_footer(); ?>

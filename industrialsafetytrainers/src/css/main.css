@@ -1100,10 +1100,21 @@ a {
   justify-content: space-between;
   margin-bottom: 40px;
   flex-wrap: wrap; }
+  @media (min-width: 1200px) {
+    .product-boxes.product-boxes.product-boxes-home {
+      padding: 40px 122px; } }
+  .product-boxes.product-boxes.product-boxes-home > div {
+    width: 29%; }
   .product-boxes > div {
+    display: flex;
+    flex-direction: column;
     background: #58595B;
-    width: 29%;
+    width: 22%;
     margin-bottom: 40px; }
+    .product-boxes > div > img {
+      align-self: center;
+      width: 100%;
+      height: auto; }
     .product-boxes > div > div {
       padding: 20px;
       text-align: center; }
@@ -1116,7 +1127,7 @@ a {
   flex-wrap: wrap;
   text-align: center;
   display: inline-block; }
-  .product-boxes-images > div {
+  .product-boxes-images > div > div {
     background: #58595B;
     width: 29%;
     margin-right: 40px;
@@ -1127,9 +1138,9 @@ a {
     flex-flow: row wrap;
     min-height: 280px;
     float: left; }
-    .product-boxes-images > div h3 {
+    .product-boxes-images > div > div h3 {
       color: #ffffff; }
-    .product-boxes-images > div a {
+    .product-boxes-images > div > div a {
       margin-bottom: 20px; }
 
 .viewcourses {
