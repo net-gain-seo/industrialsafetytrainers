@@ -11,8 +11,8 @@
 				</div>
 				<div></div>
 			</div>
-			
-			
+
+
 			<?php
 			if(has_post_thumbnail()){
 				the_post_thumbnail('blog-image');
@@ -33,19 +33,19 @@
 				?>
 			</aside>
 			<section class="posts">
-				<?php 
+				<?php
 				if (have_posts()): while (have_posts()) : the_post(); ?>
-					<article class="post d-flex">
-						<div class="<?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
+					<article class="post">
+						<div class="col col-12">
+							<span style="margin-right: 10px;"><?php the_date('M d, Y'); ?></span>
+							<span><?php echo the_category(', '); ?></span>
+						</div>
+						<div class="col col-12 <?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
 
-							<?php the_excerpt(); ?>
-							<div class="post-meta d-flex">
-								<span style="margin-right: 10px;"><?php the_date('M d, Y'); ?></span>
-								<span><?php echo the_category(', '); ?></span>
-							</div>
+							<?php the_content(); ?>
 						</div>
 					</article>
-					<?php 
+					<?php
 					endwhile; ?>
 				<?php endif; ?>
 			</section>
@@ -63,5 +63,5 @@
 
 <?php echo do_shortcode('[common_element id="55" name="CTA"]'); ?>
 <?php echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]'); ?>
-	
+
 <?php get_footer(); ?>
