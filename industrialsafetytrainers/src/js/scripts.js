@@ -16,7 +16,6 @@ function elementInViewport(element) {
 function checkOnScrollElements(){
 	//Sticky Header
 	var docTop = document.documentElement.scrollTop;
-	console.log(docTop);
 	if(docTop >= 25){
 		document.body.classList.add("sticky-header");
 	}else{
