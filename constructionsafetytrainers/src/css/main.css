@@ -58,12 +58,10 @@ form > div.form-header {
 .btn-primary {
   color: #fff;
   background-color: #F6921E;
-  border-color: #F6921E;
-  color: #231F20; }
+  border-color: #F6921E; }
   .btn-primary:hover {
     background: #f1860a;
-    border-color: #f1860a;
-    color: #231F20; }
+    border-color: #f1860a; }
 
 .btn-danger {
   color: #fff;
