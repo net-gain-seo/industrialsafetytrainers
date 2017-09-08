@@ -89,9 +89,6 @@ body.sticky-header header #logo img {
 .blog-feed .post:hover {
   background: #D49D1C; }
 
-form > div.form-header {
-  background-color: #F6921E; }
-
 #coupon_code {
   width: 100%;
   margin-bottom: 5px; }

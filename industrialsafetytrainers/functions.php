@@ -118,6 +118,23 @@ add_shortcode('pdf_download','pdf_download');
 
 
 
+//Change WooCommerce Default Image
+add_action( 'init', 'ist_fix_thumbnail' );
+function ist_fix_thumbnail() {
+  add_filter('woocommerce_placeholder_img_src', 'custom_woocommerce_placeholder_img_src');
+   
+    function custom_woocommerce_placeholder_img_src( $src ) {
+        $upload_dir = wp_upload_dir();
+        $uploads = untrailingslashit( $upload_dir['baseurl'] );
+        $src = $uploads . '/2017/09/no-image.png';
+        
+        return $src;
+    }
+}
+
+
+
+
 //// TESTIMONIALS
 include(TEMPLATEPATH.'/admin/post_types/testimonials/index.php');
 include(TEMPLATEPATH.'/admin/post_types/in-the-community/index.php');

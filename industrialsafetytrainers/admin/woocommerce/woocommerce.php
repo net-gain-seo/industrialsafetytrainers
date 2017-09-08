@@ -728,14 +728,16 @@ function woocommerce_single_product_summary_heading(){
 
 
 // ADD INFO SHEET AND DEMO URL
-add_action('woocommerce_after_add_to_cart_button','add_info_demo_buttons',10);
+add_action('woocommerce_product_meta_start','add_info_demo_buttons',10);
 function add_info_demo_buttons(){
 	global $product;
 	$id = $product->get_id();
 	$course_into_pdf = get_post_meta($id,'course_into_pdf',true);
 	$demo_url = get_post_meta($id,'demo_url',true);
 
-	if($course_into_pdf != '' || $demo_url != ''){
+	$_private_course = get_post_meta($id,'_private_course',true);
+
+	if($course_into_pdf != '' || $demo_url != '' || $_private_course == 'yes'){
 		echo '<p>';
 	}
 
@@ -745,6 +747,10 @@ function add_info_demo_buttons(){
 
 		if($demo_url != ''){
 			echo '<a href="'.$demo_url.'" target="_blank" class="button alt" style="margin-right:10px">Demo Request</a>';
+		}
+
+		if($_private_course == 'yes'){
+			echo do_shortcode('[common_element id="14527"]');
 		}
 
 	if($course_into_pdf != '' || $demo_url != ''){

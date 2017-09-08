@@ -3,6 +3,9 @@ a {
   a:hover {
     color: #a75d07; }
 
+body.sticky-header header #logo img {
+  width: 60px; }
+
 @media (min-width: 1200px) {
   #mainMenu > #menu-main-menu > li:after {
     background: #d87809; } }

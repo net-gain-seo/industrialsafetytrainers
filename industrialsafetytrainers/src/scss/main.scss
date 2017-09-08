@@ -336,6 +336,15 @@ a{
 		> div{
 			padding: 20px;
 			text-align: center;
+
+			display: flex;
+			flex-flow: column nowrap;
+			height: 100%;
+
+			>.btn-primary{
+				margin-top: auto;
+			}
+
 			h3{
 				color: #ffffff;
 			}

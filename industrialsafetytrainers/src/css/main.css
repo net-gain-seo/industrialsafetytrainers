@@ -1120,7 +1120,12 @@ a {
       height: auto; }
     .product-boxes > div > div {
       padding: 20px;
-      text-align: center; }
+      text-align: center;
+      display: flex;
+      flex-flow: column nowrap;
+      height: 100%; }
+      .product-boxes > div > div > .btn-primary {
+        margin-top: auto; }
       .product-boxes > div > div h3 {
         color: #ffffff; }
 
