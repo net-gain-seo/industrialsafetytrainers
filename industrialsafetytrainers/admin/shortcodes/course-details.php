@@ -94,7 +94,7 @@ function course_details($atts){
                             if(!empty($products)){
                                 $return .= '<ul id="product-category-'.$term->slug.'" class="'.((!$isActive)?"collapse":"").'">';
                                 foreach($products as $product){
-                                    $return .= '<li><a class="'.((isset($_GET['course']) && $_GET['course'] == $product->post_name)?"active":"").'" href="'.$currentBlogUrl.'/'.$slug.'/?course='.$product->post_name.'">'.$product->post_title.'</a></li>';
+                                    $return .= '<li><a class="'.((isset($_GET['course']) && $_GET['course'] == $product->post_name)?"active":"").'" href="'.$currentBlogUrl.'/'.$slug.'/?course='.$product->post_name.'#course-container">'.$product->post_title.'</a></li>';
                                 }
                                 $return .= '</ul>';
                             }
@@ -116,7 +116,7 @@ function course_details($atts){
                 $current_product = get_posts($args);
 
 
-                $return .= '<div class="course-container">';
+                $return .= '<div id="course-container" class="course-container">';
                     $return .= '<div class="course-header">';
                          $return .= '<div class="course-header-bg"></div>';
 

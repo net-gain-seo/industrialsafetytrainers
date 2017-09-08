@@ -547,12 +547,20 @@ a{
 
 
 
+.online-course-cta{
+	h2{
+		margin-bottom: 10px;
+	}
+	p{
+		color: $yellow;
+		font-size: 2.2rem
+	}
+}
+
 .course-category-details .category-container {
     width: 415px;
     margin-right: 20px;
     background-color: #F1F2F2;
-    padding-top: 65px;
-    margin-top: -60px;
     padding-bottom: 40px;
     margin-bottom: -40px;
 }
