@@ -121,14 +121,12 @@ form > div.form-header {
     color: #ffffff; }
 
 .btn-info {
-  color: #fff;
+  color: #000000;
   background-color: #FFD500;
-  border-color: #FFD500;
-  color: #ffffff; }
+  border-color: #FFD500; }
   .btn-info:hover {
     background: #e6c000;
-    border-color: #e6c000;
-    color: #ffffff; }
+    border-color: #e6c000; }
 
 .btn-warning {
   background-color: #000000;

@@ -23,15 +23,13 @@
 }
 
 .btn-info {
-    color: #fff;
+    color: #000000;
     background-color: $yellow;
     border-color: $yellow;
-    color: #ffffff;
 
     &:hover{
     	background: darken($yellow,5%);
     	border-color: darken($yellow,5%);
-    	color: #ffffff;
     }
 }
 
