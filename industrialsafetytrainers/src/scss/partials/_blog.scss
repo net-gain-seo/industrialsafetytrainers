@@ -124,6 +124,9 @@
 	margin-right: 50px;
 	min-width: 30%;
 }
+.posts{
+	width: 66%;
+}
 
 
 
@@ -286,6 +289,10 @@
 	.sidebar{
 		margin-right: 0px;
 		order: 2;
+	}
+
+	.posts{
+		width: 100%;
 	}
 
 	.post-article{

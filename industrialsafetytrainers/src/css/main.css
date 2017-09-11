@@ -413,6 +413,9 @@ body.sticky-header header {
   margin-right: 50px;
   min-width: 30%; }
 
+.posts {
+  width: 66%; }
+
 .blog-feed {
   display: flex;
   justify-content: space-between; }
@@ -515,6 +518,8 @@ body.sticky-header header {
   .sidebar {
     margin-right: 0px;
     order: 2; }
+  .posts {
+    width: 100%; }
   .post-article.in-the-communuity-article {
     flex-direction: column; }
   .post-article > div {

@@ -1,6 +1,6 @@
 <?php 
 
-function course_list_query($query_category_id,$includeLimit = false,$per_page=10,$offset=0,$location = false,$month = false){
+function course_list_query($query_category_id,$includeLimit = false,$per_page=10,$offset=0,$location = false,$month = false, $search = ''){
     global $wpdb;
 
     $course_query = 'SELECT
@@ -51,8 +51,13 @@ function course_list_query($query_category_id,$includeLimit = false,$per_page=10
         WHERE variation.post_type = "product_variation"
         AND variation.post_status = "publish"
         AND product.post_status = "publish"
-        AND course_date.meta_value >= NOW()
-        ORDER BY course_date ASC';
+        AND course_date.meta_value >= NOW()';
+
+        if($search != ''){
+            $course_query .= ' AND product.post_title LIKE "%'.$search.'%"';
+        }
+
+        $course_query .= ' ORDER BY course_date ASC';
 
         if($includeLimit){
             $course_query .= ' LIMIT '.$per_page.' OFFSET '.$offset.'';
@@ -66,7 +71,10 @@ function course_list_query($query_category_id,$includeLimit = false,$per_page=10
 
 function course_list($atts){
 	extract( shortcode_atts( array(
-        'category_id' => ''
+        'category_id'       => '',
+        'include_filters'   => 'true',
+        'container'         => 'container',
+        'search'            => ''
     ), $atts ));
 
     $query_category_id = $category_id;
@@ -98,9 +106,9 @@ function course_list($atts){
 
     
     //Queries 
-    $total_courses = course_list_query($query_category_id,false,$per_page,$offset,$query_location,$query_month);
-    $courses = course_list_query($query_category_id,true,$per_page,$offset,$query_location,$query_month);
-    $locations = course_list_query($query_category_id,false,$per_page,$offset,false,false);
+    $total_courses = course_list_query($query_category_id,false,$per_page,$offset,$query_location,$query_month, $search);
+    $courses = course_list_query($query_category_id,true,$per_page,$offset,$query_location,$query_month, $search);
+    $locations = course_list_query($query_category_id,false,$per_page,$offset,false,false, $search);
 
     $total = count($total_courses);
     $total_pages = $total / $per_page;
@@ -122,43 +130,44 @@ function course_list($atts){
     $categories = get_categories( array ('taxonomy' => 'product_cat', 'parent' => $category_id ));
 
     $return = '';
-    $return .= '<div class="container-fluid" style="background-color: #FFD500;">';
-        $return .= '<div class="container">';
-            $return .= '<form class="search_courses_form" method="get" action="'.$current_url.'">';
-                $return .= '<select name="month">';
-                    $return .= '<option value="0" '.((isset($_GET['month']) && $_GET['month'] == '0')?"SELECTED":"").'>Choose Month</option>';
-                    $return .= '<option value="01" '.((isset($_GET['month']) && $_GET['month'] == '01')?"SELECTED":"").'>January</option>';
-                    $return .= '<option value="02" '.((isset($_GET['month']) && $_GET['month'] == '02')?"SELECTED":"").'>February</option>';
-                    $return .= '<option value="03" '.((isset($_GET['month']) && $_GET['month'] == '03')?"SELECTED":"").'>March</option>';
-                    $return .= '<option value="04" '.((isset($_GET['month']) && $_GET['month'] == '04')?"SELECTED":"").'>April</option>';
-                    $return .= '<option value="05" '.((isset($_GET['month']) && $_GET['month'] == '05')?"SELECTED":"").'>May</option>';
-                    $return .= '<option value="06" '.((isset($_GET['month']) && $_GET['month'] == '06')?"SELECTED":"").'>June</option>';
-                    $return .= '<option value="07" '.((isset($_GET['month']) && $_GET['month'] == '07')?"SELECTED":"").'>July</option>';
-                    $return .= '<option value="08" '.((isset($_GET['month']) && $_GET['month'] == '08')?"SELECTED":"").'>August</option>';
-                    $return .= '<option value="09" '.((isset($_GET['month']) && $_GET['month'] == '09')?"SELECTED":"").'>September</option>';
-                    $return .= '<option value="10" '.((isset($_GET['month']) && $_GET['month'] == '10')?"SELECTED":"").'>October</option>';
-                    $return .= '<option value="11" '.((isset($_GET['month']) && $_GET['month'] == '11')?"SELECTED":"").'>November</option>';
-                    $return .= '<option value="12" '.((isset($_GET['month']) && $_GET['month'] == '12')?"SELECTED":"").'>December</option>';
-                $return .= '</select>';
-                $return .= '<select name="category">';
-                    $return .= '<option value="">Choose Category</option>';
-                    foreach($categories as $cat){
-                        $return .= '<option value="'.$cat->term_id.'" '.(($query_category_id != '' && $query_category_id == $cat->term_id)?"SELECTED":"").'>'.$cat->name.'</option>';
-                    }
-                $return .= '</select>';
-                $return .= '<select name="location">';
-                    $return .= '<option value="">Choose Location</option>';
-                    foreach($locationsArray as $loc){
-                        $return .= '<option value="'.$loc['value'].'" '.((isset($_GET['location']) && $_GET['location'] == $loc['value'])?"SELECTED":"").'>'.$loc['formated'].'</option>';
-                    }
-                $return .= '</select>';
-                $return .= '<input type="submit" value="SEARCH" name="search_courses" class="btn btn-warning" />';
-            $return .= '</form>';
+    if($include_filters == 'true'){
+        $return .= '<div class="container-fluid" style="background-color: #FFD500;">';
+            $return .= '<div class="container">';
+                $return .= '<form class="search_courses_form" method="get" action="'.$current_url.'">';
+                    $return .= '<select name="month">';
+                        $return .= '<option value="0" '.((isset($_GET['month']) && $_GET['month'] == '0')?"SELECTED":"").'>Choose Month</option>';
+                        $return .= '<option value="01" '.((isset($_GET['month']) && $_GET['month'] == '01')?"SELECTED":"").'>January</option>';
+                        $return .= '<option value="02" '.((isset($_GET['month']) && $_GET['month'] == '02')?"SELECTED":"").'>February</option>';
+                        $return .= '<option value="03" '.((isset($_GET['month']) && $_GET['month'] == '03')?"SELECTED":"").'>March</option>';
+                        $return .= '<option value="04" '.((isset($_GET['month']) && $_GET['month'] == '04')?"SELECTED":"").'>April</option>';
+                        $return .= '<option value="05" '.((isset($_GET['month']) && $_GET['month'] == '05')?"SELECTED":"").'>May</option>';
+                        $return .= '<option value="06" '.((isset($_GET['month']) && $_GET['month'] == '06')?"SELECTED":"").'>June</option>';
+                        $return .= '<option value="07" '.((isset($_GET['month']) && $_GET['month'] == '07')?"SELECTED":"").'>July</option>';
+                        $return .= '<option value="08" '.((isset($_GET['month']) && $_GET['month'] == '08')?"SELECTED":"").'>August</option>';
+                        $return .= '<option value="09" '.((isset($_GET['month']) && $_GET['month'] == '09')?"SELECTED":"").'>September</option>';
+                        $return .= '<option value="10" '.((isset($_GET['month']) && $_GET['month'] == '10')?"SELECTED":"").'>October</option>';
+                        $return .= '<option value="11" '.((isset($_GET['month']) && $_GET['month'] == '11')?"SELECTED":"").'>November</option>';
+                        $return .= '<option value="12" '.((isset($_GET['month']) && $_GET['month'] == '12')?"SELECTED":"").'>December</option>';
+                    $return .= '</select>';
+                    $return .= '<select name="category">';
+                        $return .= '<option value="">Choose Category</option>';
+                        foreach($categories as $cat){
+                            $return .= '<option value="'.$cat->term_id.'" '.(($query_category_id != '' && $query_category_id == $cat->term_id)?"SELECTED":"").'>'.$cat->name.'</option>';
+                        }
+                    $return .= '</select>';
+                    $return .= '<select name="location">';
+                        $return .= '<option value="">Choose Location</option>';
+                        foreach($locationsArray as $loc){
+                            $return .= '<option value="'.$loc['value'].'" '.((isset($_GET['location']) && $_GET['location'] == $loc['value'])?"SELECTED":"").'>'.$loc['formated'].'</option>';
+                        }
+                    $return .= '</select>';
+                    $return .= '<input type="submit" value="SEARCH" name="search_courses" class="btn btn-warning" />';
+                $return .= '</form>';
+            $return .= '</div>';
         $return .= '</div>';
-    $return .= '</div>';
+    }
 
-    $return .= '<div class="container">';
-
+    $return .= '<div class="'.$container.'">';
         $return .= '<div class="course-list">';
             if(count($courses) == 0){
                 $return .= '<p>Sorry, No courses match your criteria. Please check back later.</p>';

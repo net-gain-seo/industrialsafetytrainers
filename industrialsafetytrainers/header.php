@@ -45,6 +45,7 @@
 						<form role="search" method="get" action="<?php echo home_url( '/' ); ?>" class="hide-screen-sm-max">
 							<div class="input-group">
 								<input type="search" class="form-control" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+
 								<div class="btn-group">
 									<div class="btn-group">
 										<input type="submit" class="btn btn-primary" value="GO!" />
