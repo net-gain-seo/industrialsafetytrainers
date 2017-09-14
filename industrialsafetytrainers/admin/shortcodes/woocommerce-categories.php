@@ -73,7 +73,7 @@ function woocommerce_categories($atts){
                     }
                  $return .= '<div>';
                     $return .= '<h3>'.$term->name.'</h3>';
-                    $return .= '<a href="'.$currentBlogUrl.'/safety-training-course/?course='.$products[0]->post_name.'" class="btn btn-primary">VIEW COURSES</a>';
+                    $return .= '<a href="'.$currentBlogUrl.'/safety-training-course/?course='.$products[0]->post_name.'" class="btn btn-primary">View Courses</a>';
                  $return .= '</div>';
             $return .= '</div>';
         }

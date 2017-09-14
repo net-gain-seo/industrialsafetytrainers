@@ -5,7 +5,7 @@ function product_box($atts){
         'image' => '',
         'title' => '',
         'link' => '',
-        'button_text' => 'VIEW COURSE'
+        'button_text' => 'View Courses'
     ), $atts ));
 
 	//QUERY POSTS

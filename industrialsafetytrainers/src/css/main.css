@@ -869,7 +869,7 @@ input, textarea, select {
       padding: 40px 0px !important; } }
 
 .btn {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-family: "Arial Narrow", Arial, sans-serif;
   font-weight: 600;
   font-weight: 100; }
@@ -1150,11 +1150,14 @@ a {
       flex-flow: column nowrap;
       height: 100%; }
       .product-boxes > div > div > .btn-primary {
-        margin-top: auto; }
+        margin-top: auto;
+        margin-left: 40px;
+        margin-right: 40px; }
       .product-boxes > div > div h3 {
         color: #ffffff;
-        font-size: 2.0rem;
-        font-weight: 100; }
+        font-size: 1.6rem;
+        font-weight: 100;
+        line-height: 22px; }
 
 .product-boxes-images {
   justify-content: space-between;
