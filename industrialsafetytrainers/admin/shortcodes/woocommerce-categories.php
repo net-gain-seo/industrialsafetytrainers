@@ -1,5 +1,23 @@
 <?php 
 
+add_filter( 'get_terms_orderby', 'wps_get_terms_orderby', 10, 2 );
+/**
+ * Modifies the get_terms_orderby argument if orderby == include
+ *
+ * @param  string $orderby Default orderby SQL string.
+ * @param  array  $args    get_terms( $taxonomy, $args ) arg.
+ * @return string $orderby Modified orderby SQL string.
+ */
+function wps_get_terms_orderby( $orderby, $args ) {
+  if ( isset( $args['orderby'] ) && 'include' == $args['orderby'] ) {
+        $include = implode(',', array_map( 'absint', $args['include'] ));
+        $orderby = "FIELD( t.term_id, $include )";
+    }
+    return $orderby;
+}
+
+
+
 function woocommerce_categories($atts){
 	extract( shortcode_atts( array(
         'blog_id'   => 3,
@@ -26,6 +44,8 @@ function woocommerce_categories($atts){
          'parent'       => $parent,
          'include'      => $include_array
     );
+
+
     $terms = get_terms('product_cat',$args);
     foreach ($terms as $term) {
 

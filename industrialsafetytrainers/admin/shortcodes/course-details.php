@@ -16,6 +16,7 @@ function course_details($atts){
 
 
     $return = '';
+    $category_name = '';
 
     $args = array(
          'hide_empty'       => 0,
@@ -54,6 +55,7 @@ function course_details($atts){
                             foreach($products as $product){
                                 if(isset($_GET['course']) && $_GET['course'] == $product->post_name){
                                     $isActive = true;
+                                    $category_name = $term->name;
                                     break;
                                 }
                             }
@@ -88,6 +90,7 @@ function course_details($atts){
                     $products = get_posts($args);
                     if(!empty($products)){
                         $isActive = true;
+                        $category_name = $term->name;
 
                         $return .= '<li>';
                              //$return .= '<a data-toggle="collapse" data-target="#product-category-'.$term->slug.'" href="#" class="'.((!$isActive)?"collapsed":"").'">+ '.$term->name.'</a>';
@@ -136,6 +139,8 @@ function course_details($atts){
                     $return .= '</div>';
 
                     $return .= '<div class="course-detail">';
+                        $return .= '<h3 class="h2 mb-0">'.$category_name.'</h3>';
+                        $return .= '<h2 class="h3">'.$current_product[0]->post_title.'</h2>';
                         $return .= apply_filters('the_content',$current_product[0]->post_content);
                     $return .= '</div>';
 

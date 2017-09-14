@@ -189,6 +189,9 @@ body.sticky-header header {
   #mainMenu .dropdown-menu li:hover > a {
     background: #58595B; }
 
+.navbar {
+  padding: .5rem 0; }
+
 .navbar-toggler {
   position: relative;
   top: 0px;
@@ -411,10 +414,13 @@ body.sticky-header header {
 
 .sidebar {
   margin-right: 50px;
-  min-width: 30%; }
+  min-width: 30%;
+  width: 30%; }
 
 .posts {
-  width: 66%; }
+  /*
+	width: 66%;
+	*/ }
 
 .blog-feed {
   display: flex;
@@ -819,6 +825,16 @@ input, textarea, select {
 .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
   width: 73%; }
 
+.variations_form.cart {
+  margin-top: 40px; }
+
+.woocommerce div.product form.cart .variations select {
+  width: 200px; }
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+  padding-bottom: 20px;
+  text-align: center; }
+
 @media (max-width: 1199px) {
   .hide-screen-lg-max {
     display: none !important; } }
@@ -855,7 +871,8 @@ input, textarea, select {
 .btn {
   font-size: 2rem;
   font-family: "Arial Narrow", Arial, sans-serif;
-  font-weight: 600; }
+  font-weight: 600;
+  font-weight: 100; }
 
 .btn-primary {
   color: #fff;
@@ -892,9 +909,9 @@ input, textarea, select {
   border-color: #000000;
   color: #ffffff; }
   .btn-warning:hover {
-    background: #333333;
-    border-color: #333333;
-    color: #ffffff; }
+    background: #FFD500;
+    border-color: #FFD500;
+    color: #000000; }
 
 .card {
   border: none; }
@@ -974,8 +991,8 @@ a {
   padding: 30px 0; }
   .full-width-cta .full-width-cta-text {
     color: #FFFFFF;
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    font-weight: 100;
     font-style: italic;
     margin: 0 40px; }
   @media (max-width: 991px) {
@@ -1113,6 +1130,9 @@ a {
       padding: 40px 122px; } }
   .product-boxes.product-boxes.product-boxes-home > div {
     width: 29%; }
+  .product-boxes:after {
+    content: "";
+    width: 250px; }
   .product-boxes > div {
     display: flex;
     flex-direction: column;
@@ -1132,7 +1152,9 @@ a {
       .product-boxes > div > div > .btn-primary {
         margin-top: auto; }
       .product-boxes > div > div h3 {
-        color: #ffffff; }
+        color: #ffffff;
+        font-size: 2.0rem;
+        font-weight: 100; }
 
 .product-boxes-images {
   justify-content: space-between;
@@ -1152,7 +1174,9 @@ a {
     min-height: 280px;
     float: left; }
     .product-boxes-images > div > div h3 {
-      color: #ffffff; }
+      color: #ffffff;
+      font-weight: 2.0rem;
+      font-weight: 100; }
     .product-boxes-images > div > div a {
       margin-bottom: 20px; }
 
@@ -1256,10 +1280,12 @@ a {
       padding: 20px; }
   .course-category-details .course-register-links {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center; }
     .course-category-details .course-register-links * {
       margin: 0 10px; }
+      .course-category-details .course-register-links *:first-child {
+        margin-left: 0px; }
 
 .online-course-cta h2 {
   margin-bottom: 10px; }
@@ -1278,7 +1304,7 @@ a {
 .category-background {
   position: absolute;
   height: 105%;
-  left: -80%;
+  left: -59%;
   width: 85%;
   top: -20px;
   z-index: -1;
@@ -1396,7 +1422,50 @@ a {
     padding: 0 7px;
     z-index: 100;
     height: 30px;
+    width: 30px;
     line-height: 30px; }
+    #requestInformationModal .modal-content .close-model:after {
+      content: 'x';
+      position: absolute;
+      font-size: 25px;
+      top: 5px;
+      left: 9px;
+      line-height: 17px;
+      color: #ffffff; }
+
+.social-icon {
+  display: block;
+  width: 39px;
+  height: 39px;
+  background: url("../../assets/images/social-icons/social-sprite.png");
+  transition: none;
+  float: left;
+  margin: 100px 8px 0px; }
+  @media (max-width: 1199px) {
+    .social-icon {
+      margin: 10px 8px 0px; } }
+  .social-icon.facebook {
+    background-position: 0 0; }
+    .social-icon.facebook:hover {
+      background-position: 0 -40px; }
+  .social-icon.twitter {
+    background-position: -40px 0; }
+    .social-icon.twitter:hover {
+      background-position: -40px -40px; }
+  .social-icon.google {
+    background-position: -79px 0; }
+    .social-icon.google:hover {
+      background-position: -79px -40px; }
+  .social-icon.linked-in {
+    background-position: -118px 0; }
+    .social-icon.linked-in:hover {
+      background-position: -118px -40px; }
+
+.related.products h2 {
+  text-transform: capitalize; }
+
+.related.products .products {
+  display: flex; }
 
 @media (max-width: 767px) {
   .product-boxes > div {

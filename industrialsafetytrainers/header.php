@@ -75,7 +75,7 @@
 					<a class="btn btn-primary" href="#">My Wishlist</a>
 					-->
 					<a class="btn btn-primary" href="<?php echo bloginfo('url'); ?>/my-account/orders/">Order Status</a>
-					<a class="btn btn-primary" href="#">Contact Us</a>
+					<a class="btn btn-primary" href="<?php echo get_site_url(1); ?>/contact-us/">Contact Us</a>
 				</div>
 				<div class="safety-suppliers-search align-items-center">
 					<form role="search" method="get" action="<?php echo home_url( '/' ); ?>" class="hide-screen-md-max">

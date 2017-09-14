@@ -76,7 +76,8 @@ add_image_size('blog-image',2000,375,true);
 function element($atts,$content){
 	extract( shortcode_atts( array(
 		'tag'			=> 'div',
-        'class' 		=> ''
+        'class' 		=> '',
+        'href'          => ''
     ), $atts ) );
 
 
@@ -84,7 +85,7 @@ function element($atts,$content){
     $content = stripParagraphs($content);
 
     $return = '';
-	$return .= '<'.$tag.' class=" '.$class.'">';
+	$return .= '<'.$tag.' class=" '.$class.'" '.(($href !='')?"href=\"$href\" target=\"_blank\"":"").'>';
         $return .= $content;
     $return .= '</'.$tag.'>';
 

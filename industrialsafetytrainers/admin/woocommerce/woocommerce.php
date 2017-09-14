@@ -757,3 +757,27 @@ function add_info_demo_buttons(){
 		echo '</p>';
 	}
 }
+
+
+
+
+/*
+add_filter('woocommerce_product_thumbnails','industrial_woocommerce_product_thumbnails');
+function woocommerce_product_thumbnails(){
+	return 'test';
+}
+*/
+
+
+add_filter( 'woocommerce_product_add_to_cart_text' , 'custom_woocommerce_product_add_to_cart_text' );
+function custom_woocommerce_product_add_to_cart_text() {
+	global $product;
+	$product_type = $product->product_type;
+	switch ( $product_type ) {
+		case 'variable':
+			return __( 'More Detail', 'woocommerce' );
+			break;
+		default:
+			return 'Add to cart';
+	}
+}

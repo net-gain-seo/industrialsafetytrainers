@@ -2,6 +2,7 @@
 	font-size: 2rem;
 	font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 600;
+    font-weight: 100;
 }
 
 .btn-primary {
@@ -49,8 +50,8 @@
     color: #ffffff;
 
     &:hover{
-        background: lighten($black,20%);
-        border-color: lighten($black,20%);
-        color: #ffffff;
+        background: $yellow;
+        border-color: $yellow;
+        color: #000000;
     }
 }

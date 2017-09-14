@@ -149,3 +149,16 @@
 .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary{
     width: 73%;
 }
+
+.variations_form.cart{
+    margin-top: 40px;
+}
+
+.woocommerce div.product form.cart .variations select {
+    width: 200px;
+}
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product{
+    padding-bottom: 20px;
+    text-align: center;
+}
