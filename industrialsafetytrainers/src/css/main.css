@@ -45,7 +45,10 @@ ol {
   margin-bottom: 0px; }
 
 body > header {
-  background: #fff; }
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 100; }
   body > header .main-header {
     display: flex;
     justify-content: space-between;
@@ -837,13 +840,17 @@ input, textarea, select {
 
 @media (max-width: 1199px) {
   .hide-screen-lg-max {
-    display: none !important; } }
+    display: none !important; }
+  body > main {
+    padding-top: 343px !important; } }
 
 @media (min-width: 1199px) {
   .hide-screen-lg-min {
     display: none !important; } }
 
 @media (max-width: 991px) {
+  body > main {
+    padding-top: 190px !important; }
   .hide-screen-md-max {
     display: none !important; }
   .sidebar {
@@ -954,6 +961,8 @@ body {
   font-family: Arial, sans-serif;
   font-size: 1.8rem;
   color: #000000; }
+  body > main {
+    padding-top: 250px; }
 
 img {
   max-width: 100%; }

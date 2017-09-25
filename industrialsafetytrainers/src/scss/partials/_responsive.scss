@@ -2,6 +2,14 @@
 	.hide-screen-lg-max{
 		display: none !important;
 	}
+
+
+	body{
+		>main{
+			padding-top: 343px !important;
+		}
+	}
+
 }
 @media (min-width: $screen-lg-max) {
 	.hide-screen-lg-min{
@@ -10,6 +18,13 @@
 }
 
 @media (max-width: $screen-md-max) {
+
+	body{
+		>main{
+			padding-top: 190px !important;
+		}
+	}
+	
 	.hide-screen-md-max{
 		display: none !important;
 	}

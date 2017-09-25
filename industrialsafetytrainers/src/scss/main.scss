@@ -26,8 +26,10 @@ body{
 	font-family: Arial, sans-serif;
 	font-size: 1.8rem;
 	color: $black;
+	>main{
+		padding-top: 250px;
+	}
 }
-
 
 img{
 	max-width: 100%;

@@ -17,7 +17,7 @@ function checkOnScrollElements(){
 	//Sticky Header
 	//var docTop = document.documentElement.scrollTop;
 	var docTop = document.documentElement.scrollTop || document.body.scrollTop;
-	if(docTop >= 25){
+	if(docTop >= 100){
 		document.body.classList.add("sticky-header");
 	}else{
 		document.body.classList.remove("sticky-header");
