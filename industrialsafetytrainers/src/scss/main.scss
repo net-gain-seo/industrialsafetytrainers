@@ -155,36 +155,36 @@ a{
 
 
 
+@media (min-width: $screen-lg-max) {
 
+	.fork-lift{
+		background: url('../../assets/images/fork-lift.png');
+		background-repeat: no-repeat;
+	    background-size: cover;
+	    position: relative;
+		height: 400px;
+		width: 575px;
+		left: -100px;
+	}
 
-.fork-lift{
-	background: url('../../assets/images/fork-lift.png');
-	background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-	height: 400px;
-	width: 575px;
-	left: -100px;
+	.fork-lift-animated{
+		-webkit-animation:movingforklift 2s infinite;
+		-webkit-animation-iteration-count: 1;
+		-webkit-animation-fill-mode: forwards;
+	}
+
+	@-webkit-keyframes movingforklift{
+	  from{
+	  	left:-100px;
+	  	width: 575px;
+	  }
+	  to{
+	  	left:-180px;
+	  	width: 601px;
+	  }
+	}
+
 }
-
-.fork-lift-animated{
-	-webkit-animation:movingforklift 2s infinite;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes movingforklift{
-  from{
-  	left:-100px;
-  	width: 575px;
-  }
-  to{
-  	left:-180px;
-  	width: 601px;
-  }
-}
-
-
 
 
 
@@ -308,7 +308,7 @@ a{
 
 
 .product-boxes{
-	justify-content: space-between;
+	/*justify-content: space-between;*/
 	margin-bottom: 40px;
 	flex-wrap: wrap;
 
@@ -321,14 +321,24 @@ a{
 				width: 29%;
 			}
 		}
+
+		&.in-sidebar{
+			div{
+				width: 100%;
+			}
+		}
 	}
 
+	/*
 	&:after{
 		content: "";
         width: 250px;
 	}
+	*/
 
 	>div{
+		margin-left: 17px;
+		margin-right: 17px;
 		display: flex;
 	    flex-direction: column;
 
@@ -503,9 +513,11 @@ a{
 	.category-container{
 		width: 415px;
 		margin-right: 20px;
+		order: 1;
 	}
 	.course-container{
 		width: 100%;
+		order: 2;
 		.course-header{
 			background-color: $yellow;
 			margin-bottom: 20px;
@@ -630,14 +642,26 @@ a{
 			padding: 5px;
 			text-decoration: none;
 			margin-bottom: 10px;
+			padding-left: 20px;
 
 			&:hover{
 				background-color: #D1D3D4;
 			}
 
 			&:not(.collapsed){
+				&:before{
+					content: '-';
+				}
 				background-color: #D1D3D4;
 			}
+
+
+			&:before{
+			    content: '+';
+			    position: absolute;
+			    left: 5px;
+			}
+
 		}
 
 
@@ -719,9 +743,7 @@ a{
 			}
 			.request-information-modal-content{
 				text-align: right;
-			    display: flex;
-			    flex-direction: column;
-			    justify-content: space-between;
+			    display: block;
 
 
 			    p{
@@ -819,6 +841,14 @@ a{
 }
 
 @media (max-width: $screen-sm-max) {
+
+	.category-container{
+		order: 2;
+	}
+	.course-container{
+		order: 1;
+	}
+
 	.product-boxes > div {
 		width: 100%!important;
 	}

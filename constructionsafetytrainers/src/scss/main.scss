@@ -16,14 +16,25 @@
 @import "partials/components/_card";
 
 
+@media (min-width: $screen-lg-min) {
+	.constuction-hat{
+		background: url('../../assets/images/constuction-hat.png');
+		background-repeat: no-repeat;
+	    position: relative;
+		height: 400px;
+		width: 575px;
+		left: -60px;
+	}
+}
 
-.constuction-hat{
-	background: url('../../assets/images/constuction-hat.png');
-	background-repeat: no-repeat;
-    position: relative;
-	height: 400px;
-	width: 575px;
-	left: -60px;
+@media (max-width: $screen-lg-max) {
+	.constuction-hat{
+		background: url('../../assets/images/constuction-hat.png');
+		background-size: cover;
+		position: relative;
+		height: 190px;
+		width: 100%;
+	}
 }
 
 .white-text{

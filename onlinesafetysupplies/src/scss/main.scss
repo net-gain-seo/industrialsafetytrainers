@@ -15,6 +15,12 @@
 @import "partials/components/_buttons";
 
 
+body{
+	>main{
+		padding-top: 239px;
+	}
+}
+
 
 .constuction-hat{
 	background: url('../../assets/images/constuction-hat.png');

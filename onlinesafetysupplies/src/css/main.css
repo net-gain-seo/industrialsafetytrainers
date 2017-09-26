@@ -182,6 +182,9 @@ body.sticky-header header #logo img {
     clear: both;
     margin: 0 0 2.992em; } }
 
+body > main {
+  padding-top: 239px; }
+
 .constuction-hat {
   background: url("../../assets/images/constuction-hat.png");
   background-repeat: no-repeat;
@@ -203,6 +206,6 @@ body.sticky-header header #logo img {
   width: 100%; }
 
 .social-icon {
-  margin: 20px 8px 0px; }
+  margin: 0px 8px 0px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -140,13 +140,22 @@ form > div.form-header {
 .card .card-header {
   background-color: #F6921E; }
 
-.constuction-hat {
-  background: url("../../assets/images/constuction-hat.png");
-  background-repeat: no-repeat;
-  position: relative;
-  height: 400px;
-  width: 575px;
-  left: -60px; }
+@media (min-width: 1200px) {
+  .constuction-hat {
+    background: url("../../assets/images/constuction-hat.png");
+    background-repeat: no-repeat;
+    position: relative;
+    height: 400px;
+    width: 575px;
+    left: -60px; } }
+
+@media (max-width: 1199px) {
+  .constuction-hat {
+    background: url("../../assets/images/constuction-hat.png");
+    background-size: cover;
+    position: relative;
+    height: 190px;
+    width: 100%; } }
 
 .white-text {
   color: #ffffff; }

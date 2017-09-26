@@ -284,7 +284,7 @@ body.sticky-header header {
 .page-title-section {
   background: rgba(255, 213, 0, 0.9);
   margin-bottom: 20px; }
-  .page-title-section h1 {
+  .page-title-section h1, .page-title-section h2, .page-title-section h3, .page-title-section h4, .page-title-section h5, .page-title-section h6 {
     margin-bottom: 0px; }
 
 .slider h2 {
@@ -838,6 +838,9 @@ input, textarea, select {
   padding-bottom: 20px;
   text-align: center; }
 
+.product_cat-safety-training-courses .stock.out-of-stock {
+  display: none; }
+
 @media (max-width: 1199px) {
   .hide-screen-lg-max {
     display: none !important; }
@@ -1049,27 +1052,26 @@ a {
     .upper-footer .heading-qualification span:first-child {
       color: #fff; }
 
-.fork-lift {
-  background: url("../../assets/images/fork-lift.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  height: 400px;
-  width: 575px;
-  left: -100px; }
-
-.fork-lift-animated {
-  -webkit-animation: movingforklift 2s infinite;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards; }
-
-@-webkit-keyframes movingforklift {
-  from {
-    left: -100px;
-    width: 575px; }
-  to {
-    left: -180px;
-    width: 601px; } }
+@media (min-width: 1199px) {
+  .fork-lift {
+    background: url("../../assets/images/fork-lift.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 400px;
+    width: 575px;
+    left: -100px; }
+  .fork-lift-animated {
+    -webkit-animation: movingforklift 2s infinite;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards; }
+  @-webkit-keyframes movingforklift {
+    from {
+      left: -100px;
+      width: 575px; }
+    to {
+      left: -180px;
+      width: 601px; } } }
 
 .fifty-fifty-section-background {
   background-repeat: no-repeat; }
@@ -1131,18 +1133,25 @@ a {
     float: right; }
 
 .product-boxes {
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   margin-bottom: 40px;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  /*
+	&:after{
+		content: "";
+        width: 250px;
+	}
+	*/ }
   @media (min-width: 1200px) {
     .product-boxes.product-boxes.product-boxes-home {
       padding: 40px 122px; } }
   .product-boxes.product-boxes.product-boxes-home > div {
     width: 29%; }
-  .product-boxes:after {
-    content: "";
-    width: 250px; }
+  .product-boxes.product-boxes.in-sidebar div {
+    width: 100%; }
   .product-boxes > div {
+    margin-left: 17px;
+    margin-right: 17px;
     display: flex;
     flex-direction: column;
     background: #58595B;
@@ -1263,9 +1272,11 @@ a {
   display: flex; }
   .course-category-details .category-container {
     width: 415px;
-    margin-right: 20px; }
+    margin-right: 20px;
+    order: 1; }
   .course-category-details .course-container {
-    width: 100%; }
+    width: 100%;
+    order: 2; }
     .course-category-details .course-container .course-header {
       background-color: #FFD500;
       margin-bottom: 20px; }
@@ -1359,11 +1370,18 @@ a {
       display: block;
       padding: 5px;
       text-decoration: none;
-      margin-bottom: 10px; }
+      margin-bottom: 10px;
+      padding-left: 20px; }
       .category-list > li > a:hover {
         background-color: #D1D3D4; }
       .category-list > li > a:not(.collapsed) {
         background-color: #D1D3D4; }
+        .category-list > li > a:not(.collapsed):before {
+          content: '-'; }
+      .category-list > li > a:before {
+        content: '+';
+        position: absolute;
+        left: 5px; }
     .category-list > li > ul {
       list-style: none;
       padding: 0px;
@@ -1415,9 +1433,7 @@ a {
         width: 100%; } }
   #requestInformationModal .modal-content .d-flex .request-information-modal-content {
     text-align: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; }
+    display: block; }
     #requestInformationModal .modal-content .d-flex .request-information-modal-content p {
       font-size: 2.2rem; }
     #requestInformationModal .modal-content .d-flex .request-information-modal-content .request-information-modal-content-phone p {
@@ -1480,6 +1496,10 @@ a {
   display: flex; }
 
 @media (max-width: 767px) {
+  .category-container {
+    order: 2; }
+  .course-container {
+    order: 1; }
   .product-boxes > div {
     width: 100% !important; }
   .category-background {

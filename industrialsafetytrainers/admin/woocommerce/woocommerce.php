@@ -781,3 +781,38 @@ function custom_woocommerce_product_add_to_cart_text() {
 			return 'Add to cart';
 	}
 }
+
+
+
+
+
+
+
+
+// Add term page
+function industrial_woo_add_new_meta_field($term) {
+	$term_id = $term->term_id;
+    // retrieve the existing value(s) for this meta field.
+    $category_url_overwrite = get_term_meta($term_id, 'category_url_overwrite', true);
+
+	?>
+	<tr class="form-field">
+		<th scope="row"><label for="category_url_overwrite">Overwrite Category URL</label></th>
+		<td>
+			<input type="text" name="category_url_overwrite" id="category_url_overwrite" value="<?php echo $category_url_overwrite; ?>">
+		</td>
+	</tr>
+<?php
+}
+//add_action( 'product_cat_add_form_fields', 'industrial_woo_add_new_meta_field', 10, 2 );
+add_action( 'product_cat_edit_form_fields', 'industrial_woo_add_new_meta_field', 10, 2 );
+
+// Save extra taxonomy fields callback function.
+function industrial_save_product_cat_custom_meta($term_id) {
+    $category_url_overwrite = filter_input(INPUT_POST, 'category_url_overwrite');
+    update_term_meta($term_id, 'category_url_overwrite', $category_url_overwrite);
+}
+
+add_action('edited_product_cat', 'industrial_save_product_cat_custom_meta', 10, 1);
+
+

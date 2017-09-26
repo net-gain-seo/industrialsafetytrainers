@@ -149,6 +149,7 @@ include(TEMPLATEPATH.'/admin/shortcodes/product-box.php');
 include(TEMPLATEPATH.'/admin/shortcodes/woocommerce-categories.php');
 include(TEMPLATEPATH.'/admin/shortcodes/course-details.php');
 include(TEMPLATEPATH.'/admin/shortcodes/course-list.php');
+include(TEMPLATEPATH.'/admin/shortcodes/course-search.php');
 
 //OTHER FUNCTIONS
 include(TEMPLATEPATH.'/admin/woocommerce/woocommerce.php');
