@@ -15,19 +15,26 @@
 
 <header>
 	<section class="main-header container">
-		<a id="logo" href="<?php bloginfo('url'); ?>">
+		
 		<?php 
 
-		if(get_current_blog_id() == 2){
-			$logoSrc = get_stylesheet_directory_uri().'/assets/images/construction-safety-trainers-logo.png';
-		}elseif(get_current_blog_id() == 3){
-			$logoSrc = get_stylesheet_directory_uri().'/assets/images/online-safety-supplies-logo.png';
+	
+		if(get_current_blog_id() == 3){
+			echo '<div id="logo">';
+				echo '<a href="'.get_site_url(1).'" style="margin-right:30px"><img src="'.get_stylesheet_directory_uri().'/assets/images/ist-logo.jpg"></a>';
+				echo '<a href="'.get_site_url(2).'"><img src="'.get_stylesheet_directory_uri().'/assets/images/cst-logo.jpg"></a>';
+			echo '</div>';
 		}else{
-			$logoSrc = get_template_directory_uri().'/assets/images/industrial-safety-trainers-logo.png';
+			if(get_current_blog_id() == 2){
+				$logoSrc = get_stylesheet_directory_uri().'/assets/images/construction-safety-trainers-logo.png';
+			}else{
+				$logoSrc = get_template_directory_uri().'/assets/images/industrial-safety-trainers-logo.png';
+			}
+			echo '<a id="logo" href="'.get_bloginfo('url').'"><img src="'.$logoSrc.'" /></a>';
 		}
+
 		?>
-			<img src="<?php echo $logoSrc; ?>" />
-		</a>
+
 
 		<?php if(get_current_blog_id() != 3){ ?>
 		<div>
