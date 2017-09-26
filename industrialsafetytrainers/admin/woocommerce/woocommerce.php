@@ -29,7 +29,7 @@ function course_custom_js() {
 
 				//DATE PICKER
 				jQuery(document).ready(function(){
-					jQuery('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });	
+					jQuery('.datepicker').datepicker({ dateFormat: 'MM dd, yy' });	
 				});
 
 
