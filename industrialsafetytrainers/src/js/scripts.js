@@ -44,3 +44,27 @@ function checkOnScrollElements(){
 (function() {
 	window.onscroll = function() {checkOnScrollElements()};
 })();
+
+
+
+jQuery('.navbar-toggler').click(function(){
+	if(jQuery(this).hasClass('collapsed')){
+		setTimeout(function(){
+			jQuery('.mobileMenuOverlay').css('display','block');
+		},600);
+	}else{
+		jQuery('.mobileMenuOverlay').css('display','none');
+	}
+});
+
+jQuery('.closen-responsive-nav').click(function(){
+	closeResponsiveNav();
+});
+
+jQuery('.mobileMenuOverlay').click(function(){
+	jQuery('.closen-responsive-nav').click();
+});
+
+function closeResponsiveNav(){
+	jQuery('.mobileMenuOverlay').css('display','none');
+}

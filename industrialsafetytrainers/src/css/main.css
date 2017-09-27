@@ -1495,6 +1495,16 @@ a {
 .related.products .products {
   display: flex; }
 
+.mobileMenuOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  left: 0px;
+  top: 0px;
+  display: none;
+  z-index: 100; }
+
 @media (max-width: 767px) {
   .category-container {
     order: 2; }

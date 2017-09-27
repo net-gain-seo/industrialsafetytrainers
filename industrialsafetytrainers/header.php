@@ -111,7 +111,7 @@
 		<div class="container d-flex justify-content-between align-items-center">
 			<nav class="navbar navbar-inverse navbar-toggleable-lg navbar-light" role="navigation">
 
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
@@ -129,6 +129,8 @@
 					?>
 
 				</div>
+
+				<div class="mobileMenuOverlay"></div>
 
 		    </nav>
 		    <?php if(get_current_blog_id() != 3){ 

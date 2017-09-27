@@ -20,7 +20,7 @@ function register_site_menus(){
 // ENQUEUE STYLES AND SCRIPTS
 function industrial_safety_trainers_scripts() {
     wp_enqueue_style( 'industrial_safety_trainers_style', get_template_directory_uri().'/src/css/main.css',array('bootstrap') );
-    wp_enqueue_script( 'industrial_safety_trainers_scripts', get_template_directory_uri().'/src/js/scripts.js' );
+    wp_enqueue_script( 'industrial_safety_trainers_scripts', get_template_directory_uri().'/src/js/scripts.js',array('jquery'),false,true);
 }
 add_action( 'wp_enqueue_scripts', 'industrial_safety_trainers_scripts' );
 
