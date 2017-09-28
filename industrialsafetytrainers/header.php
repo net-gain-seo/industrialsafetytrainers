@@ -21,8 +21,8 @@
 	
 		if(get_current_blog_id() == 3){
 			echo '<div id="logo">';
-				echo '<a href="'.get_site_url(1).'" style="margin-right:30px"><img src="'.get_stylesheet_directory_uri().'/assets/images/ist-logo.jpg"></a>';
-				echo '<a href="'.get_site_url(2).'"><img src="'.get_stylesheet_directory_uri().'/assets/images/cst-logo.jpg"></a>';
+				echo '<a href="'.get_site_url(1).'" style="margin-right:30px"><img id="ist-logo" src="'.get_stylesheet_directory_uri().'/assets/images/ist-logo.jpg"></a>';
+				echo '<a href="'.get_site_url(2).'"><img id="cst-logo" src="'.get_stylesheet_directory_uri().'/assets/images/cst-logo.jpg"></a>';
 			echo '</div>';
 		}else{
 			if(get_current_blog_id() == 2){

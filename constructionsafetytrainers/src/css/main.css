@@ -83,6 +83,10 @@ form > div.form-header {
 .upper-footer h5 {
   color: #F6921E; }
 
+@media (max-width: 1199px) {
+  body > main {
+    padding-top: 255px !important; } }
+
 @media (max-width: 991px) {
   .footer-copy {
     padding: 20px 5px; }

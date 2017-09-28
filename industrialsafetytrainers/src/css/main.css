@@ -92,26 +92,33 @@ body > header {
           text-decoration: none;
           color: #000000; }
 
-body.sticky-header header {
+body.sticky-header > header {
   position: fixed;
   z-index: 1000;
   width: 100%;
   top: 0px; }
-  body.sticky-header header #logo img {
+  body.sticky-header > header .main-header {
+    padding: 5px 0; }
+  body.sticky-header > header #logo img {
     width: 126px;
     height: auto; }
-  body.sticky-header header .hide-sticky-header {
+  body.sticky-header > header .hide-sticky-header {
     display: none !important; }
-  body.sticky-header header .menu-section {
+  body.sticky-header > header .menu-section {
     padding: 5px 0; }
 
 @media (max-width: 1199px) {
   body > header .main-header {
-    display: block; }
-    body > header .main-header #logo img {
-      width: auto;
-      margin: 0 auto 40px auto;
-      display: block; }
+    /*display: block;*/
+    /*
+				#logo{
+					img{
+						width: auto;
+					    margin: 0 auto 40px auto;
+					    display: block;
+					}
+				}
+				*/ }
     body > header .main-header .header-call-to-action {
       justify-content: center; }
     body > header .main-header .header-call-to-action .header-call-to-action-phone > span {
@@ -845,7 +852,7 @@ input, textarea, select {
   .hide-screen-lg-max {
     display: none !important; }
   body > main {
-    padding-top: 343px !important; } }
+    padding-top: 223px !important; } }
 
 @media (min-width: 1199px) {
   .hide-screen-lg-min {

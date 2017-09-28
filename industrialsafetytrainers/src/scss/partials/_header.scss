@@ -79,11 +79,15 @@ body{
 		}
 	}
 	&.sticky-header{
-		header{
+		>header{
 		    position: fixed;
 		    z-index: 1000;
 		    width: 100%;
 		    top: 0px;
+
+		    .main-header{
+		    	padding: 5px 0;
+		    }
 
 		    #logo{
 		    	img{
@@ -111,10 +115,13 @@ body{
 	body{
 		> header{
 			.main-header{
-				display: block;
+
+				/*display: block;*/
 				>div{
 					
 				}
+				
+				/*
 				#logo{
 					img{
 						width: auto;
@@ -122,6 +129,8 @@ body{
 					    display: block;
 					}
 				}
+				*/
+				
 
 				.header-call-to-action{
 					justify-content: center;

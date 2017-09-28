@@ -14,10 +14,10 @@ body{
 				    font-size: 1.8rem;
 				}
 
-				@media (min-width: $screen-lg-min) {
+				/*@media (min-width: $screen-lg-min) {*/
 					position: relative;
 					top: -20px;
-				}
+				/*}*/
 			}
 
 			.safety-suppliers-search{
@@ -43,23 +43,40 @@ body{
 		}
 
 		#logo{
-	    	img{
-				width: auto !important;
-				height: auto !important;		
+	    	#ist-logo{
+				max-width: 252px;
+				height: auto;		
+	    	}
+	    	#cst-logo{
+	    		max-width: 123px;
+				height: auto;	
 	    	}
 	    }
 
 	}
+
+	
 	&.sticky-header{
 		header{
 		    #logo{
 		    	img{
-					height: 70px !important;
+					width: auto;
+					height: auto;
 		    	}
+		    	 #ist-logo{
+				    width: 120px !important;
+				    height: auto !important;
+				  }
+				  #cst-logo{
+				    width: 60px !important;
+				    height: auto !important;
+				  }
 		    }
 
 		}
 	}
+	
+
 }
 
 
@@ -68,7 +85,6 @@ body{
 		header{
 			.main-header{
 				.button-list{
-					justify-content: center;
 					margin-bottom: 20px;
 				}
 				.safety-suppliers-search{

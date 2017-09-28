@@ -5,17 +5,17 @@ a {
 
 body header .main-header .button-list {
   display: flex;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  /*@media (min-width: $screen-lg-min) {*/
+  position: relative;
+  top: -20px;
+  /*}*/ }
   body header .main-header .button-list a {
     margin-left: 10px;
     margin-left: 10px;
     font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 400;
     font-size: 1.8rem; }
-  @media (min-width: 1200px) {
-    body header .main-header .button-list {
-      position: relative;
-      top: -20px; } }
 
 body header .main-header .safety-suppliers-search {
   display: flex; }
@@ -28,16 +28,28 @@ body header .main-header .safety-suppliers-search {
     color: #000000;
     font-size: 2.4rem; }
 
-body header #logo img {
-  width: auto !important;
-  height: auto !important; }
+body header #logo #ist-logo {
+  max-width: 252px;
+  height: auto; }
+
+body header #logo #cst-logo {
+  max-width: 123px;
+  height: auto; }
 
 body.sticky-header header #logo img {
-  height: 70px !important; }
+  width: auto;
+  height: auto; }
+
+body.sticky-header header #logo #ist-logo {
+  width: 120px !important;
+  height: auto !important; }
+
+body.sticky-header header #logo #cst-logo {
+  width: 60px !important;
+  height: auto !important; }
 
 @media (max-width: 1199px) {
   body header .main-header .button-list {
-    justify-content: center;
     margin-bottom: 20px; }
   body header .main-header .safety-suppliers-search {
     justify-content: center; } }
@@ -150,6 +162,14 @@ body.sticky-header header #logo img {
 
 .footer-copy {
   background: #000000; }
+
+@media (max-width: 1199px) {
+  #ist-logo {
+    width: 120px !important;
+    height: auto !important; }
+  #cst-logo {
+    width: 60px !important;
+    height: auto !important; } }
 
 @media (max-width: 991px) {
   #mainMenu > #menu-main-menu > li.dropdown > ul li.dropdown-submenu:hover > .dropdown-menu {
