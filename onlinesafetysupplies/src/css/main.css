@@ -19,40 +19,53 @@ body header .main-header .button-list {
 
 body header .main-header .safety-suppliers-search {
   display: flex; }
-  @media (min-width: 1200px) {
-    body header .main-header .safety-suppliers-search {
-      margin-top: 20px; } }
   body header .main-header .safety-suppliers-search form {
     margin-right: 40px; }
   body header .main-header .safety-suppliers-search .header-call-to-action .header-call-to-action-phone span {
     color: #000000;
     font-size: 2.4rem; }
 
-body header #logo #ist-logo {
-  max-width: 252px;
-  height: auto; }
+body header #logo {
+  display: flex;
+  /*
+	    	#ist-logo{
+				max-width: 252px;
+				height: auto;		
+	    	}
+	    	#cst-logo{
+	    		max-width: 123px;
+				height: auto;	
+	    	}
+	    	*/ }
 
-body header #logo #cst-logo {
-  max-width: 123px;
-  height: auto; }
+body.sticky-header header #logo {
+  width: 230px;
+  /*
+		    	 #ist-logo{
+				    width: 120px !important;
+				    height: auto !important;
+				  }
+				  #cst-logo{
+				    width: 60px !important;
+				    height: auto !important;
+				  }
+				  */ }
+  body.sticky-header header #logo img {
+    width: auto;
+    height: auto; }
 
-body.sticky-header header #logo img {
-  width: auto;
-  height: auto; }
-
-body.sticky-header header #logo #ist-logo {
-  width: 120px !important;
-  height: auto !important; }
-
-body.sticky-header header #logo #cst-logo {
-  width: 60px !important;
-  height: auto !important; }
+body.sticky-header .safety-suppliers-search {
+  margin-top: 10px; }
 
 @media (max-width: 1199px) {
   body header .main-header .button-list {
     margin-bottom: 20px; }
   body header .main-header .safety-suppliers-search {
     justify-content: center; } }
+
+@media (max-width: 767px) {
+  body header .main-header .safety-suppliers-search .header-call-to-action .header-call-to-action-phone span {
+    font-size: 1.6rem; } }
 
 @media (min-width: 1200px) {
   #mainMenu > #menu-main-menu > li:after {
@@ -164,6 +177,8 @@ body.sticky-header header #logo #cst-logo {
   background: #000000; }
 
 @media (max-width: 1199px) {
+  body > main {
+    padding-top: 220px !important; }
   #ist-logo {
     width: 120px !important;
     height: auto !important; }
@@ -172,6 +187,8 @@ body.sticky-header header #logo #cst-logo {
     height: auto !important; } }
 
 @media (max-width: 991px) {
+  body > main {
+    padding-top: 170px !important; }
   #mainMenu > #menu-main-menu > li.dropdown > ul li.dropdown-submenu:hover > .dropdown-menu {
     display: block;
     position: relative;
@@ -225,9 +242,6 @@ body > main {
 
 .product-boxes > div {
   background: #000000; }
-
-.product-boxes img {
-  width: 100%; }
 
 .social-icon {
   margin: 0px 8px 0px; }

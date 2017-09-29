@@ -40,7 +40,7 @@ add_action( 'wp_enqueue_scripts', 'slider_wp_enqueue_scripts' );
 
 
 
-function slider(){
+function slider($atts){
 
     wp_enqueue_style( 'slick-style');
     wp_enqueue_script( 'slick-script');
@@ -64,7 +64,7 @@ function slider(){
     );
     $the_query = new WP_Query( $args );
 
-    $return .= '<div class="slider">';
+    $return .= '<div class="slider '.$class.'">';
         while ( $the_query->have_posts() ) : $the_query->the_post();
         $content = do_shortcode( get_the_content());
         $content = apply_filters('the_content',$content);

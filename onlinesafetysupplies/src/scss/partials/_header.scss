@@ -22,9 +22,6 @@ body{
 
 			.safety-suppliers-search{
 				display: flex;
-				@media (min-width: $screen-lg-min) {
-					margin-top: 20px;
-				}
 
 				form{
 					margin-right: 40px;
@@ -38,11 +35,12 @@ body{
 						}
 					}
 				}
-				
 			}
 		}
 
 		#logo{
+			display: flex;
+			/*
 	    	#ist-logo{
 				max-width: 252px;
 				height: auto;		
@@ -51,6 +49,7 @@ body{
 	    		max-width: 123px;
 				height: auto;	
 	    	}
+	    	*/
 	    }
 
 	}
@@ -59,10 +58,13 @@ body{
 	&.sticky-header{
 		header{
 		    #logo{
+		    	width: 230px;
+		    	
 		    	img{
 					width: auto;
 					height: auto;
 		    	}
+		    	/*
 		    	 #ist-logo{
 				    width: 120px !important;
 				    height: auto !important;
@@ -71,9 +73,15 @@ body{
 				    width: 60px !important;
 				    height: auto !important;
 				  }
+				  */
 		    }
 
 		}
+
+		.safety-suppliers-search{
+			margin-top: 10px;
+		}
+
 	}
 	
 
@@ -92,5 +100,11 @@ body{
 				}
 			}
 		}
+	}
+}
+
+@media (max-width: $screen-sm-max) {
+	body header .main-header .safety-suppliers-search .header-call-to-action .header-call-to-action-phone span{
+		font-size: 1.6rem;
 	}
 }
