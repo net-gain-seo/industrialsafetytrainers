@@ -380,17 +380,18 @@ a{
 			height: auto;
 		}
 		> div{
-			padding: 20px;
-			text-align: center;
-
-			display: flex;
-			flex-flow: column nowrap;
-			height: 100%;
+		    padding: 20px 20px 50px 20px;
+		    text-align: center;
+		    height: 100%;
+		    position: relative;
 
 			>.btn-primary{
-				margin-top: auto;
-				margin-left: 30px;
-				margin-right: 30px;
+			    margin-top: auto;
+			    position: absolute;
+			    bottom: 20px;
+			    width: 120px;
+			    margin-left: -60px;
+			    left: 50%;
 			}
 
 			h3{
