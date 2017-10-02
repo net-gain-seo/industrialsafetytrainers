@@ -9,12 +9,15 @@
 			padding-top: 223px !important;
 		}
 	}
-
+	.up-sells.upsells.products li .add_to_cart_button, .related.products li .add_to_cart_button{
+		width: 120px;
+	}
 }
 @media (min-width: $screen-lg-max) {
 	.hide-screen-lg-min{
 		display: none !important;
 	}
+	
 }
 
 @media (max-width: $screen-md-max) {
@@ -44,6 +47,7 @@
 	    margin: 5px 0px!important;
 	    width: 100%;
 	}
+
 
 
 }

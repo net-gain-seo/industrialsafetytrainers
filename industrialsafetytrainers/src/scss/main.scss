@@ -866,6 +866,7 @@ a{
 		text-transform: capitalize;
 	}
 	.products{
+		flex-wrap:wrap;
 		display: flex;
 	}
 }

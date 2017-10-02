@@ -1,4 +1,10 @@
 <?php 
+
+//Remove related products 
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+
+
+
 add_filter( 'woocommerce_product_subcategories_hide_empty', 'hide_empty_categories', 10, 1 );
 function hide_empty_categories ( $hide_empty ) {
     $hide_empty  =  FALSE;

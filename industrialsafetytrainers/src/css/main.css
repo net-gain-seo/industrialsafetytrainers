@@ -860,7 +860,9 @@ input, textarea, select {
   .hide-screen-lg-max {
     display: none !important; }
   body > main {
-    padding-top: 223px !important; } }
+    padding-top: 223px !important; }
+  .up-sells.upsells.products li .add_to_cart_button, .related.products li .add_to_cart_button {
+    width: 120px; } }
 
 @media (min-width: 1199px) {
   .hide-screen-lg-min {
@@ -1534,6 +1536,7 @@ a {
   text-transform: capitalize; }
 
 .related.products .products {
+  flex-wrap: wrap;
   display: flex; }
 
 .mobileMenuOverlay {
