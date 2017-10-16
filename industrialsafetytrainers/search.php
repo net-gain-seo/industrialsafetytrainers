@@ -100,7 +100,7 @@
 					echo '<article class="post d-flex">';
 						echo '<div>';
 							echo '<h2>'.$post->post_title.'</h2>';
-							echo '<p>'.$post->post_excerpt.'</p>';
+							//echo '<p>'.$post->post_excerpt.'</p>';
 							echo '<a class="btn btn-primary" href="'.$post->guid.'">More Information</a>';
 						echo '</div>';
 					echo '</article>';

@@ -568,16 +568,28 @@ a{
 
 				}
 				.course-type-container{
-					display: flex;
 					background: #F1F2F2;
-					padding: 20px;
+					text-align: center;
+					padding-top: 10px;
 
-					span{
-						margin-left: 15px;
-						&:first-child{
-							margin-left: 0px;
+					> h5{
+						margin-bottom: 0px;
+						font-size: 12px;
+					}
+
+					> div{
+						display: flex;
+						
+						padding: 20px;
+
+						span{
+							margin-left: 15px;
+							&:first-child{
+								margin-left: 0px;
+							}
 						}
 					}
+					
 				}
 			}
 

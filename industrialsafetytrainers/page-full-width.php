@@ -27,17 +27,16 @@
 			}else{
 				echo '<section class="page-title-section">';
 					echo '<div class="container">';
-						echo '<h1>'.get_the_title().'</h1>';
+						
 
 						if(isset($_GET['category'])){
 							$current = get_current_blog_id();
 							switch_to_blog(3);
 							$term = get_term_by('slug',$_GET['category'],'product_cat');
-							echo '<h5>'.$term->name.'</h5>';
+							//echo '<h5>'.$term->name.'</h5>';
 							switch_to_blog($current);
-						}
-
-						if(isset($_GET['course'])){
+							echo '<h1>'.$term->name.'</h1>';
+						}elseif(isset($_GET['course'])){
 							$current = get_current_blog_id();
 							switch_to_blog(3);
 							
@@ -49,9 +48,14 @@
 							);
 							$product = get_posts($args);
 
-							echo '<h5>'.$product[0]->post_title.'</h5>';
+							//echo '<h5>'.$product[0]->post_title.'</h5>';
+							echo '<h1>'.$product[0]->post_title.'</h1>';
 							switch_to_blog($current);
+						}else{
+							echo '<h1>'.get_the_title().'</h1>';
 						}
+
+						
 
 					echo '</div>';
 				echo '</section>';

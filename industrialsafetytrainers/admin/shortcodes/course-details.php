@@ -39,23 +39,27 @@ function course_details($atts){
                          $return .= '<div class="course-header-bg"></div>';
 
                         $return .= '<div class="course-header-details">';
-                            $return .= '<h3>COURSE SUMMARY</h3>';
+                            $return .= '<h3>'.$current_product[0]->post_title.' Course Summary</h3>';
                             $return .= '<div class="course-type-container">';
                                 $_public_course = get_post_meta($current_product[0]->ID,'_public_course',true);
                                 $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
                                 $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
 
-                                if($_public_course == 'yes'){ $return .= '<span class="course-type-public"></span>'; }
-                                if($_private_course == 'yes'){ $return .= '<span class="course-type-private"></span>'; }
-                                if($_online_course == 'yes'){ $return .= '<span class="course-type-online"></span>'; }
+                                $return .= '<h5>Course Offered</h5>';
+
+                                $return .= '<div>';
+                                    if($_public_course == 'yes'){ $return .= '<span class="course-type-public"></span>'; }
+                                    if($_private_course == 'yes'){ $return .= '<span class="course-type-private"></span>'; }
+                                    if($_online_course == 'yes'){ $return .= '<span class="course-type-online"></span>'; }
+                                $return .= '</div>';
 
                             $return .= '</div>';
                         $return .= '</div>';
                     $return .= '</div>';
 
                     $return .= '<div class="course-detail">';
-                        $return .= '<h3 class="h2 mb-0">'.$category_name.'</h3>';
-                        $return .= '<h2 class="h3">'.$current_product[0]->post_title.'</h2>';
+                        //$return .= '<h3 class="h2 mb-0">'.$category_name.'</h3>';
+                        //$return .= '<h2 class="h3">'.$current_product[0]->post_title.'</h2>';
                         $return .= apply_filters('the_content',$current_product[0]->post_content);
                     $return .= '</div>';
 
@@ -69,7 +73,7 @@ function course_details($atts){
                             $return .= '<div class="card">';
                                 $return .= '<div class="card-header" role="tab">';
                                     $return .= '<h5 class="mb-0">';
-                                        $return .= '<a data-toggle="collapse" data-parent="#accordion" href="#courseSpecs" aria-expanded="true" aria-controls="courseSpecs">Course Specs</a>';
+                                        $return .= '<a data-toggle="collapse" data-parent="#accordion" href="#courseSpecs" aria-expanded="true" aria-controls="courseSpecs">About This Course</a>';
                                     $return .= '</h5>';
                                 $return .= '</div>';
 
@@ -90,7 +94,7 @@ function course_details($atts){
                             $return .= '<div class="card">';
                                 $return .= '<div class="card-header" role="tab">';
                                     $return .= '<h5 class="mb-0">';
-                                        $return .= '<a data-toggle="collapse" data-parent="#accordion" href="#courseOutline" aria-expanded="false" aria-controls="courseOutline" class="collapsed">Course Outline</a>';
+                                        $return .= '<a data-toggle="collapse" data-parent="#accordion" href="#courseOutline" aria-expanded="false" aria-controls="courseOutline" class="collapsed">What Is Included In This Course</a>';
                                     $return .= '</h5>';
                                 $return .= '</div>';
 
@@ -127,6 +131,7 @@ function course_details($atts){
 
                     $return .= '<div class="course-register-links">';
                         $_product = wc_get_product( $current_product[0]->ID );
+
 
                         if($_public_course == 'yes'){
                             $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">REGISTER NOW</a></div>';
