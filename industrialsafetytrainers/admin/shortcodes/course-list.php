@@ -188,7 +188,8 @@ function course_list($atts){
                         $return .= '</div>';
 
                         $return .= '<div class="course-content">';
-                            $return .= apply_filters('the_content',$course->post_content);
+                            //$return .= apply_filters('the_content',$course->post_content);
+                            //$return .= get_the_excerpt($course);
                             $return .= '<a class="btn btn-danger" href="'.get_permalink($course->product_id).'">More Information</a>';
                         $return .= '</div>';
                     $return .= '</div>';
