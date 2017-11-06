@@ -751,6 +751,12 @@ input, textarea, select {
   text-align: center;
   font-weight: 100; }
 
+.upsell-item {
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 40px; }
+
 .woocommerce #respond input#submit.alt,
 .woocommerce a.button.alt,
 .woocommerce button.button.alt,
