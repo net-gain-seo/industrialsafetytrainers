@@ -1,9 +1,13 @@
+<div id="othersites-footer">
+<a href="http://209.126.119.193/~industrialsafety/"><div class="site-button industrial-button"></div></a>
+<a href="http://209.126.119.193/~industrialsafety/constructionsafetytrainers/"><div class="site-button construction-button"></div></a>
+<a href="http://209.126.119.193/~industrialsafety/onlinesafetysupplies"><div class="site-button shopcart-button"></div></a>
+</div>
 <footer>
-
 	<section class="upper-footer">
 		<div class="container">
 			<div class="footer-logo">
-				<?php 
+				<?php
 				if(get_current_blog_id() == 2){
 					$logoSrc = get_stylesheet_directory_uri().'/assets/images/construction-safety-trainers-logo-white.png';
 				}elseif(get_current_blog_id() == 3){

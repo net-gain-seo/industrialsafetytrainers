@@ -30,7 +30,9 @@ body{
 		padding-top: 250px;
 	}
 }
-
+button{
+	cursor: pointer;
+}
 img{
 	max-width: 100%;
 	&.aligncenter{
@@ -579,7 +581,7 @@ a{
 
 					> div{
 						display: flex;
-						
+
 						padding: 20px;
 
 						span{
@@ -589,7 +591,7 @@ a{
 							}
 						}
 					}
-					
+
 				}
 			}
 
