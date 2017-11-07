@@ -1,4 +1,5 @@
 body{
+	overflow-x: hidden;
 	> header{
 		background: #fff;
 		position: fixed;
@@ -109,8 +110,78 @@ body{
 }
 
 
+#othersites-header{
+	display: none;
+	float: right;
+  position: absolute;
+  right: 0px;
+  width: 340px;
+  z-index: 9999999999999;
 
-//RESPONSIVE 
+	.site-button{
+		position: relative;
+		bottom: inherit;
+    right: inherit;
+		display: inline-block;
+		float: right;
+		height: 100px;
+    width: 100px;
+		margin-left: 10px;
+	}
+}
+#othersites-header{
+	.site-button.industrial-button, .site-button.construction-button, .site-button.shopcart-button{
+		top: 0px;
+	}
+	.site-button.industrial-button {
+		background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVindustrialsafteyIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(0.9);
+	}
+	.site-button.industrial-button:hover {
+	  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVindustrialsafteyIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(1);
+	}
+	.site-button.construction-button {
+		background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVconstructionsafteyIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(0.9);
+	}
+	.site-button.construction-button:hover {
+	  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVconstructionsafteyIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(1);
+	}
+	.site-button.shopcart-button {
+		background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVshoppingcartIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(0.9);
+	}
+	.site-button.shopcart-button:hover {
+	  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVshoppingcartIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(1);
+	}
+}
+.sticky-header #othersites-header .site-button {
+    position: relative;
+    bottom: inherit;
+    right: inherit;
+    display: inline-block;
+    float: right;
+    height: 50px;
+    width: 60px;
+		margin-left: 10px;
+}
+
+.navbar-inverse .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.50)!important;
+}
+.navbar-toggler-icon {
+    padding: 15px;
+}
+//RESPONSIVE
 @media (max-width: $screen-lg-max) {
 	body{
 		> header{
@@ -118,9 +189,9 @@ body{
 
 				/*display: block;*/
 				>div{
-					
+
 				}
-				
+
 				/*
 				#logo{
 					img{
@@ -130,7 +201,7 @@ body{
 					}
 				}
 				*/
-				
+
 
 				.header-call-to-action{
 					justify-content: center;

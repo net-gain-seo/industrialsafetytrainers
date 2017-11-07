@@ -15,10 +15,10 @@
 
 <header>
 	<section class="main-header container">
-		
-		<?php 
 
-	
+		<?php
+
+
 		if(get_current_blog_id() == 3){
 			echo '<div id="logo">';
 				echo '<a href="'.get_site_url(1).'" style="margin-right:30px"><img id="ist-logo" src="'.get_stylesheet_directory_uri().'/assets/images/ist-logo.jpg"></a>';
@@ -133,7 +133,12 @@
 				<div class="mobileMenuOverlay"></div>
 
 		    </nav>
-		    <?php if(get_current_blog_id() != 3){ 
+				<div id="othersites-header">
+					<a href="http://209.126.119.193/~industrialsafety/onlinesafetysupplies"><div class="site-button shopcart-button"></div></a>
+					<a href="http://209.126.119.193/~industrialsafety/constructionsafetytrainers/"><div class="site-button construction-button"></div></a>
+					<a href="http://209.126.119.193/~industrialsafety/"><div class="site-button industrial-button"></div></a>
+				</div>
+		    <?php/* if(get_current_blog_id() != 3){
 		    	if(get_current_blog_id() == 2){
 		    		?>
 		    		<a href="<?php echo get_site_url(3); ?>" class="btn btn-danger">SHOP NOW</a>
@@ -143,11 +148,10 @@
 		    		<a href="<?php echo get_site_url(3); ?>" class="btn btn-danger">SAFETY SUPPLIES</a>
 		    	<?php
 		    	}
-			    
+
 		    }else{ ?>
 
-		    <?php } ?>
+		    <?php } */?>
 	    </div>
     </section>
 </header>
-

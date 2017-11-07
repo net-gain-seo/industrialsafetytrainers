@@ -44,68 +44,135 @@ ol {
 .container p:last-child {
   margin-bottom: 0px; }
 
-body > header {
-  background: #fff;
-  position: fixed;
-  width: 100%;
-  z-index: 100; }
-  body > header .main-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0; }
-    body > header .main-header #logo img {
-      transition: width 0.2s ease-in-out;
-      width: 100%; }
-    body > header .main-header .heading-qualifications {
+body {
+  overflow-x: hidden; }
+  body > header {
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100; }
+    body > header .main-header {
       display: flex;
-      justify-content: center; }
-    body > header .main-header form input[type="submit"] {
-      border-radius: 0px 5px 5px 0px;
-      border: 1px solid #58595B;
-      border-left: none; }
-    body > header .main-header form input[type="search"] {
-      background: #F1F2F2;
-      border: 1px solid #58595B;
-      padding: 10px;
-      border-radius: 5px 0px 0px 5px;
-      width: 195px; }
-    body > header .main-header .header-call-to-action {
-      display: flex;
-      justify-content: flex-end; }
-      body > header .main-header .header-call-to-action span {
-        display: block;
-        align-self: flex-end; }
-      body > header .main-header .header-call-to-action .header-call-to-action-content {
-        font-size: 1.6rem;
-        font-family: "Arial Narrow", Arial, sans-serif;
-        font-style: italic;
-        padding: 0 35px; }
-      body > header .main-header .header-call-to-action .header-call-to-action-phone > span {
-        font-family: "Arial Narrow", Arial, sans-serif;
-        color: #000000;
-        font-size: 2.4rem;
-        font-weight: 600; }
-        body > header .main-header .header-call-to-action .header-call-to-action-phone > span:first-child {
-          color: #58595B;
-          font-size: 1.8rem; }
-        body > header .main-header .header-call-to-action .header-call-to-action-phone > span a {
-          text-decoration: none;
-          color: #000000; }
+      justify-content: space-between;
+      padding: 20px 0; }
+      body > header .main-header #logo img {
+        transition: width 0.2s ease-in-out;
+        width: 100%; }
+      body > header .main-header .heading-qualifications {
+        display: flex;
+        justify-content: center; }
+      body > header .main-header form input[type="submit"] {
+        border-radius: 0px 5px 5px 0px;
+        border: 1px solid #58595B;
+        border-left: none; }
+      body > header .main-header form input[type="search"] {
+        background: #F1F2F2;
+        border: 1px solid #58595B;
+        padding: 10px;
+        border-radius: 5px 0px 0px 5px;
+        width: 195px; }
+      body > header .main-header .header-call-to-action {
+        display: flex;
+        justify-content: flex-end; }
+        body > header .main-header .header-call-to-action span {
+          display: block;
+          align-self: flex-end; }
+        body > header .main-header .header-call-to-action .header-call-to-action-content {
+          font-size: 1.6rem;
+          font-family: "Arial Narrow", Arial, sans-serif;
+          font-style: italic;
+          padding: 0 35px; }
+        body > header .main-header .header-call-to-action .header-call-to-action-phone > span {
+          font-family: "Arial Narrow", Arial, sans-serif;
+          color: #000000;
+          font-size: 2.4rem;
+          font-weight: 600; }
+          body > header .main-header .header-call-to-action .header-call-to-action-phone > span:first-child {
+            color: #58595B;
+            font-size: 1.8rem; }
+          body > header .main-header .header-call-to-action .header-call-to-action-phone > span a {
+            text-decoration: none;
+            color: #000000; }
+  body.sticky-header > header {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0px; }
+    body.sticky-header > header .main-header {
+      padding: 5px 0; }
+    body.sticky-header > header #logo img {
+      width: 126px;
+      height: auto; }
+    body.sticky-header > header .hide-sticky-header {
+      display: none !important; }
+    body.sticky-header > header .menu-section {
+      padding: 5px 0; }
 
-body.sticky-header > header {
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
+#othersites-header {
+  display: none;
+  float: right;
+  position: absolute;
+  right: 0px;
+  width: 340px;
+  z-index: 9999999999999; }
+  #othersites-header .site-button {
+    position: relative;
+    bottom: inherit;
+    right: inherit;
+    display: inline-block;
+    float: right;
+    height: 100px;
+    width: 100px;
+    margin-left: 10px; }
+
+#othersites-header .site-button.industrial-button, #othersites-header .site-button.construction-button, #othersites-header .site-button.shopcart-button {
   top: 0px; }
-  body.sticky-header > header .main-header {
-    padding: 5px 0; }
-  body.sticky-header > header #logo img {
-    width: 126px;
-    height: auto; }
-  body.sticky-header > header .hide-sticky-header {
-    display: none !important; }
-  body.sticky-header > header .menu-section {
-    padding: 5px 0; }
+
+#othersites-header .site-button.industrial-button {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVindustrialsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(0.9); }
+
+#othersites-header .site-button.industrial-button:hover {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVindustrialsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(1); }
+
+#othersites-header .site-button.construction-button {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVconstructionsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(0.9); }
+
+#othersites-header .site-button.construction-button:hover {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVconstructionsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(1); }
+
+#othersites-header .site-button.shopcart-button {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVshoppingcartIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(0.9); }
+
+#othersites-header .site-button.shopcart-button:hover {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVshoppingcartIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(1); }
+
+.sticky-header #othersites-header .site-button {
+  position: relative;
+  bottom: inherit;
+  right: inherit;
+  display: inline-block;
+  float: right;
+  height: 50px;
+  width: 60px;
+  margin-left: 10px; }
+
+.navbar-inverse .navbar-toggler {
+  border: 2px solid rgba(255, 255, 255, 0.5) !important; }
+
+.navbar-toggler-icon {
+  padding: 15px; }
 
 @media (max-width: 1199px) {
   body > header .main-header {
@@ -636,6 +703,77 @@ input, textarea, select {
   .testimonials-wrapper .carousel-item {
     padding: 0 50px; } }
 
+.site-button {
+  position: fixed;
+  top: 30px;
+  right: -20px;
+  height: 120px;
+  width: 120px;
+  background-size: 100% !important;
+  background-color: black;
+  cursor: pointer;
+  z-index: 99;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: 0.33s ease; }
+
+#othersites-footer {
+  position: fixed;
+  top: 30%;
+  right: -10px;
+  z-index: 9999999999999; }
+
+.site-button:hover {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.35s cubic-bezier(0.3, 0.2, 0, 2.5);
+  transition: 0.35s cubic-bezier(0.3, 0.2, 0, 2.5); }
+
+.site-button.industrial-button {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/industrialsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 360px; }
+
+.site-button.industrial-button:hover {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/industrialsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 360px;
+  right: -5px; }
+
+.site-button.industrial-button.active {
+  top: 360px;
+  transition: 0.33s ease; }
+
+.site-button.construction-button {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/constructionsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 475px; }
+
+.site-button.construction-button:hover {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/constructionsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 475px;
+  right: -5px; }
+
+.site-button.construction-button.active {
+  top: 475px;
+  transition: 0.33s ease; }
+
+.site-button.shopcart-button {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/shoppingcartIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 590px; }
+
+.site-button.shopcart-button:hover {
+  background: url("http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/icons/shoppingcartIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 590px;
+  right: -5px; }
+
+.site-button.shopcart-button.active {
+  top: 590px;
+  transition: 0.33s ease; }
+
 .upper-footer {
   background: #000000;
   color: #ffffff; }
@@ -865,6 +1003,10 @@ input, textarea, select {
 @media (max-width: 1199px) {
   .hide-screen-lg-max {
     display: none !important; }
+  #othersites-footer {
+    display: none; }
+  #othersites-header {
+    display: block; }
   body > main {
     padding-top: 223px !important; }
   .up-sells.upsells.products li .add_to_cart_button, .related.products li .add_to_cart_button {
@@ -989,6 +1131,9 @@ body {
   color: #000000; }
   body > main {
     padding-top: 250px; }
+
+button {
+  cursor: pointer; }
 
 img {
   max-width: 100%; }

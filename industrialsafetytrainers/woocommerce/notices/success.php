@@ -30,26 +30,27 @@ if ( ! $messages ) {
 	<div class="woocommerce-message"><?php echo wp_kses_post( $message ); ?></div>
 <?php endforeach; ?>
 
-
 <section class="up-sells upsells products">
-<?php $crosssell_ids = get_post_meta( get_the_ID(), '_crosssell_ids' );
-$crosssell_ids=$crosssell_ids[0]; ?>
+<?php $upsell_ids = get_post_meta( get_the_ID(), '_upsell_ids' );
+$upsell_ids=$upsell_ids[0]; ?>
 <?php
-if(count($crosssell_ids)>0){ ?>
+if(count($upsell_ids)>0){ ?>
 <div class="woocommerce-title-section"><h3 class="h3">Related Products</h3></div>
 
-<?php $args = array( 'post_type' => 'product', 'posts_per_page' => 10, 'post__in' => $crosssell_ids );
+<?php $args = array( 'post_type' => 'product', 'posts_per_page' => 4, 'post__in' => $upsell_ids );
 $loop = new WP_Query( $args );
 ?><ul class="products"><?php
 while ( $loop->have_posts() ) : $loop->the_post();
 ?><li class="product "><a href='<?php the_permalink(); ?>'><?php
 the_post_thumbnail( 'thumbnail' ); ?>
-<h2 class="woocommerce-loop-product__title"><?php the_title(); ?></h2>
+<h2 class="woocommerce-loop-product__title"><?php the_title(); ?></h2></a>
 <?php do_action( 'woocommerce_after_shop_loop_item_title' );
 do_action( 'woocommerce_after_shop_loop_item' ); ?>
-</a></li>
+</li>
 <?php
 endwhile;
 }
 ?></ul>
 </section>
+
+<?php wp_reset_postdata(); ?>
