@@ -45,7 +45,7 @@ function course_details($atts){
                                 $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
                                 $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
 
-                                $return .= '<h5>Course Offered</h5>';
+                                $return .= '<h5>This course is offered</h5>';
 
                                 $return .= '<div>';
                                     if($_public_course == 'yes'){ $return .= '<span class="course-type-public"></span>'; }
@@ -150,12 +150,12 @@ function course_details($atts){
                         if($_online_course == 'yes'){
                             if( $_product->is_type( 'external' ) ){
                                 $_product_url = get_post_meta($current_product[0]->ID,'_product_url',true);
-                                
+
                                 $return .= '<div><a href="'.$_product_url.'" class="btn btn-danger" target="_blank">PURCHASE COURSE</a></div>';
                             }else{
                                 $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">PURCHASE COURSE</a></div>';
                             }
-                            
+
                         }
 
                         $info_sheet = get_post_meta($current_product[0]->ID,'info_sheet',true);
@@ -235,7 +235,7 @@ function course_category_list($atts){
     ), $atts ));
 
 
-    
+
     $current = get_current_blog_id();
     switch_to_blog($blog_id);
 
@@ -329,7 +329,7 @@ function course_category_list($atts){
             }
         }
     $return .= '</ul>';
-    
+
 
     return $return;
 
