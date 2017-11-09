@@ -284,6 +284,11 @@ body {
   cursor: pointer; }
 
 @media (max-width: 1199px) {
+  .menu-section .justify-content-end {
+    -webkit-box-pack: start !important;
+    -webkit-justify-content: flex-start !important;
+    -ms-flex-pack: start !important;
+    justify-content: start !important; }
   #mainMenu.collapse {
     position: fixed;
     background: #231f20;
