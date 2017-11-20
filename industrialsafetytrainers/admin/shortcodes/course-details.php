@@ -138,7 +138,8 @@ function course_details($atts){
                         }
 
                         if($_private_course == 'yes'){
-                            $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-warning">REQUEST INFORMATION</a></div>';
+														//$return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-warning">REQUEST INFORMATION</a></div>';
+                            $return .= '<button type="button" class="btn btn-primary " role="button" data-toggle="modal" data-target="#requestInformationModal">REQUEST INFORMATION</button>';
                         }
 
 
