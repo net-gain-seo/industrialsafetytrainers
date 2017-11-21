@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function course_list_query($query_category_id,$includeLimit = false,$per_page=10,$offset=0,$location = false,$month = false, $search = ''){
     global $wpdb;
@@ -91,7 +91,7 @@ function course_list($atts){
     if(isset($_GET['month']) && $_GET['month'] != ''){
         $query_month = $_GET['month'];
     }
-    
+
     $current_url = get_permalink();
 
     if(isset($_GET['current_page'])){
@@ -104,8 +104,8 @@ function course_list($atts){
     $offset = ($page - 1) * $per_page;
     $total = 0;
 
-    
-    //Queries 
+
+    //Queries
     $total_courses = course_list_query($query_category_id,false,$per_page,$offset,$query_location,$query_month, $search);
     $courses = course_list_query($query_category_id,true,$per_page,$offset,$query_location,$query_month, $search);
     $locations = course_list_query($query_category_id,false,$per_page,$offset,false,false, $search);
@@ -176,8 +176,8 @@ function course_list($atts){
                     $return .= '<div class="course">';
                         $return .= '<div class="course-header">';
                             $return .= '<div class="course-date">';
-                                $return .= '<span>'.date('M',strtotime($course->course_date)).'</span>';
-                                $return .= '<span>'.date('d',strtotime($course->course_date)).'</span>';
+                                $return .= '<span>'.date('MM',strtotime($course->course_date)).'</span>';
+                                $return .= '<span>'.date('DD',strtotime($course->course_date)).'</span>';
                             $return .= '</div>';
 
                             $return .= '<div class="course-title">';
