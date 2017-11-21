@@ -176,8 +176,8 @@ function course_list($atts){
                     $return .= '<div class="course">';
                         $return .= '<div class="course-header">';
                             $return .= '<div class="course-date">';
-                                $return .= '<span>'.date('MM',strtotime($course->course_date)).'</span>';
-                                $return .= '<span>'.date('DD',strtotime($course->course_date)).'</span>';
+                                $return .= '<span>'.date('M',strtotime($course->course_date)).'</span>';
+                                $return .= '<span>'.date('d',strtotime($course->course_date)).'</span>';
                             $return .= '</div>';
 
                             $return .= '<div class="course-title">';

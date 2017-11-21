@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-//Remove related products 
+//Remove related products
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 
@@ -35,11 +35,11 @@ function course_custom_js() {
 
 				//DATE PICKER
 				jQuery(document).ready(function(){
-					jQuery('.datepicker').datepicker({ dateFormat: 'MM dd, yy' });	
+					jQuery('.datepicker').datepicker({ dateFormat: 'MM DD, yy' });
 				});
 
 
-				//Add course Location				
+				//Add course Location
 
 				jQuery('#add-course-location').click(function(){
 					var courseLocationCount = jQuery('.course-location').length;
@@ -96,7 +96,7 @@ function course_custom_js() {
 
 					//re up datepicker
 					jQuery(document).ready(function(){
-						jQuery('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });	
+						jQuery('.datepicker').datepicker({ dateFormat: 'yy-MM-DD' });
 					});
 
 					return false;
@@ -212,8 +212,8 @@ function course_options_product_tab_content() {
 					<?php foreach($var_out as $key => $var){ ?>
 						<div style="margin-bottom: 50px;" class="course-location">
 							<p style="text-align: right;">
-								<input type="text" name="_locations[<?php echo $key; ?>]" value="<?php echo $var_out[$key]['location']; ?>" style="float:left" /> 
-								<button data-key="<?php echo $key; ?>" class="add-course-date button button-primary">Add Date</button> - 
+								<input type="text" name="_locations[<?php echo $key; ?>]" value="<?php echo $var_out[$key]['location']; ?>" style="float:left" />
+								<button data-key="<?php echo $key; ?>" class="add-course-date button button-primary">Add Date</button> -
 								<button class="remove-course-location button button-primary">Remove Location</button>
 							</p>
 							<div>
@@ -280,7 +280,7 @@ function save_course_option_field( $product_id ) {
 
 	if(isset($_POST['_locations'])){
 
-		
+
 		//CONFIGURE ATTRIBUTES
 		$location = wc_attribute_taxonomy_name('Location');
 		$date = wc_attribute_taxonomy_name('Date');
@@ -323,7 +323,7 @@ function save_course_option_field( $product_id ) {
 
 		foreach($_POST['_locations'] as $l_key => $l_val){
 			$locationsArray[] = $l_val;
-			
+
 			if(isset($_POST['_location_'.$l_key.'_dates'])){
 				foreach($_POST['_location_'.$l_key.'_dates'] as $d_key => $d_val){
 					$datesArray[] = $d_val;
@@ -336,16 +336,16 @@ function save_course_option_field( $product_id ) {
 		wp_set_object_terms($product_id, $timesArray, $time );
 
 
-		
+
 		$parent_id = $product_id;
 
-		// GET CURRENT VARIATIONS AND MAKE SURE WE DONT RE-ADD. 
+		// GET CURRENT VARIATIONS AND MAKE SURE WE DONT RE-ADD.
 		$current_variations = get_variations($product_id);
 
 		echo '<pre>';
 		print_r($current_variations);
 		echo '</pre>';
-		
+
 
 		$current_variation_ids = array();
 		foreach($current_variations as $key => $variations){
@@ -422,7 +422,7 @@ function save_course_option_field( $product_id ) {
 					//$time_value = strtolower($t_val);
 					//$time_value = str_replace(' ', '-', $time_value);
 					$time_value = wc_sanitize_taxonomy_name($t_val);
-					
+
 
 					update_post_meta( $variation_id, 'attribute_' . $location, $location_value );
 					update_post_meta( $variation_id, 'attribute_' . $date, $date_value );
@@ -667,7 +667,7 @@ function container_tag_end() {
 }
 
 
-//ADD COURSE INFORMATION 
+//ADD COURSE INFORMATION
 add_action('woocommerce_after_single_product_summary', 'course_specific_info', 5);
 function course_specific_info(){
 	global $product;
@@ -683,7 +683,7 @@ function course_specific_info(){
 }
 
 
-//ADD TITLE 
+//ADD TITLE
 add_action('woocommerce_before_single_product_summary', 'product_title', 5);
 function product_title(){
 	global $product;
@@ -820,5 +820,3 @@ function industrial_save_product_cat_custom_meta($term_id) {
 }
 
 add_action('edited_product_cat', 'industrial_save_product_cat_custom_meta', 10, 1);
-
-
