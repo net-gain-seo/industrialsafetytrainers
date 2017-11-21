@@ -12,7 +12,6 @@
 
 </head>
 <body <?php body_class(); ?>>
-
 <header>
 	<section class="main-header container">
 
