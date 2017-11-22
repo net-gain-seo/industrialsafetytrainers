@@ -35,7 +35,7 @@ function course_custom_js() {
 
 				//DATE PICKER
 				jQuery(document).ready(function(){
-					jQuery('.datepicker').datepicker({ dateFormat: 'MM DD, yy' });
+					jQuery('.datepicker').datepicker({ dateFormat: 'MM d, yy' });
 				});
 
 
@@ -96,7 +96,7 @@ function course_custom_js() {
 
 					//re up datepicker
 					jQuery(document).ready(function(){
-						jQuery('.datepicker').datepicker({ dateFormat: 'yy-MM-DD' });
+						jQuery('.datepicker').datepicker({ dateFormat: 'yy-MM-d' });
 					});
 
 					return false;
