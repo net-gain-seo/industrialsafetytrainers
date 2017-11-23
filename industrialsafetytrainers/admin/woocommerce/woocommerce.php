@@ -820,3 +820,8 @@ function industrial_save_product_cat_custom_meta($term_id) {
 }
 
 add_action('edited_product_cat', 'industrial_save_product_cat_custom_meta', 10, 1);
+
+function ng_industrial_ajax_variation_threshold( $qty, $product ) {
+    return 1000;
+}
+add_filter( 'woocommerce_ajax_variation_threshold', 'ng_industrial_ajax_variation_threshold', 10, 2 );
