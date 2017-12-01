@@ -825,3 +825,39 @@ function ng_industrial_ajax_variation_threshold( $qty, $product ) {
     return 1000;
 }
 add_filter( 'woocommerce_ajax_variation_threshold', 'ng_industrial_ajax_variation_threshold', 10, 2 );
+
+
+
+
+
+
+//update attribute dropdowns. 
+function my_dropdown_variation_attribute_options_html($html, $args){
+	if($args['attribute'] == 'pa_city'){
+		$html = str_replace('Choose an option', 'Pick your city', $html);
+	}elseif($args['attribute'] == 'pa_date'){
+		$html = str_replace('Choose an option', 'Choose a date', $html);
+	}else{
+		$html = str_replace('Choose an option', 'Choose', $html);
+	}
+    
+    return $html;
+}
+add_filter('woocommerce_dropdown_variation_attribute_options_html', 'my_dropdown_variation_attribute_options_html', 10, 2);
+
+
+
+// Quantity label
+add_action( 'woocommerce_before_add_to_cart_button', 'echo_qty_front_add_cart' );
+function echo_qty_front_add_cart() {
+
+
+	$terms = wp_get_post_terms( get_the_ID(), 'product_cat' );
+	foreach ( $terms as $term ){ $categories[] = $term->slug; }
+
+	if ( in_array( 'safety-training-courses', $categories ) ) {  
+		echo '<div class="qty">How many people will be attending? </div>'; 
+	}
+
+	
+}

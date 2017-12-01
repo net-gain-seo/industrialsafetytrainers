@@ -177,7 +177,25 @@
 }
 
 
+.variations_form div.qty{
+    float:left;
+    line-height:40px;
+    margin-right:5px;
+}
+
+.variations_form .input-text.qty.text{
+    background: #fff;
+    padding: 5px;
+}
+
+.product_meta .posted_in,
+.product_meta .sku_wrapper{
+    display:none;
+}
 
 @media (max-width: $screen-md-max) {
 
 }
+
+
+

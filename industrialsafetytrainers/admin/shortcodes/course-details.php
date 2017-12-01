@@ -134,12 +134,12 @@ function course_details($atts){
 
 
                         if($_public_course == 'yes'){
-                            $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">REGISTER NOW</a></div>';
+                            $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">REGISTER FOR ONE OF OUR PUBLIC COURSES</a></div>';
                         }
 
                         if($_private_course == 'yes'){
 														//$return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-warning">REQUEST INFORMATION</a></div>';
-                            $return .= '<button type="button" class="btn btn-primary " role="button" data-toggle="modal" data-target="#requestInformationModal">REQUEST INFORMATION</button>';
+                            $return .= '<button type="button" class="btn btn-primary " role="button" data-toggle="modal" data-target="#requestInformationModal">BOOK YOUR COURSE - GET A QUOTE</button>';
                         }
 
 
@@ -161,7 +161,7 @@ function course_details($atts){
 
                         $info_sheet = get_post_meta($current_product[0]->ID,'info_sheet',true);
                         if($info_sheet != ''){
-                        $return .= '<a href="'.$info_sheet.'" title="'.$current_product[0]->post_title.' Info Sheet" class="pdf-download d-flex align-items-center " target="_blank"><img src="http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/pdf-download.png"><span class="pdf-download-download">Download Info Sheet</span></a>';
+                        $return .= '<a href="'.$info_sheet.'" title="'.$current_product[0]->post_title.' Info Sheet" class="pdf-download d-flex align-items-center " target="_blank"><img src="http://209.126.119.193/~industrialsafety/wp-content/themes/industrialsafetytrainers/assets/images/pdf-download.png"><span class="pdf-download-download">Info Sheet</span></a>';
                         }
                     $return .= '</div>';
 
