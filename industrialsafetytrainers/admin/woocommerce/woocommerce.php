@@ -200,7 +200,12 @@ function course_options_product_tab_content() {
 	<div id='course_options' class='panel woocommerce_options_panel'>
 		<div class='options_group'>
 
-			<?php $var_out = get_variations($post->ID); ?>
+			<?php $var_out = get_variations($post->ID); 
+
+		//	echo '<pre>';
+		//		print_r($var_out);
+		//	echo '</pre>';
+			?>
 
 			<div style="padding: 20px;">
 				<button class="button button-primary" id="add-course-location">Add Location</button>
@@ -287,6 +292,7 @@ function save_course_option_field( $product_id ) {
 		$time = wc_attribute_taxonomy_name('Time');
 
 		$attributes = array(
+			/*
 			$time => array(
 				'name' => $time,
 				'value' => '',
@@ -294,6 +300,7 @@ function save_course_option_field( $product_id ) {
 				'is_variation' => '1',
 				'is_taxonomy' => '1'
 			),
+			*/
 			$date => array(
 				'name' => $date,
 				'value' => '',
