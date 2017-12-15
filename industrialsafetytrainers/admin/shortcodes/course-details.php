@@ -60,6 +60,9 @@ function course_details($atts){
                     $return .= '<div class="course-detail">';
                         //$return .= '<h3 class="h2 mb-0">'.$category_name.'</h3>';
                         //$return .= '<h2 class="h3">'.$current_product[0]->post_title.'</h2>';
+
+                        $return .= '<div style="float: right;margin-left: 20px;margin-bottom: 20px;">'.get_the_post_thumbnail($current_product[0]->ID).'</div>';
+
                         $return .= apply_filters('the_content',$current_product[0]->post_content);
                     $return .= '</div>';
 
