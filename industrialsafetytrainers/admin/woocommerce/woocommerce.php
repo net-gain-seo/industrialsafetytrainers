@@ -200,7 +200,7 @@ function course_options_product_tab_content() {
 	<div id='course_options' class='panel woocommerce_options_panel'>
 		<div class='options_group'>
 
-			<?php $var_out = get_variations($post->ID); 
+			<?php $var_out = get_variations($post->ID);
 
 		//	echo '<pre>';
 		//		print_r($var_out);
@@ -807,6 +807,7 @@ function industrial_woo_add_new_meta_field($term) {
 	$term_id = $term->term_id;
     // retrieve the existing value(s) for this meta field.
     $category_url_overwrite = get_term_meta($term_id, 'category_url_overwrite', true);
+    $category_help_url = get_term_meta($term_id, 'category_help_url', true);
 
 	?>
 	<tr class="form-field">
@@ -815,6 +816,12 @@ function industrial_woo_add_new_meta_field($term) {
 			<input type="text" name="category_url_overwrite" id="category_url_overwrite" value="<?php echo $category_url_overwrite; ?>">
 		</td>
 	</tr>
+  <tr class="form-field">
+    <th scope="row"><label for="category_help_url">More information URL</label></th>
+    <td>
+      <input type="text" name="category_help_url" id="category_help_url" value="<?php echo $category_help_url; ?>">
+    </td>
+  </tr>
 <?php
 }
 //add_action( 'product_cat_add_form_fields', 'industrial_woo_add_new_meta_field', 10, 2 );
@@ -824,6 +831,9 @@ add_action( 'product_cat_edit_form_fields', 'industrial_woo_add_new_meta_field',
 function industrial_save_product_cat_custom_meta($term_id) {
     $category_url_overwrite = filter_input(INPUT_POST, 'category_url_overwrite');
     update_term_meta($term_id, 'category_url_overwrite', $category_url_overwrite);
+
+    $category_help_url = filter_input(INPUT_POST, 'category_help_url');
+    update_term_meta($term_id, 'category_help_url', $category_help_url);
 }
 
 add_action('edited_product_cat', 'industrial_save_product_cat_custom_meta', 10, 1);
@@ -838,7 +848,7 @@ add_filter( 'woocommerce_ajax_variation_threshold', 'ng_industrial_ajax_variatio
 
 
 
-//update attribute dropdowns. 
+//update attribute dropdowns.
 function my_dropdown_variation_attribute_options_html($html, $args){
 	if($args['attribute'] == 'pa_city'){
 		$html = str_replace('Choose an option', 'Pick your city', $html);
@@ -847,7 +857,7 @@ function my_dropdown_variation_attribute_options_html($html, $args){
 	}else{
 		$html = str_replace('Choose an option', 'Choose', $html);
 	}
-    
+
     return $html;
 }
 add_filter('woocommerce_dropdown_variation_attribute_options_html', 'my_dropdown_variation_attribute_options_html', 10, 2);
@@ -862,9 +872,9 @@ function echo_qty_front_add_cart() {
 	$terms = wp_get_post_terms( get_the_ID(), 'product_cat' );
 	foreach ( $terms as $term ){ $categories[] = $term->slug; }
 
-	if ( in_array( 'safety-training-courses', $categories ) ) {  
-		echo '<div class="qty">How many people will be attending? </div>'; 
+	if ( in_array( 'safety-training-courses', $categories ) ) {
+		echo '<div class="qty">How many people will be attending? </div>';
 	}
 
-	
+
 }

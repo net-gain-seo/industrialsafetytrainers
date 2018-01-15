@@ -30,11 +30,10 @@
  	 $category_help_url = get_term_meta($term_cat_id, 'category_help_url', true);
 
  	 if($category_help_url != ''){ ?>
- 		 <section class="container">
+ 		 <section class="container helptext">
  		 <p>Can’t find what you are looking for, <a href="<?php echo $category_help_url; ?>" target="_blank">click here</a> to see more of a selection. Contact us with the item number and we’ll send you costing.</p>
  		 </section>
- 	 <?php }else{ ?> <section class="container"><?php echo $category_help_url; ?></section> <?php } ?>
-
+ 	 <?php }else{ ?> <?php } ?>
 
 		<section class="container">
 			<?php woocommerce_content(); ?>

@@ -32,7 +32,9 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 	'woocommerce-product-gallery--columns-' . absint( $columns ),
 	'images',
 ) );
+
 ?>
+
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
 	<figure class="woocommerce-product-gallery__wrapper">
 		<?php
@@ -61,7 +63,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 		?>
 	</figure>
 
-	<?php 
+	<?php
 	//CHECK FOR COST OUTLINE AND DISPLAY IF EXISTS
 	$cost_outline = get_post_meta($post->ID,'cost_outline',true);
 

@@ -49,6 +49,14 @@
         background-color: $dark-yellow;
     }
 }
+.helptext{
+    background-color: #f2f3f2;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 20px!important;
+    margin-top: 40px;
+}
 
 
 .woocommerce-content-box,
@@ -196,6 +204,3 @@
 @media (max-width: $screen-md-max) {
 
 }
-
-
-

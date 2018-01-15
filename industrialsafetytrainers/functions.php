@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //ADD THUMBNAIL SUPPORT
 add_theme_support('post-thumbnails');
@@ -123,12 +123,12 @@ add_shortcode('pdf_download','pdf_download');
 add_action( 'init', 'ist_fix_thumbnail' );
 function ist_fix_thumbnail() {
   add_filter('woocommerce_placeholder_img_src', 'custom_woocommerce_placeholder_img_src');
-   
+
     function custom_woocommerce_placeholder_img_src( $src ) {
         $upload_dir = wp_upload_dir();
         $uploads = untrailingslashit( $upload_dir['baseurl'] );
         $src = $uploads . '/2017/09/no-image.png';
-        
+
         return $src;
     }
 }
