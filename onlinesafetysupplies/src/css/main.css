@@ -80,8 +80,11 @@ body.sticky-header .safety-suppliers-search {
   #mainMenu > #menu-main-menu li.current-menu-item > a {
     background: #ffffff; } }
 
-.banner-section .banner-content > div:first-child {
-  background: transparent; }
+.banner-section .banner-content > div {
+  width: 1140px;
+  padding: 0px; }
+  .banner-section .banner-content > div:first-child {
+    background: transparent; }
 
 .banner-section table {
   margin-bottom: 50px; }

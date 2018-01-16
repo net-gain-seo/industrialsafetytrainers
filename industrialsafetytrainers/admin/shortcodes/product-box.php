@@ -19,7 +19,7 @@ function product_box($atts){
     $return = '';
 
     $return .= '<div>';
-         $return .= '<img alt="'.$title.'" src="'.$image.'" />';
+         $return .= '<a href="'.$link.'" ><img alt="'.$title.'" src="'.$image.'" /></a>';
          $return .= '<div>';
              $return .= '<h3>'.$title.'</h3>';
              $return .= '<a href="'.$link.'" class="btn btn-primary">'.$button_text.'</a>';
