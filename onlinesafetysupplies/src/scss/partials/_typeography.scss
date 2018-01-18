@@ -1,6 +1,15 @@
 a{
-	color: $dark-yellow;
+	color: #0000EE;
 	&:hover{
-		color: darken($dark-yellow,20%);
+		color: darken(#0000EE,20%);
+	}
+}
+
+.blackBg{
+	a{
+		color: #D49D1C;
+		&:hover{
+			color: darken(#D49D1C,20%);
+		}
 	}
 }

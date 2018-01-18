@@ -1,6 +1,11 @@
 a {
-  color: #D49D1C; }
+  color: #0000EE; }
   a:hover {
+    color: #000088; }
+
+.blackBg a {
+  color: #D49D1C; }
+  .blackBg a:hover {
     color: #7a5a10; }
 
 body header .main-header .button-list {
