@@ -57,7 +57,6 @@ function course_custom_js() {
 									html += '<tr>';
 										html += '<th>ID</th>';
 										html += '<th>Date</th>';
-										html += '<th>Time</th>';
 										html += '<th>Maximum</th>';
 										html += '<th>Cost</th>';
 									html += '</tr>';
@@ -86,7 +85,6 @@ function course_custom_js() {
 							html += '<input name="_location_'+key+'_location[]" value="" readonly="true" type="hidden" />';
 						html += '</td>';
 						html += '<td><input class="datepicker" type="text" name="_location_'+key+'_dates[]" value="" style="width: 100%" /></td>';
-						html += '<td><input type="text" name="_location_'+key+'_dates_time[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_max[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_cost[]" value="" style="width: 100%" /></td>';
 						html += '<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>';
@@ -166,10 +164,6 @@ function get_variations($proudct_id){
 	    $date_term = get_term_by( 'slug', $meta_attribute_pa_date, 'pa_date' );
 	    $date_name = $date_term->name;
 
-	    $meta_attribute_pa_time = get_post_meta( $var['variation_id'], 'attribute_pa_time', true );
-	    $time_term = get_term_by( 'slug', $meta_attribute_pa_time, 'pa_time' );
-	    $time_name = $time_term->name;
-
 		if(!isset($var_out[$loc_key])){
 			$var_out[$loc_key] = array();
 			$var_out[$loc_key]['location'] = $location_name;
@@ -183,8 +177,7 @@ function get_variations($proudct_id){
 			'max_qty'		=> $var['max_qty'],
 			'display_price'	=> $var['display_price'],
 			'location' 		=> $location_name,
-			'date' 			=> $date_name,
-			'time' 			=> $time_name
+			'date' 			=> $date_name
 		);
 	}
 
@@ -227,7 +220,6 @@ function course_options_product_tab_content() {
 										<tr>
 											<th>ID</th>
 											<th>Date</th>
-											<th>Time</th>
 											<th>Maximum</th>
 											<th>Cost</th>
 											<th></th>
@@ -241,7 +233,6 @@ function course_options_product_tab_content() {
 												<input name="_location_<?php echo $key; ?>_location[]" value="<?php echo $date['location']; ?>" readonly="true" type="hidden" />
 											</td>
 											<td><input type="text" class="datepicker" name="_location_<?php echo $key; ?>_dates[]" value="<?php echo $date['date']; ?>" style="width: 100%" /></td>
-											<td><input type="text" name="_location_<?php echo $key; ?>_dates_time[]" value="<?php echo $date['time']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_max[]" value="<?php echo $date['max_qty']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_cost[]" value="<?php echo $date['display_price']; ?>" style="width: 100%" /></td>
 											<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>
@@ -289,18 +280,8 @@ function save_course_option_field( $product_id ) {
 		//CONFIGURE ATTRIBUTES
 		$location = wc_attribute_taxonomy_name('Location');
 		$date = wc_attribute_taxonomy_name('Date');
-		$time = wc_attribute_taxonomy_name('Time');
 
 		$attributes = array(
-			/*
-			$time => array(
-				'name' => $time,
-				'value' => '',
-				'is_visible' => '1',
-				'is_variation' => '1',
-				'is_taxonomy' => '1'
-			),
-			*/
 			$date => array(
 				'name' => $date,
 				'value' => '',
@@ -326,7 +307,6 @@ function save_course_option_field( $product_id ) {
 		// Assign location and dates to the main product
 		$locationsArray = array();
 		$datesArray = array();
-		$timesArray = array();
 
 		foreach($_POST['_locations'] as $l_key => $l_val){
 			$locationsArray[] = $l_val;
@@ -334,13 +314,11 @@ function save_course_option_field( $product_id ) {
 			if(isset($_POST['_location_'.$l_key.'_dates'])){
 				foreach($_POST['_location_'.$l_key.'_dates'] as $d_key => $d_val){
 					$datesArray[] = $d_val;
-					$timesArray[] = $_POST['_location_'.$l_key.'_dates_time'][$d_key];
 				}
 			}
 		}
 		wp_set_object_terms($product_id, $locationsArray, $location );
 		wp_set_object_terms($product_id, $datesArray, $date );
-		wp_set_object_terms($product_id, $timesArray, $time );
 
 
 
@@ -383,8 +361,6 @@ function save_course_option_field( $product_id ) {
 			if(isset($_POST['_location_'.$l_key.'_dates'])){
 				foreach($_POST['_location_'.$l_key.'_dates'] as $d_key => $d_val){
 
-					$t_val = $_POST['_location_'.$l_key.'_dates_time'][$d_key];
-
 					//echo $_POST['_location_'.$l_key.'_variation_id'][$d_key].'<br/>';
 
 					//echo 'checking '.$_POST['_location_'.$l_key.'_variation_id'][$d_key].' is in array';
@@ -426,14 +402,9 @@ function save_course_option_field( $product_id ) {
 					//$date_value = str_replace(' ', '-', $date_value);
 					$date_value = wc_sanitize_taxonomy_name($d_val);
 
-					//$time_value = strtolower($t_val);
-					//$time_value = str_replace(' ', '-', $time_value);
-					$time_value = wc_sanitize_taxonomy_name($t_val);
-
 
 					update_post_meta( $variation_id, 'attribute_' . $location, $location_value );
 					update_post_meta( $variation_id, 'attribute_' . $date, $date_value );
-					update_post_meta( $variation_id, 'attribute_' . $time, $time_value );
 					update_post_meta( $variation_id, '_stock', $_POST['_location_'.$l_key.'_dates_max'][$d_key] );
 					update_post_meta( $variation_id, '_manage_stock', 'yes');
 
