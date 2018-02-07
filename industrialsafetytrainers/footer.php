@@ -1,7 +1,7 @@
 <div id="othersites-footer">
-<a href="http://209.126.119.193/~industrialsafety/"><div class="site-button industrial-button"></div></a>
-<a href="http://209.126.119.193/~industrialsafety/constructionsafetytrainers/"><div class="site-button construction-button"></div></a>
-<a href="http://209.126.119.193/~industrialsafety/onlinesafetysupplies"><div class="site-button shopcart-button"></div></a>
+<a href="http://thesafetybus.com/"><div class="site-button industrial-button"></div></a>
+<a href="http://constructionsafetytrainers.ca/"><div class="site-button construction-button"></div></a>
+<a href="http://onlinesafetysupplies.ca"><div class="site-button shopcart-button"></div></a>
 </div>
 <footer>
 	<section class="upper-footer">
