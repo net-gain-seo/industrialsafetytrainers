@@ -3,6 +3,9 @@ a {
   a:hover {
     color: #000088; }
 
+.woocommerce-Price-amount.amount {
+  color: #0000EE; }
+
 .blackBg a {
   color: #D49D1C; }
   .blackBg a:hover {
