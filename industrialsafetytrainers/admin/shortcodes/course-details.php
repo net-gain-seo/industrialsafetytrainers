@@ -164,7 +164,7 @@ function course_details($atts){
 
                         $info_sheet = get_post_meta($current_product[0]->ID,'info_sheet',true);
                         if($info_sheet != ''){
-                        $return .= '<a href="'.$info_sheet.'" title="'.$current_product[0]->post_title.' Info Sheet" class="pdf-download d-flex align-items-center " target="_blank"><img src="http://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/pdf-download.png"><span class="pdf-download-download">Info Sheet</span></a>';
+                        $return .= '<a href="'.$info_sheet.'" title="'.$current_product[0]->post_title.' Info Sheet" class="pdf-download d-flex align-items-center " target="_blank"><img src="https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/pdf-download.png"><span class="pdf-download-download">Info Sheet</span></a>';
                         }
                     $return .= '</div>';
 

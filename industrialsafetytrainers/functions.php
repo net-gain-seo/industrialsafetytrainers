@@ -137,6 +137,22 @@ function ist_fix_thumbnail() {
 add_filter('widget_text','do_shortcode');
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //// TESTIMONIALS
 include(TEMPLATEPATH.'/admin/post_types/testimonials/index.php');
 include(TEMPLATEPATH.'/admin/post_types/in-the-community/index.php');
