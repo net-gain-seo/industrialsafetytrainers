@@ -11,14 +11,14 @@
 				</div>
 				<div></div>
 			</div>
-			
-			
+
+
 			<?php
 			if(has_post_thumbnail()){
 				the_post_thumbnail('blog-image');
 			}else{
 				?>
-				<img width="2000" height="375" src="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new.png 2000w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new-300x56.png 300w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new-768x144.png 768w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
+				<img width="2000" height="375" src="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png 2000w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-300x56.png 300w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-768x144.png 768w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
 				<?php
 			}
 			?>
@@ -33,19 +33,19 @@
 				?>
 			</aside>
 			<section class="posts">
-				<?php 
+				<?php
 				if (have_posts()): while (have_posts()) : the_post(); ?>
-					<article class="post d-flex">
-						<div class="<?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
+					<article class="post">
+						<div class="col col-12">
+							<span style="margin-right: 10px;"><?php the_date('M d, Y'); ?></span>
+							<span><?php echo the_category(', '); ?></span>
+						</div>
+						<div class="col col-12 <?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
 
-							<?php the_excerpt(); ?>
-							<div class="post-meta d-flex">
-								<span style="margin-right: 10px;"><?php the_date('M d, Y'); ?></span>
-								<span><?php echo the_category(', '); ?></span>
-							</div>
+							<?php the_content(); ?>
 						</div>
 					</article>
-					<?php 
+					<?php
 					endwhile; ?>
 				<?php endif; ?>
 			</section>
@@ -63,5 +63,5 @@
 
 <?php echo do_shortcode('[common_element id="55" name="CTA"]'); ?>
 <?php echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]'); ?>
-	
+
 <?php get_footer(); ?>

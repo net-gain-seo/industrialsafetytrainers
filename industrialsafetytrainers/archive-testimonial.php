@@ -13,8 +13,8 @@
 
 				</div>
 			</div>
-			
-			<img width="2000" height="375" src="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us.png 2000w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-300x56.png 300w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-768x144.png 768w, http://localhost:81/industrialsafetytrainers/wp-content/uploads/2017/08/about-us-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
+
+			<img width="2000" height="375" src="https://thesafetybus.com/wp-content/uploads/2017/08/about-us.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://thesafetybus.com/wp-content/uploads/2017/08/about-us.png 2000w, https://thesafetybus.com/wp-content/uploads/2017/08/about-us-300x56.png 300w, https://thesafetybus.com/wp-content/uploads/2017/08/about-us-768x144.png 768w, https://thesafetybus.com/wp-content/uploads/2017/08/about-us-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
 
 		</section>
 
@@ -23,7 +23,7 @@
 		</section>
 
 		<section class="container posts">
-		<?php 
+		<?php
 		if (have_posts()): while (have_posts()) : the_post(); ?>
 			<article class="post d-flex">
 				<div class="<?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
@@ -31,7 +31,7 @@
 					<span class="testimonial-author"><?php the_title(); ?></span>
 				</div>
 			</article>
-			<?php 
+			<?php
 			endwhile; ?>
 		<?php endif; ?>
 		</section>
@@ -46,7 +46,15 @@
 
 	</main>
 
-<?php echo do_shortcode('[common_element id="55" name="CTA"]'); ?>
-<?php echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]'); ?>
-	
+<?php
+if(get_current_blog_id() == 1){
+	echo do_shortcode('[common_element id="55" name="CTA"]');
+	echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]');
+}
+if(get_current_blog_id() == 2){
+	echo do_shortcode('[common_element id="128" name="ARE YOU LOOKING FOR SOMETHING SPECIFIC?"]');
+	echo do_shortcode('[common_element id="44" name="About Construction Safety Trainers"]');
+}
+?>
+
 <?php get_footer(); ?>

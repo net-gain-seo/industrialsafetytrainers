@@ -24,7 +24,7 @@
 }
 
 
-//RESPONSIVE 
+//RESPONSIVE
 @media (max-width: $screen-lg-max) {
 	#mainMenu{
 		>#menu-main-menu{
@@ -42,5 +42,10 @@
 				}
 			}
 		}
+	}
+}
+@media (max-width: $screen-md-max) {
+	#mainMenu.collapse {
+			overflow: scroll;
 	}
 }

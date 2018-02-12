@@ -1,0 +1,4 @@
+[10-Feb-2018 21:15:01 America/New_York] PHP Fatal error:  Call to undefined function add_theme_support() in /home/industrialsafety/public_html/wp-content/themes/industrialsafetytrainers/functions.php on line 4
+[10-Feb-2018 21:15:03 America/New_York] PHP Fatal error:  Call to undefined function add_theme_support() in /home/industrialsafety/public_html/wp-content/themes/industrialsafetytrainers/functions.php on line 4
+[11-Feb-2018 17:03:22 America/New_York] PHP Fatal error:  Call to undefined function get_header() in /home/industrialsafety/public_html/wp-content/themes/industrialsafetytrainers/single.php on line 1
+[11-Feb-2018 17:03:25 America/New_York] PHP Fatal error:  Call to undefined function get_header() in /home/industrialsafety/public_html/wp-content/themes/industrialsafetytrainers/single.php on line 1

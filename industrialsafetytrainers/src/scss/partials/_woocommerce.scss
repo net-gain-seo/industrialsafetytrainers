@@ -1,0 +1,206 @@
+.woocommerce{
+    .button.add_to_cart_button{
+        text-align: center;
+        background-color:#222222;
+        color: #ffffff;
+        font-weight: 100;
+
+        &:hover{
+            color:#444;
+        }
+
+        &:after{
+            content: "+";
+            background: #FFD500;
+            position: absolute;
+            width: 50px;
+            height: 100%;
+            color: #222222;
+            right: -48px;
+            top: 0px;
+            font-size: 40px;
+        }
+    }
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-category__title,
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce ul.products li.product h3{
+    color: #000000;
+    text-align: center;
+    font-weight: 100;
+}
+.upsell-item{
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 40px;
+}
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt{
+    transition: all 0.5s ease;
+    background-color: $yellow;
+    color: #000;
+    font-weight: 100;
+
+    &:hover{
+        background-color: $dark-yellow;
+    }
+}
+.helptext{
+    background-color: #f2f3f2;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 20px!important;
+    margin-top: 40px;
+}
+
+
+.woocommerce-content-box,
+.summary.entry-summary,
+.woocommerce-title-section{
+    background-color: #F1F2F2;
+    padding: 20px;
+}
+
+.woocommerce-title-section{
+    margin-bottom: 40px;
+    h1{
+        margin-bottom: 0px;
+    }
+    h3{
+        margin-bottom: 5px;
+    }
+}
+
+.woocommerce-content-box-section{
+    position: relative;
+    clear: both;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    float: left;
+    width: 100%;
+
+    ul{
+        padding-left: 40px;
+    }
+}
+
+
+
+.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover{
+    background-color: $yellow;
+}
+
+.woocommerce .star-rating span{
+    color: $dark-yellow;
+}
+
+
+.woocommerce div.product form.cart .variations select{
+    background-color: #fff;
+}
+
+.up-sells.upsells.products,
+.related.products{
+    >h2{
+        background-color: #F1F2F2;
+        padding: 20px;
+    }
+    li{
+        position: relative;
+        background-color: #58595B;
+
+        h2.woocommerce-loop-product__title{
+            color: #ffffff !important;
+            line-height: 26px;
+        }
+
+
+        .price{
+            background-color: #FF0000;
+            padding: 5px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+
+            span{
+                color: #ffffff;
+            }
+        }
+
+        .add_to_cart_button{
+            margin: 0 auto;
+            float: none;
+            position: relative;
+            display: block;
+            width: 150px;
+            margin-left: 28px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+    }
+}
+
+
+.woocommerce-info {
+    border-top-color: $dark-yellow;
+}
+.woocommerce-info::before {
+    color:  $dark-yellow;
+}
+
+
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images{
+    width: 26%;
+}
+
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary{
+    width: 73%;
+}
+
+.variations_form.cart{
+    margin-top: 40px;
+}
+
+.woocommerce div.product form.cart .variations select {
+    width: 200px;
+}
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product{
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+
+
+
+
+.product_cat-safety-training-courses .stock.out-of-stock{
+    display: none;
+}
+
+
+.variations_form div.qty{
+    float:left;
+    line-height:40px;
+    margin-right:5px;
+}
+
+.variations_form .input-text.qty.text{
+    background: #fff;
+    padding: 5px;
+}
+
+.product_meta .posted_in,
+.product_meta .sku_wrapper{
+    display:none;
+}
+
+@media (max-width: $screen-md-max) {
+
+}

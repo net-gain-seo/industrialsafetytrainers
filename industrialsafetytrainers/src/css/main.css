@@ -44,68 +44,148 @@ ol {
 .container p:last-child {
   margin-bottom: 0px; }
 
-body > header {
-  background: #fff; }
-  body > header .main-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0; }
-    body > header .main-header #logo img {
-      transition: width 0.2s ease-in-out;
-      width: 100%; }
-    body > header .main-header .heading-qualifications {
+body {
+  overflow-x: hidden; }
+  body > header {
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100; }
+    body > header .main-header {
       display: flex;
-      justify-content: center; }
-    body > header .main-header form input[type="submit"] {
-      border-radius: 0px 5px 5px 0px;
-      border: 1px solid #58595B;
-      border-left: none; }
-    body > header .main-header form input[type="search"] {
-      background: #F1F2F2;
-      border: 1px solid #58595B;
-      padding: 10px;
-      border-radius: 5px 0px 0px 5px;
-      width: 195px; }
-    body > header .main-header .header-call-to-action {
-      display: flex;
-      justify-content: flex-end; }
-      body > header .main-header .header-call-to-action span {
-        display: block;
-        align-self: flex-end; }
-      body > header .main-header .header-call-to-action .header-call-to-action-content {
-        font-size: 1.6rem;
-        font-family: "Arial Narrow", Arial, sans-serif;
-        font-style: italic;
-        padding: 0 35px; }
-      body > header .main-header .header-call-to-action .header-call-to-action-phone > span {
-        font-family: "Arial Narrow", Arial, sans-serif;
-        color: #000000;
-        font-size: 2.4rem;
-        font-weight: 600; }
-        body > header .main-header .header-call-to-action .header-call-to-action-phone > span:first-child {
-          color: #58595B;
-          font-size: 1.8rem; }
+      justify-content: space-between;
+      padding: 20px 0; }
+      body > header .main-header #logo img {
+        transition: width 0.2s ease-in-out;
+        width: 100%; }
+      body > header .main-header .heading-qualifications {
+        display: flex;
+        justify-content: center; }
+      body > header .main-header form input[type="submit"] {
+        border-radius: 0px 5px 5px 0px;
+        border: 1px solid #58595B;
+        border-left: none; }
+      body > header .main-header form input[type="search"] {
+        background: #F1F2F2;
+        border: 1px solid #58595B;
+        padding: 10px;
+        border-radius: 5px 0px 0px 5px;
+        width: 195px; }
+      body > header .main-header .header-call-to-action {
+        display: flex;
+        justify-content: flex-end; }
+        body > header .main-header .header-call-to-action span {
+          display: block;
+          align-self: flex-end; }
+        body > header .main-header .header-call-to-action .header-call-to-action-content {
+          font-size: 1.6rem;
+          font-family: "Arial Narrow", Arial, sans-serif;
+          font-style: italic;
+          padding: 0 35px; }
+        body > header .main-header .header-call-to-action .header-call-to-action-phone > span {
+          font-family: "Arial Narrow", Arial, sans-serif;
+          color: #000000;
+          font-size: 2.4rem;
+          font-weight: 600; }
+          body > header .main-header .header-call-to-action .header-call-to-action-phone > span:first-child {
+            color: #58595B;
+            font-size: 1.8rem; }
+          body > header .main-header .header-call-to-action .header-call-to-action-phone > span a {
+            text-decoration: none;
+            color: #000000; }
+  body.sticky-header > header {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0px; }
+    body.sticky-header > header .main-header {
+      padding: 5px 0; }
+    body.sticky-header > header #logo img {
+      width: 126px;
+      height: auto; }
+    body.sticky-header > header .hide-sticky-header {
+      display: none !important; }
+    body.sticky-header > header .menu-section {
+      padding: 5px 0; }
 
-body.sticky-header header {
-  position: fixed;
-  z-index: 10000;
-  width: 100%;
+#othersites-header {
+  display: none;
+  float: right;
+  position: absolute;
+  right: 0px;
+  width: 340px;
+  z-index: 9999999999999; }
+  #othersites-header .site-button {
+    position: relative;
+    bottom: inherit;
+    right: inherit;
+    display: inline-block;
+    float: right;
+    height: 100px;
+    width: 100px;
+    margin-left: 10px; }
+
+#othersites-header .site-button.industrial-button, #othersites-header .site-button.construction-button, #othersites-header .site-button.shopcart-button {
   top: 0px; }
-  body.sticky-header header #logo img {
-    width: 126px;
-    height: auto; }
-  body.sticky-header header .hide-sticky-header {
-    display: none !important; }
-  body.sticky-header header .menu-section {
-    padding: 5px 0; }
+
+#othersites-header .site-button.industrial-button {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVindustrialsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(0.9); }
+
+#othersites-header .site-button.industrial-button:hover {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVindustrialsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(1); }
+
+#othersites-header .site-button.construction-button {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVconstructionsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(0.9); }
+
+#othersites-header .site-button.construction-button:hover {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVconstructionsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(1); }
+
+#othersites-header .site-button.shopcart-button {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVshoppingcartIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(0.9); }
+
+#othersites-header .site-button.shopcart-button:hover {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVshoppingcartIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  transform: scale(1); }
+
+.sticky-header #othersites-header .site-button {
+  position: relative;
+  bottom: inherit;
+  right: inherit;
+  display: inline-block;
+  float: right;
+  height: 50px;
+  width: 60px;
+  margin-left: 10px; }
+
+.navbar-inverse .navbar-toggler {
+  border: 2px solid rgba(255, 255, 255, 0.5) !important; }
+
+.navbar-toggler-icon {
+  padding: 15px; }
 
 @media (max-width: 1199px) {
   body > header .main-header {
-    display: block; }
-    body > header .main-header #logo img {
-      width: auto;
-      margin: 0 auto 40px auto;
-      display: block; }
+    /*display: block;*/
+    /*
+				#logo{
+					img{
+						width: auto;
+					    margin: 0 auto 40px auto;
+					    display: block;
+					}
+				}
+				*/ }
     body > header .main-header .header-call-to-action {
       justify-content: center; }
     body > header .main-header .header-call-to-action .header-call-to-action-phone > span {
@@ -165,18 +245,29 @@ body.sticky-header header {
       width: 100%; } }
   #mainMenu > #menu-main-menu > li.dropdown:hover > .dropdown-menu {
     display: block; }
+  #mainMenu > #menu-main-menu > li.dropdown > ul li.dropdown-submenu {
+    position: relative; }
+    #mainMenu > #menu-main-menu > li.dropdown > ul li.dropdown-submenu:hover > .dropdown-menu {
+      display: block;
+      position: absolute;
+      left: 100%;
+      top: 0px; }
 
 #mainMenu .dropdown-menu {
   background: #000000;
   padding: 0px; }
   #mainMenu .dropdown-menu li a {
     font-size: 1.7rem;
-    color: #ffffff; }
-    #mainMenu .dropdown-menu li a:hover {
-      background: #58595B; }
+    color: #ffffff;
+    padding: 10px 2.0rem; }
     #mainMenu .dropdown-menu li a:active, #mainMenu .dropdown-menu li a:focus {
       background: #FFD500;
       color: #000000; }
+  #mainMenu .dropdown-menu li:hover > a {
+    background: #58595B; }
+
+.navbar {
+  padding: .5rem 0; }
 
 .navbar-toggler {
   position: relative;
@@ -193,6 +284,11 @@ body.sticky-header header {
   cursor: pointer; }
 
 @media (max-width: 1199px) {
+  .menu-section .justify-content-end {
+    -webkit-box-pack: start !important;
+    -webkit-justify-content: flex-start !important;
+    -ms-flex-pack: start !important;
+    justify-content: start !important; }
   #mainMenu.collapse {
     position: fixed;
     background: #231f20;
@@ -201,7 +297,8 @@ body.sticky-header header {
     width: 360px;
     height: 100%;
     z-index: 999991;
-    transition: left 0.1s ease; }
+    transition: left 0.1s ease;
+    overflow: scroll; }
   #mainMenu.collapsing {
     position: fixed;
     background: #231f20;
@@ -266,7 +363,7 @@ body.sticky-header header {
 .page-title-section {
   background: rgba(255, 213, 0, 0.9);
   margin-bottom: 20px; }
-  .page-title-section h1 {
+  .page-title-section h1, .page-title-section h2, .page-title-section h3, .page-title-section h4, .page-title-section h5, .page-title-section h6 {
     margin-bottom: 0px; }
 
 .slider h2 {
@@ -329,6 +426,7 @@ body.sticky-header header {
   width: 50%; }
 
 .post-article > img {
+  align-self: center;
   margin-left: 20px; }
 
 .nav-next {
@@ -398,7 +496,13 @@ body.sticky-header header {
 
 .sidebar {
   margin-right: 50px;
-  min-width: 30%; }
+  min-width: 30%;
+  width: 30%; }
+
+.posts {
+  /*
+	width: 66%;
+	*/ }
 
 .blog-feed {
   display: flex;
@@ -502,6 +606,8 @@ body.sticky-header header {
   .sidebar {
     margin-right: 0px;
     order: 2; }
+  .posts {
+    width: 100%; }
   .post-article.in-the-communuity-article {
     flex-direction: column; }
   .post-article > div {
@@ -538,6 +644,27 @@ input, textarea, select {
 .contact-page-submit input[type="submit"] {
   height: 100%;
   cursor: pointer; }
+
+@media (max-width: 767px) {
+  .wpcf7-form-control-wrap {
+    position: relative;
+    width: 100%; }
+  .contact-page-submit {
+    display: block !important; }
+  .g-recaptcha {
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0; }
+  .contact-page-submit input[type="submit"] {
+    height: 100%;
+    cursor: pointer;
+    display: block;
+    clear: both;
+    float: left; }
+  .contact-page-submit p {
+    width: 100%;
+    margin-left: 0px; } }
 
 .testimonials-wrapper {
   color: #fff;
@@ -581,6 +708,77 @@ input, textarea, select {
   .testimonials-wrapper .carousel-item {
     padding: 0 50px; } }
 
+.site-button {
+  position: fixed;
+  top: 30px;
+  right: -20px;
+  height: 120px;
+  width: 120px;
+  background-size: 100% !important;
+  background-color: black;
+  cursor: pointer;
+  z-index: 99;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: 0.33s ease; }
+
+#othersites-footer {
+  position: fixed;
+  top: 30%;
+  right: -10px;
+  z-index: 9999999999999; }
+
+.site-button:hover {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.35s cubic-bezier(0.3, 0.2, 0, 2.5);
+  transition: 0.35s cubic-bezier(0.3, 0.2, 0, 2.5); }
+
+.site-button.industrial-button {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/industrialsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 360px; }
+
+.site-button.industrial-button:hover {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/industrialsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 360px;
+  right: -5px; }
+
+.site-button.industrial-button.active {
+  top: 360px;
+  transition: 0.33s ease; }
+
+.site-button.construction-button {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/constructionsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 475px; }
+
+.site-button.construction-button:hover {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/constructionsafteyIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 475px;
+  right: -5px; }
+
+.site-button.construction-button.active {
+  top: 475px;
+  transition: 0.33s ease; }
+
+.site-button.shopcart-button {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/shoppingcartIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 590px; }
+
+.site-button.shopcart-button:hover {
+  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/shoppingcartIcon.png") no-repeat center;
+  transition: 0.33s ease;
+  top: 590px;
+  right: -5px; }
+
+.site-button.shopcart-button.active {
+  top: 590px;
+  transition: 0.33s ease; }
+
 .upper-footer {
   background: #000000;
   color: #ffffff; }
@@ -593,7 +791,7 @@ input, textarea, select {
     display: flex;
     justify-content: space-between; }
     .upper-footer > div > div {
-      width: 25%;
+      min-width: 25%;
       border-left: 1px solid #ffffff;
       padding: 0 30px; }
       .upper-footer > div > div ul {
@@ -624,6 +822,8 @@ input, textarea, select {
           .upper-footer > div > div.footer-contact > div span:first-child {
             font-size: 1.6rem;
             font-weight: 600; }
+  .upper-footer .textwidget p {
+    font-size: 1.6rem; }
 
 .footer-copy {
   background: #58595B;
@@ -634,42 +834,231 @@ input, textarea, select {
   font-weight: 600;
   padding: 20px 0; }
 
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
+  .social-icon {
+    margin: 10px 2px 0px !important; } }
+
+@media (max-width: 991px) {
+  .footer-copy {
+    padding: 20px 5px; }
   .upper-footer > div {
     flex-wrap: wrap; }
     .upper-footer > div > div {
-      min-width: 50%;
+      max-width: 50%;
+      width: 50%;
+      padding: 20px;
       text-align: center;
-      margin-top: 40px;
-      border-left: none; }
-      .upper-footer > div > div:first-child {
-        margin-top: 0px; } }
+      border: none;
+      margin-top: 0px; }
+      .upper-footer > div > div ul li {
+        margin-bottom: 0px; }
+        .upper-footer > div > div ul li a {
+          font-size: 1.2rem; }
+  .upper-footer .textwidget p {
+    font-size: 1.2rem; }
+  .heading-qualification:before {
+    display: none !important; } }
 
 @media (max-width: 575px) {
   .upper-footer > div {
     flex-direction: column;
     align-items: center; }
     .upper-footer > div > div {
-      width: 80%;
-      text-align: center;
-      margin-top: 40px;
-      border-left: none; }
+      width: 100%;
+      max-width: 100%; }
       .upper-footer > div > div:first-child {
         margin-top: 0px; } }
 
+.woocommerce .button.add_to_cart_button {
+  text-align: center;
+  background-color: #222222;
+  color: #ffffff;
+  font-weight: 100; }
+  .woocommerce .button.add_to_cart_button:hover {
+    color: #444; }
+  .woocommerce .button.add_to_cart_button:after {
+    content: "+";
+    background: #FFD500;
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    color: #222222;
+    right: -48px;
+    top: 0px;
+    font-size: 40px; }
+
+.woocommerce ul.products li.product .woocommerce-loop-category__title,
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce ul.products li.product h3 {
+  color: #000000;
+  text-align: center;
+  font-weight: 100; }
+
+.upsell-item {
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 40px; }
+
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  transition: all 0.5s ease;
+  background-color: #FFD500;
+  color: #000;
+  font-weight: 100; }
+  .woocommerce #respond input#submit.alt:hover,
+  .woocommerce a.button.alt:hover,
+  .woocommerce button.button.alt:hover,
+  .woocommerce input.button.alt:hover {
+    background-color: #D49D1C; }
+
+.helptext {
+  background-color: #f2f3f2;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 20px !important;
+  margin-top: 40px; }
+
+.woocommerce-content-box,
+.summary.entry-summary,
+.woocommerce-title-section {
+  background-color: #F1F2F2;
+  padding: 20px; }
+
+.woocommerce-title-section {
+  margin-bottom: 40px; }
+  .woocommerce-title-section h1 {
+    margin-bottom: 0px; }
+  .woocommerce-title-section h3 {
+    margin-bottom: 5px; }
+
+.woocommerce-content-box-section {
+  position: relative;
+  clear: both;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  float: left;
+  width: 100%; }
+  .woocommerce-content-box-section ul {
+    padding-left: 40px; }
+
+.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover {
+  background-color: #FFD500; }
+
+.woocommerce .star-rating span {
+  color: #D49D1C; }
+
+.woocommerce div.product form.cart .variations select {
+  background-color: #fff; }
+
+.up-sells.upsells.products > h2,
+.related.products > h2 {
+  background-color: #F1F2F2;
+  padding: 20px; }
+
+.up-sells.upsells.products li,
+.related.products li {
+  position: relative;
+  background-color: #58595B; }
+  .up-sells.upsells.products li h2.woocommerce-loop-product__title,
+  .related.products li h2.woocommerce-loop-product__title {
+    color: #ffffff !important;
+    line-height: 26px; }
+  .up-sells.upsells.products li .price,
+  .related.products li .price {
+    background-color: #FF0000;
+    padding: 5px;
+    position: absolute;
+    top: 0px;
+    right: 0px; }
+    .up-sells.upsells.products li .price span,
+    .related.products li .price span {
+      color: #ffffff; }
+  .up-sells.upsells.products li .add_to_cart_button,
+  .related.products li .add_to_cart_button {
+    margin: 0 auto;
+    float: none;
+    position: relative;
+    display: block;
+    width: 150px;
+    margin-left: 28px;
+    margin-bottom: 20px;
+    margin-top: 20px; }
+
+.woocommerce-info {
+  border-top-color: #D49D1C; }
+
+.woocommerce-info::before {
+  color: #D49D1C; }
+
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+  width: 26%; }
+
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+  width: 73%; }
+
+.variations_form.cart {
+  margin-top: 40px; }
+
+.woocommerce div.product form.cart .variations select {
+  width: 200px; }
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+  padding-bottom: 20px;
+  text-align: center; }
+
+.product_cat-safety-training-courses .stock.out-of-stock {
+  display: none; }
+
+.variations_form div.qty {
+  float: left;
+  line-height: 40px;
+  margin-right: 5px; }
+
+.variations_form .input-text.qty.text {
+  background: #fff;
+  padding: 5px; }
+
+.product_meta .posted_in,
+.product_meta .sku_wrapper {
+  display: none; }
+
 @media (max-width: 1199px) {
   .hide-screen-lg-max {
-    display: none !important; } }
+    display: none !important; }
+  #othersites-footer {
+    display: none; }
+  #othersites-header {
+    display: block; }
+  body > main {
+    padding-top: 223px !important; }
+  .up-sells.upsells.products li .add_to_cart_button, .related.products li .add_to_cart_button {
+    width: 120px; } }
 
 @media (min-width: 1199px) {
   .hide-screen-lg-min {
     display: none !important; } }
 
 @media (max-width: 991px) {
+  body > main {
+    padding-top: 190px !important; }
   .hide-screen-md-max {
     display: none !important; }
+  .sidebar {
+    display: none; }
   .col {
-    min-width: 100%; } }
+    min-width: 100%; }
+  .course-category-details .course-register-links {
+    display: inline-block !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%; }
+  .course-category-details .course-register-links * {
+    margin: 5px 0px !important;
+    /*width: 100%;*/ } }
 
 @media (max-width: 767px) {
   .hide-screen-sm-max {
@@ -681,9 +1070,10 @@ input, textarea, select {
       padding: 40px 0px !important; } }
 
 .btn {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-family: "Arial Narrow", Arial, sans-serif;
-  font-weight: 600; }
+  font-weight: 600;
+  font-weight: 100; }
 
 .btn-primary {
   color: #fff;
@@ -720,9 +1110,42 @@ input, textarea, select {
   border-color: #000000;
   color: #ffffff; }
   .btn-warning:hover {
-    background: #333333;
-    border-color: #333333;
-    color: #ffffff; }
+    background: #FFD500;
+    border-color: #FFD500;
+    color: #000000; }
+
+.card {
+  border: none; }
+  .card .card-header {
+    background-color: #FFD500;
+    border-bottom: none; }
+    .card .card-header h5 a {
+      color: #000000;
+      font-weight: 2.2rem;
+      font-weight: 600;
+      display: block;
+      padding: 20px; }
+      .card .card-header h5 a:hover {
+        text-decoration: none; }
+
+.accordion {
+  margin-top: 50px; }
+  .accordion .card {
+    margin-bottom: 20px; }
+    .accordion .card .card-header {
+      padding: 0px; }
+      .accordion .card .card-header a:before {
+        content: '- '; }
+      .accordion .card .card-header a.collapsed:before {
+        content: '+ '; }
+    .accordion .card .accordion-card-contents {
+      background: #F1F2F2; }
+      .accordion .card .accordion-card-contents > div {
+        padding: 40px; }
+
+@media (min-width: 1200px) {
+  .modal-lg {
+    max-width: 1100px; } }
 
 html {
   font-size: 10px;
@@ -732,6 +1155,11 @@ body {
   font-family: Arial, sans-serif;
   font-size: 1.8rem;
   color: #000000; }
+  body > main {
+    padding-top: 250px; }
+
+button {
+  cursor: pointer; }
 
 img {
   max-width: 100%; }
@@ -769,8 +1197,8 @@ a {
   padding: 30px 0; }
   .full-width-cta .full-width-cta-text {
     color: #FFFFFF;
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    font-weight: 100;
     font-style: italic;
     margin: 0 40px; }
   @media (max-width: 991px) {
@@ -818,27 +1246,26 @@ a {
     .upper-footer .heading-qualification span:first-child {
       color: #fff; }
 
-.fork-lift {
-  background: url("../../assets/images/fork-lift.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  height: 400px;
-  width: 575px;
-  left: -100px; }
-
-.fork-lift-animated {
-  -webkit-animation: movingforklift 2s infinite;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards; }
-
-@-webkit-keyframes movingforklift {
-  from {
-    left: -100px;
-    width: 575px; }
-  to {
-    left: -180px;
-    width: 601px; } }
+@media (min-width: 1199px) {
+  .fork-lift {
+    background: url("../../assets/images/fork-lift.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 400px;
+    width: 575px;
+    left: -100px; }
+  .fork-lift-animated {
+    -webkit-animation: movingforklift 2s infinite;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards; }
+  @-webkit-keyframes movingforklift {
+    from {
+      left: -100px;
+      width: 575px; }
+    to {
+      left: -180px;
+      width: 601px; } } }
 
 .fifty-fifty-section-background {
   background-repeat: no-repeat; }
@@ -898,5 +1325,425 @@ a {
   height: 100%; }
   .fifty-percent-section.grey-background.right {
     float: right; }
+
+.product-boxes {
+  /*justify-content: space-between;*/
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  /*
+	&:after{
+		content: "";
+        width: 250px;
+	}
+	*/ }
+  .product-boxes.product-boxes.product-boxes-home > div {
+    width: 29%; }
+    @media (max-width: 1199px) {
+      .product-boxes.product-boxes.product-boxes-home > div {
+        width: 21%; } }
+    @media (max-width: 991px) {
+      .product-boxes.product-boxes.product-boxes-home > div {
+        width: 28%; } }
+    @media (max-width: 767px) {
+      .product-boxes.product-boxes.product-boxes-home > div {
+        width: 42%; } }
+    @media (max-width: 575px) {
+      .product-boxes.product-boxes.product-boxes-home > div {
+        width: 100%; } }
+  @media (min-width: 1200px) {
+    .product-boxes.product-boxes.product-boxes-home {
+      padding: 40px 122px;
+      justify-content: space-between; } }
+  .product-boxes.product-boxes.in-sidebar div {
+    width: 100%; }
+  .product-boxes > div {
+    margin-left: 17px;
+    margin-right: 17px;
+    display: flex;
+    flex-direction: column;
+    background: #58595B;
+    margin-bottom: 40px;
+    width: 22%; }
+    @media (max-width: 1199px) {
+      .product-boxes > div {
+        width: 21%; } }
+    @media (max-width: 991px) {
+      .product-boxes > div {
+        width: 28%; } }
+    @media (max-width: 767px) {
+      .product-boxes > div {
+        width: 42%; } }
+    @media (max-width: 575px) {
+      .product-boxes > div {
+        width: 100%; } }
+    .product-boxes > div > img {
+      align-self: center;
+      height: auto; }
+    .product-boxes > div > div {
+      padding: 20px 20px 50px 20px;
+      text-align: center;
+      height: 100%;
+      position: relative; }
+      .product-boxes > div > div > .btn-primary {
+        margin-top: auto;
+        position: absolute;
+        bottom: 20px;
+        width: 120px;
+        margin-left: -60px;
+        left: 50%; }
+      .product-boxes > div > div h3 {
+        color: #ffffff;
+        font-size: 1.6rem;
+        font-weight: 100;
+        line-height: 22px; }
+
+.product-boxes-images {
+  justify-content: space-between;
+  margin-bottom: 0px;
+  flex-wrap: wrap;
+  text-align: center;
+  display: inline-block; }
+  .product-boxes-images > div > div {
+    background: #58595B;
+    width: 29%;
+    margin-right: 40px;
+    margin-top: 40px;
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    flex-flow: row wrap;
+    min-height: 280px;
+    float: left; }
+    .product-boxes-images > div > div h3 {
+      color: #ffffff;
+      font-weight: 2.0rem;
+      font-weight: 100; }
+    .product-boxes-images > div > div a {
+      margin-bottom: 20px; }
+
+.viewcourses {
+  font-size: 20px;
+  display: table;
+  float: none;
+  margin: auto;
+  padding: 15px 20px;
+  margin-bottom: 60px; }
+
+.search_courses_form {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px; }
+  .search_courses_form select, .search_courses_form input {
+    margin: 0 10px; }
+  .search_courses_form select {
+    background-color: #FFD500;
+    border: 1px solid #000;
+    flex-basis: auto; }
+  .search_courses_form input {
+    flex-basis: 0;
+    padding: 0 40px; }
+
+.course-list .course {
+  border-top: 1px solid #58595B;
+  padding-top: 50px;
+  margin-top: 50px; }
+  .course-list .course:first-child {
+    border-top: none;
+    padding-top: 0px;
+    margin-top: 0px; }
+  .course-list .course .course-header {
+    display: flex;
+    margin-bottom: 30px; }
+    .course-list .course .course-header .course-date {
+      border: 1px solid #000000;
+      font-size: 2.5rem;
+      font-weight: 900;
+      width: 95px;
+      text-align: center;
+      margin-right: 30px;
+      display: flex;
+      flex-direction: column; }
+      .course-list .course .course-header .course-date span {
+        display: block;
+        color: #000000;
+        padding: 5px 0;
+        flex-grow: 1; }
+        .course-list .course .course-header .course-date span + span {
+          background: #000000;
+          color: #ffffff; }
+    .course-list .course .course-header .course-title h2 {
+      margin-bottom: 15px; }
+    .course-list .course .course-header .course-title span {
+      display: block; }
+      .course-list .course .course-header .course-title span:before {
+        content: "";
+        width: 16px;
+        height: 22px;
+        background-image: url(../../assets/images/course-time.png);
+        background-repeat: no-repeat;
+        display: block;
+        float: left;
+        margin-right: 5px;
+        background-position: center; }
+      .course-list .course .course-header .course-title span + span:before {
+        background-image: url("../../assets/images/course-location.png"); }
+
+.course-category-details {
+  display: flex; }
+  .course-category-details .category-container {
+    width: 415px;
+    margin-right: 20px;
+    order: 1; }
+  .course-category-details .course-container {
+    width: 100%;
+    order: 2; }
+    .course-category-details .course-container .course-header {
+      background-color: #FFD500;
+      margin-bottom: 20px; }
+      .course-category-details .course-container .course-header .course-header-bg {
+        background-image: url("../../assets/images/construction-bg.png");
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+        background-repeat: repeat-x;
+        height: 62px; }
+      .course-category-details .course-container .course-header .course-header-details {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 20px; }
+        .course-category-details .course-container .course-header .course-header-details h3 {
+          align-self: flex-end; }
+        .course-category-details .course-container .course-header .course-header-details .course-type-container {
+          background: #F1F2F2;
+          text-align: center;
+          padding-top: 10px; }
+          .course-category-details .course-container .course-header .course-header-details .course-type-container > h5 {
+            margin-bottom: 0px;
+            font-size: 12px; }
+          .course-category-details .course-container .course-header .course-header-details .course-type-container > div {
+            display: flex;
+            padding: 20px; }
+            .course-category-details .course-container .course-header .course-header-details .course-type-container > div span {
+              margin-left: 15px; }
+              .course-category-details .course-container .course-header .course-header-details .course-type-container > div span:first-child {
+                margin-left: 0px; }
+    .course-category-details .course-container .course-detail {
+      padding: 20px; }
+  .course-category-details .course-register-links {
+    display: flex;
+    justify-content: start;
+    align-items: center; }
+    .course-category-details .course-register-links * {
+      margin: 0 10px; }
+      .course-category-details .course-register-links *:first-child {
+        margin-left: 0px; }
+
+.online-course-cta h2 {
+  margin-bottom: 10px; }
+
+.online-course-cta p {
+  color: #FFD500;
+  font-size: 2.2rem; }
+
+.course-category-details .category-container {
+  width: 415px;
+  margin-right: 20px;
+  background-color: #F1F2F2;
+  padding-bottom: 40px;
+  margin-bottom: -40px; }
+
+.category-background {
+  position: absolute;
+  height: 105%;
+  left: -59%;
+  width: 85%;
+  top: -20px;
+  z-index: -1;
+  background-color: #F1F2F2; }
+
+.course-type-public {
+  width: 62px;
+  height: 62px;
+  display: block;
+  background-image: url("../../assets/images/course-public-new.png");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.course-type-private {
+  width: 62px;
+  height: 62px;
+  display: block;
+  background-image: url("../../assets/images/course-private-new.png");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.course-type-online {
+  width: 62px;
+  height: 62px;
+  display: block;
+  background-image: url("../../assets/images/course-online.png");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.category-list {
+  list-style: none;
+  padding: 0px; }
+  .category-list > li {
+    position: relative; }
+    .category-list > li > a {
+      position: relative;
+      color: #000000;
+      font-size: 2.0rem;
+      font-weight: 600;
+      display: block;
+      padding: 5px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      padding-left: 20px; }
+      .category-list > li > a:hover {
+        background-color: #D1D3D4; }
+      .category-list > li > a:not(.collapsed) {
+        background-color: #D1D3D4; }
+        .category-list > li > a:not(.collapsed):before {
+          content: '-'; }
+      .category-list > li > a:before {
+        content: '+';
+        position: absolute;
+        left: 5px; }
+    .category-list > li > ul {
+      list-style: none;
+      padding: 0px;
+      padding-left: 45px; }
+      .category-list > li > ul > li {
+        position: relative; }
+        .category-list > li > ul > li > a {
+          position: relative;
+          color: #000000;
+          font-size: 1.6rem;
+          font-weight: 100;
+          padding: 5px;
+          display: block;
+          margin-bottom: 10px; }
+          .category-list > li > ul > li > a:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 12px solid #FFD500;
+            position: absolute;
+            top: 11px;
+            left: -22px;
+            top: 50%;
+            margin-top: -8px; }
+          .category-list > li > ul > li > a:hover, .category-list > li > ul > li > a.active {
+            text-decoration: none;
+            background-color: #FFD500; }
+
+#requestInformationModal .modal-content {
+  background: #58595B; }
+  #requestInformationModal .modal-content .modal-body {
+    padding-top: 0px; }
+    #requestInformationModal .modal-content .modal-body img {
+      max-width: 100%;
+      height: auto; }
+  @media (max-width: 992px) {
+    #requestInformationModal .modal-content .d-flex {
+      flex-direction: column; } }
+  #requestInformationModal .modal-content .d-flex form {
+    width: 580px;
+    margin-right: 50px; }
+    @media (max-width: 1200px) {
+      #requestInformationModal .modal-content .d-flex form {
+        width: 380px; } }
+    @media (max-width: 992px) {
+      #requestInformationModal .modal-content .d-flex form {
+        width: 100%; } }
+  #requestInformationModal .modal-content .d-flex .request-information-modal-content {
+    text-align: right;
+    display: block; }
+    #requestInformationModal .modal-content .d-flex .request-information-modal-content p {
+      font-size: 2.2rem; }
+    #requestInformationModal .modal-content .d-flex .request-information-modal-content .request-information-modal-content-phone p {
+      font-size: 2.5rem; }
+    #requestInformationModal .modal-content .d-flex .request-information-modal-content > div:first-child {
+      margin-top: 150px; }
+  #requestInformationModal .modal-content .close-model {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 100px;
+    color: #fff;
+    font-size: 32px;
+    padding: 0 7px;
+    z-index: 100;
+    height: 30px;
+    width: 30px;
+    line-height: 30px; }
+    #requestInformationModal .modal-content .close-model:after {
+      content: 'x';
+      position: absolute;
+      font-size: 25px;
+      top: 5px;
+      left: 9px;
+      line-height: 17px;
+      color: #ffffff; }
+
+.social-icon {
+  display: block;
+  width: 39px;
+  height: 39px;
+  background: url("../../assets/images/social-icons/social-sprite.png");
+  transition: none;
+  float: left;
+  margin: 100px 8px 0px; }
+  @media (max-width: 1199px) {
+    .social-icon {
+      margin: 10px 8px 0px; } }
+  .social-icon.facebook {
+    background-position: 0 0; }
+    .social-icon.facebook:hover {
+      background-position: 0 -40px; }
+  .social-icon.twitter {
+    background-position: -40px 0; }
+    .social-icon.twitter:hover {
+      background-position: -40px -40px; }
+  .social-icon.google {
+    background-position: -79px 0; }
+    .social-icon.google:hover {
+      background-position: -79px -40px; }
+  .social-icon.linked-in {
+    background-position: -118px 0; }
+    .social-icon.linked-in:hover {
+      background-position: -118px -40px; }
+
+.related.products h2 {
+  text-transform: capitalize; }
+
+.related.products .products {
+  flex-wrap: wrap;
+  display: flex; }
+
+.mobileMenuOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  left: 0px;
+  top: 0px;
+  display: none;
+  z-index: 100; }
+
+@media (max-width: 767px) {
+  .category-container {
+    order: 2; }
+  .course-container {
+    order: 1; }
+  .category-background {
+    background-color: none;
+    display: none; }
+  .course-category-details .category-container {
+    width: 100%;
+    display: block; }
+  .course-category-details {
+    display: block; } }
 
 /*# sourceMappingURL=main.css.map */

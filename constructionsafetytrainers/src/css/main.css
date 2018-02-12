@@ -3,6 +3,9 @@ a {
   a:hover {
     color: #a75d07; }
 
+body.sticky-header header #logo img {
+  width: 60px; }
+
 @media (min-width: 1200px) {
   #mainMenu > #menu-main-menu > li:after {
     background: #d87809; } }
@@ -15,6 +18,10 @@ a {
     background: #F6921E; }
   #mainMenu > #menu-main-menu li.current-menu-item > a {
     background: #F6921E; } }
+
+@media (max-width: 991px) {
+  #mainMenu.collapse {
+    overflow: scroll; } }
 
 .banner-section .banner-content > div:first-child {
   background: rgba(246, 146, 30, 0.9); }
@@ -49,21 +56,63 @@ a {
 form > div.form-header {
   background-color: #F6921E; }
 
+@media (max-width: 767px) {
+  .wpcf7-form-control-wrap {
+    position: relative;
+    width: 100%; }
+  .contact-page-submit {
+    display: block !important; }
+  .g-recaptcha {
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0; }
+  .contact-page-submit input[type="submit"] {
+    height: 100%;
+    cursor: pointer;
+    display: block;
+    clear: both;
+    float: left; }
+  .contact-page-submit p {
+    width: 100%;
+    margin-left: 0px; } }
+
 .testimonials-wrapper {
   background-image: url(../../assets/images/construction-field.jpg); }
 
 .upper-footer h5 {
   color: #F6921E; }
 
+@media (max-width: 1199px) {
+  body > main {
+    padding-top: 255px !important; } }
+
+@media (max-width: 991px) {
+  .footer-copy {
+    padding: 20px 5px; }
+  .sidebar {
+    display: none; } }
+
+@media (max-width: 767px) {
+  #post-18 .btn {
+    width: 100%;
+    display: block;
+    font-size: 1.5rem; }
+  .hide-screen-sm-max {
+    display: none !important; }
+  main .container-fluid {
+    padding-right: 30px;
+    padding-left: 30px; }
+    main .container-fluid .container {
+      padding: 40px 0px !important; } }
+
 .btn-primary {
   color: #fff;
   background-color: #F6921E;
-  border-color: #F6921E;
-  color: #231F20; }
+  border-color: #F6921E; }
   .btn-primary:hover {
     background: #f1860a;
-    border-color: #f1860a;
-    color: #231F20; }
+    border-color: #f1860a; }
 
 .btn-danger {
   color: #fff;
@@ -76,14 +125,12 @@ form > div.form-header {
     color: #ffffff; }
 
 .btn-info {
-  color: #fff;
+  color: #000000;
   background-color: #FFD500;
-  border-color: #FFD500;
-  color: #ffffff; }
+  border-color: #FFD500; }
   .btn-info:hover {
     background: #e6c000;
-    border-color: #e6c000;
-    color: #ffffff; }
+    border-color: #e6c000; }
 
 .btn-warning {
   background-color: #000000;
@@ -94,13 +141,25 @@ form > div.form-header {
     border-color: #333333;
     color: #ffffff; }
 
-.constuction-hat {
-  background: url("../../assets/images/constuction-hat.png");
-  background-repeat: no-repeat;
-  position: relative;
-  height: 400px;
-  width: 575px;
-  left: -60px; }
+.card .card-header {
+  background-color: #F6921E; }
+
+@media (min-width: 1200px) {
+  .constuction-hat {
+    background: url("../../assets/images/constuction-hat.png");
+    background-repeat: no-repeat;
+    position: relative;
+    height: 400px;
+    width: 575px;
+    left: -60px; } }
+
+@media (max-width: 1199px) {
+  .constuction-hat {
+    background: url("../../assets/images/constuction-hat.png");
+    background-size: cover;
+    position: relative;
+    height: 190px;
+    width: 100%; } }
 
 .white-text {
   color: #ffffff; }
@@ -110,5 +169,47 @@ form > div.form-header {
 
 .product-boxes > div {
   background: #231F20; }
+
+.product-boxes-images {
+  justify-content: space-between;
+  margin-bottom: 0px;
+  flex-wrap: wrap;
+  text-align: center;
+  display: inline-block; }
+  .product-boxes-images > div {
+    background: #231F20;
+    width: 29%;
+    margin-right: 40px;
+    margin-top: 40px;
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    flex-flow: row wrap;
+    min-height: 280px;
+    float: left; }
+    .product-boxes-images > div h3 {
+      color: #ffffff;
+      font-size: 20px; }
+    .product-boxes-images > div a {
+      margin-bottom: 20px; }
+
+.viewcourses {
+  font-size: 20px;
+  display: table;
+  float: none;
+  margin: auto;
+  padding: 15px 20px;
+  margin-bottom: 60px; }
+
+.course-category-details .course-container .course-header {
+  background-color: #F6921E; }
+  .course-category-details .course-container .course-header .course-header-bg {
+    background-image: url("../../assets/images/construction-bg.png"); }
+
+.category-list > li > ul > li > a:before {
+  border-left: 12px solid #F6921E; }
+
+.category-list > li > ul > li > a:hover, .category-list > li > ul > li > a.active {
+  background-color: #F6921E; }
 
 /*# sourceMappingURL=main.css.map */

@@ -15,8 +15,9 @@ function elementInViewport(element) {
 
 function checkOnScrollElements(){
 	//Sticky Header
-	var docTop = document.body.scrollTop;
-	if(docTop >= 25){
+	//var docTop = document.documentElement.scrollTop;
+	var docTop = document.documentElement.scrollTop || document.body.scrollTop;
+	if(docTop >= 120){
 		document.body.classList.add("sticky-header");
 	}else{
 		document.body.classList.remove("sticky-header");
@@ -43,3 +44,27 @@ function checkOnScrollElements(){
 (function() {
 	window.onscroll = function() {checkOnScrollElements()};
 })();
+
+
+
+jQuery('.navbar-toggler').click(function(){
+	if(jQuery(this).hasClass('collapsed')){
+		setTimeout(function(){
+			jQuery('.mobileMenuOverlay').css('display','block');
+		},600);
+	}else{
+		jQuery('.mobileMenuOverlay').css('display','none');
+	}
+});
+
+jQuery('.closen-responsive-nav').click(function(){
+	closeResponsiveNav();
+});
+
+jQuery('.mobileMenuOverlay').click(function(){
+	jQuery('.closen-responsive-nav').click();
+});
+
+function closeResponsiveNav(){
+	jQuery('.mobileMenuOverlay').css('display','none');
+}

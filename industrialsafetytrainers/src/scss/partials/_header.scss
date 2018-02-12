@@ -1,6 +1,11 @@
 body{
+	overflow-x: hidden;
 	> header{
 		background: #fff;
+		position: fixed;
+		width: 100%;
+		z-index: 100;
+
 		.main-header{
 			display: flex;
 			justify-content: space-between;
@@ -64,17 +69,26 @@ body{
 							color: #58595B;
 							font-size: 1.8rem;
 						}
+
+						a{
+							text-decoration: none;
+							color: #000000;
+						}
 					}
 				}
 			}
 		}
 	}
 	&.sticky-header{
-		header{
+		>header{
 		    position: fixed;
-		    z-index: 10000;
+		    z-index: 1000;
 		    width: 100%;
 		    top: 0px;
+
+		    .main-header{
+		    	padding: 5px 0;
+		    }
 
 		    #logo{
 		    	img{
@@ -96,16 +110,89 @@ body{
 }
 
 
+#othersites-header{
+	display: none;
+	float: right;
+  position: absolute;
+  right: 0px;
+  width: 340px;
+  z-index: 9999999999999;
 
-//RESPONSIVE 
+	.site-button{
+		position: relative;
+		bottom: inherit;
+    right: inherit;
+		display: inline-block;
+		float: right;
+		height: 100px;
+    width: 100px;
+		margin-left: 10px;
+	}
+}
+#othersites-header{
+	.site-button.industrial-button, .site-button.construction-button, .site-button.shopcart-button{
+		top: 0px;
+	}
+	.site-button.industrial-button {
+		background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVindustrialsafteyIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(0.9);
+	}
+	.site-button.industrial-button:hover {
+	  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVindustrialsafteyIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(1);
+	}
+	.site-button.construction-button {
+		background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVconstructionsafteyIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(0.9);
+	}
+	.site-button.construction-button:hover {
+	  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVconstructionsafteyIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(1);
+	}
+	.site-button.shopcart-button {
+		background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVshoppingcartIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(0.9);
+	}
+	.site-button.shopcart-button:hover {
+	  background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/NAVshoppingcartIcon.png") no-repeat center;
+		transition: 0.33s ease;
+		transform: scale(1);
+	}
+}
+.sticky-header #othersites-header .site-button {
+    position: relative;
+    bottom: inherit;
+    right: inherit;
+    display: inline-block;
+    float: right;
+    height: 50px;
+    width: 60px;
+		margin-left: 10px;
+}
+
+.navbar-inverse .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.50)!important;
+}
+.navbar-toggler-icon {
+    padding: 15px;
+}
+//RESPONSIVE
 @media (max-width: $screen-lg-max) {
 	body{
 		> header{
 			.main-header{
-				display: block;
+
+				/*display: block;*/
 				>div{
-					
+
 				}
+
+				/*
 				#logo{
 					img{
 						width: auto;
@@ -113,6 +200,8 @@ body{
 					    display: block;
 					}
 				}
+				*/
+
 
 				.header-call-to-action{
 					justify-content: center;

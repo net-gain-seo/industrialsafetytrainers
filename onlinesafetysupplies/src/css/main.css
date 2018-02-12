@@ -1,42 +1,79 @@
 a {
-  color: #FFD500; }
+  color: #0000EE; }
   a:hover {
-    color: #998000; }
+    color: #000088; }
+
+.woocommerce-Price-amount.amount {
+  color: #0000EE; }
+
+.blackBg a {
+  color: #D49D1C; }
+  .blackBg a:hover {
+    color: #7a5a10; }
 
 body header .main-header .button-list {
   display: flex;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  /*@media (min-width: $screen-lg-min) {*/
+  position: relative;
+  top: -20px;
+  /*}*/ }
   body header .main-header .button-list a {
     margin-left: 10px;
     margin-left: 10px;
     font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 400;
     font-size: 1.8rem; }
-  @media (min-width: 1200px) {
-    body header .main-header .button-list {
-      position: relative;
-      top: -20px; } }
 
 body header .main-header .safety-suppliers-search {
   display: flex; }
-  @media (min-width: 1200px) {
-    body header .main-header .safety-suppliers-search {
-      margin-top: 20px; } }
   body header .main-header .safety-suppliers-search form {
     margin-right: 40px; }
   body header .main-header .safety-suppliers-search .header-call-to-action .header-call-to-action-phone span {
     color: #000000;
     font-size: 2.4rem; }
 
-body.sticky-header header #logo img {
-  width: 226px; }
+body header #logo {
+  display: flex;
+  /*
+	    	#ist-logo{
+				max-width: 252px;
+				height: auto;		
+	    	}
+	    	#cst-logo{
+	    		max-width: 123px;
+				height: auto;	
+	    	}
+	    	*/ }
+
+body.sticky-header header #logo {
+  width: 230px;
+  /*
+		    	 #ist-logo{
+				    width: 120px !important;
+				    height: auto !important;
+				  }
+				  #cst-logo{
+				    width: 60px !important;
+				    height: auto !important;
+				  }
+				  */ }
+  body.sticky-header header #logo img {
+    width: auto;
+    height: auto; }
+
+body.sticky-header .safety-suppliers-search {
+  margin-top: 10px; }
 
 @media (max-width: 1199px) {
   body header .main-header .button-list {
-    justify-content: center;
     margin-bottom: 20px; }
   body header .main-header .safety-suppliers-search {
     justify-content: center; } }
+
+@media (max-width: 767px) {
+  body header .main-header .safety-suppliers-search .header-call-to-action .header-call-to-action-phone span {
+    font-size: 1.6rem; } }
 
 @media (min-width: 1200px) {
   #mainMenu > #menu-main-menu > li:after {
@@ -51,8 +88,11 @@ body.sticky-header header #logo img {
   #mainMenu > #menu-main-menu li.current-menu-item > a {
     background: #ffffff; } }
 
-.banner-section .banner-content > div:first-child {
-  background: transparent; }
+.banner-section .banner-content > div {
+  width: 1140px;
+  padding: 0px; }
+  .banner-section .banner-content > div:first-child {
+    background: transparent; }
 
 .banner-section table {
   margin-bottom: 50px; }
@@ -63,7 +103,7 @@ body.sticky-header header #logo img {
     padding-right: 20px; }
 
 .page-title-section {
-  background: rgba(246, 146, 30, 0.9); }
+  background: rgba(255, 213, 0, 0.9); }
 
 .nav-next a:hover .btn-primary {
   background: #f1860a;
@@ -89,8 +129,53 @@ body.sticky-header header #logo img {
 .blog-feed .post:hover {
   background: #D49D1C; }
 
-form > div.form-header {
-  background-color: #F6921E; }
+#coupon_code {
+  width: 100%;
+  margin-bottom: 5px; }
+
+.coupon {
+  float: left;
+  max-width: 100%; }
+
+.woocommerce .cart .button, .woocommerce .cart input.button {
+  float: none;
+  margin-bottom: 5px; }
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1 {
+  float: left;
+  width: 100% !important; }
+
+.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+  float: left !important;
+  width: 100% !important; }
+
+#customer_details .col-1, #customer_details .col-2, .addresses .col-2, .addresses .col-1 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%; }
+
+.woocommerce form .form-row .required {
+  color: red;
+  font-weight: 700;
+  border: 0;
+  text-decoration: none; }
+
+.woocommerce-page table.cart td.actions .coupon .input-text + .button {
+  float: left;
+  width: 100%; }
+
+@media (max-width: 767px) {
+  .search_courses_form {
+    display: block;
+    justify-content: space-between;
+    padding: 0 0px; }
+  .search_courses_form select, .search_courses_form input {
+    margin: 5px 10px; }
+  .search_courses_form input {
+    flex-basis: 0;
+    padding: 10px 40px; } }
 
 .upper-footer {
   background: #58595B;
@@ -101,6 +186,56 @@ form > div.form-header {
 
 .footer-copy {
   background: #000000; }
+
+@media (max-width: 1199px) {
+  body > main {
+    padding-top: 220px !important; }
+  #ist-logo {
+    width: 120px !important;
+    height: auto !important; }
+  #cst-logo {
+    width: 60px !important;
+    height: auto !important; } }
+
+@media (max-width: 991px) {
+  body > main {
+    padding-top: 170px !important; }
+  #mainMenu > #menu-main-menu > li.dropdown > ul li.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0px;
+    width: 100%; }
+  #mainMenu.collapse {
+    overflow: scroll; }
+  .woocommerce ul.products li.product, .woocommerce-page ul.products li.product, .woocommerce-page[class*=columns-] ul.products li.product, .woocommerce[class*=columns-] ul.products li.product {
+    width: 45%;
+    float: left;
+    margin: 0px 1em 2.992em; } }
+
+@media (max-width: 767px) {
+  .woocommerce #content div.product div.summary, .woocommerce div.product div.summary,
+  .woocommerce-page #content div.product div.summary,
+  .woocommerce-page div.product div.summary,
+  .woocommerce-content-box, .summary.entry-summary,
+  .woocommerce-title-section,
+  .woocommerce div.product div.images.woocommerce-product-gallery {
+    width: 100%; }
+  .banner-section table td {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 4.0rem;
+    padding-right: 20px; }
+  .footer-copy {
+    padding: 20px 5px; }
+  .woocommerce ul.products li.product, .woocommerce-page ul.products li.product, .woocommerce-page[class*=columns-] ul.products li.product, .woocommerce[class*=columns-] ul.products li.product {
+    width: 100%;
+    float: left;
+    clear: both;
+    margin: 0 0 2.992em; } }
+
+body > main {
+  padding-top: 239px; }
 
 .constuction-hat {
   background: url("../../assets/images/constuction-hat.png");
@@ -115,5 +250,11 @@ form > div.form-header {
 
 .pdf-download:hover span.pdf-download-download {
   background: #F6921E; }
+
+.product-boxes > div {
+  background: #000000; }
+
+.social-icon {
+  margin: 0px 8px 0px; }
 
 /*# sourceMappingURL=main.css.map */

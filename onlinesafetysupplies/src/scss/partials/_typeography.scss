@@ -1,6 +1,6 @@
 a{
-	color: $yellow;
+	color: $dark-yellow;
 	&:hover{
-		color: darken($yellow,20%);
+		color: darken($dark-yellow,20%);
 	}
 }

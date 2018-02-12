@@ -2,12 +2,10 @@
     color: #fff;
     background-color: $primary-color;
     border-color: $primary-color;
-    color: #231F20;
 
     &:hover{
     	background: darken($primary-color,5%);
     	border-color: darken($primary-color,5%);
-    	color: #231F20;
     }
 }
 
@@ -25,15 +23,13 @@
 }
 
 .btn-info {
-    color: #fff;
+    color: #000000;
     background-color: $yellow;
     border-color: $yellow;
-    color: #ffffff;
 
     &:hover{
     	background: darken($yellow,5%);
     	border-color: darken($yellow,5%);
-    	color: #ffffff;
     }
 }
 

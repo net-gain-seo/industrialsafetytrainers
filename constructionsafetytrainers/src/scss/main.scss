@@ -3,8 +3,8 @@
 
 @import "partials/_header";
 @import "partials/_main_menu";
-@import "partials/_banner_slider"; 
-@import "partials/_blog"; 
+@import "partials/_banner_slider";
+@import "partials/_blog";
 @import "partials/_form";
 @import "partials/_testimonials";
 @import "partials/_footer";
@@ -13,16 +13,28 @@
 
 //BOOTSTRAP COMPONENTS
 @import "partials/components/_buttons";
+@import "partials/components/_card";
 
 
+@media (min-width: $screen-lg-min) {
+	.constuction-hat{
+		background: url('../../assets/images/constuction-hat.png');
+		background-repeat: no-repeat;
+	    position: relative;
+		height: 400px;
+		width: 575px;
+		left: -60px;
+	}
+}
 
-.constuction-hat{
-	background: url('../../assets/images/constuction-hat.png');
-	background-repeat: no-repeat;
-    position: relative;
-	height: 400px;
-	width: 575px;
-	left: -60px;
+@media (max-width: $screen-lg-max) {
+	.constuction-hat{
+		background: url('../../assets/images/constuction-hat.png');
+		background-size: cover;
+		position: relative;
+		height: 190px;
+		width: 100%;
+	}
 }
 
 .white-text{
@@ -42,5 +54,80 @@
 .product-boxes{
 	>div{
 		background: #231F20;
+	}
+}
+
+
+.product-boxes-images{
+    justify-content: space-between;
+    margin-bottom: 0px;
+    flex-wrap: wrap;
+    text-align: center;
+    display: inline-block;
+	>div{
+		background: #231F20;
+    width: 29%;
+    margin-right: 40px;
+    margin-top: 40px;
+    padding: 0px;
+    text-align: center;
+    display: inline-block;
+    flex-flow: row wrap;
+    min-height: 280px;
+    float: left;
+			h3{
+				color: #ffffff;
+				font-size: 20px;
+			}
+			a{
+				margin-bottom: 20px;
+			}
+		}
+}
+.viewcourses{
+	font-size: 20px;
+	display: table;
+	float: none;
+	margin: auto;
+	padding: 15px 20px;
+	margin-bottom: 60px;
+}
+
+
+
+
+.course-category-details{
+	.course-container{
+		.course-header{
+			background-color: $orange;
+			.course-header-bg{
+				background-image: url('../../assets/images/construction-bg.png');
+			}
+		}
+	}
+}
+
+
+
+
+
+
+.category-list{
+	>li{
+
+		>ul{
+			>li{
+				>a{
+					&:before{
+					    border-left: 12px solid $orange;
+					}
+
+					&:hover,
+					&.active{
+						background-color: $orange;
+					}
+				}
+			}
+		}
 	}
 }

@@ -6,3 +6,29 @@ form{
 		}
 	}
 }
+@media (max-width: $screen-sm-max) {
+	.wpcf7-form-control-wrap {
+	    position: relative;
+	    width: 100%;
+	}
+	.contact-page-submit{
+		display: block!important;
+	}
+	.g-recaptcha{
+		transform:scale(0.85);
+		-webkit-transform:scale(0.85);
+		transform-origin:0 0;
+		-webkit-transform-origin:0 0;
+	}
+	.contact-page-submit input[type="submit"] {
+	    height: 100%;
+	    cursor: pointer;
+	    display: block;
+	    clear: both;
+	    float: left;
+	}
+	.contact-page-submit p {
+	    width: 100%;
+	    margin-left: 0px;
+	}
+}
