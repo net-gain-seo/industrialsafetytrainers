@@ -18,7 +18,7 @@
 				the_post_thumbnail('blog-image');
 			}else{
 				?>
-				<img width="2000" height="375" src="http://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png 2000w, http://thesafetybus.com/wp-content/uploads/2017/08/whats-new-300x56.png 300w, http://thesafetybus.com/wp-content/uploads/2017/08/whats-new-768x144.png 768w, http://thesafetybus.com/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
+				<img width="2000" height="375" src="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png 2000w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-300x56.png 300w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-768x144.png 768w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
 				<?php
 			}
 			?>

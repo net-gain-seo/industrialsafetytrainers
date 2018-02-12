@@ -11,8 +11,8 @@
 				</div>
 				<div></div>
 			</div>
-			
-			<img width="2000" height="375" src="http://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png 2000w, http://thesafetybus.com/wp-content/uploads/2017/08/whats-new-300x56.png 300w, http://thesafetybus.com/wp-content/uploads/2017/08/whats-new-768x144.png 768w, http://thesafetybus.com/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
+
+			<img width="2000" height="375" src="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png 2000w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-300x56.png 300w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-768x144.png 768w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
 		</section>
 
 		<div class="container blog-container">
@@ -31,22 +31,22 @@
 								</div>
 							</div>
 						</article>
-						<?php 
+						<?php
 						endwhile; ?>
 					<?php endif; ?>
 
 
-					<?php 
+					<?php
 						echo '<br/><br/>';
 
 						echo '<h2>Supplies</h2>';
 						$current = get_current_blog_id();
 						switch_to_blog(3);
 						//echo do_shortcode('[course_search search="'.$_GET['s'].'"]');
-						$posts = get_posts( 
-							array( 
-								'post_type' => 'product', 
-								'numberposts' => - 1, 
+						$posts = get_posts(
+							array(
+								'post_type' => 'product',
+								'numberposts' => - 1,
 								's' => get_search_query(),
 								'tax_query' => array(
 									[
@@ -55,7 +55,7 @@
 										'operator'  => 'NOT IN'
 									]
 								)
-							) 
+							)
 						);
 
 						echo '<div class="product-boxes in-sidebar">';
@@ -76,15 +76,15 @@
 
 			</aside>
 			<section class="posts">
-				<?php 
+				<?php
 				$current = get_current_blog_id();
 				switch_to_blog(3);
 				echo '<h2>Courses</h2>';
 				//echo do_shortcode('[course_search search="'.$_GET['s'].'"]');
-				$posts = get_posts( 
-					array( 
-						'post_type' => 'product', 
-						'numberposts' => - 1, 
+				$posts = get_posts(
+					array(
+						'post_type' => 'product',
+						'numberposts' => - 1,
 						's' => get_search_query(),
 						'tax_query' => array(
 							[
@@ -92,7 +92,7 @@
 								'terms'		=> 17,18
 							]
 						)
-					) 
+					)
 				);
 				//print_r($posts);
 				foreach($posts as $post){
@@ -117,5 +117,5 @@
 
 <?php echo do_shortcode('[common_element id="55" name="CTA"]'); ?>
 <?php echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]'); ?>
-	
+
 <?php get_footer(); ?>

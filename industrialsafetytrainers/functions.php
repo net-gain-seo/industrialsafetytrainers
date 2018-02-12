@@ -27,7 +27,6 @@ add_action( 'wp_enqueue_scripts', 'industrial_safety_trainers_scripts' );
 
 
 
-
 //BLOG SIDEBAR
 add_action( 'widgets_init', 'industrial_safety_trainers_widgets_init' );
 function industrial_safety_trainers_widgets_init(){
@@ -143,11 +142,68 @@ add_filter('widget_text','do_shortcode');
 
 
 
+/**
+ * Hide a free shipping option (instance #7) when the given shipping class is in the cart
+ * Code snippets should be added to the functions.php file of your child theme
+ *
+ * @return array*/
+/*
+////************WORKING HIDE STATEMENT********************************/
+  function hide_shipping_when_class_is_in_cart( $rates, $package ) {
+      // shipping class IDs that need the method removed
+      $shipping_classes = array('free-shipping');
+      $if_exists = false;
+
+      foreach( $package['contents'] as $key => $values ) {
+          if( in_array( $values[ 'data' ]->get_shipping_class(), $shipping_classes ) )
+              $if_exists = true;
+      }
+
+      if( $if_exists ){
+         unset( $rates['free_shipping:2'] );
+       }
+       elseif( $if_exists == false ){
+          unset( $rates['free_shipping:2'] );
+        }
+
+      return $rates;
+  }
+  add_filter( 'woocommerce_package_rates', 'hide_shipping_when_class_is_in_cart', 10, 2 );
 
 
 
+function hide_shipping_when_class_is_in_cart_new( $rates, $package ) {
+    // shipping class IDs that need the method removed
+    $shipping_classes = array('free-shipping');
+    $no_shipping_classes = array('no-shipping-class');
+    $if_exists = false;
+    $no_exists = false;
 
+    foreach( $package['contents'] as $key => $values ) {
+        if( in_array( $values[ 'data' ]->get_shipping_class(), $shipping_classes ) ){
+            $if_exists = true;
+          }
+          elseif( in_array( $values[ 'data' ]->get_shipping_class(), $no_shipping_classes ) ){
+            $no_exists = true;
+            $if_exists = false;
+          }
+    }
+    if( $if_exists == true ){
+       reset( $rates['free_shipping:2'] );
+       unset( $rates['jem_table_rate'] );
+       }
+     elseif( $if_exists == false ){
+      unset( $rates['free_shipping:2'] );
+      reset( $rates['jem_table_rate'] );
+      }
+    elseif( $if_exists == false && $no_exists = true){
+     unset( $rates['free_shipping:2'] );
+     reset( $rates['jem_table_rate'] );
+   }
 
+    return $rates;
+}
+add_filter( 'woocommerce_package_rates_new', 'hide_shipping_when_class_is_in_cart_new', 10, 2 );
 
 
 

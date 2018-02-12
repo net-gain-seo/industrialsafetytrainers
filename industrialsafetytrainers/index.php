@@ -11,8 +11,8 @@
 				</div>
 				<div></div>
 			</div>
-			
-			<img width="2000" height="375" src="http://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png 2000w, http://thesafetybus.com/wp-content/uploads/2017/08/whats-new-300x56.png 300w, http://thesafetybus.com/wp-content/uploads/2017/08/whats-new-768x144.png 768w, http://thesafetybus.com/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
+
+			<img width="2000" height="375" src="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png 2000w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-300x56.png 300w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-768x144.png 768w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
 		</section>
 
 		<div class="container blog-container">
@@ -22,7 +22,7 @@
 				?>
 			</aside>
 			<section class="posts">
-				<?php 
+				<?php
 				if (have_posts()): while (have_posts()) : the_post(); ?>
 					<article class="post d-flex">
 						<div class="<?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
@@ -43,7 +43,7 @@
 							</div>
 						</div>
 					</article>
-					<?php 
+					<?php
 					endwhile; ?>
 				<?php endif; ?>
 			</section>
@@ -59,15 +59,15 @@
 
 	</main>
 
-<?php 
+<?php
 if(get_current_blog_id() == 1){
 	echo do_shortcode('[common_element id="55" name="CTA"]');
-	echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]'); 
+	echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]');
 }
 if(get_current_blog_id() == 2){
 	echo do_shortcode('[common_element id="128" name="ARE YOU LOOKING FOR SOMETHING SPECIFIC?"]');
-	echo do_shortcode('[common_element id="44" name="About Construction Safety Trainers"]'); 
+	echo do_shortcode('[common_element id="44" name="About Construction Safety Trainers"]');
 }
 ?>
-	
+
 <?php get_footer(); ?>

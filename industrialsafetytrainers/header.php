@@ -6,7 +6,6 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="<?php bloginfo('description'); ?>">
-
 	<?php wp_head(); ?>
 
 
@@ -133,9 +132,9 @@
 
 		    </nav>
 				<div id="othersites-header">
-					<a href="http://thesafetybus.com/onlinesafetysupplies"><div class="site-button shopcart-button"></div></a>
-					<a href="http://constructionsafetytrainers.ca/"><div class="site-button construction-button"></div></a>
-					<a href="http://onlinesafetysupplies.ca/"><div class="site-button industrial-button"></div></a>
+					<a href="https://onlinesafetysupplies.ca/"><div class="site-button shopcart-button"></div></a>
+					<a href="https://constructionsafetytrainers.ca/"><div class="site-button construction-button"></div></a>
+					<a href="https://thesafetybus.com/"><div class="site-button industrial-button"></div></a>
 				</div>
 		    <?php/* if(get_current_blog_id() != 3){
 		    	if(get_current_blog_id() == 2){
