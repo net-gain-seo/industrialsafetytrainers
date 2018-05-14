@@ -1,8 +1,3 @@
-<div id="othersites-footer">
-<a href="https://thesafetybus.com/"><div class="site-button industrial-button"></div></a>
-<a href="https://constructionsafetytrainers.ca/"><div class="site-button construction-button"></div></a>
-<a href="https://onlinesafetysupplies.ca/"><div class="site-button shopcart-button"></div></a>
-</div>
 <footer>
 	<section class="upper-footer">
 		<div class="container">

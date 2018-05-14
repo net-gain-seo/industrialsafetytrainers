@@ -35,6 +35,8 @@ function course_details($atts){
 
 
                 $return .= '<div id="course-container" class="course-container">';
+                    
+                    /*
                     $return .= '<div class="course-header">';
                          $return .= '<div class="course-header-bg"></div>';
 
@@ -45,17 +47,12 @@ function course_details($atts){
                                 $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
                                 $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
 
-                                $return .= '<h5>This course is offered</h5>';
-
-                                $return .= '<div>';
-                                    if($_public_course == 'yes'){ $return .= '<span class="course-type-public"></span>'; }
-                                    if($_private_course == 'yes'){ $return .= '<span class="course-type-private"></span>'; }
-                                    if($_online_course == 'yes'){ $return .= '<span class="course-type-online"></span>'; }
-                                $return .= '</div>';
+                                
 
                             $return .= '</div>';
                         $return .= '</div>';
                     $return .= '</div>';
+                    */
 
                     $return .= '<div class="course-detail">';
                         //$return .= '<h3 class="h2 mb-0">'.$category_name.'</h3>';
@@ -90,82 +87,8 @@ function course_details($atts){
                         }
 
 
-                        // COURSE OUTLINE
-                        $course_outline = get_post_meta($current_product[0]->ID,'course_outline',true);
+                        
 
-                        if($course_outline != ''){
-                            $return .= '<div class="card">';
-                                $return .= '<div class="card-header" role="tab">';
-                                    $return .= '<h5 class="mb-0">';
-                                        $return .= '<a data-toggle="collapse" data-parent="#accordion" href="#courseOutline" aria-expanded="false" aria-controls="courseOutline" class="collapsed">What Is Included In This Course</a>';
-                                    $return .= '</h5>';
-                                $return .= '</div>';
-
-                                $return .= '<div id="courseOutline" class="accordion-card-contents collapse" role="tabpanel">';
-                                    $return .= '<div class="card-block">';
-                                        $return .= apply_filters('the_content',$course_outline);
-                                    $return .= '</div>';
-                                $return .= '</div>';
-                            $return .= '</div>';
-                        }
-
-
-                        // COURSE COST OUTLINE
-                        $cost_outline = get_post_meta($current_product[0]->ID,'cost_outline',true);
-
-                        if($cost_outline != ''){
-                            $return .= '<div class="card">';
-                                $return .= '<div class="card-header" role="tab">';
-                                    $return .= '<h5 class="mb-0">';
-                                        $return .= '<a data-toggle="collapse" data-parent="#accordion" href="#courseCostOutline" aria-expanded="false" aria-controls="courseCostOutline" class="collapsed">Cost Outline</a>';
-                                    $return .= '</h5>';
-                                $return .= '</div>';
-
-                                $return .= '<div id="courseCostOutline" class="accordion-card-contents collapse" role="tabpanel">';
-                                    $return .= '<div class="card-block">';
-                                        $return .= apply_filters('the_content',$cost_outline);
-                                    $return .= '</div>';
-                                $return .= '</div>';
-                            $return .= '</div>';
-                        }
-
-                    $return .= '</div>';
-
-
-                    $return .= '<div class="course-register-links">';
-                        $_product = wc_get_product( $current_product[0]->ID );
-
-
-                        if($_public_course == 'yes'){
-                            $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">REGISTER FOR ONE OF OUR PUBLIC COURSES</a></div>';
-                        }
-
-                        if($_private_course == 'yes'){
-														//$return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-warning">REQUEST INFORMATION</a></div>';
-                            $return .= '<button type="button" class="btn btn-primary " role="button" data-toggle="modal" data-target="#requestInformationModal">BOOK YOUR COURSE - GET A QUOTE</button>';
-                        }
-
-
-                        $demo_url = get_post_meta($current_product[0]->ID,'demo_url',true);
-                        if($demo_url != ''){
-                            $return .= '<div><a href="'.$demo_url.'" target="_blank" class="btn btn-warning">DEMO REQUEST</a></div>';
-                        }
-
-                        if($_online_course == 'yes'){
-                            if( $_product->is_type( 'external' ) ){
-                                $_product_url = get_post_meta($current_product[0]->ID,'_product_url',true);
-
-                                $return .= '<div><a href="'.$_product_url.'" class="btn btn-danger" target="_blank">PURCHASE COURSE</a></div>';
-                            }else{
-                                $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">PURCHASE COURSE</a></div>';
-                            }
-
-                        }
-
-                        $info_sheet = get_post_meta($current_product[0]->ID,'info_sheet',true);
-                        if($info_sheet != ''){
-                        $return .= '<a href="'.$info_sheet.'" title="'.$current_product[0]->post_title.' Info Sheet" class="pdf-download d-flex align-items-center " target="_blank"><img src="https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/pdf-download.png"><span class="pdf-download-download">Info Sheet</span></a>';
-                        }
                     $return .= '</div>';
 
                     // get up sells
@@ -210,8 +133,78 @@ function course_details($atts){
 
             $return .= '<div class="category-container">';
             $return .= '<div class="category-background"></div>';
-            $return .= '<h2>Other Courses</h2>';
-            $return .= do_shortcode('[course_category_list current_blog_url="'.$currentBlogUrl.'" single_category="'.$single_category.'" blog_id='.$blog_id.' parent='.$parent.' slug="'.$slug.'" orderby="'.$orderby.'"]');
+                $_public_course = get_post_meta($current_product[0]->ID,'_public_course',true);
+                $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
+                $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
+                                
+                // COURSE OFFERED
+                $return .= '<div class="course-detail-section">';
+                    $return .= '<h5>This course is offered</h5>';
+                    $return .= '<div class="courseType">';
+                        if($_public_course == 'yes'){ $return .= '<span class="course-type-public"></span>'; }
+                        if($_private_course == 'yes'){ $return .= '<span class="course-type-private"></span>'; }
+                        if($_online_course == 'yes'){ $return .= '<span class="course-type-online"></span>'; }
+                    $return .= '</div>';
+                $return .= '</div>';
+
+
+                // COURSE COST OUTLINE
+                $return .= '<div class="course-detail-section">';
+                    $cost_outline = get_post_meta($current_product[0]->ID,'cost_outline',true);
+
+                    if($cost_outline != ''){
+                        $return .= apply_filters('the_content',$cost_outline);
+                    }
+                $return .= '</div>';
+
+                // INFO SHEET
+                $return .= '<div class="course-detail-section">';
+                    $info_sheet = get_post_meta($current_product[0]->ID,'info_sheet',true);
+                    if($info_sheet != ''){
+                    $return .= '<a href="'.$info_sheet.'" title="'.$current_product[0]->post_title.' Info Sheet" class="pdf-download d-flex align-items-center " target="_blank"><img src="https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/pdf-download.png"><span class="pdf-download-download">Info Sheet</span></a>';
+                    }
+                $return .= '</div>';
+
+                // REGISTRATION 
+                $return .= '<div class="course-detail-section callToActions">';
+                    $_product = wc_get_product( $current_product[0]->ID );
+
+                    if($_public_course == 'yes'){
+                        $return .= '<a href="'.$current_product[0]->guid.'" class="btn btn-danger">VIEW PUBLIC DATES</a>';
+                    }
+
+                    if($_private_course == 'yes'){
+                        $return .= '<button type="button" class="btn btn-primary " role="button" data-toggle="modal" data-target="#requestInformationModal">BOOK COURSE</button>';
+                    }
+
+
+                    $demo_url = get_post_meta($current_product[0]->ID,'demo_url',true);
+                    if($demo_url != ''){
+                        $return .= '<a href="'.$demo_url.'" target="_blank" class="btn btn-warning">DEMO REQUEST</a>';
+                    }
+
+                    if($_online_course == 'yes'){
+                        if( $_product->is_type( 'external' ) ){
+                            $_product_url = get_post_meta($current_product[0]->ID,'_product_url',true);
+
+                            $return .= '<div><a href="'.$_product_url.'" class="btn btn-danger" target="_blank">PURCHASE COURSE</a></div>';
+                        }else{
+                            $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">PURCHASE COURSE</a></div>';
+                        }
+
+                    }  
+               $return .= '</div>';
+
+
+                // WHAT IS INCLUDED
+                $return .= '<div class="course-detail-section">';
+                    $course_outline = get_post_meta($current_product[0]->ID,'course_outline',true);
+                    if($course_outline != ''){
+                        $return .= apply_filters('the_content',$course_outline);
+                    }
+                $return .= '</div>';
+
+
             $return .= '</div>';
 
         $return .= '</div>';

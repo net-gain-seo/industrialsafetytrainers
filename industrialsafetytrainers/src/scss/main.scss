@@ -970,3 +970,27 @@ a{
 		}
 	}
 }
+
+.course-detail-section{
+	margin-bottom:25px;
+	.courseType{
+		display:flex;
+		justify-content: left;
+		span{
+			margin-right:10px;
+		}
+	}
+
+	&.callToActions{
+		display:flex;
+		flex-direction:column;
+		> a{
+			width:175px;
+			margin-bottom:5px;
+		}
+		> button{
+			width:175px;
+			margin-bottom:5px;
+		}
+	}
+}

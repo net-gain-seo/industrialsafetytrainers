@@ -1774,4 +1774,21 @@ a {
     .courseSort > a.active {
       color: #D49D1C; }
 
+.course-detail-section {
+  margin-bottom: 25px; }
+  .course-detail-section .courseType {
+    display: flex;
+    justify-content: left; }
+    .course-detail-section .courseType span {
+      margin-right: 10px; }
+  .course-detail-section.callToActions {
+    display: flex;
+    flex-direction: column; }
+    .course-detail-section.callToActions > a {
+      width: 175px;
+      margin-bottom: 5px; }
+    .course-detail-section.callToActions > button {
+      width: 175px;
+      margin-bottom: 5px; }
+
 /*# sourceMappingURL=main.css.map */
