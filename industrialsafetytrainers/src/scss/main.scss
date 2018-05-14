@@ -921,3 +921,52 @@ a{
 	    display: block;
 	}
 }
+
+
+
+
+
+.courseBlock{
+	display:flex;
+	margin-bottom:50px;
+	> img{
+		
+	}
+	> div{
+		margin-left:20px;
+
+		&.courseType{
+			span{
+				margin-bottom:10px;
+			}
+		}
+	}
+}
+
+.courseCategories{
+	list-style:none;
+	padding-left:0px;
+	> li{
+		margin-bottom:10px;
+		label{
+			display:flex;
+			align-items: center;
+			font-size:14px;
+		}
+		input{
+			float:left;
+			width:auto;
+			margin-right:10px;
+		}
+	}
+}
+
+.courseSort{
+	margin-bottom:20px;
+	> a{
+		color:#000;
+		&.active{
+			color:#D49D1C;
+		}
+	}
+}

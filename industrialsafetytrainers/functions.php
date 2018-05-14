@@ -148,7 +148,7 @@ add_filter('widget_text','do_shortcode');
  *
  * @return array*/
 /*
-////************WORKING HIDE STATEMENT********************************/
+////************WORKING HIDE STATEMENT******************
   function hide_shipping_when_class_is_in_cart( $rates, $package ) {
       // shipping class IDs that need the method removed
       $shipping_classes = array('free-shipping');
@@ -204,9 +204,7 @@ function hide_shipping_when_class_is_in_cart_new( $rates, $package ) {
     return $rates;
 }
 add_filter( 'woocommerce_package_rates_new', 'hide_shipping_when_class_is_in_cart_new', 10, 2 );
-
-
-
+**************/
 
 
 //// TESTIMONIALS
@@ -222,6 +220,8 @@ include(TEMPLATEPATH.'/admin/shortcodes/woocommerce-categories.php');
 include(TEMPLATEPATH.'/admin/shortcodes/course-details.php');
 include(TEMPLATEPATH.'/admin/shortcodes/course-list.php');
 include(TEMPLATEPATH.'/admin/shortcodes/course-search.php');
+
+include(TEMPLATEPATH.'/admin/shortcodes/safety-training-courses.php');
 
 //OTHER FUNCTIONS
 include(TEMPLATEPATH.'/admin/woocommerce/woocommerce.php');

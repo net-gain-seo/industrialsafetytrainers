@@ -136,7 +136,7 @@
 					<a href="https://constructionsafetytrainers.ca/"><div class="site-button construction-button"></div></a>
 					<a href="https://thesafetybus.com/"><div class="site-button industrial-button"></div></a>
 				</div>
-		    <?php/* if(get_current_blog_id() != 3){
+		    <?php /* if(get_current_blog_id() != 3){
 		    	if(get_current_blog_id() == 2){
 		    		?>
 		    		<a href="<?php echo get_site_url(3); ?>" class="btn btn-danger">SHOP NOW</a>

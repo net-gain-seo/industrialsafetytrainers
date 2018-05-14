@@ -709,7 +709,6 @@ input, textarea, select {
     padding: 0 50px; } }
 
 .site-button {
-  position: fixed;
   top: 30px;
   right: -20px;
   height: 120px;
@@ -737,13 +736,13 @@ input, textarea, select {
 .site-button.industrial-button {
   background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/industrialsafteyIcon.png") no-repeat center;
   transition: 0.33s ease;
-  top: 360px; }
+  position: relative;
+  right: -5px; }
 
 .site-button.industrial-button:hover {
   background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/industrialsafteyIcon.png") no-repeat center;
   transition: 0.33s ease;
-  top: 360px;
-  right: -5px; }
+  right: 5px; }
 
 .site-button.industrial-button.active {
   top: 360px;
@@ -752,13 +751,13 @@ input, textarea, select {
 .site-button.construction-button {
   background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/constructionsafteyIcon.png") no-repeat center;
   transition: 0.33s ease;
-  top: 475px; }
+  position: relative;
+  right: -5px; }
 
 .site-button.construction-button:hover {
   background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/constructionsafteyIcon.png") no-repeat center;
   transition: 0.33s ease;
-  top: 475px;
-  right: -5px; }
+  right: 5px; }
 
 .site-button.construction-button.active {
   top: 475px;
@@ -767,13 +766,13 @@ input, textarea, select {
 .site-button.shopcart-button {
   background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/shoppingcartIcon.png") no-repeat center;
   transition: 0.33s ease;
-  top: 590px; }
+  position: relative;
+  right: -5px; }
 
 .site-button.shopcart-button:hover {
   background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/shoppingcartIcon.png") no-repeat center;
   transition: 0.33s ease;
-  top: 590px;
-  right: -5px; }
+  right: 5px; }
 
 .site-button.shopcart-button.active {
   top: 590px;
@@ -1745,5 +1744,34 @@ a {
     display: block; }
   .course-category-details {
     display: block; } }
+
+.courseBlock {
+  display: flex;
+  margin-bottom: 50px; }
+  .courseBlock > div {
+    margin-left: 20px; }
+    .courseBlock > div.courseType span {
+      margin-bottom: 10px; }
+
+.courseCategories {
+  list-style: none;
+  padding-left: 0px; }
+  .courseCategories > li {
+    margin-bottom: 10px; }
+    .courseCategories > li label {
+      display: flex;
+      align-items: center;
+      font-size: 14px; }
+    .courseCategories > li input {
+      float: left;
+      width: auto;
+      margin-right: 10px; }
+
+.courseSort {
+  margin-bottom: 20px; }
+  .courseSort > a {
+    color: #000; }
+    .courseSort > a.active {
+      color: #D49D1C; }
 
 /*# sourceMappingURL=main.css.map */

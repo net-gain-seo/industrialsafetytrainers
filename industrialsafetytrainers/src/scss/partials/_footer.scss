@@ -1,5 +1,4 @@
 .site-button {
-  position: fixed;
   top: 30px;
   right: -20px;
   height: 120px;
@@ -17,6 +16,11 @@
   top: 30%;
 	right: -10px;
 	z-index: 9999999999999;
+
+	> a{
+
+	}
+
 }
 
 .site-button:hover {
@@ -28,13 +32,13 @@
 .site-button.industrial-button {
 	background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/industrialsafteyIcon.png") no-repeat center;
 	transition: 0.33s ease;
-	top: 360px;
+	position:relative;
+	right: -5px;
 }
 .site-button.industrial-button:hover {
   background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/industrialsafteyIcon.png") no-repeat center;
 	transition: 0.33s ease;
-	top: 360px;
-	right: -5px;
+	right: 5px;
 }
 .site-button.industrial-button.active {
 	top: 360px;
@@ -43,13 +47,13 @@
 .site-button.construction-button {
 	background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/constructionsafteyIcon.png") no-repeat center;
 	transition: 0.33s ease;
-	top: 475px;
+	position:relative;
+	right: -5px;
 }
 .site-button.construction-button:hover {
   background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/constructionsafteyIcon.png") no-repeat center;
 	transition: 0.33s ease;
-	top: 475px;
-	right: -5px;
+	right: 5px;
 }
 .site-button.construction-button.active {
 	top: 475px;
@@ -58,13 +62,13 @@
 .site-button.shopcart-button {
 	background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/shoppingcartIcon.png") no-repeat center;
 	transition: 0.33s ease;
-  top: 590px;
+	position:relative;
+	right: -5px;
 }
 .site-button.shopcart-button:hover {
   background: url("https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/icons/shoppingcartIcon.png") no-repeat center;
 	transition: 0.33s ease;
-  top: 590px;
-	right: -5px;
+	right: 5px;
 }
 .site-button.shopcart-button.active {
   top: 590px;

@@ -26,10 +26,10 @@ function course_details($atts){
             // GET CURRENT PRODUCT IF GET VARIABLE SET
             if(isset($_GET['course'])){
                 $args = array(
-                  'name'        => $_GET['course'],
-                  'post_type'   => 'product',
-                  'post_status' => 'publish',
-                  'numberposts' => 1
+                    'name'        => $_GET['course'],
+                    'post_type'   => 'product',
+                    'post_status' => 'publish',
+                    'numberposts' => 1
                 );
                 $current_product = get_posts($args);
 
