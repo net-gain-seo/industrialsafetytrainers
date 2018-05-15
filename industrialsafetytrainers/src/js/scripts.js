@@ -68,3 +68,11 @@ jQuery('.mobileMenuOverlay').click(function(){
 function closeResponsiveNav(){
 	jQuery('.mobileMenuOverlay').css('display','none');
 }
+
+jQuery('input[name="course_qty"]').on('change',function() {
+    var id = jQuery(this).attr('data-id');
+    var qty = jQuery(this).val();
+    var url = jQuery('a.'+id+'_url').attr('href');
+    url = url.substring(0, url.indexOf('quantity=')) + 'quantity='+qty;
+    jQuery('a.'+id+'_url').attr('href',url);
+});

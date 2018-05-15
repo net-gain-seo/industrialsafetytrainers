@@ -637,6 +637,9 @@ input, textarea, select {
   padding: 10px;
   width: 100%; }
 
+input[name="course_qty"] {
+  max-width: 100px; }
+
 .contact-page-submit p {
   width: 100%;
   margin-left: 10px; }

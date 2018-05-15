@@ -35,7 +35,7 @@ function course_details($atts){
 
 
                 $return .= '<div id="course-container" class="course-container">';
-                    
+
                     /*
                     $return .= '<div class="course-header">';
                          $return .= '<div class="course-header-bg"></div>';
@@ -47,7 +47,7 @@ function course_details($atts){
                                 $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
                                 $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
 
-                                
+
 
                             $return .= '</div>';
                         $return .= '</div>';
@@ -87,7 +87,7 @@ function course_details($atts){
                         }
 
 
-                        
+
 
                     $return .= '</div>';
 
@@ -165,7 +165,7 @@ function course_details($atts){
                     }
                 $return .= '</div>';
 
-                // REGISTRATION 
+                // REGISTRATION
                 $return .= '<div class="course-detail-section callToActions">';
                     $_product = wc_get_product( $current_product[0]->ID );
 
@@ -192,7 +192,7 @@ function course_details($atts){
                             $return .= '<div><a href="'.$current_product[0]->guid.'" class="btn btn-danger">PURCHASE COURSE</a></div>';
                         }
 
-                    }  
+                    }
                $return .= '</div>';
 
 
@@ -293,6 +293,7 @@ function course_public_dates(){
                                     $return .= '<th>Date</th>';
                                     $return .= '<th>Time</th>';
                                     $return .= '<th>Price</th>';
+                                    $return .= '<th>Quantity</th>';
                                     $return .= '<th>Purchase</th>';
                                 $return .= '</tr>';
                             $return .= '</thead>';
@@ -312,10 +313,11 @@ function course_public_dates(){
                                         $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'</td>';
                                         $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_time', true ).'</td>';
                                         $return .= '<td>'.$variation_price.'</td>';
-                                        $return .= '<td>Purchase</td>';
+                                        $return .= '<td><input type="number" min="0" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
+                                        $return .= '<td><a class="'.$variation_ID.'_url" href="'.get_bloginfo('url').'/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&quantity=0" target="_blank">Purchase</a></td>';
                                     $return .= '</tr>';
                                 }
-                                
+
                             $return .= '</tbody>';
                         $return .= '</table>';
 
