@@ -136,7 +136,7 @@ function course_details($atts){
                 $_public_course = get_post_meta($current_product[0]->ID,'_public_course',true);
                 $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
                 $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
-                                
+
                 // COURSE OFFERED
                 $return .= '<div class="course-detail-section">';
                     $return .= '<h5>This course is offered</h5>';
@@ -219,6 +219,121 @@ function course_details($atts){
 add_shortcode('course_details','course_details');
 
 
+function course_public_dates(){
+    extract( shortcode_atts( array(
+        'blog_id'   => 3,
+        'parent'    => 0,
+        'orderby'   => 'name',
+        'single_category'  => '',
+        'slug'      => 'safety-training-course'
+    ), $atts ));
+
+    $current = get_current_blog_id();
+    $currentBlogUrl = get_bloginfo('url');
+    switch_to_blog($blog_id);
+
+
+
+    $return = '';
+
+    $return .= '<div class="container-fluid">';
+        $return .= '<div class="container">';
+            // GET CURRENT PRODUCT IF GET VARIABLE SET
+            if(isset($_GET['course'])){
+                $args = array(
+                    'name'        => $_GET['course'],
+                    'post_type'   => 'product',
+                    'post_status' => 'publish',
+                    'numberposts' => 1
+                );
+                $current_product = get_posts($args);
+
+
+                $args = array(
+                    'post_type'     => 'product_variation',
+                    'post_status'   => array('publish' ),
+                    'numberposts'   => -1,
+                    'orderby'       => 'menu_order',
+                    'order'         => 'asc',
+                    'post_parent'   => $current_product[0]->ID
+                );
+                $variations = get_posts( $args );
+
+                $return .= '<div class="row">';
+                    $return .= '<div class="col col-3">';
+                        $return .= '<h3>Month</h3>';
+                        $return .= '<ul class="courseCategories">';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="01" /> January</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="02" /> February</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="03" /> March</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="04" /> April</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="05" /> Maybe</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="06" /> June</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="07" /> July</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="08" /> August</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="09" /> September</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="10" /> October</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="11" /> November</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="12" /> December</label></li>';
+                        $return .= '</ul>';
+
+                        $return .= '<h3>Location</h3>';
+                        $return .= '<ul class="courseCategories">';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="Barrie" /> Barrie</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="Newmarket" /> Newmarket</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="Another Place" /> Another Place</label></li>';
+                        $return .= '</ul>';
+                    $return .= '</div>';
+                    $return .= '<div class="col col-9">';
+
+                        $return .= '<table class="table">';
+                            $return .= '<thead>';
+                                $return .= '<tr>';
+                                    $return .= '<th>Location</th>';
+                                    $return .= '<th>Date</th>';
+                                    $return .= '<th>Time</th>';
+                                    $return .= '<th>Price</th>';
+                                    $return .= '<th>Purchase</th>';
+                                $return .= '</tr>';
+                            $return .= '</thead>';
+
+                            $return .= '<tbody>';
+                                foreach ($variations as $key => $variation){
+                                    // get variation ID
+                                    $variation_ID = $variation->ID;
+
+                                    // get variations meta
+                                    $product_variation = new WC_Product_Variation( $variation_ID );
+                                    //print_r($product_variation);
+                                    $variation_price = $product_variation->get_price_html();
+
+                                    $return .= '<tr>';
+                                        $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_location', true ).'</td>';
+                                        $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'</td>';
+                                        $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_time', true ).'</td>';
+                                        $return .= '<td>'.$variation_price.'</td>';
+                                        $return .= '<td>Purchase</td>';
+                                    $return .= '</tr>';
+                                }
+                                
+                            $return .= '</tbody>';
+                        $return .= '</table>';
+
+                    $return .= '</div>';
+                $return .= '</div>';
+
+
+            }
+
+        $return .= '</div>';
+    $return .= '</div>';
+
+
+
+    switch_to_blog($current);
+    return $return;
+}
+add_shortcode('course_public_dates','course_public_dates');
 
 
 function course_category_list($atts){
