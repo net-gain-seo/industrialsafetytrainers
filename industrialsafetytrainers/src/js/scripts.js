@@ -45,8 +45,6 @@ function checkOnScrollElements(){
 	window.onscroll = function() {checkOnScrollElements()};
 })();
 
-
-
 jQuery('.navbar-toggler').click(function(){
 	if(jQuery(this).hasClass('collapsed')){
 		setTimeout(function(){
@@ -69,10 +67,137 @@ function closeResponsiveNav(){
 	jQuery('.mobileMenuOverlay').css('display','none');
 }
 
-jQuery('input[name="course_qty"]').on('change',function() {
+jQuery(document).on('change','input[name="course_qty"]',function() {
     var id = jQuery(this).attr('data-id');
     var qty = jQuery(this).val();
     var url = jQuery('a.'+id+'_url').attr('href');
     url = url.substring(0, url.indexOf('quantity=')) + 'quantity='+qty;
     jQuery('a.'+id+'_url').attr('href',url);
+});
+
+var months = [];
+var locations = [];
+var parent = 0;
+
+jQuery('input[name="filter_month"]').on('click',function() {
+    jQuery('input[name="filter_month"]').each(function() {
+        if(jQuery(this).is(':checked')) {
+            if(!months.includes(jQuery(this).val())) {
+                months.push(jQuery(this).val());
+            }
+        }
+        else {
+            if(months.includes(jQuery(this).val())) {
+                months.splice(months.indexOf(jQuery(this).val()),1);
+            }
+        }
+    });
+    jQuery('input[name="filter_location"]').each(function() {
+        if(jQuery(this).is(':checked')) {
+            if(!locations.includes(jQuery(this).val())) {
+                locations.push(jQuery(this).val());
+            }
+        }
+        else {
+            if(locations.includes(jQuery(this).val())) {
+                locations.splice(locations.indexOf(jQuery(this).val()),1);
+            }
+        }
+    });
+    parent = jQuery(this).attr('data-parent');
+    console.log('months', months);
+    console.log('locatons', locations);
+
+    jQuery.ajax({
+        type: 'POST',
+        url: ajaxurl,
+        data: {action: 'course_filter', months: months, locations: locations, parent: parent},
+        //dataType: 'json',
+        success: function(response) {
+            //Do Successful Things
+            response = JSON.parse(response);
+
+            if(response.type == 'error') {
+                jQuery('div.message').removeClass('success');
+                jQuery('div.message').addClass('error');
+            }
+            else {
+                jQuery('div.message').removeClass('error');
+                jQuery('div.message').addClass('success');
+            }
+
+            jQuery('tbody.course_list').empty();
+            if(response.data.length > 0) {
+                jQuery('tbody.course_list').html(response.data);
+            }
+        },
+        error: function(message) {
+            //Do Unsuccessful Things
+            var message = 'There was a problem creating your short link. Please try again later.';
+            jQuery('div.message').empty();
+            jQuery('div.message').html(message);
+        }
+    });
+});
+
+jQuery('input[name="filter_location"]').on('click',function() {
+    jQuery('input[name="filter_location"]').each(function() {
+        if(jQuery(this).is(':checked')) {
+            if(!locations.includes(jQuery(this).val())) {
+                locations.push(jQuery(this).val());
+            }
+        }
+        else {
+            if(locations.includes(jQuery(this).val())) {
+                locations.splice(locations.indexOf(jQuery(this).val()),1);
+            }
+        }
+    });
+    jQuery('input[name="filter_month"]').each(function() {
+        if(jQuery(this).is(':checked')) {
+            if(!months.includes(jQuery(this).val())) {
+                months.push(jQuery(this).val());
+
+            }
+        }
+        else {
+            if(months.includes(jQuery(this).val())) {
+                months.splice(months.indexOf(jQuery(this).val()),1);
+            }
+        }
+    });
+    parent = jQuery(this).attr('data-parent');
+    console.log('months', months);
+    console.log('locatons', locations);
+
+    jQuery.ajax({
+        type: 'POST',
+        url: ajaxurl,
+        data: {action: 'course_filter', months: months, locations: locations, parent: parent},
+        //dataType: 'json',
+        success: function(response) {
+            //Do Successful Things
+            response = JSON.parse(response);
+
+            if(response.type == 'error') {
+                jQuery('div.message').removeClass('success');
+                jQuery('div.message').addClass('error');
+            }
+            else {
+                jQuery('div.message').removeClass('error');
+                jQuery('div.message').addClass('success');
+            }
+
+            jQuery('tbody.course_list').empty();
+            if(response.data.length > 0) {
+                jQuery('tbody.course_list').html(response.data);
+            }
+        },
+        error: function(message) {
+            //Do Unsuccessful Things
+            var message = 'There was a problem creating your short link. Please try again later.';
+            jQuery('div.message').empty();
+            jQuery('div.message').html(message);
+        }
+    });
 });

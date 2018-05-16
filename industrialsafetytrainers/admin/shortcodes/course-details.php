@@ -263,25 +263,25 @@ function course_public_dates(){
                     $return .= '<div class="col col-3">';
                         $return .= '<h3>Month</h3>';
                         $return .= '<ul class="courseCategories">';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="01" /> January</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="02" /> February</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="03" /> March</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="04" /> April</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="05" /> Maybe</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="06" /> June</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="07" /> July</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="08" /> August</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="09" /> September</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="10" /> October</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="11" /> November</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="12" /> December</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="01" data-parent="'.$current_product[0]->ID.'"/> January</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="02" data-parent="'.$current_product[0]->ID.'"/> February</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="03" data-parent="'.$current_product[0]->ID.'"/> March</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="04" data-parent="'.$current_product[0]->ID.'"/> April</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="05" data-parent="'.$current_product[0]->ID.'"/> May</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="06" data-parent="'.$current_product[0]->ID.'"/> June</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="07" data-parent="'.$current_product[0]->ID.'"/> July</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="08" data-parent="'.$current_product[0]->ID.'"/> August</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="09" data-parent="'.$current_product[0]->ID.'"/> September</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="10" data-parent="'.$current_product[0]->ID.'"/> October</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="11" data-parent="'.$current_product[0]->ID.'"/> November</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_month" value="12" data-parent="'.$current_product[0]->ID.'"/> December</label></li>';
                         $return .= '</ul>';
 
                         $return .= '<h3>Location</h3>';
                         $return .= '<ul class="courseCategories">';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="Barrie" /> Barrie</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="Newmarket" /> Newmarket</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_month" value="Another Place" /> Another Place</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_location" value="Barrie" data-parent="'.$current_product[0]->ID.'"/> Barrie</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_location" value="Newmarket" data-parent="'.$current_product[0]->ID.'"/> Newmarket</label></li>';
+                            $return .= '<li><label><input type="checkbox" name="filter_location" value="Another Place" data-parent="'.$current_product[0]->ID.'"/> Another Place</label></li>';
                         $return .= '</ul>';
                     $return .= '</div>';
                     $return .= '<div class="col col-9">';
@@ -298,7 +298,7 @@ function course_public_dates(){
                                 $return .= '</tr>';
                             $return .= '</thead>';
 
-                            $return .= '<tbody>';
+                            $return .= '<tbody class="course_list">';
                                 foreach ($variations as $key => $variation){
                                     // get variation ID
                                     $variation_ID = $variation->ID;

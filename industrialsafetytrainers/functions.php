@@ -135,9 +135,16 @@ function ist_fix_thumbnail() {
 // Enable shortcodes in text widgets
 add_filter('widget_text','do_shortcode');
 
+//Ajax
+function pluginname_ajaxurl() {
+  echo '<script>
+        var ajaxurl = "'.admin_url('admin-ajax.php').'";
+        var device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
+    </script>';
+}
+add_action('wp_head','pluginname_ajaxurl');
 
-
-
+include('course_filter.php');
 
 
 
