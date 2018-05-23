@@ -1,15 +1,22 @@
-<?php 
+<?php
 
 
-function remove_querystring_var($url, $key) { 
-    $url = preg_replace('/(.*)(?|&)' . $key . '=[^&]+?(&)(.*)/i', '$1$2$4', $url . '&'); 
+function remove_querystring_var($url, $key) {
+    $url = preg_replace('/(.*)(?|&)' . $key . '=[^&]+?(&)(.*)/i', '$1$2$4', $url . '&');
     //print_r($url);
-    $url = substr($url, 0, -1); 
-    return $url; 
+    $url = substr($url, 0, -1);
+    return $url;
 }
 
 
 function safety_training_courses($atts,$content){
+
+    $termIds = array();
+    if(isset($_GET['category_ids'])) {
+        $termIds = array_merge($_GET['category_ids'],$termIds);
+    }
+    $termIds = array_unique($termIds);
+
     extract( shortcode_atts( array(
         'blog_id'   => 3,
         'page_slug' => '',
@@ -18,7 +25,6 @@ function safety_training_courses($atts,$content){
         'private' => false,
         'online' => false
     ), $atts ));
-
 
     $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
@@ -45,7 +51,8 @@ function safety_training_courses($atts,$content){
     $return .= '<div class="container">';
         $return .= '<div class="row">';
             $return .= '<div class="col col-3">';
-                $return .= '<form method="get" action="'.get_site_url($current).'/'.$page_slug.'">';
+                $return .= '<form class="course_filter_form" method="post" action="'.get_site_url($current).'/'.$page_slug.'">';
+                //$return .= '<form method="post" action="'.get_site_url($current).'/'.$page_slug.(isset($_GET['order']) ? "/order=".$_GET['order']:"").'">';
                     $return .= '<ul class="courseCategories">';
                         $category_ids_array = array();
                         foreach ($all_categories as $cat) {
@@ -59,7 +66,7 @@ function safety_training_courses($atts,$content){
             $return .= '</div>';
             $return .= '<div class="col col-9">';
 
-                 //Set up current page variable and offset. 
+                 //Set up current page variable and offset.
                 $postsPerPage = 6;
                 $page = get_query_var( 'page', 1 );
                 if($page > 0){
@@ -74,20 +81,36 @@ function safety_training_courses($atts,$content){
                     $prevPage = 1;
                 }
 
-
-                $args = array(
-                    'posts_per_page'   => $postsPerPage,
-                    'offset'           => $offset,
-                    'post_type'        => 'product',
-                    'post_status'      => 'publish',
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'product_cat',
-                            'field' => 'term_id',
-                            'terms' => $category_ids_array,
+                if(sizeof($termIds) == 0) {
+                    $args = array(
+                        'posts_per_page'   => $postsPerPage,
+                        'offset'           => $offset,
+                        'post_type'        => 'product',
+                        'post_status'      => 'publish',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field' => 'term_id',
+                                'terms' => $category_ids_array,
+                            )
                         )
-                    )
-                );
+                    );
+                }
+                else {
+                    $args = array(
+                        'posts_per_page'   => $postsPerPage,
+                        'offset'           => $offset,
+                        'post_type'        => 'product',
+                        'post_status'      => 'publish',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field' => 'term_id',
+                                'terms' => $termIds,
+                            )
+                        )
+                    );
+                }
 
                 if(isset($_GET['order']) && $_GET['order'] == 'popularity'){
                     $args['meta_key'] = 'total_sales';
@@ -103,19 +126,19 @@ function safety_training_courses($atts,$content){
                     if($public){
                         $args['meta_query'][] = array(
                             'key' => '_public_course',
-                            'value' => 'yes' 
+                            'value' => 'yes'
                         );
                     }
                     if($private){
                         $args['meta_query'][] = array(
                             'key' => '_private_course',
-                            'value' => 'yes' 
+                            'value' => 'yes'
                         );
                     }
                     if($online){
                         $args['meta_query'][] = array(
                             'key' => '_online_course',
-                            'value' => 'yes' 
+                            'value' => 'yes'
                         );
                     }
                 }
@@ -126,7 +149,7 @@ function safety_training_courses($atts,$content){
                 //Sorting
                 $return .= '<div class="courseSort">';
 
-                    //Remove order from query string 
+                    //Remove order from query string
                     $string = '?'.$_SERVER['QUERY_STRING'];
                     $parts = parse_url($string);
                     $queryParams = array();
@@ -142,7 +165,7 @@ function safety_training_courses($atts,$content){
                     $return .= '<a class="'.(((isset($_GET['order']) && $_GET['order'] == 'title') || !isset($_GET['order'])) ? "active":"").'" href="'.$titleUrl.'">Alphabetical</a>';
                     $return .= '<span> | </span>';
                     $return .= '<a class="'.((isset($_GET['order']) && $_GET['order'] == 'popularity') ? "active":"").'" href="'.$popularUrl.'">Most Popular</a>';
-                $return .= '</div>'; 
+                $return .= '</div>';
 
                 foreach($posts_array as $product){
                     $return .= '<div class="courseBlock">';
@@ -171,7 +194,7 @@ function safety_training_courses($atts,$content){
                     $return .= '</div>';
                 }
 
-                //Pagination 
+                //Pagination
 
 
             $return .= '</div>';
@@ -183,7 +206,9 @@ function safety_training_courses($atts,$content){
         if($currentPage > 0){
             $return .= '<div class="nav-next"><a href="'.get_site_url($current).'/'.$page_slug.'/'.$prevPage.'/'.(($_SERVER['QUERY_STRING'] != '' ) ? "?".$_SERVER['QUERY_STRING']:"").'"><span class="btn btn-primary left-arrow"></span> Previous Page</a></div>';
         }
-        $return .= '<div class="nav-previous"><a href="'.get_site_url($current).'/'.$page_slug.'/'.$nextPage.'/'.(($_SERVER['QUERY_STRING'] != '' ) ? "?".$_SERVER['QUERY_STRING']:"").'">Next Page <span class="btn btn-primary right-arrow"></span></a></div>';
+        if(sizeof($posts_array) > 5) {
+            $return .= '<div class="nav-previous"><a href="'.get_site_url($current).'/'.$page_slug.'/'.$nextPage.'/'.(($_SERVER['QUERY_STRING'] != '' ) ? "?".$_SERVER['QUERY_STRING']:"").'">Next Page <span class="btn btn-primary right-arrow"></span></a></div>';
+        }
     $return .= '</div>';
 
 

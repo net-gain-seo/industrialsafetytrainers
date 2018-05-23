@@ -78,8 +78,11 @@ jQuery(document).on('change','input[name="course_qty"]',function() {
 var months = [];
 var locations = [];
 var parent = 0;
+var myIds = [];
 
 jQuery('input[name="filter_month"]').on('click',function() {
+    jQuery('tbody.course_list').empty();
+    jQuery('.loader').show();
     jQuery('input[name="filter_month"]').each(function() {
         if(jQuery(this).is(':checked')) {
             if(!months.includes(jQuery(this).val())) {
@@ -126,10 +129,10 @@ jQuery('input[name="filter_month"]').on('click',function() {
                 jQuery('div.message').addClass('success');
             }
 
-            jQuery('tbody.course_list').empty();
             if(response.data.length > 0) {
                 jQuery('tbody.course_list').html(response.data);
             }
+            jQuery('.loader').hide();
         },
         error: function(message) {
             //Do Unsuccessful Things
@@ -141,6 +144,8 @@ jQuery('input[name="filter_month"]').on('click',function() {
 });
 
 jQuery('input[name="filter_location"]').on('click',function() {
+    jQuery('tbody.course_list').empty();
+    jQuery('.loader').show();
     jQuery('input[name="filter_location"]').each(function() {
         if(jQuery(this).is(':checked')) {
             if(!locations.includes(jQuery(this).val())) {
@@ -188,10 +193,10 @@ jQuery('input[name="filter_location"]').on('click',function() {
                 jQuery('div.message').addClass('success');
             }
 
-            jQuery('tbody.course_list').empty();
             if(response.data.length > 0) {
                 jQuery('tbody.course_list').html(response.data);
             }
+            jQuery('.loader').hide();
         },
         error: function(message) {
             //Do Unsuccessful Things
@@ -200,4 +205,51 @@ jQuery('input[name="filter_location"]').on('click',function() {
             jQuery('div.message').html(message);
         }
     });
+});
+
+jQuery('input[name="category_ids[]"]').on('click',function() {
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var order = url.searchParams.get("order");
+    var newUrl = ''+url;
+
+    jQuery('input[name="category_ids[]"]').each(function() {
+        if(jQuery(this).is(':checked')) {
+            if(!myIds.includes(jQuery(this).val())) {
+                myIds.push(jQuery(this).val());
+            }
+        }
+        else {
+            if(myIds.includes(jQuery(this).val())) {
+                myIds.splice(myIds.indexOf(jQuery(this).val()),1);
+            }
+        }
+    });
+    console.log(myIds);
+
+    if(order != null) {
+        console.log('order is not null');
+        newUrl = newUrl.substring(0,newUrl.indexOf('?'));
+        newUrl = newUrl + '?order='+order;
+        var count = 0;
+        jQuery(myIds).each(function(i,v) {
+            newUrl += '&category_ids%5B%5D='+v
+        });
+    }
+    else {
+        console.log('order is null');
+        var count = 0;
+        jQuery(myIds).each(function(i,v) {
+            if(count == 0) {
+                newUrl += '?category_ids%5B%5D='+v
+            }
+            else {
+                newUrl += '&category_ids%5B%5D='+v
+            }
+            count++;
+        });
+    }
+    jQuery('.course_filter_form').attr('action',newUrl);
+    console.log(newUrl);
 });

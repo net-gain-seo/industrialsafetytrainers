@@ -320,6 +320,7 @@ function course_public_dates(){
 
                             $return .= '</tbody>';
                         $return .= '</table>';
+                        $return .= '<div class="loader">Loading...</div>';
 
                     $return .= '</div>';
                 $return .= '</div>';
