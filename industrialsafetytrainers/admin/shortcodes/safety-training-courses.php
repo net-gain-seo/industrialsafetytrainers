@@ -173,6 +173,7 @@ function safety_training_courses($atts,$content){
                         $return .= '<div>';
                             $return .= '<h3>'.$product->post_title.'</h3>';
                             $return .= '<p>'.$product->post_excerpt.'</p>';
+                            $return .= '<a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-danger mr-2">View Public Dates</a>';
                             $return .= '<a href="'.get_site_url($current).'/safety-training-course/?course='.$product->post_name.'" class="btn btn-primary">View Details</a>';
                         $return .= '</div>';
 
