@@ -170,7 +170,7 @@ function course_details($atts){
                     $_product = wc_get_product( $current_product[0]->ID );
 
                     if($_public_course == 'yes'){
-                        $return .= '<a href="'.$current_product[0]->guid.'" class="btn btn-danger">VIEW PUBLIC DATES</a>';
+                        $return .= '<a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$current_product[0]->post_name.'" class="btn btn-danger">VIEW PUBLIC DATES</a>';
                     }
 
                     if($_private_course == 'yes'){
@@ -257,6 +257,19 @@ function course_public_dates(){
                     'order'         => 'asc',
                     'post_parent'   => $current_product[0]->ID
                 );
+
+                /*
+                $args = array(
+                    'post_type'     => 'product_variation',
+                    'post_status'   => array('publish' ),
+                    'numberposts'   => -1,
+                    'meta_key'      => 'attribute_pa_date',
+                    'orderby'       => 'meta_value',
+                    'order'         => 'asc',
+                    'post_parent'   => $current_product[0]->ID
+                );
+                */
+
                 $variations = get_posts( $args );
 
                 $return .= '<div class="row">';
@@ -290,7 +303,7 @@ function course_public_dates(){
                             $return .= '<thead>';
                                 $return .= '<tr>';
                                     $return .= '<th>Location</th>';
-                                    $return .= '<th>Date</th>';
+                                    $return .= '<th class="sort-date">Date ◆</th>';
                                     $return .= '<th>Time</th>';
                                     $return .= '<th>Price</th>';
                                     $return .= '<th>Quantity</th>';
@@ -308,13 +321,13 @@ function course_public_dates(){
                                     //print_r($product_variation);
                                     $variation_price = $product_variation->get_price_html();
 
-                                    $return .= '<tr>';
+                                    $return .= '<tr class="course-info-'.strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true )).'" data-timestamp="'.strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true )).'">';
                                         $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_location', true ).'</td>';
-                                        $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'</td>';
+                                        $return .= '<td>'.date('l F jS',strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true ))).'</td>';
                                         $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_time', true ).'</td>';
                                         $return .= '<td>'.$variation_price.'</td>';
                                         $return .= '<td><input type="number" min="0" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
-                                        $return .= '<td><a class="'.$variation_ID.'_url" href="'.get_bloginfo('url').'/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&quantity=0" target="_blank">Purchase</a></td>';
+                                        $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&quantity=0" target="_blank">Purchase</a></td>';
                                     $return .= '</tr>';
                                 }
 

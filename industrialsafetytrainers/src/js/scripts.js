@@ -79,8 +79,13 @@ var months = [];
 var locations = [];
 var parent = 0;
 var myIds = [];
+var dateSortState = 'descending';
+var dateSortHTML = 'Date';
 
 jQuery('input[name="filter_month"]').on('click',function() {
+    dateSortState = 'descending';
+    dateSortHTML = 'Date ◆';
+    jQuery('.sort-date').html(dateSortHTML);
     jQuery('tbody.course_list').empty();
     jQuery('.loader').show();
     jQuery('input[name="filter_month"]').each(function() {
@@ -144,6 +149,9 @@ jQuery('input[name="filter_month"]').on('click',function() {
 });
 
 jQuery('input[name="filter_location"]').on('click',function() {
+    dateSortState = 'descending';
+    dateSortHTML = 'Date ◆';
+    jQuery('.sort-date').html(dateSortHTML);
     jQuery('tbody.course_list').empty();
     jQuery('.loader').show();
     jQuery('input[name="filter_location"]').each(function() {
@@ -252,4 +260,30 @@ jQuery('input[name="category_ids[]"]').on('click',function() {
     }
     jQuery('.course_filter_form').attr('action',newUrl);
     console.log(newUrl);
+});
+
+jQuery('.sort-date').on('click',function() {
+    var dateArray = [];
+    if(dateSortState == 'descending') {
+        dateSortState = 'ascending';
+        dateSortHTML = 'Date ▲';
+    }
+    else {
+        dateSortState = 'descending';
+        dateSortHTML = 'Date ▼';
+    }
+    jQuery('tbody.course_list tr',document).each(function() {
+        dateArray.push(Number(jQuery(this).attr('data-timestamp')));
+    });
+    dateArray = dateArray.sort();
+    jQuery(dateArray).each(function(i,v) {
+        if(dateSortState == 'ascending') {
+            jQuery('.course-info-'+v).appendTo('tbody.course_list');
+            jQuery('.sort-date').html(dateSortHTML);
+        }
+        else {
+            jQuery('.course-info-'+v).prependTo('tbody.course_list');
+            jQuery('.sort-date').html(dateSortHTML);
+        }
+    });
 });

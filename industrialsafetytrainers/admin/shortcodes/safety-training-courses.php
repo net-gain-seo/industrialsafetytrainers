@@ -168,20 +168,21 @@ function safety_training_courses($atts,$content){
                 $return .= '</div>';
 
                 foreach($posts_array as $product){
+                    $_public_course = get_post_meta($product->ID,'_public_course',true);
+                    $_private_course = get_post_meta($product->ID,'_private_course',true);
+                    $_online_course = get_post_meta($product->ID,'_online_course',true);
                     $return .= '<div class="courseBlock">';
-                        $return .= get_the_post_thumbnail($product->ID);
+                        if(has_post_thumbnail($product->ID)) {
+                            $return .= get_the_post_thumbnail($product->ID);
+                        }
                         $return .= '<div>';
                             $return .= '<h3>'.$product->post_title.'</h3>';
                             $return .= '<p>'.$product->post_excerpt.'</p>';
-                            $return .= '<a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-danger mr-2">View Public Dates</a>';
+                            if($_public_course == 'yes'){ $return .= '<a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-danger mr-2">View Public Dates</a>'; }
                             $return .= '<a href="'.get_site_url($current).'/safety-training-course/?course='.$product->post_name.'" class="btn btn-primary">View Details</a>';
                         $return .= '</div>';
 
-                         $return .= '<div class="courseType">';
-                            $_public_course = get_post_meta($product->ID,'_public_course',true);
-                            $_private_course = get_post_meta($product->ID,'_private_course',true);
-                            $_online_course = get_post_meta($product->ID,'_online_course',true);
-
+                        $return .= '<div class="courseType">';
                             if($_public_course == 'yes'){ $return .= '<span class="course-type-public"></span>'; }
                             if($_private_course == 'yes'){ $return .= '<span class="course-type-private"></span>'; }
                             if($_online_course == 'yes'){ $return .= '<span class="course-type-online"></span>'; }

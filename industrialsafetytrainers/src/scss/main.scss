@@ -929,11 +929,19 @@ a{
 .courseBlock{
 	display:flex;
 	margin-bottom:50px;
-	> img{
 
+	> img{
+		max-width: 170px;
+		height: 115px;
+
+		+ div {
+			flex-basis: 335px;
+			flex-shrink: 0;
+		}
 	}
 	> div{
 		margin-left:20px;
+		max-width: 345px;
 
 		&.courseType{
 			span{

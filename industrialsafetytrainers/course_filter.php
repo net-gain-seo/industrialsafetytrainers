@@ -147,13 +147,13 @@ function course_filter(){
         //print_r($product_variation);
         $variation_price = $product_variation->get_price_html();
 
-        $return .= '<tr>';
+        $return .= '<tr class="course-info-'.strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true )).'" data-timestamp="'.strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true )).'">';
             $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_location', true ).'</td>';
-            $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'</td>';
+            $return .= '<td>'.date('l F jS',strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true ))).'</td>';
             $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_time', true ).'</td>';
             $return .= '<td>'.$variation_price.'</td>';
             $return .= '<td><input type="number" min="0" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
-            $return .= '<td><a class="'.$variation_ID.'_url" href="'.get_bloginfo('url').'/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&quantity=0" target="_blank">Purchase</a></td>';
+            $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&quantity=0" target="_blank">Purchase</a></td>';
         $return .= '</tr>';
     }
 

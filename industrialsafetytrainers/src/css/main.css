@@ -1751,8 +1751,15 @@ a {
 .courseBlock {
   display: flex;
   margin-bottom: 50px; }
+  .courseBlock > img {
+    max-width: 170px;
+    height: 115px; }
+    .courseBlock > img + div {
+      flex-basis: 335px;
+      flex-shrink: 0; }
   .courseBlock > div {
-    margin-left: 20px; }
+    margin-left: 20px;
+    max-width: 345px; }
     .courseBlock > div.courseType span {
       margin-bottom: 10px; }
 
