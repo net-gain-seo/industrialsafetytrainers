@@ -178,10 +178,6 @@ function get_variations($proudct_id){
 			$var_out[$loc_key]['items'] = array();
 		}
 
-		echo '<pre>';
-		print_r($var);
-		echo '</pre>';
-
 		$product_variation = new WC_Product_Variation( $var['variation_id'] );
 		$variation_stock = $product_variation->get_stock_quantity();
 
