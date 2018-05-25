@@ -155,8 +155,8 @@ function course_filter(){
                 $return .= '<td>'.date('M j, Y',strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true ))).'</td>';
                 $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_time', true ).'</td>';
                 $return .= '<td>'.$variation_price.'</td>';
-                $return .= '<td><input type="number" min="0" max="'.$variation_stock.'" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
                 $return .= '<td>'.$variation_description.'</td>';
+                $return .= '<td><input type="number" min="0" max="'.$variation_stock.'" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
                 $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&quantity=0" target="_blank">Purchase</a></td>';
             $return .= '</tr>';
         }
