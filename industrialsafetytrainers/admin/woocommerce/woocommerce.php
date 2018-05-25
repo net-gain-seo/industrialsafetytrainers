@@ -60,6 +60,7 @@ function course_custom_js() {
 										html += '<th>Time</th>';
 										html += '<th>Maximum</th>';
 										html += '<th>Cost</th>';
+										html += '<th>Notes</th>';
 									html += '</tr>';
 								html += '</thead>';
 								html += '<tbody class="tbody-location-'+nextCount+'">';
@@ -89,6 +90,7 @@ function course_custom_js() {
 						html += '<td><input type="text" name="_location_'+key+'_dates_time[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_max[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_cost[]" value="" style="width: 100%" /></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates_notes[]" value="" style="width: 100%" /></td>';
 						html += '<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>';
 					html += '</tr>';
 
@@ -154,7 +156,6 @@ function get_variations($proudct_id){
 	//build our variation array for easier display
 	$var_out = array();
 	foreach($variables as $key => $var){
-
 		$loc_key = $var['attributes']['attribute_pa_location'];
 		// SET location key to array if not already;
 
@@ -177,15 +178,22 @@ function get_variations($proudct_id){
 			$var_out[$loc_key]['items'] = array();
 		}
 
+		echo '<pre>';
+		print_r($var);
+		echo '</pre>';
+
+		$product_variation = new WC_Product_Variation( $var['variation_id'] );
+		$variation_stock = $product_variation->get_stock_quantity();
 
 		//Store values in location key array
 		$var_out[$loc_key]['items'][] = array(
 			'id' 			=> $var['variation_id'],
-			'max_qty'		=> $var['max_qty'],
+			'max_qty'		=> $variation_stock,
 			'display_price'	=> $var['display_price'],
 			'location' 		=> $location_name,
 			'date' 			=> $date_name,
-			'time' 			=> $time_name
+			'time' 			=> $time_name,
+			'description' 	=> $var['variation_description']
 		);
 	}
 
@@ -231,6 +239,7 @@ function course_options_product_tab_content() {
 											<th>Time</th>
 											<th>Maximum</th>
 											<th>Cost</th>
+											<th>Notes</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -245,6 +254,7 @@ function course_options_product_tab_content() {
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_time[]" value="<?php echo $date['time']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_max[]" value="<?php echo $date['max_qty']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_cost[]" value="<?php echo $date['display_price']; ?>" style="width: 100%" /></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates_notes[]" value="<?php echo strip_tags($date['description']); ?>" style="width: 100%" /></td>
 											<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>
 										</tr>
 										<?php } ?>
@@ -416,7 +426,7 @@ function save_course_option_field( $product_id ) {
 					// Regular Price ( you can set other data like sku and sale price here )
 					update_post_meta( $variation_id, '_regular_price', $_POST['_location_'.$l_key.'_dates_cost'][$d_key] );
 					update_post_meta( $variation_id, '_price', $_POST['_location_'.$l_key.'_dates_cost'][$d_key] );
-
+					update_post_meta( $variation_id, '_variation_description', $_POST['_location_'.$l_key.'_dates_notes'][$d_key] );
 					// Assign the size and color of this variation
 					//$location_value = strtolower($l_val);
 					//$location_value = str_replace(' ', '-', $location_value);
