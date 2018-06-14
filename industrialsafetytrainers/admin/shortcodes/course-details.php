@@ -65,22 +65,71 @@ function course_details($atts){
 
 
                     $return .= '<div class="accordion" role="tablist" aria-multiselectable="true">';
-
+                    $_public_course = get_post_meta($current_product[0]->ID,'_public_course',true);
+                    $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
+                    $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
 
                         // COURSE SPECS
                         $course_specs = get_post_meta($current_product[0]->ID,'course_specs',true);
                         if($course_specs != ''){
-                            $return .= '<div class="card">';
-                                $return .= '<div class="card-header" role="tab">';
-                                    $return .= '<h5 class="mb-0">';
-                                        $return .= '<a data-toggle="collapse" data-parent="#accordion" href="#courseSpecs" aria-expanded="true" aria-controls="courseSpecs">About This Course</a>';
-                                    $return .= '</h5>';
+                            $return .= '<div class="card-group course-specs">';
+                                $return .= '<div class="card">';
+                                    $return .= '<div class="card-header" role="tab">';
+                                        $return .= '<h5 class="mb-0">';
+                                            $return .= 'Program Details';
+                                        $return .= '</h5>';
+                                    $return .= '</div>';
+                                    $return .= '<div class="card-block px-0">';
+                                        $return .= '<div class="pt-0">';
+                                            $return .= '<p>Program Duration</p>';
+                                            $return .= '<p><strong>'.get_post_meta($current_product[0]->ID,'program_duration',true).'</strong></p>';
+                                        $return .= '</div>';
+                                        $return .= '<div>';
+                                            $return .= '<p>Min Participants</p>';
+                                            $return .= '<p><strong>'.get_post_meta($current_product[0]->ID,'min_participants',true).'</strong></p>';
+                                        $return .= '</div>';
+                                        $return .= '<div class="pb-0">';
+                                            $return .= '<p>Max Participants</p>';
+                                            $return .= '<p><strong>'.get_post_meta($current_product[0]->ID,'max_participants',true).'</strong></p>';
+                                        $return .= '</div>';
+                                        //$return .= apply_filters('the_content',$course_specs);
+                                    $return .= '</div>';
                                 $return .= '</div>';
-
-                                $return .= '<div id="courseSpecs" class="accordion-card-contents collapse show" role="tabpanel">';
+                                $return .= '<div class="card">';
+                                    $return .= '<div class="card-header" role="tab">';
+                                        $return .= '<h5 class="mb-0 bg-orange">';
+                                            $return .= 'Who Should Attend?';
+                                        $return .= '</h5>';
+                                    $return .= '</div>';
                                     $return .= '<div class="card-block">';
-
-                                        $return .= apply_filters('the_content',$course_specs);
+                                        $return .= '<div>';
+                                            $return .= apply_filters('the_content',$course_specs);
+                                        $return .= '</div>';
+                                        //$return .= apply_filters('the_content',$course_specs);
+                                    $return .= '</div>';
+                                $return .= '</div>';
+                                $return .= '<div class="card">';
+                                    $return .= '<div class="card-header" role="tab">';
+                                        $return .= '<h5 class="mb-0 bg-green">';
+                                            $return .= 'Available Locations';
+                                        $return .= '</h5>';
+                                    $return .= '</div>';
+                                    $return .= '<div class="card-block px-0 text-left">';
+                                    if($_public_course == 'yes') {
+                                        $return .= '<div class="pt-0">';
+                                            $return .= '<p><img src="wp-content/themes/industrialsafetytrainers/assets/images/classroom-icon.png"/>Public Classroom</p>';
+                                        $return .= '</div>';
+                                    }
+                                    if($_private_course == 'yes') {
+                                        $return .= '<div>';
+                                            $return .= '<p><img src="wp-content/themes/industrialsafetytrainers/assets/images/on-site-icon.png"/>On-Site</p>';
+                                        $return .= '</div>';
+                                    }
+                                    if($_online_course == 'yes') {
+                                        $return .= '<div class="pb-0">';
+                                            $return .= '<p><img src="wp-content/themes/industrialsafetytrainers/assets/images/safety-bus-icon.png"/>The Safety Bus</p>';
+                                        $return .= '</div>';
+                                    }
                                     $return .= '</div>';
                                 $return .= '</div>';
                             $return .= '</div>';
@@ -133,11 +182,8 @@ function course_details($atts){
 
             $return .= '<div class="category-container">';
             $return .= '<div class="category-background"></div>';
-                $_public_course = get_post_meta($current_product[0]->ID,'_public_course',true);
-                $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
-                $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
-
                 // COURSE OFFERED
+                /*
                 $return .= '<div class="course-detail-section">';
                     $return .= '<h5>This course is offered</h5>';
                     $return .= '<div class="courseType">';
@@ -146,16 +192,26 @@ function course_details($atts){
                         if($_online_course == 'yes'){ $return .= '<span class="course-type-online"></span>'; }
                     $return .= '</div>';
                 $return .= '</div>';
-
+                */
 
                 // COURSE COST OUTLINE
-                $return .= '<div class="course-detail-section">';
+                $return .= '<div class="course-detail-section price">';
                     $cost_outline = get_post_meta($current_product[0]->ID,'cost_outline',true);
 
                     if($cost_outline != ''){
-                        $return .= apply_filters('the_content',$cost_outline);
+                        $return .= '<div>';
+                            $return .= '<span>Price*</span>';
+                            $return .= apply_filters('the_content',$cost_outline);
+                        $return .= '</div>';
                     }
                 $return .= '</div>';
+
+                if($_private_course == 'yes'){
+                    $return .= '<span class="course-span book-on-site"><button type="button" class="btn btn-primary " role="button" data-toggle="modal" data-target="#requestInformationModal">Book On-Site</button></span>';
+                }
+                if($_public_course == 'yes'){
+                    $return .= '<span class="course-span book-classroom"><a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$current_product[0]->post_name.'">Classroom Dates</a></span>';
+                }
 
                 // INFO SHEET
                 $return .= '<div class="course-detail-section">';
@@ -166,6 +222,7 @@ function course_details($atts){
                 $return .= '</div>';
 
                 // REGISTRATION
+                /*
                 $return .= '<div class="course-detail-section callToActions">';
                     $_product = wc_get_product( $current_product[0]->ID );
 
@@ -194,7 +251,7 @@ function course_details($atts){
 
                     }
                $return .= '</div>';
-
+                */
 
                 // WHAT IS INCLUDED
                 $return .= '<div class="course-detail-section">';

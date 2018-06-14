@@ -525,7 +525,7 @@ add_filter( 'product_type_options', 'add_course_product_options' );
 /// ADD CUSTOM FIELDS
 function product_add_meta_box() {
     add_meta_box( 'product_meta_box_course_specs',
-        'Course Specs',
+        'Who Should Attend?',
         'display_product_meta_box_course_specs',
         'product'
     );
@@ -545,6 +545,12 @@ function product_add_meta_box() {
     add_meta_box( 'product_meta_box_additional_options',
         'Additional Options',
         'display_product_meta_additional_options',
+        'product'
+    );
+
+    add_meta_box( 'product_meta_box_program_details',
+        'Program Details',
+        'display_product_meta_program_details',
         'product'
     );
 
@@ -595,6 +601,21 @@ function display_product_meta_additional_options(){
 	echo '<input type="hidden" name="product_flag" value="true" />';
 }
 
+function display_product_meta_program_details(){
+	global $post;
+
+	$program_duration =  get_post_meta( $post->ID, 'program_duration', true );
+	echo '<p>Program Duration: <input type="text" name="program_duration" value="'.$program_duration.'" /></p>';
+
+	$min_participants =  get_post_meta( $post->ID, 'min_participants', true );
+	echo '<p>Min Participants: <input type="text" name="min_participants" value="'.$min_participants.'" /></p>';
+
+	$max_participants =  get_post_meta( $post->ID, 'max_participants', true );
+	echo '<p>Max Participants: <input type="text" name="max_participants" value="'.$max_participants.'" /></p>';
+
+	echo '<input type="hidden" name="product_flag" value="true" />';
+}
+
 
 function update_product_meta_box($post_id, $post ){
     if ( $post->post_type == 'product' ) {
@@ -634,6 +655,24 @@ function update_product_meta_box($post_id, $post ){
                 update_post_meta( $post_id, 'demo_url', $_POST['demo_url'] );
             }else{
                 update_post_meta( $post_id, 'demo_url', '');
+            }
+
+            if ( isset( $_POST['program_duration'] ) && $_POST['program_duration'] != '' ) {
+                update_post_meta( $post_id, 'program_duration', $_POST['program_duration'] );
+            }else{
+                update_post_meta( $post_id, 'program_duration', '');
+            }
+
+            if ( isset( $_POST['min_participants'] ) && $_POST['min_participants'] != '' ) {
+                update_post_meta( $post_id, 'min_participants', $_POST['min_participants'] );
+            }else{
+                update_post_meta( $post_id, 'min_participants', '');
+            }
+
+            if ( isset( $_POST['max_participants'] ) && $_POST['max_participants'] != '' ) {
+                update_post_meta( $post_id, 'max_participants', $_POST['max_participants'] );
+            }else{
+                update_post_meta( $post_id, 'max_participants', '');
             }
 
         }

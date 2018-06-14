@@ -928,26 +928,45 @@ a{
 
 .courseBlock{
 	display:flex;
-	margin-bottom:50px;
+	margin-bottom:25px;
 
 	> img{
 		max-width: 170px;
 		height: 115px;
 
 		+ div {
-			flex-basis: 335px;
+			flex-basis: 400px;
 			flex-shrink: 0;
 		}
 	}
 	> div{
-		margin-left:20px;
-		max-width: 345px;
+		margin-left:10px;
+		max-width: 400px;
 
 		&.courseType{
 			span{
-				margin-bottom:10px;
+				padding-left: 10px;
+				border-left: 1px solid #999;
 			}
 		}
+		&.coursePrice {
+			p {
+				padding-left: 10px;
+				border-left: 1px solid #999;
+				padding-bottom: 25px;
+			}
+			h3 {
+				margin-bottom: 0;
+				padding-bottom: 10px;
+				padding-left: 10px;
+				border-left: 1px solid #999;
+				padding-top: 25px;
+			}
+		}
+	}
+	+ hr {
+		border-top: 1px solid #999;
+		margin-bottom: 25px;
 	}
 }
 
@@ -955,6 +974,7 @@ a{
 	list-style:none;
 	padding-left:0px;
 	> li{
+		padding: 3px;
 		margin-bottom:10px;
 		label{
 			display:flex;
@@ -965,6 +985,16 @@ a{
 			float:left;
 			width:auto;
 			margin-right:10px;
+		}
+		a {
+			color: #000;
+			display: block;
+		}
+		&:hover {
+			background: #fcf5a6;
+		}
+		&.active-category {
+			background: #fcf5a6;
 		}
 	}
 }
@@ -978,7 +1008,52 @@ a{
 		}
 	}
 }
+.card-group {
+	&.course-specs {
+		text-align: center;
+		h5 {
+			padding: 25px 0;
+			font-weight: 600;
+			border-bottom: 5px solid #ccc;
 
+			&.bg-orange {
+				background: #ff5d00;
+			}
+			&.bg-green {
+				background: #59af19;
+			}
+		}
+	}
+	.card {
+		background: #f9f9f9;
+		&:nth-child(2) {
+			background: #ececec;
+		}
+		.card-block {
+			&.px-0 {
+				> div {
+					border-bottom: 1px solid #e0e0e0;
+					padding: 15px 0;
+					p {
+						&:first-child {
+							margin-bottom: 5px;
+						}
+						&:last-child {
+							margin-bottom: 0;
+						}
+						img {
+							margin-left: 15px;
+							margin-right: 30px;
+						}
+					}
+					&:last-child {
+						border: none;
+					}
+				}
+			}
+		}
+	}
+}
 .course-detail-section{
 	margin-bottom:25px;
 	.courseType{
@@ -988,7 +1063,26 @@ a{
 			margin-right:10px;
 		}
 	}
+	&.price {
+		width: 70%;
+		background: #ffb062;
+		margin-bottom: 10px;
 
+		span {
+			padding: 3px 0;
+			text-align: center;
+			display: block;
+			width: 100%;
+			background: #ff5d00;
+			font-weight: 600;
+		}
+		h3 {
+			margin: 10px 0 5px;
+		}
+		p {
+			padding-bottom: 10px;
+		}
+	}
 	&.callToActions{
 		display:flex;
 		flex-direction:column;
@@ -999,6 +1093,41 @@ a{
 		> button{
 			width:175px;
 			margin-bottom:5px;
+		}
+	}
+}
+span.course-span {
+	width: 70%;
+	display: block;
+	font-weight: 600;
+	text-align: center;
+	-webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+
+	&.book-on-site {
+		background: $yellow;
+		margin-bottom: 10px;
+	}
+	&.book-classroom {
+		background: #59af19;
+		margin-bottom: 20px;
+
+		&:hover {
+			background: darken(#59af19,5%);
+		}
+	}
+	* {
+		padding: 3px 0;
+		width: 100%;
+		display: block;
+		color: #000;
+		font-weight: 600;
+		font-size: 1.8rem;
+		font-family: 'Arial', sans-serif;
+
+		&:hover {
+			text-decoration: none;
 		}
 	}
 }
@@ -1045,6 +1174,20 @@ a{
   left: 0;
   bottom: 0;
   right: 0;
+}
+.mt-10 {
+	margin-top: 5rem;
+}
+.btn-green {
+	background-color: #59af19;
+	border: 1px solid #59af19;
+	color: #fff;
+
+	&:hover {
+		background-color: darken(#59af19,10%);
+		border: 1px solid darken(#59af19,10%);
+		color: #fff;
+	}
 }
 @-webkit-keyframes load3 {
   0% {

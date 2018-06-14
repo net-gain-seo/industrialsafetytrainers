@@ -11,11 +11,10 @@ function remove_querystring_var($url, $key) {
 
 function safety_training_courses($atts,$content){
 
-    $termIds = array();
-    if(isset($_GET['category_ids'])) {
-        $termIds = array_merge($_GET['category_ids'],$termIds);
+    $termSlug = '';
+    if(isset($_GET['category'])) {
+        $termSlug = $_GET['category'];
     }
-    $termIds = array_unique($termIds);
 
     extract( shortcode_atts( array(
         'blog_id'   => 3,
@@ -51,17 +50,35 @@ function safety_training_courses($atts,$content){
     $return .= '<div class="container">';
         $return .= '<div class="row">';
             $return .= '<div class="col col-3">';
+                $return .= '<h2 class="mt-10">Pick a Category:</h2>';
                 $return .= '<form class="course_filter_form" method="post" action="'.get_site_url($current).'/'.$page_slug.'">';
                 //$return .= '<form method="post" action="'.get_site_url($current).'/'.$page_slug.(isset($_GET['order']) ? "/order=".$_GET['order']:"").'">';
                     $return .= '<ul class="courseCategories">';
                         $category_ids_array = array();
+                        if(strpos($_SERVER['REQUEST_URI'],'online-courses') !== false) {
+                            $urlPart = 'online-courses';
+                            $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/online-courses/">All Categories</a></li>';
+                        }
+                        else if(strpos($_SERVER['REQUEST_URI'],'public-courses') !== false) {
+                            $urlPart = 'public-courses';
+                            $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/public-courses/">All Categories</a></li>';
+                        }
+                        else if(strpos($_SERVER['REQUEST_URI'],'private-courses') !== false) {
+                            $urlPart = 'private-courses';
+                            $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/private-courses/">All Categories</a></li>';
+                        }
                         foreach ($all_categories as $cat) {
                             $category_ids_array[] = $cat->term_id;
-                            $return .= '<li><label><input class="filterCourseByCategory" type="checkbox" name="category_ids[]" value="'. $cat->term_id .'" '.(isset($_GET['category_ids']) && in_array($cat->term_id, $_GET['category_ids'])? "CHECKED" : "").' /> '. $cat->name .'</label></li>';
+                            $return .= '<li '.(( isset($_GET['category']) && $cat->slug == $_GET['category']) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/'.$urlPart.'/?category='.$cat->slug.'">'.$cat->name.'</a></li>';
+
+                            if(isset($_GET['category']) && $_GET['category'] == $cat->slug) {
+                                $catName = $cat->name;
+                            }
+                            else if(!isset($_GET['category'])) {
+                                $catName = 'All Categories';
+                            }
                         }
                     $return .= '</ul>';
-
-                    $return .= '<input type="submit" name="submit" value="Filter Courses" class="btn btn-primary" />';
                 $return .= '</form>';
             $return .= '</div>';
             $return .= '<div class="col col-9">';
@@ -81,19 +98,12 @@ function safety_training_courses($atts,$content){
                     $prevPage = 1;
                 }
 
-                if(sizeof($termIds) == 0) {
+                if($termSlug == '') {
                     $args = array(
                         'posts_per_page'   => $postsPerPage,
                         'offset'           => $offset,
                         'post_type'        => 'product',
-                        'post_status'      => 'publish',
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'product_cat',
-                                'field' => 'term_id',
-                                'terms' => $category_ids_array,
-                            )
-                        )
+                        'post_status'      => 'publish'
                     );
                 }
                 else {
@@ -105,8 +115,8 @@ function safety_training_courses($atts,$content){
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'product_cat',
-                                'field' => 'term_id',
-                                'terms' => $termIds,
+                                'field' => 'slug',
+                                'terms' => $termSlug,
                             )
                         )
                     );
@@ -145,7 +155,8 @@ function safety_training_courses($atts,$content){
 
                 $posts_array = get_posts( $args );
 
-
+                $return .= '<h2>Courses Offered - '.$catName.'</h2>';
+                $return .= '<p>Not all courses are offered publicly. To view all courses we offer <a href="'.get_site_url($current).'/public-courses">click here!</a></p>';
                 //Sorting
                 $return .= '<div class="courseSort">';
 
@@ -177,23 +188,23 @@ function safety_training_courses($atts,$content){
                         }
                         $return .= '<div>';
                             $return .= '<h3>'.$product->post_title.'</h3>';
-                            $return .= '<p>'.$product->post_excerpt.'</p>';
-                            if($_public_course == 'yes'){ $return .= '<a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-danger mr-2">View Public Dates</a>'; }
+                            $return .= '<p>'.strip_tags(substr($product->post_excerpt,0,150)).'... <a href="'.get_site_url($current).'/safety-training-course/?course='.$product->post_name.'">Read More>></a></p>';
                             $return .= '<a href="'.get_site_url($current).'/safety-training-course/?course='.$product->post_name.'" class="btn btn-primary">View Details</a>';
+                            if($_public_course == 'yes'){ $return .= '<a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-green ml-2">View Public Dates</a>'; }
                         $return .= '</div>';
 
                         $return .= '<div class="courseType">';
-                            if($_public_course == 'yes'){ $return .= '<span class="course-type-public"></span>'; }
-                            if($_private_course == 'yes'){ $return .= '<span class="course-type-private"></span>'; }
-                            if($_online_course == 'yes'){ $return .= '<span class="course-type-online"></span>'; }
+                            if($_public_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Classrom</span>'; }
+                            if($_private_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> On-Site</span>'; }
+                            if($_online_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Online</span>'; }
                         $return .= '</div>';
 
-                        $return .= '<div>';
+                        $return .= '<div class="coursePrice">';
                             $cost_outline = get_post_meta($product->ID,'cost_outline',true);
                             $return .= apply_filters('the_content',$cost_outline);
                         $return .= '</div>';
-
                     $return .= '</div>';
+                    $return .= '<hr/>';
                 }
 
                 //Pagination
