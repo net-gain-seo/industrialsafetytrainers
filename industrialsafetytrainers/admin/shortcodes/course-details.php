@@ -328,7 +328,7 @@ function course_public_dates(){
                 */
 
                 $variations = get_posts( $args );
-
+                $return .= '<div class="category-background-course-dates"></div>';
                 $return .= '<div class="row">';
                     $return .= '<div class="col col-3">';
                         $return .= '<h3>Month</h3>';

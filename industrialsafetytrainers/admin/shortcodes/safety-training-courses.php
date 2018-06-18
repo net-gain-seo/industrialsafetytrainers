@@ -46,7 +46,7 @@ function safety_training_courses($atts,$content){
         return strcmp($a->name, $b->name);
     });
 
-
+    $return .= '<div class="category-background-course-dates"></div>';
     $return .= '<div class="container">';
         $return .= '<div class="row">';
             $return .= '<div class="col col-3">';
@@ -122,13 +122,13 @@ function safety_training_courses($atts,$content){
                     );
                 }
 
-                if(isset($_GET['order']) && $_GET['order'] == 'popularity'){
+                if(isset($_GET['order']) && $_GET['order'] == 'title'){
+                    $args['orderby'] = 'title';
+                    $args['order'] = 'ASC';
+                }else{
                     $args['meta_key'] = 'total_sales';
                     $args['orderby'] = 'meta_value_num';
                     $args['order'] = 'DESC';
-                }else{
-                    $args['orderby'] = 'title';
-                    $args['order'] = 'ASC';
                 }
 
                 if($public || $private || $online){
@@ -173,9 +173,9 @@ function safety_training_courses($atts,$content){
                     $titleUrl = get_site_url($current).'/'.$page_slug.'/?order=title'.(($queryString != '' ) ? "&".$queryString:"");
                     $popularUrl = get_site_url($current).'/'.$page_slug.'/?order=popularity'.(($queryString != '' ) ? "&".$queryString:"");
 
-                    $return .= '<a class="'.(((isset($_GET['order']) && $_GET['order'] == 'title') || !isset($_GET['order'])) ? "active":"").'" href="'.$titleUrl.'">Alphabetical</a>';
-                    $return .= '<span> | </span>';
                     $return .= '<a class="'.((isset($_GET['order']) && $_GET['order'] == 'popularity') ? "active":"").'" href="'.$popularUrl.'">Most Popular</a>';
+                    $return .= '<span> | </span>';
+                    $return .= '<a class="'.(((isset($_GET['order']) && $_GET['order'] == 'title') || !isset($_GET['order'])) ? "active":"").'" href="'.$titleUrl.'">Alphabetical</a>';
                 $return .= '</div>';
 
                 foreach($posts_array as $product){

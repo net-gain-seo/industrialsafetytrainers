@@ -599,6 +599,10 @@ a{
 
 		.course-detail{
 			padding: 20px;
+
+			p {
+				font-size: 1.6rem;
+			}
 		}
 
 	}
@@ -643,7 +647,16 @@ a{
     left: -59%;
     width: 85%;
     top: -20px;
-		z-index: -1;
+	z-index: -1;
+    background-color: #F1F2F2;
+}
+.category-background-course-dates {
+    position: absolute;
+    height: 105%;
+    left: -62%;
+    width: 85%;
+    top: -20px;
+	z-index: -1;
     background-color: #F1F2F2;
 }
 
@@ -937,30 +950,28 @@ a{
 		+ div {
 			flex-basis: 400px;
 			flex-shrink: 0;
+			border: none;
 		}
 	}
 	> div{
 		margin-left:10px;
 		max-width: 400px;
+		border-left: 1px solid #999;
 
 		&.courseType{
 			span{
 				padding-left: 10px;
-				border-left: 1px solid #999;
 			}
 		}
 		&.coursePrice {
 			p {
 				padding-left: 10px;
-				border-left: 1px solid #999;
 				padding-bottom: 25px;
 			}
 			h3 {
 				margin-bottom: 0;
 				padding-bottom: 10px;
 				padding-left: 10px;
-				border-left: 1px solid #999;
-				padding-top: 25px;
 			}
 		}
 	}
@@ -980,6 +991,8 @@ a{
 			display:flex;
 			align-items: center;
 			font-size:14px;
+			font-family: Arial, sans-serif;
+    		font-size: 1.8rem;
 		}
 		input{
 			float:left;
@@ -989,12 +1002,30 @@ a{
 		a {
 			color: #000;
 			display: block;
+			position: relative;
+
+			&:before {
+				content: '';
+			    width: 0;
+			    height: 0;
+			    border-top: 7px solid transparent;
+			    border-bottom: 7px solid transparent;
+			    border-left: 12px solid #FFD500;
+			    position: absolute;
+			    top: 11px;
+			    left: -22px;
+			    top: 50%;
+			    margin-top: -8px;
+			}
+			&:hover {
+				text-decoration: none;
+			}
 		}
 		&:hover {
-			background: #fcf5a6;
+			background: $primary-color;
 		}
 		&.active-category {
-			background: #fcf5a6;
+			background: $primary-color;
 		}
 	}
 }
@@ -1094,6 +1125,9 @@ a{
 			width:175px;
 			margin-bottom:5px;
 		}
+	}
+	p,li {
+		font-size: 1.6rem;
 	}
 }
 span.course-span {
