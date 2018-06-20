@@ -24,7 +24,7 @@ html{
 
 body{
 	font-family: Arial, sans-serif;
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 	color: $black;
 	>main{
 		padding-top: 250px;
@@ -959,14 +959,19 @@ a{
 		border-left: 1px solid #999;
 
 		&.courseType{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			span{
 				padding-left: 10px;
 			}
 		}
 		&.coursePrice {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			p {
 				padding-left: 10px;
-				padding-bottom: 25px;
 			}
 			h3 {
 				margin-bottom: 0;

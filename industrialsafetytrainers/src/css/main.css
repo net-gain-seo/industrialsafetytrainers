@@ -27,7 +27,7 @@ h6, .h6 {
   margin-bottom: 15px; }
 
 p {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 15px; }
 
 a {
@@ -1155,7 +1155,7 @@ html {
 
 body {
   font-family: Arial, sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #000000; }
   body > main {
     padding-top: 250px; }
@@ -1773,15 +1773,22 @@ a {
     margin-left: 10px;
     max-width: 400px;
     border-left: 1px solid #999; }
-    .courseBlock > div.courseType span {
-      padding-left: 10px; }
-    .courseBlock > div.coursePrice p {
-      padding-left: 10px;
-      padding-bottom: 25px; }
-    .courseBlock > div.coursePrice h3 {
-      margin-bottom: 0;
-      padding-bottom: 10px;
-      padding-left: 10px; }
+    .courseBlock > div.courseType {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .courseBlock > div.courseType span {
+        padding-left: 10px; }
+    .courseBlock > div.coursePrice {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .courseBlock > div.coursePrice p {
+        padding-left: 10px; }
+      .courseBlock > div.coursePrice h3 {
+        margin-bottom: 0;
+        padding-bottom: 10px;
+        padding-left: 10px; }
   .courseBlock + hr {
     border-top: 1px solid #999;
     margin-bottom: 25px; }

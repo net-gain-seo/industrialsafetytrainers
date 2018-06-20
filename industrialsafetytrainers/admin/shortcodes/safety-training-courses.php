@@ -50,7 +50,7 @@ function safety_training_courses($atts,$content){
     $return .= '<div class="container">';
         $return .= '<div class="row">';
             $return .= '<div class="col col-3">';
-                $return .= '<h2 class="mt-10">Pick a Category:</h2>';
+                $return .= '<h2>Pick a Category:</h2>';
                 $return .= '<form class="course_filter_form" method="post" action="'.get_site_url($current).'/'.$page_slug.'">';
                 //$return .= '<form method="post" action="'.get_site_url($current).'/'.$page_slug.(isset($_GET['order']) ? "/order=".$_GET['order']:"").'">';
                     $return .= '<ul class="courseCategories">';
