@@ -138,6 +138,7 @@ function course_filter(){
 
     $p = get_posts($args);
     $return = '';
+    global $wpdb;
     foreach ($p as $key => $variation){
         // get variation ID
         $variation_ID = $variation->ID;
@@ -149,11 +150,29 @@ function course_filter(){
         $variation_description = $product_variation->get_description();
         $variation_stock = $product_variation->get_stock_quantity();
 
+        $meta_attribute_pa_address = get_post_meta($variation_ID, 'attribute_pa_address', true);
+        $address_term = $wpdb->get_row('SELECT t.*, tt.*
+                FROM '.$wpdb->terms.' AS t
+                INNER JOIN '.$wpdb->term_taxonomy.' AS tt ON t.term_id = tt.term_id
+                WHERE slug = "'.$meta_attribute_pa_address.'"');
+
+        $meta_attribute_pa_time = get_post_meta($variation_ID, 'attribute_pa_time', true);
+        $time_term = $wpdb->get_row('SELECT t.*, tt.*
+                FROM '.$wpdb->terms.' AS t
+                INNER JOIN '.$wpdb->term_taxonomy.' AS tt ON t.term_id = tt.term_id
+                WHERE slug = "'.$meta_attribute_pa_time.'"');
+
+        $meta_attribute_pa_location = get_post_meta($variation_ID, 'attribute_pa_location', true);
+        $location_term = $wpdb->get_row('SELECT t.*, tt.*
+                FROM '.$wpdb->terms.' AS t
+                INNER JOIN '.$wpdb->term_taxonomy.' AS tt ON t.term_id = tt.term_id
+                WHERE slug = "'.$meta_attribute_pa_location.'"');
+
         if($variation_stock > 0) {
             $return .= '<tr class="course-info-'.strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true )).'" data-timestamp="'.strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true )).'">';
-                $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_location', true ).'</td>';
+                $return .= '<td>'.$location_term->name.' - '.$address_term->name.'</td>';
                 $return .= '<td>'.date('M j, Y',strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true ))).'</td>';
-                $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_time', true ).'</td>';
+                $return .= '<td>'.$time_term->name.'</td>';
                 $return .= '<td>'.$variation_price.'</td>';
                 $return .= '<td>'.$variation_description.'</td>';
                 $return .= '<td><input type="number" min="0" max="'.$variation_stock.'" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';

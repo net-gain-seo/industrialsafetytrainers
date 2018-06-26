@@ -4,7 +4,7 @@
 
 
 function course_details($atts){
-	extract( shortcode_atts( array(
+    extract( shortcode_atts( array(
         'blog_id'   => 3,
         'parent'    => 0,
         'orderby'   => 'name',
@@ -125,7 +125,7 @@ function course_details($atts){
                                             $return .= '<p><img src="wp-content/themes/industrialsafetytrainers/assets/images/on-site-icon.png"/>On-Site</p>';
                                         $return .= '</div>';
                                     }
-                                    if($_online_course == 'yes') {
+                                    if($_private_course == 'yes') {
                                         $return .= '<div class="pb-0">';
                                             $return .= '<p><img src="wp-content/themes/industrialsafetytrainers/assets/images/safety-bus-icon.png"/>The Safety Bus</p>';
                                         $return .= '</div>';
@@ -326,8 +326,22 @@ function course_public_dates(){
                     'post_parent'   => $current_product[0]->ID
                 );
                 */
-
                 $variations = get_posts( $args );
+                $allLocations = array();
+                global $wpdb;
+
+                foreach($variations as $key => $variation){
+                    $meta_attribute_pa_location = get_post_meta($variation->ID, 'attribute_pa_location', true);
+                    $location_term = $wpdb->get_row('SELECT t.*, tt.*
+                            FROM '.$wpdb->terms.' AS t
+                            INNER JOIN '.$wpdb->term_taxonomy.' AS tt ON t.term_id = tt.term_id
+                            WHERE slug = "'.$meta_attribute_pa_location.'"');
+                    array_push($allLocations, $location_term->name);
+                }
+
+                $allLocations = array_unique($allLocations);
+                sort($allLocations);
+
                 $return .= '<div class="category-background-course-dates"></div>';
                 $return .= '<div class="row">';
                     $return .= '<div class="col col-3">';
@@ -349,9 +363,13 @@ function course_public_dates(){
 
                         $return .= '<h3>Location</h3>';
                         $return .= '<ul class="courseCategories">';
-                            $return .= '<li><label><input type="checkbox" name="filter_location" value="Barrie" data-parent="'.$current_product[0]->ID.'"/> Barrie</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_location" value="Newmarket" data-parent="'.$current_product[0]->ID.'"/> Newmarket</label></li>';
-                            $return .= '<li><label><input type="checkbox" name="filter_location" value="Another Place" data-parent="'.$current_product[0]->ID.'"/> Another Place</label></li>';
+                        foreach($allLocations as $l) {
+                            $location_slug = $wpdb->get_row('SELECT t.*, tt.*
+                            FROM '.$wpdb->terms.' AS t
+                            INNER JOIN '.$wpdb->term_taxonomy.' AS tt ON t.term_id = tt.term_id
+                            WHERE name = "'.$l.'"');
+                            $return .= '<li><label><input type="checkbox" name="filter_location" value="'.$location_slug->slug.'" data-parent="'.$current_product[0]->ID.'"/> '.$l.'</label></li>';
+                        }
                         $return .= '</ul>';
                     $return .= '</div>';
                     $return .= '<div class="col col-9">';
@@ -371,11 +389,30 @@ function course_public_dates(){
 
                             $return .= '<tbody class="course_list">';
                                 foreach ($variations as $key => $variation){
-                                    // get variation ID
+                                     // get variation ID
                                     $variation_ID = $variation->ID;
 
-                                    // get variations meta
+
                                     $product_variation = new WC_Product_Variation( $variation_ID );
+
+                                    $meta_attribute_pa_address = get_post_meta($variation_ID, 'attribute_pa_address', true);
+                                    $address_term = $wpdb->get_row('SELECT t.*, tt.*
+                                            FROM '.$wpdb->terms.' AS t
+                                            INNER JOIN '.$wpdb->term_taxonomy.' AS tt ON t.term_id = tt.term_id
+                                            WHERE slug = "'.$meta_attribute_pa_address.'"');
+
+                                    $meta_attribute_pa_time = get_post_meta($variation_ID, 'attribute_pa_time', true);
+                                    $time_term = $wpdb->get_row('SELECT t.*, tt.*
+                                            FROM '.$wpdb->terms.' AS t
+                                            INNER JOIN '.$wpdb->term_taxonomy.' AS tt ON t.term_id = tt.term_id
+                                            WHERE slug = "'.$meta_attribute_pa_time.'"');
+
+                                    $meta_attribute_pa_location = get_post_meta($variation_ID, 'attribute_pa_location', true);
+                                    $location_term = $wpdb->get_row('SELECT t.*, tt.*
+                                            FROM '.$wpdb->terms.' AS t
+                                            INNER JOIN '.$wpdb->term_taxonomy.' AS tt ON t.term_id = tt.term_id
+                                            WHERE slug = "'.$meta_attribute_pa_location.'"');
+
                                     //print_r($product_variation);
                                     $variation_price = $product_variation->get_price_html();
                                     $variation_description = $product_variation->get_description();
@@ -383,9 +420,9 @@ function course_public_dates(){
 
                                     if($variation_stock > 0) {
                                         $return .= '<tr class="course-info-'.strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true )).'" data-timestamp="'.strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true )).'">';
-                                            $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_location', true ).'</td>';
+                                            $return .= '<td>'.$location_term->name.' - '.$address_term->name.'</td>';
                                             $return .= '<td>'.date('M j, Y',strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true ))).'</td>';
-                                            $return .= '<td>'.get_post_meta( $variation_ID, 'attribute_pa_time', true ).'</td>';
+                                            $return .= '<td>'.$time_term->name.'</td>';
                                             $return .= '<td>'.$variation_price.'</td>';
                                             $return .= '<td>'.$variation_description.'</td>';
                                             $return .= '<td><input type="number" min="0" max="'.$variation_stock.'" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';

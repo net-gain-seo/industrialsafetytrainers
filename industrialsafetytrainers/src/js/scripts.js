@@ -137,6 +137,7 @@ jQuery('input[name="filter_month"]').on('click',function() {
             if(response.data.length > 0) {
                 jQuery('tbody.course_list').html(response.data);
             }
+            jQuery('.sort-date').click();
             jQuery('.loader').hide();
         },
         error: function(message) {
@@ -204,6 +205,7 @@ jQuery('input[name="filter_location"]').on('click',function() {
             if(response.data.length > 0) {
                 jQuery('tbody.course_list').html(response.data);
             }
+            jQuery('.sort-date').click();
             jQuery('.loader').hide();
         },
         error: function(message) {
@@ -260,6 +262,12 @@ jQuery('input[name="category_ids[]"]').on('click',function() {
     }
     jQuery('.course_filter_form').attr('action',newUrl);
     console.log(newUrl);
+});
+
+jQuery(window).load(function() {
+    if(jQuery('.sort-date').length > 0) {
+        jQuery('.sort-date').click();
+    }
 });
 
 jQuery('.sort-date').on('click',function() {

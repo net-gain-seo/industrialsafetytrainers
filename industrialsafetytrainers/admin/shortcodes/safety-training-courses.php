@@ -59,13 +59,13 @@ function safety_training_courses($atts,$content){
                             $urlPart = 'online-courses';
                             $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/online-courses/">All Categories</a></li>';
                         }
-                        else if(strpos($_SERVER['REQUEST_URI'],'public-courses') !== false) {
-                            $urlPart = 'public-courses';
-                            $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/public-courses/">All Categories</a></li>';
+                        else if(strpos($_SERVER['REQUEST_URI'],'classroom-courses') !== false) {
+                            $urlPart = 'classroom-courses';
+                            $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/classroom-courses/">All Categories</a></li>';
                         }
-                        else if(strpos($_SERVER['REQUEST_URI'],'private-courses') !== false) {
-                            $urlPart = 'private-courses';
-                            $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/private-courses/">All Categories</a></li>';
+                        else if(strpos($_SERVER['REQUEST_URI'],'on-site-courses') !== false) {
+                            $urlPart = 'on-site-courses';
+                            $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/on-site-courses/">All Categories</a></li>';
                         }
                         foreach ($all_categories as $cat) {
                             $category_ids_array[] = $cat->term_id;
@@ -156,7 +156,7 @@ function safety_training_courses($atts,$content){
                 $posts_array = get_posts( $args );
 
                 $return .= '<h2>Courses Offered - '.$catName.'</h2>';
-                $return .= '<p>Not all courses are offered publicly. To view all courses we offer <a href="'.get_site_url($current).'/public-courses">click here!</a></p>';
+                $return .= '<p>Not all courses are offered publicly. To view all courses we offer <a href="'.get_site_url($current).'/classroom-courses">click here!</a></p>';
                 //Sorting
                 $return .= '<div class="courseSort">';
 
@@ -194,7 +194,7 @@ function safety_training_courses($atts,$content){
                         $return .= '</div>';
 
                         $return .= '<div class="courseType">';
-                            if($_public_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Classrom</span>'; }
+                            if($_public_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Classroom</span>'; }
                             if($_private_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> On-Site</span>'; }
                             if($_online_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Online</span>'; }
                         $return .= '</div>';
