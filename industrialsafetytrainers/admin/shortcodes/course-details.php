@@ -212,6 +212,9 @@ function course_details($atts){
                 if($_public_course == 'yes'){
                     $return .= '<span class="course-span book-classroom"><a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$current_product[0]->post_name.'">Classroom Dates</a></span>';
                 }
+                if($_online_course == 'yes'){
+                    $return .= '<span class="course-span book-on-site mb-4"><a class="btn btn-primary" href="'.get_post_meta($current_product[0]->ID,'_product_url',true).'" target="_blank">Book Online</a></span>';
+                }
 
                 // INFO SHEET
                 $return .= '<div class="course-detail-section">';
