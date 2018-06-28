@@ -206,6 +206,25 @@ form > div.form-header {
   .course-category-details .course-container .course-header .course-header-bg {
     background-image: url("../../assets/images/construction-bg.png"); }
 
+.courseCategories li:hover {
+  background: rgba(246, 146, 30, 0.9); }
+
+.courseCategories li.active-category {
+  background: rgba(246, 146, 30, 0.9); }
+
+.courseCategories li a:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid rgba(246, 146, 30, 0.9);
+  position: absolute;
+  top: 11px;
+  left: -22px;
+  top: 50%;
+  margin-top: -8px; }
+
 .category-list > li > ul > li > a:before {
   border-left: 12px solid #F6921E; }
 

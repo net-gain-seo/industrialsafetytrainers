@@ -60,6 +60,7 @@ function course_custom_js() {
 										html += '<th>Time</th>';
 										html += '<th>Maximum</th>';
 										html += '<th>Cost</th>';
+										html += '<th>Location</th>';
 										html += '<th>Notes</th>';
 									html += '</tr>';
 								html += '</thead>';
@@ -90,6 +91,7 @@ function course_custom_js() {
 						html += '<td><input type="text" name="_location_'+key+'_dates_time[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_max[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_cost[]" value="" style="width: 100%" /></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates_address[]" value="" style="width: 100%" /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_notes[]" value="" style="width: 100%" /></td>';
 						html += '<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>';
 					html += '</tr>';
@@ -171,10 +173,15 @@ function get_variations($proudct_id){
 	    $time_term = get_term_by( 'slug', $meta_attribute_pa_time, 'pa_time' );
 	    $time_name = $time_term->name;
 
+	    $meta_attribute_pa_address = get_post_meta( $var['variation_id'], 'attribute_pa_address', true );
+	    $address_term = get_term_by( 'slug', $meta_attribute_pa_address, 'pa_address' );
+	    $address_name = $address_term->name;
+
 
 		if(!isset($var_out[$loc_key])){
 			$var_out[$loc_key] = array();
 			$var_out[$loc_key]['location'] = $location_name;
+			$var_out[$loc_key]['address'] = $address_name;
 			$var_out[$loc_key]['items'] = array();
 		}
 
@@ -189,6 +196,7 @@ function get_variations($proudct_id){
 			'location' 		=> $location_name,
 			'date' 			=> $date_name,
 			'time' 			=> $time_name,
+			'address' 			=> $address_name,
 			'description' 	=> $var['variation_description']
 		);
 	}
@@ -235,6 +243,7 @@ function course_options_product_tab_content() {
 											<th>Time</th>
 											<th>Maximum</th>
 											<th>Cost</th>
+											<th>Location</th>
 											<th>Notes</th>
 											<th></th>
 										</tr>
@@ -250,6 +259,7 @@ function course_options_product_tab_content() {
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_time[]" value="<?php echo $date['time']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_max[]" value="<?php echo $date['max_qty']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_cost[]" value="<?php echo $date['display_price']; ?>" style="width: 100%" /></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates_address[]" value="<?php echo $date['address']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_notes[]" value="<?php echo strip_tags($date['description']); ?>" style="width: 100%" /></td>
 											<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>
 										</tr>
@@ -297,6 +307,7 @@ function save_course_option_field( $product_id ) {
 		$location = wc_attribute_taxonomy_name('Location');
 		$date = wc_attribute_taxonomy_name('Date');
 		$time = wc_attribute_taxonomy_name('Time');
+		$address = wc_attribute_taxonomy_name('Address');
 
 		$attributes = array(
 			$date => array(
@@ -319,6 +330,13 @@ function save_course_option_field( $product_id ) {
 				'is_visible' => '1',
 				'is_variation' => '1',
 				'is_taxonomy' => '1'
+			),
+			$address => array(
+				'name' => $address,
+				'value' =>'',
+				'is_visible' => '1',
+				'is_variation' => '1',
+				'is_taxonomy' => '1'
 			)
 		);
 
@@ -332,6 +350,7 @@ function save_course_option_field( $product_id ) {
 		$locationsArray = array();
 		$datesArray = array();
 		$timesArray = array();
+		$addressesArray = array();
 
 		foreach($_POST['_locations'] as $l_key => $l_val){
 			$locationsArray[] = $l_val;
@@ -340,12 +359,14 @@ function save_course_option_field( $product_id ) {
 				foreach($_POST['_location_'.$l_key.'_dates'] as $d_key => $d_val){
 					$datesArray[] = $d_val;
 					$timesArray[] = $_POST['_location_'.$l_key.'_dates_time'][$d_key];
+					$addressesArray[] = $_POST['_location_'.$l_key.'_dates_address'][$d_key];
 				}
 			}
 		}
 		wp_set_object_terms($product_id, $locationsArray, $location );
 		wp_set_object_terms($product_id, $datesArray, $date );
 		wp_set_object_terms($product_id, $timesArray, $time );
+		wp_set_object_terms($product_id, $addressesArray, $address );
 
 
 
@@ -391,6 +412,8 @@ function save_course_option_field( $product_id ) {
 
 					$t_val = $_POST['_location_'.$l_key.'_dates_time'][$d_key];
 
+					$a_val = $_POST['_location_'.$l_key.'_dates_address'][$d_key];
+
 					//echo $_POST['_location_'.$l_key.'_variation_id'][$d_key].'<br/>';
 
 					//echo 'checking '.$_POST['_location_'.$l_key.'_variation_id'][$d_key].' is in array';
@@ -433,12 +456,15 @@ function save_course_option_field( $product_id ) {
 					$date_value = wc_sanitize_taxonomy_name($d_val);
 
 					$time_value = wc_sanitize_taxonomy_name($t_val);
+
+					$address_value = wc_sanitize_taxonomy_name($a_val);
 					//print_r($time_value);
 					//exit;
 
 					update_post_meta( $variation_id, 'attribute_' . $location, $location_value );
 					update_post_meta( $variation_id, 'attribute_' . $date, $date_value );
 					update_post_meta( $variation_id, 'attribute_' . $time, $time_value );
+					update_post_meta( $variation_id, 'attribute_' . $address, $address_value );
 					update_post_meta( $variation_id, '_stock', $_POST['_location_'.$l_key.'_dates_max'][$d_key] );
 					update_post_meta( $variation_id, '_manage_stock', 'yes');
 
@@ -525,7 +551,7 @@ add_filter( 'product_type_options', 'add_course_product_options' );
 /// ADD CUSTOM FIELDS
 function product_add_meta_box() {
     add_meta_box( 'product_meta_box_course_specs',
-        'Who Should Attend?',
+        'Course Specs',
         'display_product_meta_box_course_specs',
         'product'
     );
@@ -548,7 +574,7 @@ function product_add_meta_box() {
         'product'
     );
 
-    add_meta_box( 'product_meta_box_program_details',
+	add_meta_box( 'product_meta_box_program_details',
         'Program Details',
         'display_product_meta_program_details',
         'product'
@@ -657,7 +683,7 @@ function update_product_meta_box($post_id, $post ){
                 update_post_meta( $post_id, 'demo_url', '');
             }
 
-            if ( isset( $_POST['program_duration'] ) && $_POST['program_duration'] != '' ) {
+			if ( isset( $_POST['program_duration'] ) && $_POST['program_duration'] != '' ) {
                 update_post_meta( $post_id, 'program_duration', $_POST['program_duration'] );
             }else{
                 update_post_meta( $post_id, 'program_duration', '');
