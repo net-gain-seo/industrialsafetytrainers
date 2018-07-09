@@ -39,8 +39,8 @@
 			<div class="flex-column">
 				<div class="heading-qualifications align-items-center hide-sticky-header">
 					<div class="heading-qualification hide-screen-md-max">
-						<span>Ontario Ministry of Labour</span>
-						<span>Authorized Training Provider</span>
+						<span>Chief Prevention Officer</span>
+						<span>Accredited Training Provider</span>
 					</div>
 					<div class="heading-qualification hide-screen-md-max">
 						<span>TSSA</span>
@@ -136,7 +136,7 @@
 					<a href="https://constructionsafetytrainers.ca/"><div class="site-button construction-button"></div></a>
 					<a href="https://thesafetybus.com/"><div class="site-button industrial-button"></div></a>
 				</div>
-		    <?php /* if(get_current_blog_id() != 3){
+		    <?php/* if(get_current_blog_id() != 3){
 		    	if(get_current_blog_id() == 2){
 		    		?>
 		    		<a href="<?php echo get_site_url(3); ?>" class="btn btn-danger">SHOP NOW</a>
