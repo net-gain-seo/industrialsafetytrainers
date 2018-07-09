@@ -381,7 +381,7 @@ function course_public_dates(){
                             $return .= '<thead>';
                                 $return .= '<tr>';
                                     $return .= '<th>Location</th>';
-                                    $return .= '<th class="sort-date">Date ◆</th>';
+                                    $return .= '<th class="sort-date" style="min-width:150px">Date ◆</th>';
                                     $return .= '<th>Time</th>';
                                     $return .= '<th>Price</th>';
                                     $return .= '<th>Notes</th>';
@@ -429,7 +429,7 @@ function course_public_dates(){
                                             $return .= '<td>'.$variation_price.'</td>';
                                             $return .= '<td>'.$variation_description.'</td>';
                                             $return .= '<td><input type="number" min="0" max="'.$variation_stock.'" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
-                                            $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&attribute_pa_address='.$address_term->name.'&attribute_pa_location='.$location_term->name.'&attribute_pa_date='.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'&attribute_pa_time='.$time_term->name.'&quantity=0" target="_blank">Purchase</a></td>';
+                                            $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/cart/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&attribute_pa_address='.$address_term->name.'&attribute_pa_location='.$location_term->name.'&attribute_pa_date='.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'&attribute_pa_time='.$time_term->name.'&quantity=0" target="_blank">Purchase</a></td>';
                                         $return .= '</tr>';
                                     }
                                 }
@@ -561,10 +561,11 @@ function course_category_list($atts){
         }
     $return .= '</ul>';
 
+    switch_to_blog($current);
 
     return $return;
 
-    switch_to_blog($current);
+    
 
 }
 add_shortcode('course_category_list','course_category_list');

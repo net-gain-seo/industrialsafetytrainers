@@ -156,7 +156,7 @@ function safety_training_courses($atts,$content){
                 $posts_array = get_posts( $args );
 
                 $return .= '<h2>Courses Offered - '.$catName.'</h2>';
-                $return .= '<p>Not all courses are offered publicly. To view all courses we offer <a href="'.get_site_url($current).'/classroom-courses">click here!</a></p>';
+                //$return .= '<p>Not all courses are offered publicly. To view all courses we offer <a href="'.get_site_url($current).'/classroom-courses">click here!</a></p>';
                 //Sorting
                 $return .= '<div class="courseSort">';
 
