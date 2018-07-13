@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 add_filter( 'get_terms_orderby', 'wps_get_terms_orderby', 10, 2 );
 /**
@@ -28,9 +28,9 @@ function woocommerce_categories($atts){
 
     $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
-    
+
     switch_to_blog($blog_id);
-    $return = '';	
+    $return = '';
 
     if($include == ''){
         $include_array = array();
@@ -68,7 +68,7 @@ function woocommerce_categories($atts){
                     if($category_url_overwrite != ''){
                         $catUrl = $category_url_overwrite;
                     }else{
-                        $catUrl = $currentBlogUrl.'/safety-training-courses/?category='.$term->slug;
+                        $catUrl = $currentBlogUrl.'/on-site-courses/?category='.$term->slug;
                     }
 
                     $return .= '<a href="'.$catUrl.'" class="btn btn-primary">View Course</a>';
