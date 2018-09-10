@@ -90,7 +90,7 @@ function safety_training_courses($atts,$content){
                     $currentPage = $page;
                     $nextPage = $page + 1;
                     $prevPage = $page - 1;
-                    $offset = $postsPerPage * $currentPage;
+                    $offset = $postsPerPage * ($currentPage - 1);
                 }else{
                     $page = 0;
                     $offset = 0;
