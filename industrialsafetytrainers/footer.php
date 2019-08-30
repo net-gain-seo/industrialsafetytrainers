@@ -19,6 +19,13 @@
 				<img src="<?php echo $logoSrc; ?>" />
 				<br/>
 				<span>Ontario's Leading Health & Safety Training Partner for Over 15 Years </span>
+				<br>
+				<br>
+				<a style="color:#ffffff;" href="https://thesafetybus.com/cancellation-policy/">Course Cancellation Policy</a>
+				<br>
+				<a style="color:#ffffff;" href="https://thesafetybus.com/privacy-policy/">Privacy Policy</a>
+				
+
 			</div>
 			<div class="footer-training-cources">
 				<?php dynamic_sidebar('footer-1'); ?>
@@ -35,7 +42,7 @@
 	</section>
 
 	<section class="footer-copy">
-		<span>Copyright 2017 Industrial Safety Trainers, All Right Reserved</span>
+		<span>Copyright 2019 Industrial Safety Trainers, All Right Reserved</span>
 	</section>
 
 </footer>

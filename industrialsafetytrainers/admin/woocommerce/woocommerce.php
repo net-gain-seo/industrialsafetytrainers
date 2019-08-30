@@ -87,11 +87,11 @@ function course_custom_js() {
 							html += '<input name="_location_'+key+'_variation_id[]" value="" readonly="true" type="hidden" />';
 							html += '<input name="_location_'+key+'_location[]" value="" readonly="true" type="hidden" />';
 						html += '</td>';
-						html += '<td><input class="datepicker" type="text" name="_location_'+key+'_dates[]" value="" style="width: 100%" /></td>';
-						html += '<td><input type="text" name="_location_'+key+'_dates_time[]" value="" style="width: 100%" /></td>';
-						html += '<td><input type="text" name="_location_'+key+'_dates_max[]" value="" style="width: 100%" /></td>';
-						html += '<td><input type="text" name="_location_'+key+'_dates_cost[]" value="" style="width: 100%" /></td>';
-						html += '<td><input type="text" name="_location_'+key+'_dates_address[]" value="" style="width: 100%" /></td>';
+						html += '<td><input class="datepicker" type="text" name="_location_'+key+'_dates[]" value="" style="width: 100%" required /></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates_time[]" value="" style="width: 100%" required /></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates_max[]" value="" style="width: 100%" required /></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates_cost[]" value="" style="width: 100%" required /></td>';
+						html += '<td><input type="text" name="_location_'+key+'_dates_address[]" value="" style="width: 100%" required /></td>';
 						html += '<td><input type="text" name="_location_'+key+'_dates_notes[]" value="" style="width: 100%" /></td>';
 						html += '<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>';
 					html += '</tr>';
@@ -231,6 +231,7 @@ function course_options_product_tab_content() {
 						<div style="margin-bottom: 50px;" class="course-location">
 							<p style="text-align: right;">
 								<input type="text" name="_locations[<?php echo $key; ?>]" value="<?php echo $var_out[$key]['location']; ?>" style="float:left" />
+								<span>Total items: <?php echo count($var['items']); ?></span>
 								<button data-key="<?php echo $key; ?>" class="add-course-date button button-primary">Add Date</button> -
 								<button class="remove-course-location button button-primary">Remove Location</button>
 							</p>
@@ -255,11 +256,11 @@ function course_options_product_tab_content() {
 												<input name="_location_<?php echo $key; ?>_variation_id[]" value="<?php echo $date['id']; ?>" readonly="true" type="hidden" />
 												<input name="_location_<?php echo $key; ?>_location[]" value="<?php echo $date['location']; ?>" readonly="true" type="hidden" />
 											</td>
-											<td><input type="text" class="datepicker" name="_location_<?php echo $key; ?>_dates[]" value="<?php echo $date['date']; ?>" style="width: 100%" /></td>
-											<td><input type="text" name="_location_<?php echo $key; ?>_dates_time[]" value="<?php echo $date['time']; ?>" style="width: 100%" /></td>
-											<td><input type="text" name="_location_<?php echo $key; ?>_dates_max[]" value="<?php echo $date['max_qty']; ?>" style="width: 100%" /></td>
-											<td><input type="text" name="_location_<?php echo $key; ?>_dates_cost[]" value="<?php echo $date['display_price']; ?>" style="width: 100%" /></td>
-											<td><input type="text" name="_location_<?php echo $key; ?>_dates_address[]" value="<?php echo $date['address']; ?>" style="width: 100%" /></td>
+											<td><input type="text" class="datepicker" name="_location_<?php echo $key; ?>_dates[]" required value="<?php echo $date['date']; ?>" style="width: 100%" /></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates_time[]" required value="<?php echo $date['time']; ?>" style="width: 100%" /></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates_max[]" required value="<?php echo $date['max_qty']; ?>" style="width: 100%" /></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates_cost[]" required value="<?php echo $date['display_price']; ?>" style="width: 100%" /></td>
+											<td><input type="text" name="_location_<?php echo $key; ?>_dates_address[]" required value="<?php echo $date['address']; ?>" style="width: 100%" /></td>
 											<td><input type="text" name="_location_<?php echo $key; ?>_dates_notes[]" value="<?php echo strip_tags($date['description']); ?>" style="width: 100%" /></td>
 											<td><button style="float:right" class="remove-course-date button button-primary">Remove Date</button></td>
 										</tr>
@@ -376,9 +377,22 @@ function save_course_option_field( $product_id ) {
 		// GET CURRENT VARIATIONS AND MAKE SURE WE DONT RE-ADD.
 		$current_variations = get_variations($product_id);
 
-		//echo '<pre>';
-		//print_r($current_variations);
-		//echo '</pre>';
+
+
+
+
+		/** FUN STARTS **/
+		$numVariations = 0;
+		foreach($current_variations as $key => $variations){
+			$numVariations = $numVariations + count($variations['items']);
+			
+		}
+
+		echo '<pre>';
+		echo 'Num variations: '.$numVariations.'<br/>';
+		echo '</pre>';
+		/** FUN ENDS **/
+
 
 
 		$current_variation_ids = array();
@@ -477,13 +491,10 @@ function save_course_option_field( $product_id ) {
 
 		// REMOVE VARIATIONS THAT NO LONGER EXIST
 		if(!empty($current_variation_ids)){
-			//print_r($current_variation_ids);
-			//exit;
 			foreach($current_variation_ids as $id){
 				wp_delete_post($id);
 			}
 		}
-
 		// Update parent if variable so price sorting works and stays in sync with the cheapest child
 	}
 
@@ -909,7 +920,7 @@ function industrial_save_product_cat_custom_meta($term_id) {
 add_action('edited_product_cat', 'industrial_save_product_cat_custom_meta', 10, 1);
 
 function ng_industrial_ajax_variation_threshold( $qty, $product ) {
-    return 1000;
+    return 5000;
 }
 add_filter( 'woocommerce_ajax_variation_threshold', 'ng_industrial_ajax_variation_threshold', 10, 2 );
 
