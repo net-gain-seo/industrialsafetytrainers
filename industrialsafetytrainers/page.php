@@ -2,12 +2,30 @@
 
 	<main role="main">
 		<!-- section -->
+		<?php if(!is_page('safety-training-course-public-dates')){ ?>
+			<section class="page-title-section">
+				<div class="container">
+					<h1><?php the_title(); ?></h1>
+				</div>
+			</section>
+		<?php }else{
+			$args = array(
+	            'name'        => $_GET['course'],
+	            'post_type'   => 'product',
+	            'post_status' => 'publish',
+	            'numberposts' => 1
+	        );
+	        $current_product = get_posts($args);
 
-		<section class="page-title-section">
-			<div class="container">
-				<h1><?php the_title(); ?></h1>
-			</div>
-		</section>
+	        //print_r($current_product);
+			?>
+				<section class="page-title-section">
+					<div class="container">
+						<h1><?php echo $current_product[0]->post_title; ?></h1>
+					</div>
+				</section>
+			<?php
+		} ?>
 		
 		<section class="container">
 

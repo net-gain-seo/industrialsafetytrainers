@@ -477,22 +477,76 @@ body {
     top: 9px;
     left: 11px; }
 
-.posts .post {
-  border-top: 1px solid #58595B;
-  padding: 40px 0; }
-  .posts .post:first-child {
-    border-top: none;
-    padding-top: 0px;
-    margin-top: 0px; }
-  .posts .post div.has-thumbnail img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px; }
-  .posts .post h2 a {
+.post-header {
+  margin-bottom: 20px; }
+  .post-header h1 {
+    font-size: 35px;
+    margin-bottom: 10px; }
+
+.posts {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; }
+  .posts .post {
+    padding: 40px 0;
+    width: 30%;
+    /*
+		&:first-child{
+			border-top: none;
+			padding-top: 0px;
+			margin-top: 0px;
+		}*/ }
+    .posts .post div.has-thumbnail img {
+      border-radius: 10px;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px; }
+    .posts .post h2 a {
+      transition: 0.3s;
+      color: #000000; }
+      .posts .post h2 a:hover {
+        color: #D49D1C;
+        text-decoration: none; }
+    .posts .post .post-meta {
+      margin-top: 20px;
+      flex-direction: column; }
+      .posts .post .post-meta .post-main-link {
+        margin-bottom: 10px; }
+  .posts .post-main-link h2 {
+    transition: 0.3s;
     color: #000000; }
-    .posts .post h2 a:hover {
-      color: #D49D1C;
+  .posts .post-main-link p {
+    transition: 0.3s;
+    color: #000000; }
+  .posts .post-main-link img {
+    opacity: 1;
+    transition: 0.3s; }
+  .posts .post-main-link:hover {
+    text-decoration: none; }
+    .posts .post-main-link:hover h2 {
+      text-decoration: none;
+      color: #ccaa00; }
+    .posts .post-main-link:hover p {
       text-decoration: none; }
+    .posts .post-main-link:hover img {
+      opacity: 0.75; }
+  .posts.singlePosts .post {
+    width: 100%; }
+
+.relatedPosts .relatedPost {
+  margin-bottom: 20px; }
+  .relatedPosts .relatedPost a {
+    text-decoration: none; }
+    .relatedPosts .relatedPost a h3 {
+      font-size: 18px;
+      color: #000000;
+      margin-bottom: 10px; }
+    .relatedPosts .relatedPost a img {
+      width: auto;
+      height: auto;
+      max-width: 100%; }
+    .relatedPosts .relatedPost a:hover h3 {
+      color: #ccaa00; }
 
 .sidebar {
   margin-right: 50px;
@@ -647,6 +701,43 @@ input[name="course_qty"] {
 .contact-page-submit input[type="submit"] {
   height: 100%;
   cursor: pointer; }
+
+#coupon_code {
+  width: 100%;
+  margin-bottom: 5px; }
+
+.coupon {
+  float: left;
+  max-width: 100%; }
+
+.woocommerce .cart .button, .woocommerce .cart input.button {
+  float: none;
+  margin-bottom: 5px; }
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1 {
+  float: left;
+  width: 100% !important; }
+
+.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+  float: left !important;
+  width: 100% !important; }
+
+#customer_details .col-1, #customer_details .col-2, .addresses .col-2, .addresses .col-1 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%; }
+
+.woocommerce form .form-row .required {
+  color: red;
+  font-weight: 700;
+  border: 0;
+  text-decoration: none; }
+
+.woocommerce-page table.cart td.actions .coupon .input-text + .button {
+  float: left;
+  width: 100%; }
 
 @media (max-width: 767px) {
   .wpcf7-form-control-wrap {
@@ -1148,6 +1239,10 @@ input[name="course_qty"] {
 @media (min-width: 1200px) {
   .modal-lg {
     max-width: 1100px; } }
+
+.alert {
+  padding: 20px;
+  margin-bottom: 15px; }
 
 html {
   font-size: 10px;

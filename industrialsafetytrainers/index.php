@@ -16,32 +16,27 @@
 		</section>
 
 		<div class="container blog-container">
-			<aside class="sidebar">
-				<?php
-					dynamic_sidebar('blog-sidebar');
-				?>
-			</aside>
-			<section class="posts">
+			<section class="posts postsList">
 				<?php
 				if (have_posts()): while (have_posts()) : the_post(); ?>
 					<article class="post d-flex">
-						<div class="<?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
-							<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<a class="post-main-link" href="<?php the_permalink(); ?>">
+							<div class="<?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
+								<h2><?php the_title(); ?></h2>
 
-							<?php
-								if(has_post_thumbnail()){
-									echo '<a href="'.get_the_permalink().'">';
+								<?php
+									if(has_post_thumbnail()){
 										the_post_thumbnail();
-									echo '</a>';
-								}
-							?>
+									}
+								?>
 
-							<?php the_excerpt(); ?>
-							<div class="post-meta d-flex">
-								<span style="margin-right: 10px;"><?php the_date('M d, Y'); ?></span>
-								<span><?php echo the_category(', '); ?></span>
+								<?php the_excerpt(); ?>
+								<div class="post-meta d-flex">
+									<span style="margin-right: 10px;"><?php the_date('M d, Y'); ?></span>
+									<span><?php echo the_category(', '); ?></span>
+								</div>
 							</div>
-						</div>
+						</a>
 					</article>
 					<?php
 					endwhile; ?>
@@ -59,15 +54,5 @@
 
 	</main>
 
-<?php
-if(get_current_blog_id() == 1){
-	echo do_shortcode('[common_element id="55" name="CTA"]');
-	echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]');
-}
-if(get_current_blog_id() == 2){
-	echo do_shortcode('[common_element id="128" name="ARE YOU LOOKING FOR SOMETHING SPECIFIC?"]');
-	echo do_shortcode('[common_element id="44" name="About Construction Safety Trainers"]');
-}
-?>
 
 <?php get_footer(); ?>

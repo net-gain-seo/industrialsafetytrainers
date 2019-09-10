@@ -230,5 +230,7 @@ include(TEMPLATEPATH.'/admin/shortcodes/course-search.php');
 
 include(TEMPLATEPATH.'/admin/shortcodes/safety-training-courses.php');
 
+include(TEMPLATEPATH.'/admin/shortcodes/bootstrap.php');
+
 //OTHER FUNCTIONS
 include(TEMPLATEPATH.'/admin/woocommerce/woocommerce.php');

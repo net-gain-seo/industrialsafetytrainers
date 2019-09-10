@@ -49,7 +49,7 @@ function course_filter(){
             array_push($queryArray,$arr);
         }
 
-        switch_to_blog(3);
+        //switch_to_blog(3);
         $args = array(
             'post_type'     => 'product_variation',
             'post_status'   => array('publish' ),
@@ -84,7 +84,7 @@ function course_filter(){
             array_push($locationArray,$arr);
         }
 
-        switch_to_blog(3);
+       // switch_to_blog(3);
         $args = array(
             'post_type'     => 'product_variation',
             'post_status'   => array('publish' ),
@@ -111,7 +111,7 @@ function course_filter(){
             array_push($locationArray,$arr);
         }
 
-        switch_to_blog(3);
+       // switch_to_blog(3);
         $args = array(
             'post_type'     => 'product_variation',
             'post_status'   => array('publish' ),
@@ -125,7 +125,7 @@ function course_filter(){
         );
     }
     else {
-        switch_to_blog(3);
+        //switch_to_blog(3);
         $args = array(
             'post_type'     => 'product_variation',
             'post_status'   => array('publish'),
@@ -183,7 +183,7 @@ function course_filter(){
         }
     }
 
-    switch_to_blog(1);
+    //switch_to_blog(1);
 
     echo json_encode(array("data"=>$return,"success"=>"success"));
     die;

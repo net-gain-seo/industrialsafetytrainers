@@ -14,7 +14,7 @@ function course_details($atts){
 
     $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
-    switch_to_blog($blog_id);
+    //switch_to_blog($blog_id);
 
 
 
@@ -140,40 +140,7 @@ function course_details($atts){
 
                     $return .= '</div>';
 
-                    // get up sells
-                    $product = new WC_Product($current_product[0]->ID);
-                    $upsells = $product->get_upsells();
 
-                    if(!empty($upsells)){
-
-                        $args = array(
-                            'post_type' => 'product',
-                            'ignore_sticky_posts' => 1,
-                            'no_found_rows' => 1,
-                            'posts_per_page' => $posts_per_page,
-                            'orderby' => $orderby,
-                            'post__in' => $upsells,
-                            'post__not_in' => array($product->id),
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'product_cat',
-                                    'field' => 'term_id',
-                                    'terms' => $parent,
-                                )
-                            )
-                        );
-
-                        $upsells = get_posts($args);
-                        if (!empty($upsells)){
-                            $return .= '<h3 style="margin-top:20px;">Do you also need..</h3>';
-                            $return .= '<ul class="category-list"><li>';
-                             $return .= '<ul>';
-                            foreach($upsells as $upsell){
-                               $return .= '<li><a href="'.$currentBlogUrl.'/'.$slug.'/?course='.$upsell->post_name.'">'.$upsell->post_title.'</a></li>';
-                            }
-                            $return .= '</ul></li></ul>';
-                        }
-                    }
 
 
                 $return .= '</div>';
@@ -264,6 +231,43 @@ function course_details($atts){
                     }
                 $return .= '</div>';
 
+                // get up sells
+                $product = new WC_Product($current_product[0]->ID);
+                $upsells = $product->get_upsells();
+
+                if(!empty($upsells)){
+
+                    $args = array(
+                        'post_type' => 'product',
+                        'ignore_sticky_posts' => 1,
+                        'no_found_rows' => 1,
+                        'posts_per_page' => $posts_per_page,
+                        'orderby' => $orderby,
+                        'post__in' => $upsells,
+                        'post__not_in' => array($product->id),
+                        /*
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field' => 'term_id',
+                                'terms' => $parent,
+                            )
+                        )
+                        */
+                    );
+
+                    $upsells = get_posts($args);
+                    if (!empty($upsells)){
+                        $return .= '<p><strong>Do you also need..</strong></p>';
+                        $return .= '<ul class="category-list"><li>';
+                         $return .= '<ul>';
+                        foreach($upsells as $upsell){
+                           $return .= '<li><a href="'.$currentBlogUrl.'/'.$slug.'/?course='.$upsell->post_name.'">'.$upsell->post_title.'</a></li>';
+                        }
+                        $return .= '</ul></li></ul>';
+                    }
+                }
+
 
             $return .= '</div>';
 
@@ -272,7 +276,7 @@ function course_details($atts){
 
 
 
-    switch_to_blog($current);
+    //switch_to_blog($current);
     return $return;
 }
 
@@ -290,7 +294,7 @@ function course_public_dates(){
 
     $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
-    switch_to_blog($blog_id);
+    //switch_to_blog($blog_id);
 
 
 
@@ -449,7 +453,7 @@ function course_public_dates(){
 
 
 
-    switch_to_blog($current);
+    //switch_to_blog($current);
     return $return;
 }
 add_shortcode('course_public_dates','course_public_dates');
@@ -468,7 +472,7 @@ function course_category_list($atts){
 
 
     $current = get_current_blog_id();
-    switch_to_blog($blog_id);
+    //switch_to_blog($blog_id);
 
 
     $args = array(
@@ -561,7 +565,7 @@ function course_category_list($atts){
         }
     $return .= '</ul>';
 
-    switch_to_blog($current);
+    //switch_to_blog($current);
 
     return $return;
 

@@ -29,7 +29,7 @@ function woocommerce_categories($atts){
     $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
     
-    switch_to_blog($blog_id);
+    //switch_to_blog($blog_id);
     $return = '';	
 
     if($include == ''){
@@ -103,7 +103,7 @@ function woocommerce_categories($atts){
             }
         }
     }
-    switch_to_blog($current);
+    //switch_to_blog($current);
 
     return $return;
 

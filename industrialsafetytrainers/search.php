@@ -41,7 +41,7 @@
 
 						echo '<h2>Supplies</h2>';
 						$current = get_current_blog_id();
-						switch_to_blog(3);
+						//switch_to_blog(3);
 						//echo do_shortcode('[course_search search="'.$_GET['s'].'"]');
 						$posts = get_posts(
 							array(
@@ -69,7 +69,7 @@
 								echo '</div>';
 							}
 						echo '</div>';
-						switch_to_blog($current);
+						//switch_to_blog($current);
 
 					?>
 
@@ -78,7 +78,7 @@
 			<section class="posts">
 				<?php
 				$current = get_current_blog_id();
-				switch_to_blog(3);
+				//switch_to_blog(3);
 				echo '<h2>Courses</h2>';
 				//echo do_shortcode('[course_search search="'.$_GET['s'].'"]');
 				$posts = get_posts(
@@ -105,7 +105,7 @@
 						echo '</div>';
 					echo '</article>';
 				}
-				switch_to_blog($current);
+				//switch_to_blog($current);
 				?>
 			</section>
 		</div>

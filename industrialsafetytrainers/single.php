@@ -2,47 +2,61 @@
 
 <main role="main">
 	<!-- section -->
-		<section class="banner-section">
-			<div class="banner-content d-flex justify-content-center align-items-stretch">
-				<div>
-					<div class="d-flex align-items-center fifty-percent-section right">
-						<h1><?php the_title(); ?></h1>
-					</div>
-				</div>
-				<div></div>
-			</div>
 
-
-			<?php
-			if(has_post_thumbnail()){
-				the_post_thumbnail('blog-image');
-			}else{
-				?>
-				<img width="2000" height="375" src="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://thesafetybus.com/wp-content/uploads/2017/08/whats-new.png 2000w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-300x56.png 300w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-768x144.png 768w, https://thesafetybus.com/wp-content/uploads/2017/08/whats-new-1024x192.png 1024w" sizes="(max-width: 2000px) 100vw, 2000px">
-				<?php
-			}
-			?>
-
-
-		</section>
 
 		<div class="container d-flex">
-			<aside class="sidebar">
+			<!--<aside class="sidebar">
 				<?php
 					dynamic_sidebar('blog-sidebar');
 				?>
-			</aside>
-			<section class="posts">
+			</aside>-->
+			<section class="posts singlePosts">
 				<?php
-				if (have_posts()): while (have_posts()) : the_post(); ?>
+				if (have_posts()): while (have_posts()) : the_post(); 
+					if(has_post_thumbnail()){
+						//the_post_thumbnail('blog-image');
+					}
+					?>
 					<article class="post">
-						<div class="col col-12">
-							<span style="margin-right: 10px;"><?php the_date('M d, Y'); ?></span>
-							<span><?php echo the_category(', '); ?></span>
+						<div class="row">
+							<div class="col col-12 post-header">
+								<h1><?php the_title(); ?></h1>
+								<span style="margin-right: 10px;"><?php the_date('M d, Y'); ?></span>
+								<span><?php echo the_category(', '); ?></span>
+							</div>
 						</div>
-						<div class="col col-12 <?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
+						<div class="row">
+							<div class="col col-9">
+								<?php the_content(); ?>
+							</div>
+							<div class="col col-3 relatedPosts">
+								<h2>Related Posts</h2>
+								<?php 
+									$related = new WP_Query(
+									    array(
+									        'category__in'   => wp_get_post_categories( $post->ID ),
+									        'posts_per_page' => 5,
+									        'post__not_in'   => array( $post->ID )
+									    )
+									);
 
-							<?php the_content(); ?>
+									if( $related->have_posts() ) { 
+									    while( $related->have_posts() ) { 
+									        $related->the_post(); 
+									        /*whatever you want to output*/
+									        echo '<div class="relatedPost">';
+										        echo '<a href="'.get_permalink().'">';
+										        	echo '<h3>'.get_the_title().'</h3>';
+										        	if(has_post_thumbnail()){
+														the_post_thumbnail();
+													}
+												echo '</a>';
+									        echo '</div>';
+									    }
+									    wp_reset_postdata();
+									}
+								?>
+							</div>
 						</div>
 					</article>
 					<?php
@@ -60,8 +74,5 @@
 
 
 	</main>
-
-<?php echo do_shortcode('[common_element id="55" name="CTA"]'); ?>
-<?php echo do_shortcode('[common_element id="52" name="About Industrial Safety Trainers"]'); ?>
 
 <?php get_footer(); ?>

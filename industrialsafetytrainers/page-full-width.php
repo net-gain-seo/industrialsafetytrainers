@@ -31,15 +31,15 @@
 
 						if(isset($_GET['category'])){
 							$current = get_current_blog_id();
-							switch_to_blog(3);
+							//switch_to_blog(3);
 							$term = get_term_by('slug',$_GET['category'],'product_cat');
 							//echo '<h5>'.$term->name.'</h5>';
-							switch_to_blog($current);
+							//switch_to_blog($current);
 							echo '<h1>'.$term->name.'</h1>';
 
 						}elseif(isset($_GET['course'])){
 							$current = get_current_blog_id();
-							switch_to_blog(3);
+							//switch_to_blog(3);
 							
 							$args = array(
 								'name'        => $_GET['course'],
@@ -52,7 +52,7 @@
 							//echo '<h5>'.$product[0]->post_title.'</h5>';
 							echo '<h1>'.$product[0]->post_title.'</h1>';
 							echo '<h5>This course is offered anywhere in Ontario</h5>';
-							switch_to_blog($current);
+							//switch_to_blog($current);
 						}else{
 							echo '<h1>'.get_the_title().'</h1>';
 						}

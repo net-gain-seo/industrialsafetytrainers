@@ -17,7 +17,7 @@ function safety_training_courses($atts,$content){
     }
 
     extract( shortcode_atts( array(
-        'blog_id'   => 3,
+        'blog_id'   => 1,
         'page_slug' => '',
         'category'  => '',
         'public' => false,
@@ -27,7 +27,7 @@ function safety_training_courses($atts,$content){
 
     $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
-    switch_to_blog($blog_id);
+    //switch_to_blog($blog_id);
 
     $return = '';
     $taxonomy     = 'product_cat';
@@ -131,6 +131,11 @@ function safety_training_courses($atts,$content){
                     $args['order'] = 'DESC';
                 }
 
+                /*
+                *
+                * SPECIAL NOTE: This needs to be uncommented 
+                *
+                *
                 if($public || $private || $online){
                     $args['meta_query'] = array();
                     if($public){
@@ -152,6 +157,7 @@ function safety_training_courses($atts,$content){
                         );
                     }
                 }
+                */
 
                 $posts_array = get_posts( $args );
 
@@ -225,7 +231,7 @@ function safety_training_courses($atts,$content){
     $return .= '</div>';
 
 
-    switch_to_blog($current);
+    //switch_to_blog($current);
 
 
     //Scripts
