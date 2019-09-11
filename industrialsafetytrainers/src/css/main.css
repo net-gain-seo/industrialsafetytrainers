@@ -10,25 +10,26 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: 2.2rem;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   font-weight: 600; }
 
 h4, .h4 {
   font-size: 2rem;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   font-weight: 600; }
 
 h5, .h5 {
   font-size: 1.8rem;
-  margin-bottom: 15px; }
+  margin-bottom: 30px; }
 
 h6, .h6 {
   font-size: 1.8rem;
-  margin-bottom: 15px; }
+  margin-bottom: 30px; }
 
 p {
   font-size: 1.6rem;
-  margin-bottom: 15px; }
+  margin-bottom: 30px;
+  line-height: 1.8; }
 
 a {
   color: #906b13; }
@@ -485,7 +486,7 @@ body {
 
 .posts {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap; }
   .posts .post {
     padding: 40px 0;
@@ -530,23 +531,25 @@ body {
       text-decoration: none; }
     .posts .post-main-link:hover img {
       opacity: 0.75; }
-  .posts.singlePosts .post {
-    width: 100%; }
+    .posts .post-main-link:hover .postCategories {
+      color: #906b13; }
 
-.relatedPosts .relatedPost {
-  margin-bottom: 20px; }
-  .relatedPosts .relatedPost a {
-    text-decoration: none; }
-    .relatedPosts .relatedPost a h3 {
-      font-size: 18px;
-      color: #000000;
-      margin-bottom: 10px; }
-    .relatedPosts .relatedPost a img {
-      width: auto;
-      height: auto;
-      max-width: 100%; }
-    .relatedPosts .relatedPost a:hover h3 {
-      color: #ccaa00; }
+.relatedPosts {
+  margin-top: 50px; }
+  .relatedPosts .relatedPost {
+    margin-bottom: 20px; }
+    .relatedPosts .relatedPost a {
+      text-decoration: none; }
+      .relatedPosts .relatedPost a h3 {
+        font-size: 18px;
+        color: #000000;
+        margin-bottom: 10px; }
+      .relatedPosts .relatedPost a img {
+        width: auto;
+        height: auto;
+        max-width: 100%; }
+      .relatedPosts .relatedPost a:hover h3 {
+        color: #ccaa00; }
 
 .sidebar {
   margin-right: 50px;

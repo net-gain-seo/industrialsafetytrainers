@@ -22,19 +22,27 @@
 					<article class="post d-flex">
 						<a class="post-main-link" href="<?php the_permalink(); ?>">
 							<div class="<?php if(has_post_thumbnail()){ echo 'has-thumbnail'; } ?>">
+								<div class="post-meta">
+									<span style="font-weight: 600; text-transform: uppercase;" class="postCategories"><?php 
+										foreach((get_the_category()) as $key => $category){
+											if($key == 0){
+												echo $category->name.'';
+											}else{
+												echo ', '.$category->name;
+											}
+									        
+									    }
+									?></span>
+								</div>
 								<h2><?php the_title(); ?></h2>
-
 								<?php
 									if(has_post_thumbnail()){
 										the_post_thumbnail();
 									}
 								?>
 
-								<?php the_excerpt(); ?>
-								<div class="post-meta d-flex">
-									<span style="margin-right: 10px;"><?php the_date('M d, Y'); ?></span>
-									<span><?php echo the_category(', '); ?></span>
-								</div>
+								<span style="margin-right: 10px; float: left; font-weight: bold; line-height: 1.8"><?php the_date('M d, Y'); ?>  - </span><?php the_excerpt(); ?>
+								
 							</div>
 						</a>
 					</article>

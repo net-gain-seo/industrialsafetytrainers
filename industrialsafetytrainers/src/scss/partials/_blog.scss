@@ -92,7 +92,7 @@
 
 .posts{
 	display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 	.post{
 	    padding: 40px 0;
@@ -131,6 +131,7 @@
 		    flex-direction: column;
 		    .post-main-link{
 		    	margin-bottom: 10px;
+		    	
 		    }
 		}
 
@@ -149,7 +150,9 @@
 			opacity: 1;
 			transition: 0.3s;
 		}
+		.postCategories{
 
+    	}
 		&:hover{
 			text-decoration:none;
 			h2{
@@ -162,17 +165,16 @@
 			img{
 				opacity: 0.75;
 			}
+			.postCategories{
+			    color: #906b13;
+			}
 		}
 	}
 
-	&.singlePosts{
-		.post{
-			width: 100%;
-		}
-	}
 }
 
 .relatedPosts{
+	margin-top: 50px;
 	.relatedPost{
 		margin-bottom: 20px;
 		a{
