@@ -17,7 +17,7 @@
 						//the_post_thumbnail('blog-image');
 					}
 					?>
-					<article class="post">
+					<article class="">
 						<div class="row">
 							<div class="col col-12 post-header">
 								<h1><?php the_title(); ?></h1>

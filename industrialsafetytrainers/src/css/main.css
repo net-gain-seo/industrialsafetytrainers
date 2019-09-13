@@ -217,7 +217,8 @@ body {
 
 #mainMenu > #menu-main-menu > li {
   margin: 0 10px;
-  position: relative; }
+  position: relative;
+  display: flex; }
   #mainMenu > #menu-main-menu > li > a {
     color: #FFFFFF;
     font-size: 1.7rem;
@@ -488,51 +489,63 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; }
-  .posts .post {
-    padding: 40px 0;
-    width: 30%;
-    /*
+
+.postsList {
+  width: 1140px;
+  overflow: hidden; }
+
+.posts .post, .postsList .post {
+  padding: 40px 0;
+  width: 30%;
+  /*
 		&:first-child{
 			border-top: none;
 			padding-top: 0px;
 			margin-top: 0px;
 		}*/ }
-    .posts .post div.has-thumbnail img {
-      border-radius: 10px;
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 20px; }
-    .posts .post h2 a {
-      transition: 0.3s;
-      color: #000000; }
-      .posts .post h2 a:hover {
-        color: #D49D1C;
-        text-decoration: none; }
-    .posts .post .post-meta {
-      margin-top: 20px;
-      flex-direction: column; }
-      .posts .post .post-meta .post-main-link {
-        margin-bottom: 10px; }
-  .posts .post-main-link h2 {
+  .posts .post div.has-thumbnail img, .postsList .post div.has-thumbnail img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px; }
+  .posts .post h2 a, .postsList .post h2 a {
     transition: 0.3s;
     color: #000000; }
-  .posts .post-main-link p {
-    transition: 0.3s;
-    color: #000000; }
-  .posts .post-main-link img {
-    opacity: 1;
-    transition: 0.3s; }
-  .posts .post-main-link:hover {
-    text-decoration: none; }
-    .posts .post-main-link:hover h2 {
-      text-decoration: none;
-      color: #ccaa00; }
-    .posts .post-main-link:hover p {
+    .posts .post h2 a:hover, .postsList .post h2 a:hover {
+      color: #D49D1C;
       text-decoration: none; }
-    .posts .post-main-link:hover img {
-      opacity: 0.75; }
-    .posts .post-main-link:hover .postCategories {
-      color: #906b13; }
+  .posts .post .post-meta, .postsList .post .post-meta {
+    margin-top: 20px;
+    flex-direction: column; }
+    .posts .post .post-meta .post-main-link, .postsList .post .post-meta .post-main-link {
+      margin-bottom: 10px; }
+
+.posts .post-main-link h2, .postsList .post-main-link h2 {
+  transition: 0.3s;
+  color: #000000; }
+
+.posts .post-main-link p, .postsList .post-main-link p {
+  transition: 0.3s;
+  color: #000000; }
+
+.posts .post-main-link img, .postsList .post-main-link img {
+  opacity: 1;
+  transition: 0.3s; }
+
+.posts .post-main-link .postCategories, .postsList .post-main-link .postCategories {
+  font-size: 12px; }
+
+.posts .post-main-link:hover, .postsList .post-main-link:hover {
+  text-decoration: none; }
+  .posts .post-main-link:hover h2, .postsList .post-main-link:hover h2 {
+    text-decoration: none;
+    color: #ccaa00; }
+  .posts .post-main-link:hover p, .postsList .post-main-link:hover p {
+    text-decoration: none; }
+  .posts .post-main-link:hover img, .postsList .post-main-link:hover img {
+    opacity: 0.75; }
+  .posts .post-main-link:hover .postCategories, .postsList .post-main-link:hover .postCategories {
+    color: #906b13; }
 
 .relatedPosts {
   margin-top: 50px; }

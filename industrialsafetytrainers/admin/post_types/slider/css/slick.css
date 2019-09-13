@@ -1,5 +1,5 @@
 /* Slider */
-.slick-slider
+body.home .slick-slider
 {
     position: relative;
     display: block;
@@ -17,7 +17,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.slick-list
+body.home .slick-list
 {
     position: relative;
 
@@ -27,18 +27,18 @@
     margin: 0;
     padding: 0;
 }
-.slick-list:focus
+body.home .slick-list:focus
 {
     outline: none;
 }
-.slick-list.dragging
+body.home .slick-list.dragging
 {
     cursor: pointer;
     cursor: hand;
 }
 
-.slick-slider .slick-track,
-.slick-slider .slick-list
+body.home .slick-slider .slick-track,
+body.home .slick-slider .slick-list
 {
     -webkit-transform: translate3d(0, 0, 0);
        -moz-transform: translate3d(0, 0, 0);
@@ -47,7 +47,7 @@
             transform: translate3d(0, 0, 0);
 }
 
-.slick-track
+body.home .slick-track
 {
     position: relative;
     top: 0;
@@ -55,23 +55,23 @@
 
     display: block;
 }
-.slick-track:before,
-.slick-track:after
+body.home .slick-track:before,
+body.home .slick-track:after
 {
     display: table;
 
     content: '';
 }
-.slick-track:after
+body.home .slick-track:after
 {
     clear: both;
 }
-.slick-loading .slick-track
+body.home .slick-loading .slick-track
 {
     visibility: hidden;
 }
 
-.slick-slide
+body.home .slick-slide
 {
     display: none;
     float: left;
@@ -79,31 +79,40 @@
     height: 100%;
     min-height: 1px;
 }
-[dir='rtl'] .slick-slide
+.relatedPostsSlider .slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+.relatedPostsSlider .slick-slide > a{
+    margin:20px;
+    display: block;
+}
+body.home [dir='rtl'] .slick-slide
 {
     float: right;
 }
-.slick-slide img
+body.home .slick-slide img
 {
     display: block;
 }
-.slick-slide.slick-loading img
+body.home .slick-slide.slick-loading img
 {
     display: none;
 }
-.slick-slide.dragging img
+body.home .slick-slide.dragging img
 {
     pointer-events: none;
 }
-.slick-initialized .slick-slide
+body.home .slick-initialized .slick-slide
 {
     display: block;
 }
-.slick-loading .slick-slide
+body.home .slick-loading .slick-slide
 {
     visibility: hidden;
 }
-.slick-vertical .slick-slide
+body.home .slick-vertical .slick-slide
 {
     display: block;
 
@@ -111,7 +120,7 @@
 
     border: 1px solid transparent;
 }
-.slick-arrow.slick-hidden {
+body.home .slick-arrow.slick-hidden {
     display: none;
 }
 

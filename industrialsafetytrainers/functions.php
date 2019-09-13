@@ -14,13 +14,19 @@ function register_site_menus(){
 
 
 
-
-
-
 // ENQUEUE STYLES AND SCRIPTS
 function industrial_safety_trainers_scripts() {
+
     wp_enqueue_style( 'industrial_safety_trainers_style', get_template_directory_uri().'/src/css/main.css',array('bootstrap') );
     wp_enqueue_script( 'industrial_safety_trainers_scripts', get_template_directory_uri().'/src/js/scripts.js',array('jquery'),false,true);
+
+    wp_register_style( 'slick-style', get_template_directory_uri().'/admin/post_types/slider/css/slick.css');
+    wp_register_script( 'slick-script', get_template_directory_uri().'/admin/post_types/slider/js/slick.min.js',array('jquery'));
+    wp_register_script( 'slick-slider', get_template_directory_uri().'/admin/post_types/slider/js/slick-slider.js',array('slick-script'));
+
+    wp_enqueue_style( 'slick-style');
+    wp_enqueue_script( 'slick-script');
+    wp_enqueue_script( 'slick-slider');
 }
 add_action( 'wp_enqueue_scripts', 'industrial_safety_trainers_scripts' );
 
@@ -212,6 +218,12 @@ function hide_shipping_when_class_is_in_cart_new( $rates, $package ) {
 }
 add_filter( 'woocommerce_package_rates_new', 'hide_shipping_when_class_is_in_cart_new', 10, 2 );
 **************/
+
+
+function mytheme_add_woocommerce_support() {
+  add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
 
 //// TESTIMONIALS

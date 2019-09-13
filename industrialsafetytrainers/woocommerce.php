@@ -2,7 +2,13 @@
 
 	<main role="main">
 
-
+		<div class="container" style="padding-bottom: 0px;">
+			<div class="row">
+				<div class="col-12">
+					<?php woocommerce_breadcrumb(array('home'=>false)); ?>
+				</div>
+			</div>
+		</div>
 
 		<?php
 		global $category_help_url, $wp_query;
