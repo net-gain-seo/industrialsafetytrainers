@@ -1,11 +1,15 @@
 @media (max-width: $screen-lg-max) {
 
-	body{
+	body:not(.home){
 		>main{
 			padding-top: 255px !important;
 		}
 	}
-
+	body.home{
+		> main{
+			padding-top:0px !important;
+		}
+	}
 }
 
 @media (max-width: $screen-md-max) {
@@ -15,8 +19,17 @@
   .sidebar{
       display: none;
   }
+
 }
 @media (max-width: $screen-sm-max) {
+
+	.companyHighlightsSection{
+		flex-direction: column;
+		> div{
+			margin-bottom: 20px;
+		}
+	}
+
   #post-18 .btn{
       width: 100%;
       display: block;

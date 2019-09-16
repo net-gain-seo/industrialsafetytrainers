@@ -27,7 +27,7 @@ function safety_training_courses($atts,$content){
 
     $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
-    //switch_to_blog($blog_id);
+    switch_to_blog(1);
 
     $return = '';
     $taxonomy     = 'product_cat';
@@ -194,9 +194,9 @@ function safety_training_courses($atts,$content){
                         }
                         $return .= '<div>';
                             $return .= '<h3>'.$product->post_title.'</h3>';
-                            $return .= '<p>'.strip_tags(substr($product->post_excerpt,0,150)).'... <a href="'.get_site_url($current).'/safety-training-course/?course='.$product->post_name.'">Read More>></a></p>';
-                            $return .= '<a href="'.get_site_url($current).'/safety-training-course/?course='.$product->post_name.'" class="btn btn-primary">View Details</a>';
-                            if($_public_course == 'yes'){ $return .= '<a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-green ml-2">View Public Dates</a>'; }
+                            $return .= '<p>'.strip_tags(substr($product->post_excerpt,0,150)).'... <a href="'.get_site_url(1).'/safety-training-course/?course='.$product->post_name.'">Read More>></a></p>';
+                            $return .= '<a href="'.get_site_url(1).'/safety-training-course/?course='.$product->post_name.'" class="btn btn-primary">View Details</a>';
+                            if($_public_course == 'yes'){ $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-green ml-2">View Public Dates</a>'; }
                         $return .= '</div>';
 
                         $return .= '<div class="courseType">';
@@ -231,7 +231,7 @@ function safety_training_courses($atts,$content){
     $return .= '</div>';
 
 
-    //switch_to_blog($current);
+    switch_to_blog($current);
 
 
     //Scripts

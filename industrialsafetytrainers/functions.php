@@ -226,6 +226,83 @@ function mytheme_add_woocommerce_support() {
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
 
+
+
+
+
+
+
+function recent_posts_shortcode(){
+  $current = get_current_blog_id();
+  switch_to_blog(1);
+  $return = '';
+  $return .= '<div class="container-fluid  grey-background download-section">';
+      $return .= '<div class="container " style="padding-bottom: 0">';
+        $return .= '<div class="row">';
+          $return .= '<div class="col-12">';
+            $return .= '<h2>Recent Posts</h2>';
+          $return .= '</div>';
+        $return .= '</div>';
+        $return .= '<div class="row ">';
+          $return .= '<div class="col-12 blog-container">';
+            $return .= '<section class=" postsList relatedPostsSlider" >';
+              
+              $related = new WP_Query(
+                  array(
+                      'category__in'   => wp_get_post_categories( $post->ID ),
+                      'posts_per_page' => 6,
+                      'post__not_in'   => array( $post->ID )
+                  )
+              );
+            
+
+              if( $related->have_posts() ) { 
+                  while( $related->have_posts() ) { 
+                  $related->the_post(); 
+
+                $return .= '<article class="post" style="padding-top: 0px;">';
+                  $return .= '<a class="post-main-link" href="'.get_permalink().'">';
+                    $return .= '<div class="has-thumbnail">';
+                      $return .= '<div class="post-meta">';
+                        $return .= '<span style="font-weight: 600; text-transform: uppercase;" class="postCategories">';
+                          foreach((get_the_category()) as $key => $category){
+                            if($key == 0){
+                              $return .= $category->name;
+                            }else{
+                              $return .= ', '.$category->name;
+                            }
+                            }
+                        $return .= '</span>';
+                      $return .= '</div>';
+                      $return .= '<h2>'.get_the_title().'</h2>';
+                        if(has_post_thumbnail()){
+                          $return .= get_the_post_thumbnail();
+                        }
+
+                      $return .= '<span style="margin-right: 10px; float: left; font-weight: bold; line-height: 1.8">'.get_the_date('M d, Y').' - </span>';
+                      $return .= '<p>'.get_the_excerpt().'</p>';
+                      
+                    $return .= '</div>';
+                  $return .= '</a>';
+                $return .= '</article>';
+                }
+                  wp_reset_postdata();
+              }
+          $return .= '</section>';
+        $return .= '</div>';
+      $return .= '</div>';
+    $return .= '</div>';
+    $return .= '</div>';
+
+    switch_to_blog($current);
+    return $return;
+}
+add_shortcode('recent_posts','recent_posts_shortcode');
+
+
+
+
+
 //// TESTIMONIALS
 include(TEMPLATEPATH.'/admin/post_types/testimonials/index.php');
 include(TEMPLATEPATH.'/admin/post_types/in-the-community/index.php');

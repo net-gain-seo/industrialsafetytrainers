@@ -10,3 +10,77 @@ body{
 		}
 	}
 }
+
+body.home header{
+	position: relative;
+}
+body.home > main{
+	padding-top: 0px;
+}
+
+#landingPageHeader{
+    background: url(../../assets/images/landingPageBgOverlay.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 50px;
+    color: #ffffff;
+
+    h1{
+    	font-weight: bold;
+    	font-size: 40px
+    }
+
+    h2{
+    	font-weight: 100;
+    	font-size: 30px;
+    	margin-bottom: 60px;
+    }
+    a.btn{
+        font-size: 30px;
+	    color: #000;
+	    border-radius: 20px;
+	    padding: 10px 40px;
+    }
+}
+
+.divisionOfSection{
+	    display: flex;
+	    align-items: center;
+	    width: 430px;
+	    margin: 50px auto;
+	> span{
+		margin-right: 20px;
+	    font-size: 30px;
+	    font-weight: 100;
+	}
+}
+
+.companyHighlightsSection{
+	margin-top: 50px;
+	display: flex;
+	justify-content: space-around;
+	> div{
+		display: flex;
+		flex-direction: column;
+
+		> span{
+			font-weight: 100;
+			font-size: 30px;
+		}
+		> span + span{
+			font-size: 40px;
+			color: #F6921E;
+			display: block;
+			font-weight: bold;
+		}
+		> span + span + span{
+			color: #ffffff;
+			font-weight: 100;
+			font-size: 30px;
+			line-height: 1
+		}
+	}
+}

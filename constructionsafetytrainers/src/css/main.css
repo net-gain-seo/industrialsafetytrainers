@@ -6,6 +6,65 @@ a {
 body.sticky-header header #logo img {
   width: 60px; }
 
+body.home header {
+  position: relative; }
+
+body.home > main {
+  padding-top: 0px; }
+
+#landingPageHeader {
+  background: url(../../assets/images/landingPageBgOverlay.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 50px;
+  color: #ffffff; }
+  #landingPageHeader h1 {
+    font-weight: bold;
+    font-size: 40px; }
+  #landingPageHeader h2 {
+    font-weight: 100;
+    font-size: 30px;
+    margin-bottom: 60px; }
+  #landingPageHeader a.btn {
+    font-size: 30px;
+    color: #000;
+    border-radius: 20px;
+    padding: 10px 40px; }
+
+.divisionOfSection {
+  display: flex;
+  align-items: center;
+  width: 430px;
+  margin: 50px auto; }
+  .divisionOfSection > span {
+    margin-right: 20px;
+    font-size: 30px;
+    font-weight: 100; }
+
+.companyHighlightsSection {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around; }
+  .companyHighlightsSection > div {
+    display: flex;
+    flex-direction: column; }
+    .companyHighlightsSection > div > span {
+      font-weight: 100;
+      font-size: 30px; }
+    .companyHighlightsSection > div > span + span {
+      font-size: 40px;
+      color: #F6921E;
+      display: block;
+      font-weight: bold; }
+    .companyHighlightsSection > div > span + span + span {
+      color: #ffffff;
+      font-weight: 100;
+      font-size: 30px;
+      line-height: 1; }
+
 @media (min-width: 1200px) {
   #mainMenu > #menu-main-menu > li:after {
     background: #d87809; } }
@@ -84,8 +143,10 @@ form > div.form-header {
   color: #F6921E; }
 
 @media (max-width: 1199px) {
-  body > main {
-    padding-top: 255px !important; } }
+  body:not(.home) > main {
+    padding-top: 255px !important; }
+  body.home > main {
+    padding-top: 0px !important; } }
 
 @media (max-width: 991px) {
   .footer-copy {
@@ -94,6 +155,10 @@ form > div.form-header {
     display: none; } }
 
 @media (max-width: 767px) {
+  .companyHighlightsSection {
+    flex-direction: column; }
+    .companyHighlightsSection > div {
+      margin-bottom: 20px; }
   #post-18 .btn {
     width: 100%;
     display: block;

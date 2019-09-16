@@ -135,8 +135,10 @@
 		padding: 20px;
 		display: block !important;
 	}
-	.slick-track{
-		background: rgba(255,213,0,0.9);
+	.slick-slider:not(.relatedPostsSlider){
+		.slick-track{
+			background: rgba(255,213,0,0.9);
+		}
 	}
 }
 @media (max-width: $screen-sm-max) {

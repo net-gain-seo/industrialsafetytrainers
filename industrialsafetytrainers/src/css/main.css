@@ -414,7 +414,7 @@ body {
   .banner-section .banner-content .fifty-percent-section {
     padding: 20px;
     display: block !important; }
-  .slick-track {
+  .slick-slider:not(.relatedPostsSlider) .slick-track {
     background: rgba(255, 213, 0, 0.9); } }
 
 .blog-container {
@@ -1145,7 +1145,23 @@ input[name="course_qty"] {
   body > main {
     padding-top: 223px !important; }
   .up-sells.upsells.products li .add_to_cart_button, .related.products li .add_to_cart_button {
-    width: 120px; } }
+    width: 120px; }
+  .postsList {
+    max-width: 100%;
+    width: 100%; }
+  .courseBlock {
+    flex-direction: column; }
+    .courseBlock > div {
+      border-left: none !important; }
+    .courseBlock > img {
+      margin: 0 auto 20px auto; }
+    .courseBlock > img + div {
+      flex-basis: initial !important;
+      margin-bottom: 20px; }
+    .courseBlock .courseType {
+      border-left: none; }
+    .courseBlock .coursePrice p {
+      text-align: left !important; } }
 
 @media (min-width: 1199px) {
   .hide-screen-lg-min {
@@ -1167,7 +1183,9 @@ input[name="course_qty"] {
     width: 100%; }
   .course-category-details .course-register-links * {
     margin: 5px 0px !important;
-    /*width: 100%;*/ } }
+    /*width: 100%;*/ }
+  .category-background-course-dates {
+    display: none; } }
 
 @media (max-width: 767px) {
   .hide-screen-sm-max {

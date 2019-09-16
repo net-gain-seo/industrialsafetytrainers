@@ -18,11 +18,40 @@
 	.up-sells.upsells.products li .add_to_cart_button, .related.products li .add_to_cart_button{
 		width: 120px;
 	}
+	.postsList{
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.courseBlock{
+		flex-direction:column;
+		> div{
+			border-left: none !important;
+		}
+		> img{
+			margin: 0 auto 20px auto;
+		}
+		> img + div{
+			flex-basis: initial !important;
+			margin-bottom: 20px;
+		}
+		.courseType{
+			border-left: none;
+		}
+		.coursePrice{
+			p{
+				text-align: left !important;
+			}
+		}
+	}
+
 }
 @media (min-width: $screen-lg-max) {
 	.hide-screen-lg-min{
 		display: none !important;
 	}
+
+
 
 }
 
@@ -54,7 +83,9 @@
 	    /*width: 100%;*/
 	}
 
-
+	.category-background-course-dates{
+	  	display: none;
+	  }
 
 }
 

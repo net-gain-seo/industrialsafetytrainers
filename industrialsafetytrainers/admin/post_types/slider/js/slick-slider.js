@@ -12,6 +12,15 @@ jQuery(document).ready(function(){
 	jQuery('.relatedPostsSlider').slick({
 		infinite: true,
 	  slidesToShow: 3,
-	  slidesToScroll: 1
+	  slidesToScroll: 1,
+	  responsive: [
+	    {
+	      breakpoint: 992,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1
+	      }
+	    }
+	  ]
 	});
 });
