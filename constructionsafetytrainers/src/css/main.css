@@ -37,7 +37,7 @@ body.home > main {
 .divisionOfSection {
   display: flex;
   align-items: center;
-  width: 430px;
+  width: 360px;
   margin: 50px auto; }
   .divisionOfSection > span {
     margin-right: 20px;
@@ -295,5 +295,31 @@ form > div.form-header {
 
 .category-list > li > ul > li > a:hover, .category-list > li > ul > li > a.active {
   background-color: #F6921E; }
+
+.greyBoxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .greyBoxes .greyBox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  .greyBoxes .greyBoxMap {
+    width: 100%; }
+
+img.aligncenter {
+  margin: 0 auto;
+  display: block; }
+
+.fullWidthContainer {
+  padding: 50px; }
+  .fullWidthContainer h2 {
+    margin-bottom: 5px; }
 
 /*# sourceMappingURL=main.css.map */

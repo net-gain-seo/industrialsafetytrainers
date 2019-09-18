@@ -13,17 +13,17 @@
 <body <?php body_class(); ?>>
 <header id="landingPageHeader">
 	
-	<img  src="https://constructionsafetytrainers.ca/wp-content/themes/constructionsafetytrainers/assets/images/construction-safety-trainers-logo.png" />
+	<img style="width: 300px;" src="http://209.126.119.193/~thesafetybusdev/constructionsafetytrainers/wp-content/uploads/sites/2/2019/09/CST.png" />
 
 	<div class="divisionOfSection">
 		<span>A division of</span>
-		<img src="https://thesafetybus.com/wp-content/themes/industrialsafetytrainers/assets/images/industrial-safety-trainers-logo-white.png" />
+		<img style="width: 170px" src="http://209.126.119.193/~thesafetybusdev/constructionsafetytrainers/wp-content/uploads/sites/2/2019/09/IST-logo-white-2019-2.png" />
 	</div>
 
 	<h1>SAFETY TRAINING FOR THE CONSTRUCTION SECTOR</h1>
 	<h2>Changing the way workers look at safety in the workplace</h2>
 
-	<a href="#" class="btn btn-primary">Find a Course</a>
+	<a href="#coursesOffered" class="btn btn-primary">Find a Course</a>
 
 	<div class="companyHighlightsSection">
 		<div>
