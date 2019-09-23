@@ -37,7 +37,9 @@ button{
 img{
 	max-width: 100%;
 	&.aligncenter{
-		float:none;
+	    float: inherit;
+	    margin: 0 auto;
+	    display: block;
 	}
 	&.alignleft{
 		float: left;

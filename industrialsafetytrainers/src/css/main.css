@@ -1295,7 +1295,9 @@ button {
 img {
   max-width: 100%; }
   img.aligncenter {
-    float: none; }
+    float: inherit;
+    margin: 0 auto;
+    display: block; }
   img.alignleft {
     float: left; }
   img.alignright {
