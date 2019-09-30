@@ -659,7 +659,10 @@ function display_product_meta_program_details(){
 function update_product_meta_box($post_id, $post ){
     if ( $post->post_type == 'product' ) {
         if (isset($_POST['product_flag'])) {
-
+        	//print "<pre>";
+        	//print_r($_POST);
+        	//print "</pre>";
+        	//exit;
             if ( isset( $_POST['course_specs'] ) && $_POST['course_specs'] != '' ) {
                 update_post_meta( $post_id, 'course_specs', $_POST['course_specs'] );
             }else{
