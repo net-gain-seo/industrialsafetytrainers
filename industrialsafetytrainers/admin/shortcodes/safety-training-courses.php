@@ -69,7 +69,7 @@ function safety_training_courses($atts,$content){
                         }
                         foreach ($all_categories as $cat) {
                             $category_ids_array[] = $cat->term_id;
-                            $return .= '<li '.(( isset($_GET['category']) && $cat->slug == $_GET['category']) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/'.$urlPart.'/?category='.$cat->slug.'">'.$cat->name.'</a></li>';
+                            $return .= '<li '.(( isset($_GET['category']) && $cat->slug == $_GET['category']) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/'.$urlPart.'/?category='.$cat->slug.'#coursesOffered">'.$cat->name.'</a></li>';
 
                             if(isset($_GET['category']) && $_GET['category'] == $cat->slug) {
                                 $catName = $cat->name;
