@@ -5,6 +5,9 @@ add_action('wp_ajax_course_filter', 'course_filter');
 add_action('wp_ajax_nopriv_course_filter', 'course_filter');
 
 function course_filter(){
+    $current = get_current_blog_id();
+    switch_to_blog(1);
+
     //Get wordpress
     global $wpdb;
     $wpdb->show_errors();
@@ -173,17 +176,24 @@ function course_filter(){
                 $return .= '<td>'.$location_term->name.' - '.$address_term->name.'</td>';
                 $return .= '<td>'.date('M j, Y',strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true ))).'</td>';
                 $return .= '<td>'.$time_term->name.'</td>';
-                $return .= '<td>'.$variation_price.'</td>';
+                if($current === 1){
+                    $return .= '<td>'.$variation_price.'</td>';
+                }
                 $return .= '<td>'.$variation_description.'</td>';
-                $return .= '<td><input type="number" min="0" max="'.$variation_stock.'" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
-                //$return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&quantity=0" target="_blank">Purchase</a></td>';
-                $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/cart/?add-to-cart='.$parent.'&variation_id='.$variation_ID.'&attribute_pa_address='.$address_term->name.'&attribute_pa_location='.$location_term->name.'&attribute_pa_date='.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'&attribute_pa_time='.$time_term->name.'&quantity=0" target="_blank">Purchase</a></td>';
-
+                if($current === 1){
+                    $return .= '<td><input type="number" min="0" max="'.$variation_stock.'" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
+                    //$return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&quantity=0" target="_blank">Purchase</a></td>';
+                    $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/cart/?add-to-cart='.$parent.'&variation_id='.$variation_ID.'&attribute_pa_address='.$address_term->name.'&attribute_pa_location='.$location_term->name.'&attribute_pa_date='.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'&attribute_pa_time='.$time_term->name.'&quantity=0" target="_blank">Purchase</a></td>';
+                }else{
+                    switch_to_blog($current);
+                    $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/safety-training-course-registration?variation='.$variation_ID.'" target="_blank">Register</a></td>';
+                    switch_to_blog(1);
+                }
             $return .= '</tr>';
         }
     }
 
-    //switch_to_blog(1);
+    switch_to_blog($current);
 
     echo json_encode(array("data"=>$return,"success"=>"success"));
     die;

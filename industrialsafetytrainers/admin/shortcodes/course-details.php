@@ -14,7 +14,7 @@ function course_details($atts){
 
     $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
-    //switch_to_blog($blog_id);
+    switch_to_blog(1);
 
 
 
@@ -173,7 +173,7 @@ function course_details($atts){
                     }
                 $return .= '</div>';
 
-                if($_private_course == 'yes'){
+                if($_private_course == 'yes' && $current != 4){
                     $return .= '<span class="course-span book-on-site"><button type="button" class="btn btn-primary " role="button" data-toggle="modal" data-target="#requestInformationModal">Book On-Site</button></span>';
                 }
                 if($_public_course == 'yes'){
@@ -276,7 +276,7 @@ function course_details($atts){
 
 
 
-    //switch_to_blog($current);
+    switch_to_blog($current);
     return $return;
 }
 
@@ -294,7 +294,7 @@ function course_public_dates(){
 
     $current = get_current_blog_id();
     $currentBlogUrl = get_bloginfo('url');
-    //switch_to_blog($blog_id);
+    switch_to_blog(1);
 
 
 
@@ -387,9 +387,13 @@ function course_public_dates(){
                                     $return .= '<th>Location</th>';
                                     $return .= '<th class="sort-date" style="min-width:150px">Date ◆</th>';
                                     $return .= '<th>Time</th>';
-                                    $return .= '<th>Price</th>';
+                                    if($current === 1){
+                                        $return .= '<th>Price</th>';
+                                    }
                                     $return .= '<th>Notes</th>';
-                                    $return .= '<th>Quantity</th>';
+                                    if($current === 1){
+                                        $return .= '<th>Quantity</th>';
+                                    }
                                     $return .= '<th>Purchase</th>';
                                 $return .= '</tr>';
                             $return .= '</thead>';
@@ -430,10 +434,18 @@ function course_public_dates(){
                                             $return .= '<td>'.$location_term->name.' - '.$address_term->name.'</td>';
                                             $return .= '<td>'.date('M j, Y',strtotime(get_post_meta( $variation_ID, 'attribute_pa_date', true ))).'</td>';
                                             $return .= '<td>'.$time_term->name.'</td>';
-                                            $return .= '<td>'.$variation_price.'</td>';
+                                            if($current === 1){
+                                                $return .= '<td>'.$variation_price.'</td>';
+                                            }
                                             $return .= '<td>'.$variation_description.'</td>';
-                                            $return .= '<td><input type="number" min="0" max="'.$variation_stock.'" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
-                                            $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/cart/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&attribute_pa_address='.$address_term->name.'&attribute_pa_location='.$location_term->name.'&attribute_pa_date='.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'&attribute_pa_time='.$time_term->name.'&quantity=0" target="_blank">Purchase</a></td>';
+                                            if($current === 1){
+                                                $return .= '<td><input type="number" min="0" max="'.$variation_stock.'" placeholder="0" name="course_qty" data-id="'.$variation_ID.'"/></td>';
+                                                $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/cart/?add-to-cart='.$current_product[0]->ID.'&variation_id='.$variation_ID.'&attribute_pa_address='.$address_term->name.'&attribute_pa_location='.$location_term->name.'&attribute_pa_date='.get_post_meta( $variation_ID, 'attribute_pa_date', true ).'&attribute_pa_time='.$time_term->name.'&quantity=0" target="_blank">Purchase</a></td>';
+                                            }else{
+                                                switch_to_blog($current);
+                                                $return .= '<td><a class="'.$variation_ID.'_url btn btn-primary" href="'.get_bloginfo('url').'/safety-training-course-registration?variation='.$variation_ID.'" target="_blank">Register</a></td>';
+                                                switch_to_blog(1);
+                                            }
                                         $return .= '</tr>';
                                     }
                                 }
@@ -453,7 +465,7 @@ function course_public_dates(){
 
 
 
-    //switch_to_blog($current);
+    switch_to_blog($current);
     return $return;
 }
 add_shortcode('course_public_dates','course_public_dates');
