@@ -6,7 +6,11 @@ Template: industrialsafetytrainers
 @import '../src/main.css';
 
 body > main {
-    padding-top: 239px !important;
+    padding-top: 229px !important;
+}
+
+body.home > main{
+    padding-top: 205px !important;
 }
 
 .registerForm{
@@ -27,4 +31,25 @@ body > main {
     padding: 20px;
     background: #ffffff;
     border-radius: 20px;
+}
+
+
+.page-title-section{
+    margin-bottom: 0px !important;
+}
+
+.category-background{
+    top: -40px !important;
+}
+
+.course-detail-section{
+    width: 70%;
+}
+
+.card-block p{
+    margin-bottom: 5px;
+}
+
+.course-container{
+    padding: 20px;
 }

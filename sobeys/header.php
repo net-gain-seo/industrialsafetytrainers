@@ -16,28 +16,15 @@
 
 		<?php
 
-        
-        echo '<a id="sobeysLogo" href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/sobeys-logo.jpg" style="border-right: 1px solid #58595B;padding-right:20px;margin-right:30px;" /></a>';
+		echo '<a id="" href="'.get_bloginfo('url').'" style="margin-right:10px;"><img src="'.get_template_directory_uri().'/assets/images/industrial-safety-trainers-logo.png" /></a>';
 
-        echo '<a id="" href="'.get_bloginfo('url').'" style="margin-right:30px;"><img src="'.get_template_directory_uri().'/assets/images/industrial-safety-trainers-logo.png" /></a>';
+        echo '<a href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/sobeys-logo.jpg" /></a>';
+        echo '<a href="'.get_bloginfo('url').'" style="align-self:center;margin-right:10px;"><img src="'.get_stylesheet_directory_uri().'/assets/images/freshco-logo.jpg" /></a>';
+        echo '<a href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/Foodland-logo.jpg" /></a>';
 
 		?>
 
-        <div>
-			<div class="flex-column">
-				<div class="heading-qualifications hide-sticky-header" style="flex-direction: column; justify-content: flex-start;">
-					<div class="heading-qualification hide-screen-md-max" style="border:none">
-						<span>Chief Prevention Officer</span>
-						<span>Accredited Training Provider</span>
-					</div>
-					<div class="heading-qualification hide-screen-md-max">
-						<span>TSSA</span>
-						<span>Accredited Training Provider</span>
-					</div>
-				</div>
-
-			</div>
-		</div>
+        
 
 		
 	</section>
