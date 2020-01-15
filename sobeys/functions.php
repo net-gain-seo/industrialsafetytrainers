@@ -225,7 +225,7 @@ class VariationInformationRegistration
         $message .= '<strong>Maximun Qty: </strong>' . $this->max . '</p>';
 
         $headers = array('Content-Type: text/html; charset=UTF-8');
-        wp_mail('andrewm@netgainseo.com', 'Sobeys Registration', $message, $headers);
+        wp_mail('cheryl@istcanada.ca, tammy@istcanada.ca, jiun@istcanada.ca, andrewm@netgainseo.com', 'Sobeys Registration', $message, $headers);
 
         $this->formSubmitted = true;
 

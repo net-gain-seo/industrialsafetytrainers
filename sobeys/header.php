@@ -18,9 +18,9 @@
 
 		echo '<a id="" href="'.get_bloginfo('url').'" style="margin-right:10px;"><img src="'.get_template_directory_uri().'/assets/images/industrial-safety-trainers-logo.png" /></a>';
 
-        echo '<a href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/sobeys-logo.jpg" /></a>';
-        echo '<a href="'.get_bloginfo('url').'" style="align-self:center;margin-right:10px;"><img src="'.get_stylesheet_directory_uri().'/assets/images/freshco-logo.jpg" /></a>';
-        echo '<a href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/Foodland-logo.jpg" /></a>';
+        echo '<a href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/sobeys-logo.jpg" style="height:50px;" /></a>';
+        echo '<a href="'.get_bloginfo('url').'" style="align-self:center;margin-right:10px;"><img src="'.get_stylesheet_directory_uri().'/assets/images/freshco-logo.jpg" style="height:50px;" /></a>';
+        echo '<a href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/Foodland-logo.jpg" style="height:50px;" /></a>';
 
 		?>
 
