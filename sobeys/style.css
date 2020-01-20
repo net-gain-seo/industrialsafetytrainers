@@ -53,3 +53,14 @@ body.home > main{
 .course-container{
     padding: 20px;
 }
+
+.product-boxes.product-boxes.product-boxes-home{
+    justify-content: flex-start !important;
+}
+
+.card-group.course-specs h5.bg-blue {
+    background: #00b0f0;
+}
+.card-group .card:nth-child(4) {
+    background: #ececec;
+}
