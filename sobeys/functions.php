@@ -36,7 +36,7 @@ function course_registration_form()
     if ($productVariation->formSubmitted) {
         $return .= '<div class="row">';
         $return .= '<div class="col-12">';
-        $return .= '<p>Thank You! Some one will be in contact with you to confirm your registration.</p>';
+        $return .= '<p>Thank you for your registration! Your Account Manager will confirm this registration shortly. Keep an eye out for her email!</p>';
         $return .= '</div>';
         $return .= '</div>';
         return $return;

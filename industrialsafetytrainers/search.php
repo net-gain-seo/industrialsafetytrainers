@@ -20,7 +20,7 @@
 				<?php
 					echo '<h2>Blog Posts</h2>';
 					if (have_posts()): while (have_posts()) : the_post(); ?>
-						<article class="post d-flex">
+						<article class="post d-flex" style="margin-bottom:20px;">
 							<div>
 								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
@@ -36,78 +36,44 @@
 					<?php endif; ?>
 
 
-					<?php
-						echo '<br/><br/>';
-
-						echo '<h2>Supplies</h2>';
-						$current = get_current_blog_id();
-						//switch_to_blog(3);
-						//echo do_shortcode('[course_search search="'.$_GET['s'].'"]');
-						$posts = get_posts(
-							array(
-								'post_type' => 'product',
-								'numberposts' => - 1,
-								's' => get_search_query(),
-								'tax_query' => array(
-									[
-										'taxonomy' => 'product_cat',
-										'terms'		=> 17,18,
-										'operator'  => 'NOT IN'
-									]
-								)
-							)
-						);
-
-						echo '<div class="product-boxes in-sidebar">';
-							foreach($posts as $post){
-								echo '<div>';
-									echo get_the_post_thumbnail($post->ID);
-									echo '<div>';
-										echo '<h3>'.$post->post_title.'</h3>';
-										echo '<a class="btn btn-primary" href="'.$post->guid.'">View</a>';
-									echo '</div>';
-								echo '</div>';
-							}
-						echo '</div>';
-						//switch_to_blog($current);
-
-					?>
-
-
 			</aside>
-			<section class="posts">
-				<?php
-				$current = get_current_blog_id();
-				//switch_to_blog(3);
-				echo '<h2>Courses</h2>';
-				//echo do_shortcode('[course_search search="'.$_GET['s'].'"]');
-				$posts = get_posts(
-					array(
-						'post_type' => 'product',
-						'numberposts' => - 1,
-						's' => get_search_query(),
-						'tax_query' => array(
-							[
-								'taxonomy' => 'product_cat',
-								'terms'		=> 17,18
-							]
+			
+			<div>
+				<h2>Courses</h2>
+				<section class="posts">
+					<?php
+					$current = get_current_blog_id();
+					//switch_to_blog(3);
+					
+					//echo do_shortcode('[course_search search="'.$_GET['s'].'"]');
+					$posts = get_posts(
+						array(
+							'post_type' => 'product',
+							'numberposts' => - 1,
+							's' => get_search_query(),
+							'tax_query' => array(
+								[
+									'taxonomy' => 'product_cat',
+									'terms'		=> 30
+								]
+							)
 						)
-					)
-				);
-				//print_r($posts);
-				foreach($posts as $post){
-					//print_r($post);
-					echo '<article class="post d-flex">';
-						echo '<div>';
-							echo '<h2>'.$post->post_title.'</h2>';
-							//echo '<p>'.$post->post_excerpt.'</p>';
-							echo '<a class="btn btn-primary" href="'.$post->guid.'">More Information</a>';
-						echo '</div>';
-					echo '</article>';
-				}
-				//switch_to_blog($current);
-				?>
-			</section>
+					);
+					//print_r($posts);
+					foreach($posts as $post){
+						//print_r($post);
+						echo '<article class="post d-flex">';
+							echo '<div>';
+								echo '<h2>'.$post->post_title.'</h2>';
+								//echo '<p>'.$post->post_excerpt.'</p>';
+								echo '<a class="btn btn-primary" href="https://thesafetybus.com/safety-training-course/?course='.$post->post_name.'">More Information</a>';
+							echo '</div>';
+						echo '</article>';
+					}
+					//switch_to_blog($current);
+					?>
+				</section>
+			</div>
 		</div>
 
 

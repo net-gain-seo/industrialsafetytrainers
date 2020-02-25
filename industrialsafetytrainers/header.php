@@ -1,7 +1,7 @@
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
-<head>
-	<meta charset="<?php bloginfo('charset'); ?>">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
 	<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,6 +53,7 @@
 
 								<div class="btn-group">
 									<div class="btn-group">
+										<input type="hidden" class="type" name="post_type" value="post">
 										<input type="submit" class="btn btn-primary" value="GO!" />
 									</div>
 								</div>
@@ -62,7 +63,7 @@
 				</div>
 
 				<div class="header-call-to-action">
-					<span class="header-call-to-action-content hide-screen-md-max">Ontario's Leading Health & Safety Training Partner for Over 15 Years</span>
+					<span class="header-call-to-action-content hide-screen-md-max">Ontario's Leading Health & Safety Training Partner for Over 20 Years</span>
 					<div class="header-call-to-action-phone text-right">
 						<span class="hide-sticky-header hide-screen-lg-max">Book Your Safety Training</span>
 						<span><a href="tel:18002198660">1-800-219-8660</a></span>
