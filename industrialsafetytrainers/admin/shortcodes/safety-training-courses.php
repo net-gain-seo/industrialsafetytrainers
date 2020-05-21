@@ -67,6 +67,10 @@ function safety_training_courses($atts,$content){
                             $urlPart = 'on-site-courses';
                             $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/on-site-courses/">All Categories</a></li>';
                         }
+                        else if(strpos($_SERVER['REQUEST_URI'],'virtual-classroom') !== false) {
+                            $urlPart = 'virtual-classroom';
+                            $return .= '<li '.(( !isset($_GET['category']) ) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/virtual-classroom/?category='.$urlPart.'">All Categories</a></li>';
+                        }
                         foreach ($all_categories as $cat) {
                             $category_ids_array[] = $cat->term_id;
                             $return .= '<li '.(( isset($_GET['category']) && $cat->slug == $_GET['category']) ? 'class="active-category"':'').'><a href="'.get_site_url($current).'/'.$urlPart.'/?category='.$cat->slug.'#coursesOffered">'.$cat->name.'</a></li>';
@@ -188,21 +192,51 @@ function safety_training_courses($atts,$content){
                     $_public_course = get_post_meta($product->ID,'_public_course',true);
                     $_private_course = get_post_meta($product->ID,'_private_course',true);
                     $_online_course = get_post_meta($product->ID,'_online_course',true);
+                    $_virtual_course = get_post_meta($product->ID,'_virtual_course',true);
+
+                    $virtual_product_link = get_post_meta($product->ID,'virtual_product_link',true);
+                    $public_product_link = get_post_meta($product->ID,'public_product_link',true);
+
                     $return .= '<div class="courseBlock">';
                         if(has_post_thumbnail($product->ID)) {
                             $return .= get_the_post_thumbnail($product->ID);
                         }
                         $return .= '<div>';
                             $return .= '<h3>'.$product->post_title.'</h3>';
+
+                            $product_sub_heading =  get_post_meta( $product->ID, 'product_sub_heading', true );
+                            if($product_sub_heading != ''){
+                                $return .= '<h5>'.$product_sub_heading.'</h5>';    
+                            }
+
                             $return .= '<p>'.strip_tags(substr($product->post_excerpt,0,150)).'... <a href="'.get_site_url(1).'/safety-training-course/?course='.$product->post_name.'">Read More>></a></p>';
+                            
                             $return .= '<a href="'.get_site_url(1).'/safety-training-course/?course='.$product->post_name.'" class="btn btn-primary">View Details</a>';
-                            if($_public_course == 'yes'){ $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-green ml-2">View Public Dates</a>'; }
-                        $return .= '</div>';
+                            
+                            
+                            if($_public_course == 'yes'){ 
+                                $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-green ml-2">View Public Dates</a>'; 
+                            }
+
+                            if($_virtual_course == 'yes'){ 
+                                $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-blue ml-2">View Virtual Dates</a>'; 
+                            }
+
+                            if($virtual_product_link != ''){
+                                $return .= '<a href="'.get_site_url(1).'/safety-training-course/?course='.$virtual_product_link.'" class="btn btn-blue ml-2">Virtual Details</a>';
+                            }
+
+                            if($public_product_link != ''){
+                                $return .= '<a href="'.get_site_url(1).'/safety-training-course/?course='.$public_product_link.'" class="btn btn-green ml-2">Public Details</a>';
+                            }
+                       
+                            $return .= '</div>';
 
                         $return .= '<div class="courseType">';
-                            if($_public_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Classroom</span>'; }
+                            if($_public_course == 'yes' || $public_product_link != ''){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Classroom</span>'; }
                             if($_private_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> On-Site</span>'; }
                             if($_online_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Online</span>'; }
+                            if($_virtual_course == 'yes' || $virtual_product_link != ''){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Virtual</span>'; }
                         $return .= '</div>';
 
                         $return .= '<div class="coursePrice">';

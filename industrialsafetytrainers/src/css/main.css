@@ -1241,6 +1241,15 @@ input[name="course_qty"] {
     border-color: #FFD500;
     color: #000000; }
 
+.btn-blue {
+  background-color: #03B1FF;
+  border-color: #03B1FF;
+  color: #ffffff; }
+  .btn-blue:hover {
+    background: #0065B3;
+    border-color: #0065B3;
+    color: #ffffff; }
+
 .card {
   border: none; }
   .card .card-header {
@@ -1893,6 +1902,8 @@ a {
 .courseBlock {
   display: flex;
   margin-bottom: 25px; }
+  .courseBlock h3, .courseBlock h5 {
+    margin-bottom: 10px; }
   .courseBlock > img {
     max-width: 170px;
     height: 115px; }
@@ -2045,7 +2056,7 @@ span.course-span {
     margin-bottom: 10px; }
   span.course-span.book-classroom {
     background: #59af19;
-    margin-bottom: 20px; }
+    margin-bottom: 10px; }
     span.course-span.book-classroom:hover {
       background: #4e9916; }
   span.course-span * {

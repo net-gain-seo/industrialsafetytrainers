@@ -946,6 +946,10 @@ a{
 	display:flex;
 	margin-bottom:25px;
 
+	h3,h5{
+		margin-bottom: 10px;
+	}
+
 	> img{
 		max-width: 170px;
 		height: 115px;
@@ -1153,7 +1157,7 @@ span.course-span {
 	}
 	&.book-classroom {
 		background: #59af19;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 
 		&:hover {
 			background: darken(#59af19,5%);

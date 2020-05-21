@@ -302,6 +302,9 @@ function save_course_option_field( $product_id ) {
 	$is_private_course = isset( $_POST['_private_course'] ) ? 'yes' : 'no';
 	update_post_meta( $product_id, '_private_course', $is_private_course );
 
+	$is_virtual_course = isset( $_POST['_virtual_course'] ) ? 'yes' : 'no';
+	update_post_meta( $product_id, '_virtual_course', $is_virtual_course );
+
 
 	if(isset($_POST['_locations'])){
 
@@ -555,6 +558,14 @@ function add_course_product_options( $product_type_options ) {
 		'default'       => 'no'
 	);
 
+	$product_type_options['virtual_course'] = array(
+		'id'            => '_virtual_course',
+		'wrapper_class' => 'show_if_variable show_if_simple',
+		'label'         => __( 'Virtual Course', 'woocommerce' ),
+		'description'   => __( 'Courses allow you to specify location and dates.', 'woocommerce' ),
+		'default'       => 'no'
+	);
+
 	return $product_type_options;
 }
 add_filter( 'product_type_options', 'add_course_product_options' );
@@ -584,6 +595,11 @@ function product_add_meta_box() {
     add_meta_box( 'product_meta_box_additional_options',
         'Additional Options',
         'display_product_meta_additional_options',
+        'product'
+	);
+	add_meta_box( 'product_meta_box_dates_description',
+        'Dates Description',
+        'display_product_meta_box_dates_description',
         'product'
     );
 
@@ -625,6 +641,15 @@ function display_product_meta_box_cost_outline(){
 	echo '<input type="hidden" name="product_flag" value="true" />';
 }
 
+function display_product_meta_box_dates_description(){
+	global $post;
+
+	$dates_description =  get_post_meta( $post->ID, 'dates_description', true );
+	wp_editor($dates_description,'dates_description');
+
+	echo '<input type="hidden" name="product_flag" value="true" />';
+}
+
 function display_product_meta_additional_options(){
 	global $post;
 
@@ -637,6 +662,18 @@ function display_product_meta_additional_options(){
 	$demo_url =  get_post_meta( $post->ID, 'demo_url', true );
 	echo '<p>Demo URL: <input type="text" name="demo_url" value="'.$demo_url.'" /></p>';
 
+	$virtual_product_link =  get_post_meta( $post->ID, 'virtual_product_link', true );
+	echo '<p>Virtual Product Link: <input type="text" name="virtual_product_link" value="'.$virtual_product_link.'" /></p>';
+
+	$public_product_link =  get_post_meta( $post->ID, 'public_product_link', true );
+	echo '<p>Public Dates Link: <input type="text" name="public_product_link" value="'.$public_product_link.'" /></p>';
+
+	$product_sub_heading =  get_post_meta( $post->ID, 'product_sub_heading', true );
+	echo '<p>Sub Heading: <input type="text" name="product_sub_heading" value="'.$product_sub_heading.'" /></p>';
+/*
+	$view_details_override =  get_post_meta( $post->ID, 'view_details_override', true );
+	echo '<p>View Details Override: <input type="text" name="view_details_override" value="'.$view_details_override.'" /></p>';
+*/
 	echo '<input type="hidden" name="product_flag" value="true" />';
 }
 
@@ -679,6 +716,12 @@ function update_product_meta_box($post_id, $post ){
                 update_post_meta( $post_id, 'cost_outline', $_POST['cost_outline'] );
             }else{
                 update_post_meta( $post_id, 'cost_outline', '');
+			}
+			
+			if ( isset( $_POST['dates_description'] ) && $_POST['dates_description'] != '' ) {
+                update_post_meta( $post_id, 'dates_description', $_POST['dates_description'] );
+            }else{
+                update_post_meta( $post_id, 'dates_description', '');
             }
 
             if ( isset( $_POST['info_sheet'] ) && $_POST['info_sheet'] != '' ) {
@@ -715,7 +758,33 @@ function update_product_meta_box($post_id, $post ){
                 update_post_meta( $post_id, 'max_participants', $_POST['max_participants'] );
             }else{
                 update_post_meta( $post_id, 'max_participants', '');
-            }
+			}
+			
+
+			if ( isset( $_POST['virtual_product_link'] ) && $_POST['virtual_product_link'] != '' ) {
+                update_post_meta( $post_id, 'virtual_product_link', $_POST['virtual_product_link'] );
+            }else{
+                update_post_meta( $post_id, 'virtual_product_link', '');
+			}
+			
+			if ( isset( $_POST['public_product_link'] ) && $_POST['public_product_link'] != '' ) {
+                update_post_meta( $post_id, 'public_product_link', $_POST['public_product_link'] );
+            }else{
+                update_post_meta( $post_id, 'public_product_link', '');
+			}
+
+			if ( isset( $_POST['product_sub_heading'] ) && $_POST['product_sub_heading'] != '' ) {
+                update_post_meta( $post_id, 'product_sub_heading', $_POST['product_sub_heading'] );
+            }else{
+                update_post_meta( $post_id, 'product_sub_heading', '');
+			}
+
+			/*
+			if ( isset( $_POST['view_details_override'] ) && $_POST['view_details_override'] != '' ) {
+                update_post_meta( $post_id, 'view_details_override', $_POST['view_details_override'] );
+            }else{
+                update_post_meta( $post_id, 'view_details_override', '');
+            }*/
 
         }
     }

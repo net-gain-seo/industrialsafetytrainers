@@ -55,3 +55,15 @@
         color: #000000;
     }
 }
+
+.btn-blue {
+    background-color: #03B1FF;
+    border-color: #03B1FF;
+    color: #ffffff;
+
+    &:hover{
+        background: #0065B3;
+        border-color: #0065B3;
+        color: #ffffff;
+    }
+}

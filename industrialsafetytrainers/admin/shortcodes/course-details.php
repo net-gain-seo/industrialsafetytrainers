@@ -68,6 +68,10 @@ function course_details($atts){
                     $_public_course = get_post_meta($current_product[0]->ID,'_public_course',true);
                     $_private_course = get_post_meta($current_product[0]->ID,'_private_course',true);
                     $_online_course = get_post_meta($current_product[0]->ID,'_online_course',true);
+                    $_virtual_course = get_post_meta($current_product[0]->ID,'_virtual_course',true);
+
+                    $public_product_link = get_post_meta($current_product[0]->ID,'public_product_link',true);
+                    $virtual_product_link = get_post_meta($current_product[0]->ID,'virtual_product_link',true);
 
                         // COURSE SPECS
                         $course_specs = get_post_meta($current_product[0]->ID,'course_specs',true);
@@ -115,7 +119,7 @@ function course_details($atts){
                                         $return .= '</h5>';
                                     $return .= '</div>';
                                     $return .= '<div class="card-block px-0 text-left">';
-                                    if($_public_course == 'yes') {
+                                    if($_public_course == 'yes' || $public_product_link) {
                                         $return .= '<div class="pt-0">';
                                             $return .= '<p><img src="wp-content/themes/industrialsafetytrainers/assets/images/classroom-icon.png"/>Public Classroom</p>';
                                         $return .= '</div>';
@@ -128,6 +132,11 @@ function course_details($atts){
                                     if($_private_course == 'yes') {
                                         $return .= '<div class="pb-0">';
                                             $return .= '<p><img src="wp-content/themes/industrialsafetytrainers/assets/images/safety-bus-icon.png"/>The Safety Bus</p>';
+                                        $return .= '</div>';
+                                    }
+                                    if($_virtual_course == 'yes' || $virtual_product_link != '') {
+                                        $return .= '<div class="pb-0">';
+                                            $return .= '<p><img style="width:67px" src="wp-content/themes/industrialsafetytrainers/assets/images/online-icon.png"/>Virtual Course</p>';
                                         $return .= '</div>';
                                     }
                                     $return .= '</div>';
@@ -176,11 +185,24 @@ function course_details($atts){
                 if($_private_course == 'yes' && $current != 4){
                     $return .= '<span class="course-span book-on-site"><button type="button" class="btn btn-primary " role="button" data-toggle="modal" data-target="#requestInformationModal">Book On-Site</button></span>';
                 }
+
+                
                 if($_public_course == 'yes'){
                     $return .= '<span class="course-span book-classroom"><a href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$current_product[0]->post_name.'">Classroom Dates</a></span>';
+                }elseif($public_product_link != ''){
+                    $return .= '<span class="course-span book-classroom"><a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$public_product_link.'">Classroom Dates</a></span>';
                 }
+
+
                 if($_online_course == 'yes'){
-                    $return .= '<span class="course-span book-on-site mb-4"><a class="btn btn-primary" href="'.get_post_meta($current_product[0]->ID,'_product_url',true).'" target="_blank">Book Online</a></span>';
+                    $return .= '<span class="course-span book-on-site"><a class="btn btn-primary" href="'.get_post_meta($current_product[0]->ID,'_product_url',true).'" target="_blank">Book Online</a></span>';
+                }
+
+                
+                if($_virtual_course == 'yes'){
+                    $return .= '<span class="course-span book-on-site mb-4"><a class="btn btn-blue" href="'.get_site_url($current).'/safety-training-course-public-dates/?course='.$current_product[0]->post_name.'" target="_blank">Virtual Dates</a></span>';
+                }elseif($virtual_product_link != ''){
+                    $return .= '<span class="course-span book-on-site mb-4"><a class="btn btn-blue" href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$virtual_product_link.'" target="_blank">Virtual Dates</a></span>';
                 }
 
                 // INFO SHEET
@@ -380,6 +402,11 @@ function course_public_dates(){
                         $return .= '</ul>';
                     $return .= '</div>';
                     $return .= '<div class="col col-9">';
+                        
+                        $dates_description =  get_post_meta( $current_product[0]->ID, 'dates_description', true );
+                        if($dates_description != ''){
+                            $return .= apply_filters('the_content',$dates_description);
+                        }
 
                         $return .= '<table class="table">';
                             $return .= '<thead>';
