@@ -166,6 +166,11 @@ function safety_training_courses($atts,$content){
                 $posts_array = get_posts( $args );
 
                 $return .= '<h2>Courses Offered - '.$catName.'</h2>';
+
+                if(isset($_GET['category']) && $_GET['category'] == 'virtual-classroom'){
+                    $return .= '<p>As MLTSD Approved Training Providers, we have developed a new way of learning called Distance Learning.<br/>Click <a href="https://thesafetybus.com/distance-learning">Here</a> for details</p>';
+                }
+
                 //$return .= '<p>Not all courses are offered publicly. To view all courses we offer <a href="'.get_site_url($current).'/classroom-courses">click here!</a></p>';
                 //Sorting
                 $return .= '<div class="courseSort">';
@@ -219,11 +224,11 @@ function safety_training_courses($atts,$content){
                             }
 
                             if($_virtual_course == 'yes'){ 
-                                $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-blue ml-2">View Virtual Dates</a>'; 
+                                $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-blue ml-2">View Distance Dates</a>'; 
                             }
 
                             if($virtual_product_link != ''){
-                                $return .= '<a href="'.get_site_url(1).'/safety-training-course/?course='.$virtual_product_link.'" class="btn btn-blue ml-2">Virtual Details</a>';
+                                $return .= '<a href="'.get_site_url(1).'/safety-training-course/?course='.$virtual_product_link.'" class="btn btn-blue ml-2">Distance Details</a>';
                             }
 
                             if($public_product_link != ''){
@@ -236,7 +241,7 @@ function safety_training_courses($atts,$content){
                             if($_public_course == 'yes' || $public_product_link != ''){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Classroom</span>'; }
                             if($_private_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> On-Site</span>'; }
                             if($_online_course == 'yes'){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Online</span>'; }
-                            if($_virtual_course == 'yes' || $virtual_product_link != ''){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Virtual</span>'; }
+                            if($_virtual_course == 'yes' || $virtual_product_link != ''){ $return .= '<span class="d-block mb-0 py-2"><img src="'.get_site_url($current).'/wp-content/themes/industrialsafetytrainers/assets/images/check-mark.png'.'" width="20" height="21"/> Distance</span>'; }
                         $return .= '</div>';
 
                         $return .= '<div class="coursePrice">';
