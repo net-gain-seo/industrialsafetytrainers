@@ -88,6 +88,15 @@ function course_details($atts){
                                             $return .= '<p>Program Duration</p>';
                                             $return .= '<p><strong>'.get_post_meta($current_product[0]->ID,'program_duration',true).'</strong></p>';
                                         $return .= '</div>';
+                                        
+                                        $program_distance_learning_duration = get_post_meta($current_product[0]->ID,'program_distance_learning_duration',true);
+                                        if($program_distance_learning_duration !== ''){
+                                            $return .= '<div>';
+                                                $return .= '<p>Distance Learning Duration</p>';
+                                                $return .= '<p><strong>'.get_post_meta($current_product[0]->ID,'program_distance_learning_duration',true).'</strong></p>';
+                                            $return .= '</div>';
+                                        }
+
                                         $return .= '<div>';
                                             $return .= '<p>Min Participants</p>';
                                             $return .= '<p><strong>'.get_post_meta($current_product[0]->ID,'min_participants',true).'</strong></p>';

@@ -683,6 +683,9 @@ function display_product_meta_program_details(){
 	$program_duration =  get_post_meta( $post->ID, 'program_duration', true );
 	echo '<p>Program Duration: <input type="text" name="program_duration" value="'.$program_duration.'" /></p>';
 
+	$program_distance_learning_duration =  get_post_meta( $post->ID, 'program_distance_learning_duration', true );
+	echo '<p>Distance Learning Duration: <input type="text" name="program_distance_learning_duration" value="'.$program_distance_learning_duration.'" /></p>';
+
 	$min_participants =  get_post_meta( $post->ID, 'min_participants', true );
 	echo '<p>Min Participants: <input type="text" name="min_participants" value="'.$min_participants.'" /></p>';
 
@@ -746,7 +749,13 @@ function update_product_meta_box($post_id, $post ){
                 update_post_meta( $post_id, 'program_duration', $_POST['program_duration'] );
             }else{
                 update_post_meta( $post_id, 'program_duration', '');
-            }
+			}
+
+			if ( isset( $_POST['program_distance_learning_duration'] ) && $_POST['program_distance_learning_duration'] != '' ) {
+                update_post_meta( $post_id, 'program_distance_learning_duration', $_POST['program_distance_learning_duration'] );
+            }else{
+                update_post_meta( $post_id, 'program_distance_learning_duration', '');
+			}
 
             if ( isset( $_POST['min_participants'] ) && $_POST['min_participants'] != '' ) {
                 update_post_meta( $post_id, 'min_participants', $_POST['min_participants'] );

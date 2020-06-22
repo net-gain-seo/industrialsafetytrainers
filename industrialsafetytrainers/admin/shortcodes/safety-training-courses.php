@@ -165,6 +165,12 @@ function safety_training_courses($atts,$content){
 
                 $posts_array = get_posts( $args );
 
+                //$termSlug
+                $term = get_term_by('slug', $termSlug, 'product_cat'); 
+                if($term->description !== ''){
+                    $return .= apply_filters('the_content', $term->description);
+                }
+
                 $return .= '<h2>Courses Offered - '.$catName.'</h2>';
 
                 if(isset($_GET['category']) && $_GET['category'] == 'virtual-classroom'){
@@ -220,15 +226,15 @@ function safety_training_courses($atts,$content){
                             
                             
                             if($_public_course == 'yes'){ 
-                                $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-green ml-2">View Public Dates</a>'; 
+                                $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-green ml-2">Public Dates</a>'; 
                             }
 
                             if($_virtual_course == 'yes'){ 
-                                $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-blue ml-2">View Distance Dates</a>'; 
+                                $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$product->post_name.'" class="btn btn-blue ml-2">Distance Learning Dates</a>'; 
                             }
 
                             if($virtual_product_link != ''){
-                                $return .= '<a href="'.get_site_url(1).'/safety-training-course/?course='.$virtual_product_link.'" class="btn btn-blue ml-2">Distance Details</a>';
+                                $return .= '<a href="'.get_site_url(1).'/safety-training-course-public-dates/?course='.$virtual_product_link.'" class="btn btn-blue ml-2">Distance Learning Dates</a>';
                             }
 
                             if($public_product_link != ''){
