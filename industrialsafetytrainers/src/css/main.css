@@ -1396,17 +1396,17 @@ a {
     position: relative;
     height: 400px;
     width: 575px;
-    left: -100px; }
+    left: -40px; }
   .fork-lift-animated {
     -webkit-animation: movingforklift 2s infinite;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards; }
   @-webkit-keyframes movingforklift {
     from {
-      left: -100px;
+      left: -40px;
       width: 575px; }
     to {
-      left: -180px;
+      left: -40px;
       width: 601px; } } }
 
 .fifty-fifty-section-background {

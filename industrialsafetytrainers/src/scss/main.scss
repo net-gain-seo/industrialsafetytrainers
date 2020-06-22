@@ -169,7 +169,7 @@ a{
 	    position: relative;
 		height: 400px;
 		width: 575px;
-		left: -100px;
+		left: -40px;
 	}
 
 	.fork-lift-animated{
@@ -180,11 +180,11 @@ a{
 
 	@-webkit-keyframes movingforklift{
 	  from{
-	  	left:-100px;
+	  	left:-40px;
 	  	width: 575px;
 	  }
 	  to{
-	  	left:-180px;
+	  	left:-40px;
 	  	width: 601px;
 	  }
 	}
