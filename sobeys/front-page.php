@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-    test
 	<main role="main">
         <section class="page-title-section">
             <div class="container">

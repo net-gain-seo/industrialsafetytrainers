@@ -169,7 +169,7 @@ a{
 	    position: relative;
 		height: 400px;
 		width: 575px;
-		left: -40px;
+		left: -100px;
 	}
 
 	.fork-lift-animated{
@@ -180,11 +180,11 @@ a{
 
 	@-webkit-keyframes movingforklift{
 	  from{
-	  	left:-40px;
+	  	left:-100px;
 	  	width: 575px;
 	  }
 	  to{
-	  	left:-40px;
+	  	left:-180px;
 	  	width: 601px;
 	  }
 	}
@@ -1223,9 +1223,6 @@ span.course-span {
 }
 .mt-10 {
 	margin-top: 5rem;
-}
-.mb-10 {
-	margin-bottom: 5rem;
 }
 .btn-green {
 	background-color: #59af19;

@@ -1,7 +1,7 @@
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
-<head>
-	<meta charset="<?php bloginfo('charset'); ?>">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
 	<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
 
 		echo '<a id="" href="'.get_bloginfo('url').'" style="margin-right:10px;"><img src="'.get_template_directory_uri().'/assets/images/industrial-safety-trainers-logo.png" style="border-right: 1px solid #dddddd;padding-right: 10px;" /></a>';
 
-        echo '<a href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/sobeys-logo.jpg" style="height:50px;" /></a>';
+        echo '<a href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/sobeys-logo.jpg" style="height:70px;" /></a>';
         echo '<a href="'.get_bloginfo('url').'" style="align-self:center;margin-right:10px;"><img src="'.get_stylesheet_directory_uri().'/assets/images/freshco-logo.jpg" style="height:50px;" /></a>';
         echo '<a href="'.get_bloginfo('url').'" style="align-self:center"><img src="'.get_stylesheet_directory_uri().'/assets/images/Foodland-logo.jpg" style="height:50px;" /></a>';
 

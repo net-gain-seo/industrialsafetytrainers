@@ -66,7 +66,7 @@ function course_registration_form()
                 <div>
                     <form method="post" action="">
                         <div>
-                            <label>Name</label>
+                            <label>Contact Name</label>
                             <input type="text" name="registrant_name" value="' . (isset($_POST['registrant_name']) ? $_POST['registrant_name'] : "") . '" />
                         </div>
                         <div>
@@ -208,12 +208,12 @@ class VariationInformationRegistration
         $message = '';
 
 
-        $message .= '<p><strong>Name: </strong>' . $post['registrant_name'] . '<br/>';
-        $message .= '<strong>Date: </strong>' . $post['registrant_email'] . '<br/>';
+        $message .= '<p><strong>Contact Name: </strong>' . $post['registrant_name'] . '<br/>';
+        $message .= '<strong>Email: </strong>' . $post['registrant_email'] . '<br/>';
         $message .= '<strong>Phone Number: </strong>' . $post['registrant_phone_number'] . '<br/>';
         $message .= '<strong>Store Name: </strong>' . $post['store_name'] . '<br/>';
         $message .= '<strong>Store Number: </strong>' . $post['store_number'] . '<br/>';
-        $message .= '<strong>Time: </strong>' . $post['number_of_participants'] . '<br/>';
+        $message .= '<strong>Participants: </strong>' . $post['number_of_participants'] . '<br/>';
         $message .= '<strong>Participant Names: <br/>
             </strong>' . $post['participant_names'] . '<br/><br/>';
 
@@ -225,7 +225,7 @@ class VariationInformationRegistration
         $message .= '<strong>Maximun Qty: </strong>' . $this->max . '</p>';
 
         $headers = array('Content-Type: text/html; charset=UTF-8');
-        wp_mail('cheryl@istcanada.ca, tammy@istcanada.ca, jiun@istcanada.ca, andrewm@netgainseo.com', 'Sobeys Registration', $message, $headers);
+        wp_mail('sheena@istcanada.ca, jiun@istcanada.ca', 'Sobeys Registration', $message, $headers);
 
         $this->formSubmitted = true;
 
